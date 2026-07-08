@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ekin / Our Founder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  @font-face{
+    font-family:'Pilat';
+    src:url('assets/fonts/Pilat-Bold.otf') format('opentype');
+    font-weight:100 900;font-style:normal;font-display:swap;
+  }
+  @font-face{
+    font-family:'Lunchtype22';
+    src:url('assets/fonts/Lunchtype22-Medium.ttf') format('truetype');
+    font-weight:400 600;font-style:normal;font-display:swap;
+  }
+  :root{
+    /* Ekin brand: primary BLACK, secondary RED. Website = light theme. */
+    --bg:#ffffff;
+    --bg-2:#f4f3f2;            /* warm off-white alt section */
+    --panel:#ffffff;
+    --ink:#0a0a0a;            /* Ekin Black */
+    --muted:#565d62;          /* brand grey for text */
+    --muted-2:#8b9296;
+    --line:rgba(0,0,0,0.14);
+    --line-2:rgba(0,0,0,0.07);
+    --accent:rgb(255,57,50);            /* Ekin Red */
+    --accent-soft:rgba(255,57,50,0.12);
+    --accent-ink:rgb(224,40,34);        /* darker red for small text on white */
+    --grey-1:#333f43;
+    --grey-2:#4d575b;
+    --grey-3:#7f8789;
+    --grey-4:#cccfd0;
+    --display:'Pilat','Space Grotesk',-apple-system,BlinkMacSystemFont,sans-serif;
+    --body:'Lunchtype22','Helvetica Neue',Helvetica,Arial,sans-serif;
+    --mono:'Roboto Mono',ui-monospace,SFMono-Regular,monospace;
+    --maxw:100%;
+    --pad:clamp(20px,5vw,64px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:18px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.05;letter-spacing:-0.02em}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+  .eyebrow{
+    font-family:var(--mono);font-size:14px;letter-spacing:0.2em;text-transform:uppercase;
+    color:var(--accent-ink);font-weight:500;display:inline-flex;align-items:center;gap:11px;
+  }
+  .eyebrow::before{content:"";width:4px;height:15px;background:var(--accent);transform:skewX(-10deg);flex:none}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;font-family:var(--display);font-weight:500;
+    font-size:16px;padding:14px 26px;border-radius:3px;border:1px solid transparent;cursor:pointer;
+    transition:transform .25s,background .25s,border-color .25s,color .25s;white-space:nowrap;
+  }
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{transform:translateY(-2px);background:#e22a24;color:#fff}
+  .btn-ghost{background:transparent;border:1px solid rgba(128,128,128,.5);color:inherit}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+  .btn .arrow{transition:transform .25s}
+  .btn:hover .arrow{transform:translateX(3px)}
+
+  /* ---------- NAV ---------- */
+  header.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .3s,border-color .3s,backdrop-filter .3s;border-bottom:1px solid transparent}
+  header.nav.scrolled{background:rgba(255,255,255,0.88);backdrop-filter:blur(16px);border-bottom-color:var(--line-2)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;height:76px}
+  .logo{display:flex;align-items:center}
+  .logo img{height:36px;width:auto;display:block}
+  .logo .logo-dark{display:none}
+  /* nav: white logo over dark hero, black logo once scrolled onto white */
+  header.nav .logo .logo-light{display:block}
+  header.nav .logo .logo-dark{display:none}
+  header.nav.scrolled .logo .logo-light{display:none}
+  header.nav.scrolled .logo .logo-dark{display:block}
+  .nav-links{display:flex;align-items:center;gap:6px}
+  .nav-item{position:relative}
+  .nav-trigger{display:flex;align-items:center;gap:6px;font-family:var(--display);font-size:16px;font-weight:500;color:#fff;padding:10px 14px;border-radius:5px;cursor:pointer;transition:color .2s,background .2s;background:none;border:none}
+  .nav-trigger:hover,.nav-item.open .nav-trigger{color:#fff;background:rgba(128,128,128,.22)}
+  .nav-trigger .chev{width:8px;height:8px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .25s;opacity:.7}
+  .nav-item.open .nav-trigger .chev{transform:rotate(-135deg) translateY(-1px)}
+  .nav-cta{display:flex;align-items:center;gap:12px}
+  .signin{font-family:var(--display);font-size:16px;font-weight:500;color:rgba(255,255,255,.8);padding:10px 8px;transition:color .2s}
+  .signin:hover{color:#fff}
+  header.nav .logo .wm{color:#fff}
+  /* nav over white content (scrolled) */
+  header.nav.scrolled .nav-trigger{color:var(--ink)}
+  header.nav.scrolled .logo .wm{color:var(--ink)}
+  header.nav.scrolled .nav-trigger:hover,header.nav.scrolled .nav-item.open .nav-trigger{color:var(--accent-ink);background:rgba(0,0,0,.05)}
+  header.nav.scrolled .signin{color:var(--muted)}
+  header.nav.scrolled .signin:hover{color:var(--ink)}
+  header.nav.scrolled .nav-burger span{background:var(--ink)}
+
+  /* mega panel */
+  .mega{
+    position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(8px);
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:26px;
+    box-shadow:0 30px 80px -20px rgba(0,0,0,0.28);opacity:0;visibility:hidden;transition:opacity .22s,transform .22s;
+    z-index:120;
+  }
+  .nav-item.open .mega{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+  .mega-cols{display:grid;gap:28px}
+  .mega-2{grid-template-columns:1fr 1fr;width:560px}
+  .mega-1{width:300px}
+  .mega-col h5{font-family:var(--display);font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted-2);margin-bottom:14px;font-weight:600}
+  .mega-link{display:flex;align-items:center;gap:11px;padding:9px 10px;border-radius:10px;color:var(--ink);font-size:16px;transition:background .18s,color .18s;margin:0 -10px}
+  .mega-link:hover{background:rgba(0,0,0,0.05);color:var(--accent-ink)}
+  .mega-link .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);opacity:.45;flex:none;transition:opacity .18s}
+  .mega-link:hover .dot{opacity:1}
+
+  .nav-burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+  .nav-burger span{width:24px;height:2px;background:#fff;border-radius:2px;transition:transform .3s,opacity .3s,background .3s}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;color:#fff}
+  .hero video,.hero .hero-fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .hero-fallback{background:
+    radial-gradient(120% 90% at 70% 10%,oklch(0.5 0.2 28 / .5),transparent 60%),
+    radial-gradient(130% 100% at 15% 90%,oklch(0.38 0.14 22 / .5),transparent 55%),
+    linear-gradient(160deg,#120a0a,#080608)}
+  .hero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(8,11,16,.55) 0%,rgba(8,11,16,.15) 35%,rgba(8,11,16,.55) 70%,rgba(8,11,16,.95) 100%)}
+  .hero-content{position:relative;z-index:2;width:100%;padding-bottom:clamp(48px,9vh,110px);padding-top:140px}
+  .hero h1{font-size:clamp(44px,5vw,64px);font-weight:700;letter-spacing:-0.04em;max-width:14ch}
+  .hero h1 em{font-style:normal;color:var(--accent)}
+  .hero p{font-size:clamp(18px,1.5vw,20px);color:rgba(255,255,255,0.74);max-width:46ch;margin-top:26px;line-height:1.5}
+  .hero .actions{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .scroll-hint{position:absolute;bottom:30px;right:var(--pad);z-index:2;display:flex;align-items:center;gap:10px;color:var(--muted-2);font-family:var(--display);font-size:14px;letter-spacing:0.16em;text-transform:uppercase}
+  .scroll-hint .line{width:1px;height:46px;background:linear-gradient(var(--accent),transparent);position:relative;overflow:hidden}
+  .scroll-hint .line::after{content:"";position:absolute;top:-50%;left:0;width:100%;height:50%;background:var(--accent);animation:scrolldot 1.8s infinite}
+  @keyframes scrolldot{to{top:100%}}
+
+  /* ---------- SECTIONS ---------- */
+  section{position:relative}
+  .pad-y{padding-top:clamp(80px,12vh,150px);padding-bottom:clamp(80px,12vh,150px)}
+  .sec-head{max-width:760px}
+  .sec-head h2{font-size:clamp(34px,3.4vw,48px);font-weight:600;margin-top:18px}
+  .sec-head p{color:var(--muted);font-size:clamp(18px,1.4vw,20px);margin-top:20px;line-height:1.55}
+
+  /* leader / features */
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-2);border:1px solid var(--line-2);border-radius:10px;overflow:hidden;margin-top:60px}
+  .feature{background:var(--bg-2);padding:38px 32px;transition:background .3s}
+  .feature:hover{background:var(--panel)}
+  .feature .idx{font-family:var(--display);font-size:15px;color:var(--accent-ink);letter-spacing:.1em;font-weight:600}
+  .feature h3{font-size:32px;margin:18px 0 12px;font-weight:600}
+  .feature p{color:var(--muted);font-size:18px}
+
+  /* results / stats */
+  .results-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,90px);align-items:center}
+  .results-media{position:relative;border-radius:10px;overflow:hidden;aspect-ratio:4/5;border:1px solid var(--line)}
+  .results-media img{width:100%;height:100%;object-fit:cover}
+  .results-media .badge{position:absolute;left:20px;bottom:20px;background:rgba(10,13,18,.7);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:12px;padding:12px 16px;font-family:var(--display);font-size:13px;letter-spacing:.04em}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+  .stat{border:1px solid var(--line);border-radius:8px;padding:24px 20px;background:#fff;position:relative}
+  .stat::after{content:"";position:absolute;left:0;bottom:0;width:26px;height:5px;background:var(--accent);transform:skewX(-10deg);transform-origin:bottom left}
+  .stat .num{font-family:var(--display);font-size:clamp(38px,5vw,56px);font-weight:700;letter-spacing:-0.03em;line-height:1}
+  .stat .num .plus{color:var(--accent-ink)}
+  .stat .label{color:var(--muted);font-size:16px;margin-top:10px;letter-spacing:.02em}
+  .awards-wall{margin-top:clamp(48px,7vw,80px)}
+  .awards-label{display:block;font-family:var(--mono);font-size:14px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted-2);margin-bottom:24px}
+  .awards-grid{display:grid;grid-template-columns:repeat(13,minmax(0,1fr));gap:8px}
+  .award-tile{display:grid;place-items:center;background:#fff;border:1px solid var(--line-2);border-radius:8px;padding:12px 8px;min-height:72px;transition:border-color .25s,transform .25s,box-shadow .25s}
+  .award-tile:hover{border-color:var(--line);transform:translateY(-4px);box-shadow:0 14px 30px -16px rgba(0,0,0,.25)}
+  .award-tile img{max-height:42px;max-width:100%;width:auto;object-fit:contain}
+
+  /* solutions cards */
+  .sol-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:54px}
+  .sol-card{position:relative;border-radius:6px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/9;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;isolation:isolate;transition:transform .35s,border-color .35s;color:#fff}
+  .sol-card::after{content:"";position:absolute;left:0;bottom:0;width:36px;height:7px;background:var(--accent);transform:skewX(-10deg);transform-origin:bottom left;z-index:2}
+  .sol-card:hover{transform:translateY(-6px);border-color:var(--accent)}
+  .sol-card .sol-bg{position:absolute;inset:0;z-index:-2}
+  .sol-card .sol-bg::before{content:"";position:absolute;inset:0;opacity:.9}
+  .sol-card.s1 .sol-bg{background:linear-gradient(150deg,#3a4146,#1b1f22)}
+  .sol-card.s2 .sol-bg{background:linear-gradient(150deg,#4d575b,#2a3134)}
+  .sol-card.s3 .sol-bg{background:linear-gradient(150deg,#23282c,#0e1113)}
+  .sol-card .sol-grid-lines{position:absolute;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:40px 40px;mask-image:linear-gradient(180deg,transparent,#000)}
+  .sol-card .sol-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .sol-card .sol-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,12,15,.15) 0%,rgba(10,12,15,.05) 45%,rgba(10,12,15,.75) 100%)}
+  .sol-card.s1 .sol-tag,.sol-card.s1 h3,.sol-card.s1 .sol-learn,.sol-card.s2 .sol-tag,.sol-card.s2 h3,.sol-card.s2 .sol-learn,.sol-card.s3 .sol-tag,.sol-card.s3 h3,.sol-card.s3 .sol-learn{position:relative;z-index:2}
+  .sol-card h3{font-size:30px;font-weight:600;text-transform:capitalize}
+  .sol-card .sol-learn{margin-top:14px;display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent);opacity:1}
+  .sol-card .sol-tag{position:absolute;top:24px;left:28px;font-family:var(--mono);font-size:13px;letter-spacing:.18em;text-transform:uppercase;opacity:.7}
+
+  /* big CTA image band */
+  .band{position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--line);min-height:420px;display:flex;align-items:center}
+  .band img.band-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .band::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(8,11,16,.92) 0%,rgba(8,11,16,.75) 45%,rgba(8,11,16,.25) 100%)}
+  .band-content{position:relative;z-index:2;padding:clamp(34px,5vw,64px);max-width:620px;color:#fff}
+  .band-content h2{font-size:clamp(32px,3.2vw,46px);color:#fff}
+  .band-content .eyebrow{color:var(--accent)}
+  .band-content p{color:rgba(255,255,255,.8);margin:18px 0 30px;font-size:20px}
+
+  /* audience pills */
+  .pills{display:flex;flex-wrap:wrap;gap:12px;margin-top:44px}
+  .pill{border:1px solid var(--line);border-radius:100px;padding:14px 24px;font-family:var(--display);font-size:18px;font-weight:500;transition:background .25s,border-color .25s,color .25s,transform .25s;cursor:pointer}
+  .pill:hover{background:var(--accent);border-color:var(--accent);color:#fff;transform:translateY(-3px)}
+
+  /* AI section */
+  .ai{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,80px);align-items:center}
+  .ai-media{border-radius:10px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/12;background:var(--panel)}
+  .ai-media img{width:100%;height:100%;object-fit:cover}
+
+  /* products showcase */
+  .prod-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:44px;margin-bottom:34px}
+  .prod-tab{font-family:var(--display);font-size:17px;font-weight:500;padding:11px 20px;border-radius:100px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;transition:all .22s}
+  .prod-tab:hover{color:var(--ink);border-color:var(--line)}
+  .prod-tab.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .prod-stage{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,4vw,64px);align-items:center;border:1px solid var(--line);border-radius:10px;padding:clamp(28px,4vw,56px);background:var(--bg-2);min-height:440px}
+  .prod-info .eyebrow{margin-bottom:18px}
+  .prod-info h3{font-size:clamp(28px,2.4vw,32px);font-weight:600}
+  .prod-info .sub{color:var(--accent-ink);font-family:var(--display);font-size:18px;margin-top:10px;font-weight:500}
+  .prod-info p{color:var(--muted);margin:20px 0 30px;font-size:19px;max-width:46ch}
+  .prod-img{position:relative;display:grid;place-items:center;min-height:300px}
+  .prod-img .glow{position:absolute;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(0,0,0,0.06),transparent 70%);filter:blur(20px)}
+  .prod-img img{position:relative;max-height:460px;width:auto;object-fit:contain;filter:drop-shadow(0 30px 50px rgba(0,0,0,.5))}
+  .prod-img video{position:relative;max-height:460px;max-width:100%;width:auto;height:auto;object-fit:contain;border-radius:18px;box-shadow:0 30px 60px -15px rgba(0,0,0,.6)}
+  .prod-fade{animation:fade .45s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+  /* testimonials */
+  .tcard{border:1px solid var(--line);border-radius:12px;padding:clamp(32px,4vw,56px);background:#fff;display:grid;grid-template-columns:auto 1fr;gap:clamp(28px,4vw,52px);align-items:center}
+  .tcard .tphoto{width:clamp(180px,26vw,320px);aspect-ratio:1;border-radius:18px;object-fit:cover;border:1px solid var(--line)}
+  .tcard blockquote{font-family:var(--display);font-size:clamp(18px,2vw,26px);font-weight:500;line-height:1.34;letter-spacing:-0.01em}
+  .tcard .tquote-mark{color:var(--accent);font-size:60px;line-height:0;font-family:var(--display);display:block;height:30px}
+  .tmeta{margin-top:24px}
+  .tmeta .tname{font-family:var(--display);font-weight:600;font-size:20px}
+  .tmeta .trole{color:var(--muted);font-size:17px;margin-top:3px}
+  .tctrl{display:flex;align-items:center;justify-content:space-between;margin-top:30px}
+  .tdots{display:flex;gap:9px}
+  .tdot{width:9px;height:9px;border-radius:50%;border:none;background:var(--line);cursor:pointer;transition:background .25s,width .25s;padding:0}
+  .tdot.active{background:var(--accent);width:26px;border-radius:5px}
+  .tarrows{display:flex;gap:10px}
+  .tarrow{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;display:grid;place-items:center;transition:all .22s;font-size:20px}
+  .tarrow:hover{border-color:var(--accent);color:var(--accent-ink)}
+
+  /* footer */
+  footer{padding-top:clamp(60px,8vh,90px);padding-bottom:40px;background:#000;color:#fff}
+  footer .logo .wm{color:#fff}
+  footer .foot-col h5{color:rgba(255,255,255,.42)}
+  footer .foot-col a,footer .foot-brand p,footer .foot-locations a{color:rgba(255,255,255,.6)}
+  footer .foot-col a:hover,footer .foot-locations a:hover{color:#fff}
+  footer .foot-bottom{color:rgba(255,255,255,.5);border-top-color:rgba(255,255,255,.12)}
+  footer .foot-legal a:hover{color:#fff}
+  footer .foot-social a{border-color:rgba(255,255,255,.2);color:rgba(255,255,255,.6)}
+  footer .foot-social a:hover{border-color:var(--accent);color:var(--accent)}
+  footer .news input{background:#141414;border-color:rgba(255,255,255,.18);color:#fff}
+  footer .news input:focus{border-color:var(--accent)}
+  .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+  .foot-brand .logo{margin-bottom:18px}
+  .foot-logo img{height:44px}
+  .foot-brand p{color:var(--muted);font-size:16px;max-width:34ch}
+  .news{margin-top:24px;display:flex;gap:8px;max-width:340px}
+  .news input{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:100px;padding:12px 18px;color:var(--ink);font-family:var(--body);font-size:16px;outline:none}
+  .news input:focus{border-color:var(--accent)}
+  .news button{flex:none;width:46px;height:46px;border-radius:50%;border:none;background:var(--accent);color:#fff;cursor:pointer;font-size:20px;transition:transform .2s}
+  .news button:hover{transform:translateX(2px)}
+  .foot-col h5{font-family:var(--display);font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);margin-bottom:18px;font-weight:600}
+  .foot-col a{display:block;color:var(--muted);font-size:16px;padding:6px 0;transition:color .2s}
+  .foot-col a:hover{color:var(--ink)}
+  .foot-locations{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px 20px;margin-top:26px}
+  .foot-locations .loc-label{grid-column:1/-1;margin-bottom:2px}
+  .foot-locations a{color:var(--muted)}
+  .foot-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;margin-top:60px;padding-top:28px;border-top:1px solid var(--line-2);color:var(--muted-2);font-size:16px}
+  .foot-legal{display:flex;gap:20px;flex-wrap:wrap}
+  .foot-legal a:hover{color:var(--ink)}
+  .foot-social{display:flex;gap:10px}
+  .foot-social a{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--muted);transition:all .22s;font-size:15px;font-family:var(--display)}
+  .foot-social a:hover{border-color:var(--accent);color:var(--accent-ink)}
+
+  .ticker{overflow:hidden;border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2);padding:22px 0}
+  .ticker-track{display:flex;gap:40px;white-space:nowrap;animation:ticker 26s linear infinite;font-family:var(--display);font-size:clamp(28px,4vw,52px);font-weight:700;letter-spacing:-0.02em;color:rgba(0,0,0,.14);transform:skewX(-10deg)}
+  .ticker-track span{display:inline-flex;align-items:center;gap:40px}
+  .ticker-track .accent{color:var(--accent-ink)}
+  .ticker-track .star{color:var(--accent);font-size:.6em}
+  @keyframes ticker{to{transform:translateX(-50%)}}
+
+  /* reveal */
+  /* ---- Law Enforcement page ---- */
+  .le-hero .hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;object-position:center 30%}
+  .le-hero h1{font-size:clamp(46px,7.5vw,98px)}
+  .le-hero::after{background:linear-gradient(180deg,rgba(8,11,16,.5) 0%,rgba(8,11,16,.18) 30%,rgba(8,11,16,.62) 64%,rgba(8,11,16,.95) 100%)}
+  .le-hero .hero-content h1,.le-hero .hero-content p,.le-hero .hero-content .eyebrow{text-shadow:0 2px 30px rgba(0,0,0,.55),0 1px 6px rgba(0,0,0,.45)}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,80px);align-items:center}
+  .split.reverse .split-media{order:-1}
+  .split-title{font-size:clamp(32px,3.2vw,46px);font-weight:600;margin-top:16px}
+  .split-lead{font-size:clamp(18px,1.4vw,20px);color:var(--muted);margin:18px 0 28px;line-height:1.55;max-width:42ch}
+  .split-media{border-radius:10px;overflow:hidden;border:1px solid var(--line);aspect-ratio:5/4}
+  .split-media img{width:100%;height:100%;object-fit:cover}
+  .split-media.fit{aspect-ratio:1792/737;background:var(--bg-2)}
+  .split-media.fit img{object-fit:contain}
+  .dark-sec .split-media{border-color:rgba(255,255,255,.14)}
+
+  .ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px}
+  .ben-card{background:var(--bg-2);border:1px solid var(--line-2);border-radius:10px;padding:34px 30px;transition:transform .3s,border-color .3s,box-shadow .3s;position:relative}
+  .ben-card:hover{transform:translateY(-5px);border-color:var(--line);box-shadow:0 20px 40px -22px rgba(0,0,0,.3)}
+  .ben-card .ben-icon{width:54px;height:54px;object-fit:contain;margin-bottom:20px}
+  .ben-card h3{font-size:30px;font-weight:600;margin-bottom:10px;line-height:1.15}
+  .ben-card p{color:var(--muted);font-size:16px}
+  .ben-card.ben-feature{grid-column:span 1;background:#000;color:#fff;border-color:#000}
+  .ben-card.ben-feature p{color:rgba(255,255,255,.72)}
+  .ben-card.ben-feature::after{content:"";position:absolute;left:0;bottom:0;width:40px;height:6px;background:var(--accent);transform:skewX(-10deg);transform-origin:bottom left}
+
+  .cap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:54px}
+  .cap-card{border:1px solid var(--line);border-radius:10px;padding:36px 30px 32px;background:#fff;transition:transform .3s,border-color .3s,box-shadow .3s;display:flex;flex-direction:column;gap:24px;min-height:230px}
+  .cap-card:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 20px 40px -22px rgba(0,0,0,.25)}
+  .cap-top{width:96px;height:96px;border-radius:12px;background:var(--bg-2);display:grid;place-items:center}
+  .cap-top img{width:60px;height:60px;object-fit:contain}
+  .cap-card h3{font-size:30px;font-weight:600;line-height:1.2}
+  .cap-learn{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+
+  @media(max-width:1024px){
+    .split,.split.reverse{grid-template-columns:1fr}
+    .split.reverse .split-media{order:0}
+    .ben-grid{grid-template-columns:1fr 1fr}
+    .ben-card.ben-feature{grid-column:1/-1}
+    .cap-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:560px){
+    .ben-grid,.cap-grid{grid-template-columns:1fr}
+  }
+  .dark-sec{background:#000;color:#fff}
+  .dark-sec h2{color:#fff}
+  .hero .eyebrow,.dark-sec .eyebrow{color:var(--accent)}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* mobile menu drawer */
+  .drawer{position:fixed;inset:0;z-index:200;background:var(--bg);transform:translateX(100%);transition:transform .35s cubic-bezier(.5,0,.2,1);overflow-y:auto;display:flex;flex-direction:column;padding:24px var(--pad)}
+  .drawer.open{transform:none}
+  .drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:30px}
+  .drawer-close{background:none;border:none;color:var(--ink);font-size:36px;cursor:pointer;line-height:1}
+  .drawer-group{border-bottom:1px solid var(--line-2);padding:16px 0}
+  .drawer-group h6{font-family:var(--display);font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);margin-bottom:12px}
+  .drawer-group a{display:block;font-family:var(--display);font-size:22px;padding:8px 0;color:var(--ink)}
+  .drawer-cta{margin-top:auto;padding-top:28px;display:flex;flex-direction:column;gap:12px}
+  .drawer-cta .btn{justify-content:center}
+
+  @media(max-width:1024px){
+    .nav-links,.nav-cta .signin,.nav-cta .btn{display:none}
+    .nav-burger{display:flex}
+    .features{grid-template-columns:1fr}
+    .results-grid,.ai,.prod-stage,.tcard{grid-template-columns:1fr}
+    .results-media{aspect-ratio:16/10;max-height:420px}
+    .sol-grid{grid-template-columns:1fr}
+    .foot-top{grid-template-columns:1fr 1fr}
+    .tcard{text-align:left}
+    .tcard .tphoto{width:120px}
+    .prod-img{order:-1}
+  }
+  @media(max-width:900px){
+    .awards-grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:88px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+    .award-tile{scroll-snap-align:start}
+  }
+  @media(max-width:560px){
+    .stats{grid-template-columns:1fr}
+    .foot-top{grid-template-columns:1fr}
+    .hero h1{font-size:clamp(44px,13vw,70px)}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+</style>
+<style>
+  /* ---- Why Ekin page ---- */
+  .why-hero .hero-photo{object-position:center 40%}
+  .challenge-list{list-style:none;margin-top:30px;display:flex;flex-direction:column;gap:2px}
+  .challenge-list li{display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-bottom:1px solid var(--line-2);font-family:var(--display);font-size:clamp(18px,1.4vw,20px);font-weight:500;color:var(--ink);line-height:1.3}
+  .challenge-list li:first-child{border-top:1px solid var(--line-2)}
+  .challenge-list li .cnum{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--accent-ink);flex:none;padding-top:4px;min-width:28px}
+  .why-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+  .prose-2{column-gap:clamp(36px,5vw,72px)}
+  .prose-2 p{color:var(--muted);font-size:clamp(16px,1.5vw,18.5px);line-height:1.6;margin-bottom:18px}
+  .safer-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,80px);align-items:start;margin-top:18px}
+  .safer-media{border-radius:10px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3}
+  .safer-media img{width:100%;height:100%;object-fit:cover}
+  .partner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px}
+  .partner-card{background:var(--bg-2);border:1px solid var(--line-2);border-radius:10px;padding:38px 32px;transition:transform .3s,border-color .3s,box-shadow .3s}
+  .partner-card:hover{transform:translateY(-5px);border-color:var(--line);box-shadow:0 20px 40px -22px rgba(0,0,0,.3)}
+  .partner-card .p-icon{width:58px;height:58px;object-fit:contain;margin-bottom:22px}
+  .partner-card h3{font-size:30px;font-weight:600;margin-bottom:10px;line-height:1.18;letter-spacing:-0.01em}
+  .partner-card p{color:var(--muted);font-size:16px}
+  @media(max-width:1024px){
+    .safer-grid{grid-template-columns:1fr}
+    .partner-grid{grid-template-columns:1fr 1fr}
+    .why-stats{grid-template-columns:repeat(3,1fr)}
+  }
+  @media(max-width:640px){
+    .partner-grid{grid-template-columns:1fr}
+    .why-stats{grid-template-columns:1fr}
+  }
+</style>
+<style>
+.ph-media{position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5;background:
+ repeating-linear-gradient(135deg,#ededec 0 14px,#f4f3f2 14px 28px)}
+.ph-media .ph-label{position:absolute;inset:auto 0 0 0;padding:14px 16px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--muted-2);background:linear-gradient(transparent,rgba(244,243,242,.9))}
+.founder-quote{background:#000;color:#fff}
+#about .split-lead,#about .split-title{max-width:74ch}
+.founder-quote blockquote{font-family:var(--display);font-weight:600;font-size:clamp(28px,4vw,52px);line-height:1.12;letter-spacing:-0.02em;max-width:18ch}
+.founder-quote .qmark{color:var(--accent);font-size:64px;line-height:0;display:block;height:34px}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="Ekin Home.html" class="logo"><img class="logo-light" src="assets/ekin-logo-white.png" alt="Ekin" /><img class="logo-dark" src="assets/ekin-logo-black.png" alt="Ekin" /></a>
+
+    <nav class="nav-links" id="navLinks">
+      <div class="nav-item" data-menu>
+        <button class="nav-trigger">Solutions <span class="chev"></span></button>
+        <div class="mega mega-2">
+          <div class="mega-cols mega-2">
+            <div class="mega-col">
+              <h5>Who we serve</h5><a class="mega-link" href="Who We Serve.html"><span class="dot"></span>Overview</a>
+              <a class="mega-link" href="Ekin Law Enforcement.html"><span class="dot"></span>Law Enforcement</a>
+              <a class="mega-link" href="Cities and Municipalities.html"><span class="dot"></span>Cities &amp; Municipalities</a>
+              <a class="mega-link" href="Neighborhoods and HOAs.html"><span class="dot"></span>Neighborhoods &amp; HOAs</a>
+              <a class="mega-link" href="Solutions for Education.html"><span class="dot"></span>Education</a>
+              <a class="mega-link" href="Solutions for Business.html"><span class="dot"></span>Business</a>
+              <a class="mega-link" href="Solutions for Private Security.html"><span class="dot"></span>Private Security</a>
+            </div>
+            <div class="mega-col">
+              <h5>Use cases</h5>
+              <a class="mega-link" href="AI Solutions.html"><span class="dot"></span>AI Solutions</a>
+              <a class="mega-link" href="Mobile and Fixed Speed.html"><span class="dot"></span>Mobile / Fixed Speed</a>
+              <a class="mega-link" href="ALPR.html"><span class="dot"></span>ALPR</a>
+              <a class="mega-link" href="Red Light.html"><span class="dot"></span>Red Light</a>
+              <a class="mega-link" href="Parking.html"><span class="dot"></span>Parking</a>
+              <a class="mega-link" href="Officer Safety.html"><span class="dot"></span>Officer Safety</a>
+              <a class="mega-link" href="All Interconnected.html"><span class="dot"></span>All Interconnected</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item" data-menu>
+        <button class="nav-trigger">Products <span class="chev"></span></button>
+        <div class="mega mega-1">
+          <div class="mega-col">
+            <h5>Hardware &amp; Platform</h5>
+            <a class="mega-link" href="Maestro OS.html"><span class="dot"></span>Maestro OS</a>
+            <a class="mega-link" href="Spotter.html"><span class="dot"></span>Spotter</a>
+            <a class="mega-link" href="Patrol G2.html"><span class="dot"></span>Patrol G2</a>
+            <a class="mega-link" href="Box Spotter.html"><span class="dot"></span>Box Spotter</a>
+            <a class="mega-link" href="X Spotter.html"><span class="dot"></span>X Spotter</a>
+            <a class="mega-link" href="Bike Patrol.html"><span class="dot"></span>Bike Patrol</a>
+            <a class="mega-link" href="Semistation.html"><span class="dot"></span>Semistation</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a class="nav-trigger" href="Why Ekin.html" style="text-decoration:none">Why Ekin</a>
+      </div>
+
+      <div class="nav-item" data-menu>
+        <button class="nav-trigger">About <span class="chev"></span></button>
+        <div class="mega mega-1">
+          <div class="mega-col">
+            <h5>Company</h5>
+            <a class="mega-link" href="About Ekin.html"><span class="dot"></span>About Us</a>
+            <a class="mega-link" href="Our Founder.html"><span class="dot"></span>Our Founder</a>
+            <a class="mega-link" href="Life at Ekin.html"><span class="dot"></span>Life at Ekin</a>
+            <a class="mega-link" href="Careers.html"><span class="dot"></span>Careers</a>
+            <a class="mega-link" href="Ekin Ventures.html"><span class="dot"></span>Ekin Ventures</a>
+            <a class="mega-link" href="Press.html"><span class="dot"></span>Press</a>
+            <a class="mega-link" href="Events.html"><span class="dot"></span>Events</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="nav-cta">
+      <a href="#" class="signin">Sign in</a>
+      <a href="Book a Demo.html" class="btn btn-primary">Book a Demo</a>
+      <button class="nav-burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- mobile drawer -->
+<div class="drawer" id="drawer">
+  <div class="drawer-head">
+    <a href="Ekin Home.html" class="logo"><img class="logo-dark" style="display:block" src="assets/ekin-logo-black.png" alt="Ekin" /></a>
+    <button class="drawer-close" id="drawerClose" aria-label="Close">&times;</button>
+  </div>
+  <div class="drawer-group">
+    <h6>Solutions</h6>
+    <a href="Ekin Law Enforcement.html">Law Enforcement</a><a href="Cities and Municipalities.html">Cities &amp; Municipalities</a><a href="Neighborhoods and HOAs.html">Neighborhoods &amp; HOAs</a><a href="ALPR.html">ALPR &amp; Speed</a>
+  </div>
+  <div class="drawer-group">
+    <h6>Products</h6>
+    <a href="Spotter.html">Spotter</a><a href="Maestro OS.html">Maestro OS</a><a href="Patrol G2.html">Patrol G2</a><a href="Bike Patrol.html">Bike Patrol</a>
+  </div>
+  <div class="drawer-group">
+    <h6>Company</h6>
+    <a href="Why Ekin.html">Why Ekin</a><a href="About Ekin.html">About Us</a><a href="Careers.html">Careers</a><a href="Jobs.html">Open Positions</a><a href="Press.html">Press</a><a href="Events.html">Events</a>
+  </div>
+  <div class="drawer-cta">
+    <a href="#" class="btn btn-ghost">Sign in</a>
+    <a href="Book a Demo.html" class="btn btn-primary">Book a Demo</a>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero le-hero founder-hero" id="top">
+  <div class="hero-fallback"></div>
+  <img class="hero-photo" src="https://cdn.prod.website-files.com/67c4f1010035fe2c75689a55/67e18447bab45617d5abce3a_ekin-founder-1.avif" alt="Akif Ekin, Founder and CEO" />
+  <div class="wrap hero-content">
+    <h1 style="margin-top:22px;color:#fff;font-size:45px;max-width:none;white-space:nowrap">MEET OUR FOUNDER</h1>
+    <p>Akif Ekin, founder &amp; CEO, inventor, and pioneer of smart-city technology.</p>
+    <div class="actions"><a href="Why Ekin.html" class="btn btn-primary">Explore Ekin <span class="arrow">&rarr;</span></a></div>
+  </div>
+  <div class="scroll-hint"><span class="line"></span>Scroll</div>
+</section>
+
+<!-- BIO -->
+<section class="pad-y" id="about">
+  <div class="wrap" style="max-width:1100px;margin-left:0">
+    <div class="reveal" style="--lead-w:74ch">
+      <span class="eyebrow">Founder &amp; CEO</span>
+      <h2 class="split-title">A lifetime spent making cities smarter and safer.</h2>
+      <p class="split-lead">Akif Ekin, the founder and CEO of Ekin Smart City Technology, is an award-winning entrepreneur, industrial designer, and author.</p>
+      <p class="split-lead" style="margin-top:0">Born in Turkey and raised in Germany, he has dedicated his life to creating safer and smarter cities. He leads the development of innovative smart city technology at Ekin Smart City Technology, receiving accolades such as the Red Dot Design Award, the German Innovation Award, and the CES Innovation Award.</p>
+      <p class="split-lead" style="margin-top:0">Driven by a desire to reduce traffic accidents and save lives, he believes that smart city technologies will play a vital role in ensuring security for citizens worldwide. As a member of ICERT, he contributes to the advancement of global safe city technologies and public safety. Today, Ekin&rsquo;s innovative solutions can be found in cities, airports, shopping centers, campuses, and arenas across the globe.</p>
+      <h2 class="split-title" style="margin-top:48px">A track record of innovation, entrepreneurship, and success.</h2>
+      <p class="split-lead">From a young age, Akif Ekin was fascinated by innovation, which eventually led him to study aerospace engineering at the University of Stuttgart. During his studies, he founded Akart, a lamp design company that showcased his creativity and passion for design.</p>
+      <p class="split-lead" style="margin-top:0">After graduation, he moved to Istanbul, where he began distributing Sanyo products across the EMEA region. In 1998, he founded Ekin Electronics, which later became Ekin Smart City Technology.</p>
+      <p class="split-lead" style="margin-top:0">Akif Ekin&rsquo;s groundbreaking invention, the world&rsquo;s first smart patrol with facial recognition, revolutionized mobile enforcement and city safety.</p>
+      <p class="split-lead" style="margin-top:0">His company started by developing safety technologies for high-profile events like the NATO Summit 2004 and FIFA World Cup 2006 in Germany, and continues to lead the industry with innovative smart city solutions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BY THE NUMBERS -->
+<section class="pad-y" style="background:var(--bg-2);border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">A track record of invention</span><h2>Building the future, patent by patent.</h2></div>
+    <div class="why-stats" style="margin-top:48px">
+      <div class="stat" data-count="28"><div class="num"><span class="val">0</span><span class="plus">+</span></div><div class="label">Years of innovation</div></div>
+      <div class="stat" data-count="35"><div class="num"><span class="val">0</span><span class="plus">+</span></div><div class="label">Patents to his name</div></div>
+      <div class="stat" data-count="9"><div class="num"><span class="val">0</span><span class="plus">+</span></div><div class="label">Offices worldwide</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="pad-y">
+  <div class="wrap"><div class="band reveal">
+    <img class="band-bg" src="assets/founder-mission-city.png" alt="City skyline at night" loading="lazy" />
+    <div class="band-content">
+      <span class="eyebrow">The mission continues</span>
+      <h2 style="margin-top:16px">See what we're building next.</h2>
+      <p>Discover how Ekin turns 25 years of invention into safer streets today.</p>
+      <a href="Book a Demo.html" class="btn btn-primary">Book a Demo <span class="arrow">&rarr;</span></a>
+    </div>
+  </div></div>
+</section><!-- ============ TICKER ============ -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>Smarter is Safer <span class="star">&#9670;</span> <span class="accent">Smart City Technology</span> <span class="star">&#9670;</span> Greater Accuracy <span class="star">&#9670;</span> Peace of Mind <span class="star">&#9670;</span>&nbsp;</span>
+    <span>Smarter is Safer <span class="star">&#9670;</span> <span class="accent">Smart City Technology</span> <span class="star">&#9670;</span> Greater Accuracy <span class="star">&#9670;</span> Peace of Mind <span class="star">&#9670;</span>&nbsp;</span>
+  </div>
+</div>
+
+<!-- ============ FINAL CTA / DEMO ============ -->
+<section class="pad-y dark-sec" id="demo">
+  <div class="wrap" style="text-align:center;max-width:840px">
+    <span class="eyebrow reveal" style="justify-content:center">Get started</span>
+    <h2 class="reveal" style="font-size:clamp(36px,6vw,72px);font-weight:700;margin-top:20px">See what you've been missing.</h2>
+    <p class="reveal" style="color:rgba(255,255,255,.7);font-size:20px;margin:22px auto 0;max-width:54ch">Book a demo and watch Ekin's accuracy in action across enforcement, mobility and city safety.</p>
+    <div class="reveal" style="margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="Book a Demo.html" class="btn btn-primary" style="padding:16px 30px;font-size:16px">Book a Demo <span class="arrow">&rarr;</span></a>
+      <a href="Partners.html" class="btn btn-ghost" style="padding:16px 30px;font-size:16px">Find a partner</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top" style="grid-template-columns:1.3fr 1fr 1fr 1fr 1fr">
+      <div class="foot-brand">
+        <a href="Ekin Home.html" class="logo foot-logo"><img class="logo-light" src="assets/ekin-logo-white.png" alt="Ekin" /></a>
+        <p>Innovative devices and software that keep people safe and improve quality of life.</p>
+        <form class="news" id="newsForm">
+          <input type="email" placeholder="Sign up for the newsletter" required />
+          <button type="submit" aria-label="Subscribe">&rarr;</button>
+        </form>
+        <div class="foot-locations">
+          <span class="loc-label" style="color:var(--muted-2);font-family:var(--display);font-size:12px;letter-spacing:.14em;text-transform:uppercase">Where we are</span>
+          <a href="Locations.html">Miami</a><a href="Locations.html">Phoenix</a><a href="Locations.html">Atlanta</a><a href="Locations.html">Stuttgart</a><a href="Locations.html">Zurich</a><a href="Locations.html">Istanbul</a><a href="Locations.html">Ankara</a><a href="Locations.html">Baku</a><a href="Locations.html">Singapore</a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Solutions</h5>
+        <a href="Ekin Law Enforcement.html">Law Enforcement</a><a href="Cities and Municipalities.html">Cities &amp; Municipalities</a><a href="Neighborhoods and HOAs.html">Neighborhoods &amp; HOAs</a><a href="Solutions for Education.html">Education</a><a href="Solutions for Business.html">Business</a><a href="Solutions for Private Security.html">Private Security</a>
+      </div>
+      <div class="foot-col">
+        <h5>Products</h5>
+        <a href="Patrol G2.html">Patrol G2</a><a href="Bike Patrol.html">Bike Patrol</a><a href="Spotter.html">Spotter</a><a href="X Spotter.html">X Spotter</a><a href="Box Spotter.html">Box Spotter</a><a href="Maestro OS.html">Maestro OS</a>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <a href="Why Ekin.html">Why Ekin</a><a href="About Ekin.html">About Us</a><a href="Our Founder.html">Our Founder</a><a href="Careers.html">Careers</a><a href="Jobs.html">Open Positions</a><a href="Ekin Ventures.html">Ekin Ventures</a><a href="Press.html">Press</a><a href="Events.html">Events</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contact Us</h5>
+        <a href="Contact.html">Contact</a><a href="Locations.html">Locations</a><a href="Partners.html">Find / Become a Partner</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Ekin Inc. Smarter is Safer.</div>
+      <div class="foot-legal">
+        <a href="Legal.html#privacy">Privacy</a><a href="Legal.html#terms">Terms</a><a href="Legal.html#imprint">Imprint</a><a href="Legal.html#gdpr">GDPR</a><a href="Contact.html">Contact</a>
+      </div>
+      <div class="foot-social">
+        <a href="#" title="LinkedIn">in</a><a href="#" title="Instagram">ig</a><a href="#" title="Facebook">f</a><a href="#" title="X">X</a><a href="#" title="YouTube">yt</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- nav scroll ---------- */
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>20)},{passive:true});
+
+/* ---------- mega menu (hover desktop) ---------- */
+document.querySelectorAll('.nav-item[data-menu]').forEach(item=>{
+  let t;
+  const open=()=>{clearTimeout(t);document.querySelectorAll('.nav-item.open').forEach(o=>{if(o!==item)o.classList.remove('open')});item.classList.add('open')};
+  const close=()=>{t=setTimeout(()=>item.classList.remove('open'),120)};
+  item.addEventListener('mouseenter',open);
+  item.addEventListener('mouseleave',close);
+  item.querySelector('.nav-trigger').addEventListener('click',e=>{e.stopPropagation();item.classList.toggle('open')});
+});
+document.addEventListener('click',()=>document.querySelectorAll('.nav-item.open').forEach(o=>o.classList.remove('open')));
+
+/* ---------- mobile drawer ---------- */
+const drawer=document.getElementById('drawer');
+document.getElementById('burger').onclick=()=>drawer.classList.add('open');
+document.getElementById('drawerClose').onclick=()=>drawer.classList.remove('open');
+drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>drawer.classList.remove('open')));
+
+/* ---------- reveal on scroll ---------- */
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---------- stat counters ---------- */
+const counted=new Set();
+const cio=new IntersectionObserver((es)=>{es.forEach(e=>{
+  if(e.isIntersecting&&!counted.has(e.target)){
+    counted.add(e.target);
+    const target=+e.target.dataset.count, val=e.target.querySelector('.val');
+    const dur=1400, t0=performance.now();
+    const step=(now)=>{const p=Math.min(1,(now-t0)/dur);const eased=1-Math.pow(1-p,3);val.textContent=Math.round(target*eased);if(p<1)requestAnimationFrame(step)};
+    requestAnimationFrame(step);
+  }
+})},{threshold:0.5});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+
+/* ---------- testimonials ---------- */
+if(document.querySelector('.tcard')){
+const TS=[
+  {q:'We are proud to be a leading city in innovation and technology. This smart pole with safety cameras, public Wi-Fi, traffic and environmental sensors will assist emergency management in creating a safer community for residents, business owners, and visitors.',n:'Peter Iglesias',r:'Coral Gables, Florida, City Manager',p:'https://cdn.prod.website-files.com/67d50d6f1c74072379eb9674/67f7b9a4b35dfb90863570aa_EKIN-Pole-675x506.jpg'},
+  {q:'We had the opportunity to extensively test the Ekin technology in Switzerland. Ekin is the only supplier in the world who can provide the total package in one. We were surprised by the picture quality, the analytical performance, and the speed of the system.',n:'Gerhard Schaub',r:'President, Zurich Police Officer Association',p:'https://cdn.prod.website-files.com/67d50d6f1c74072379eb9674/67f262e432778f33e04ca3d2_82a7b2d53ef647c0a541cfbf4621029f7.jpeg'}
+];
+let ti=0;
+const T={q:document.getElementById('tQuote'),n:document.getElementById('tName'),r:document.getElementById('tRole'),p:document.getElementById('tPhoto'),dots:document.getElementById('tDots')};
+TS.forEach((_,i)=>{const d=document.createElement('button');d.className='tdot'+(i===0?' active':'');d.onclick=()=>go(i);T.dots.appendChild(d)});
+function go(i){
+  ti=(i+TS.length)%TS.length;const t=TS[ti];
+  T.q.textContent=t.q;T.n.textContent=t.n;T.r.textContent=t.r;T.p.src=t.p;
+  T.dots.querySelectorAll('.tdot').forEach((d,k)=>d.classList.toggle('active',k===ti));
+  T.q.classList.remove('prod-fade');void T.q.offsetWidth;T.q.classList.add('prod-fade');
+}
+document.getElementById('tNext').onclick=()=>go(ti+1);
+document.getElementById('tPrev').onclick=()=>go(ti-1);
+let tauto=setInterval(()=>go(ti+1),7000);
+document.querySelector('.tcard').addEventListener('mouseenter',()=>clearInterval(tauto));
+document.querySelector('.tcard').addEventListener('mouseleave',()=>{tauto=setInterval(()=>go(ti+1),7000)});
+}
+
+/* ---------- newsletter ---------- */
+const _nf=document.getElementById('newsForm');
+if(_nf)_nf.addEventListener('submit',e=>{
+  e.preventDefault();const i=e.target.querySelector('input');i.value='';i.placeholder='Thank you! You\'re subscribed!';
+  setTimeout(()=>i.placeholder='Sign up for the newsletter',3500);
+});
+</script>
+</body>
+</html>
