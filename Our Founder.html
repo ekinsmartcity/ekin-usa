@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ekin / Our Founder</title>
+<title>Ekin / Leadership</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -286,7 +286,7 @@
   @keyframes ticker{to{transform:translateX(-50%)}}
 
   /* reveal */
-  /* ---- Law Enforcement page ---- */
+  /* ---- Public Safety page ---- */
   .le-hero .hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;object-position:center 30%}
   .le-hero h1{font-size:clamp(46px,7.5vw,98px)}
   .le-hero::after{background:linear-gradient(180deg,rgba(8,11,16,.5) 0%,rgba(8,11,16,.18) 30%,rgba(8,11,16,.62) 64%,rgba(8,11,16,.95) 100%)}
@@ -408,6 +408,35 @@
 .founder-quote blockquote{font-family:var(--display);font-weight:600;font-size:clamp(28px,4vw,52px);line-height:1.12;letter-spacing:-0.02em;max-width:18ch}
 .founder-quote .qmark{color:var(--accent);font-size:64px;line-height:0;display:block;height:34px}
 </style>
+<link rel="stylesheet" href="assets/ekin-dark.css" />
+<style>
+  .ld-hero{padding:calc(var(--nav-h,76px) + clamp(80px,14vh,160px)) 0 clamp(48px,8vh,96px);border-bottom:1px solid var(--line)}
+  .ld-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);display:block}
+  .ld-hero h1{font-family:var(--display);font-size:clamp(36px,6.4vw,92px);line-height:1;letter-spacing:-.035em;font-weight:600;margin-top:22px}
+  .ld-lead{font-size:clamp(16.5px,1.4vw,21px);line-height:1.5;color:var(--muted);margin-top:26px;max-width:52ch}
+  .ld-founder{padding:clamp(56px,9vh,110px) 0;border-bottom:1px solid var(--line)}
+  .ld-fgrid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(28px,5vw,72px);align-items:start}
+  .ld-fportrait{border:1px solid var(--line);border-radius:12px;overflow:hidden;aspect-ratio:4/5;background:#0c0c0c}
+  .ld-fportrait img{width:100%;height:100%;object-fit:cover;object-position:64% center}
+  .ld-fbio h2{font-family:var(--display);font-size:clamp(28px,3.4vw,50px);letter-spacing:-.03em;font-weight:600;margin-top:16px}
+  .ld-fbio p{color:var(--muted);font-size:17px;line-height:1.62;margin-top:18px;max-width:60ch}
+  .ld-facts{list-style:none;display:flex;flex-wrap:wrap;gap:clamp(22px,4vw,56px);margin-top:34px;padding-top:26px;border-top:1px solid var(--line)}
+  .ld-facts li{display:flex;flex-direction:column;gap:6px}
+  .ld-facts strong{font-family:var(--display);font-size:clamp(26px,3vw,40px);letter-spacing:-.03em;font-weight:600}
+  .ld-facts span{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2)}
+  .ld-team{padding:clamp(56px,9vh,110px) 0}
+  .ld-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.6vw,22px);margin-top:clamp(30px,4vh,50px)}
+  .ld-card{margin:0}
+  .ld-ph{display:grid;place-items:center;aspect-ratio:4/5;border:1px solid var(--line);border-radius:10px;background:repeating-linear-gradient(135deg,#0c0c0c 0 14px,#111 14px 28px);font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#5c6675}
+  .ld-card figcaption{display:flex;flex-direction:column;gap:4px;margin-top:14px}
+  .ld-photo{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 12%;border:1px solid var(--line);border-radius:10px;background:linear-gradient(165deg,#4d5157 0%,#3a3d42 46%,#24262a 100%)}
+  .ld-photo.ld-board{object-position:center 22%}
+  .ld-card strong{font-family:var(--display);font-size:18px;font-weight:600;letter-spacing:-.01em}
+  .ld-card em{font-style:normal;color:var(--muted);font-size:14.5px;line-height:1.45}
+  @media(max-width:1024px){.ld-fgrid{grid-template-columns:1fr}.ld-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:560px){.ld-grid{grid-template-columns:1fr}}
+</style>
+<link rel="stylesheet" href="assets/ekin-responsive.css" />
 </head>
 <body>
 
@@ -419,70 +448,61 @@
     <nav class="nav-links" id="navLinks">
       <div class="nav-item" data-menu>
         <button class="nav-trigger">Solutions <span class="chev"></span></button>
-        <div class="mega mega-2">
-          <div class="mega-cols mega-2">
-            <div class="mega-col">
-              <h5>Who we serve</h5><a class="mega-link" href="Who We Serve.html"><span class="dot"></span>Overview</a>
-              <a class="mega-link" href="Ekin Law Enforcement.html"><span class="dot"></span>Law Enforcement</a>
+        <div class="mega mega-1">
+          <div class="mega-lead"><span class="ml-label">SOLUTIONS</span><p>Working together to fulfill cities&rsquo; needs.</p></div>
+          <div class="mega-col"><span class="ml-label">SOLUTIONS</span>
+            <a class="mega-link" href="Public Safety.html"><span class="dot"></span>Public Safety</a>
               <a class="mega-link" href="Cities and Municipalities.html"><span class="dot"></span>Cities &amp; Municipalities</a>
-              <a class="mega-link" href="Neighborhoods and HOAs.html"><span class="dot"></span>Neighborhoods &amp; HOAs</a>
-              <a class="mega-link" href="Solutions for Education.html"><span class="dot"></span>Education</a>
-              <a class="mega-link" href="Solutions for Business.html"><span class="dot"></span>Business</a>
-              <a class="mega-link" href="Solutions for Private Security.html"><span class="dot"></span>Private Security</a>
-            </div>
-            <div class="mega-col">
-              <h5>Use cases</h5>
-              <a class="mega-link" href="AI Solutions.html"><span class="dot"></span>AI Solutions</a>
-              <a class="mega-link" href="Mobile and Fixed Speed.html"><span class="dot"></span>Mobile / Fixed Speed</a>
-              <a class="mega-link" href="ALPR.html"><span class="dot"></span>ALPR</a>
-              <a class="mega-link" href="Red Light.html"><span class="dot"></span>Red Light</a>
               <a class="mega-link" href="Parking.html"><span class="dot"></span>Parking</a>
-              <a class="mega-link" href="Officer Safety.html"><span class="dot"></span>Officer Safety</a>
-              <a class="mega-link" href="All Interconnected.html"><span class="dot"></span>All Interconnected</a>
-            </div>
-          </div>
+              </div>
         </div>
       </div>
 
       <div class="nav-item" data-menu>
-        <button class="nav-trigger">Products <span class="chev"></span></button>
-        <div class="mega mega-1">
-          <div class="mega-col">
-            <h5>Hardware &amp; Platform</h5>
+        <button class="nav-trigger">Devices <span class="chev"></span></button>
+        <div class="mega mega-1 mega-devices">
+          <div class="mega-lead"><span class="ml-label">DEVICES</span><p>Mobile and fixed devices, on the go, plug and play.</p></div>
+          <div class="mega-col"><span class="ml-label">CONNECTED SYSTEMS</span>
             <a class="mega-link" href="Maestro OS.html"><span class="dot"></span>Maestro OS</a>
+          </div>
+          <div class="mega-col"><span class="ml-label">FIXED</span>
             <a class="mega-link" href="Spotter.html"><span class="dot"></span>Spotter</a>
-            <a class="mega-link" href="Patrol G2.html"><span class="dot"></span>Patrol G2</a>
             <a class="mega-link" href="Box Spotter.html"><span class="dot"></span>Box Spotter</a>
+          </div>
+          <div class="mega-col"><span class="ml-label">MOBILE &amp; FIXED</span>
             <a class="mega-link" href="X Spotter.html"><span class="dot"></span>X Spotter</a>
+          </div>
+          <div class="mega-col"><span class="ml-label">MOBILE</span>
+            <a class="mega-link" href="Patrol G2.html"><span class="dot"></span>Patrol G2</a>
             <a class="mega-link" href="Bike Patrol.html"><span class="dot"></span>Bike Patrol</a>
-            <a class="mega-link" href="Semistation.html"><span class="dot"></span>Semistation</a>
+            <a class="mega-link" href="Semistation.html"><span class="dot"></span>TerraEye</a>
           </div>
         </div>
       </div>
 
-      <div class="nav-item">
-        <a class="nav-trigger" href="Why Ekin.html" style="text-decoration:none">Why Ekin</a>
-      </div>
-
       <div class="nav-item" data-menu>
-        <button class="nav-trigger">About <span class="chev"></span></button>
-        <div class="mega mega-1">
-          <div class="mega-col">
-            <h5>Company</h5>
-            <a class="mega-link" href="About Ekin.html"><span class="dot"></span>About Us</a>
-            <a class="mega-link" href="Our Founder.html"><span class="dot"></span>Our Founder</a>
-            <a class="mega-link" href="Life at Ekin.html"><span class="dot"></span>Life at Ekin</a>
-            <a class="mega-link" href="Careers.html"><span class="dot"></span>Careers</a>
-            <a class="mega-link" href="Ekin Ventures.html"><span class="dot"></span>Ekin Ventures</a>
-            <a class="mega-link" href="Press.html"><span class="dot"></span>Press</a>
-            <a class="mega-link" href="Events.html"><span class="dot"></span>Events</a>
+        <button class="nav-trigger">Company <span class="chev"></span></button>
+        <div class="mega mega-company">
+          <div class="mega-lead"><span class="ml-label">COMPANY</span><p>Engineering the future.</p></div>
+          <div class="mega-company-cols">
+            <div class="mega-col"><span class="ml-label">PEOPLE</span>
+              <a class="mega-link" href="Our Founder.html"><span class="dot"></span>Leadership</a>
+              <a class="mega-link" href="Advisory Board.html"><span class="dot"></span>Advisory Board</a>
+              <a class="mega-link" href="Jobs.html"><span class="dot"></span>Open Roles</a>
+            </div>
+            <div class="mega-col"><span class="ml-label">ABOUT</span>
+              <a class="mega-link" href="Mission.html"><span class="dot"></span>Mission</a>
+              <a class="mega-link" href="Ekin Ventures.html"><span class="dot"></span>Ekin Ventures</a>
+              <a class="mega-link" href="Press.html"><span class="dot"></span>Newsroom</a>
+            </div>
           </div>
         </div>
       </div>
     </nav>
 
     <div class="nav-cta">
-      <a href="#" class="signin">Sign in</a>
+      
+      <a href="Support.html" class="btn btn-ghost btn-support">Support</a>
       <a href="Book a Demo.html" class="btn btn-primary">Book a Demo</a>
       <button class="nav-burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
@@ -492,65 +512,74 @@
 <!-- mobile drawer -->
 <div class="drawer" id="drawer">
   <div class="drawer-head">
-    <a href="Ekin Home.html" class="logo"><img class="logo-dark" style="display:block" src="assets/ekin-logo-black.png" alt="Ekin" /></a>
+    <a href="#top" class="logo"><img class="logo-light" style="display:block" src="assets/ekin-logo-white.png" alt="Ekin" /></a>
     <button class="drawer-close" id="drawerClose" aria-label="Close">&times;</button>
   </div>
   <div class="drawer-group">
     <h6>Solutions</h6>
-    <a href="Ekin Law Enforcement.html">Law Enforcement</a><a href="Cities and Municipalities.html">Cities &amp; Municipalities</a><a href="Neighborhoods and HOAs.html">Neighborhoods &amp; HOAs</a><a href="ALPR.html">ALPR &amp; Speed</a>
+    <a href="Public Safety.html">Public Safety</a><a href="Cities and Municipalities.html">Cities &amp; Municipalities</a><a href="Parking.html">Parking</a>
   </div>
   <div class="drawer-group">
-    <h6>Products</h6>
-    <a href="Spotter.html">Spotter</a><a href="Maestro OS.html">Maestro OS</a><a href="Patrol G2.html">Patrol G2</a><a href="Bike Patrol.html">Bike Patrol</a>
+    <h6>Devices</h6>
+    <a href="Maestro OS.html">Maestro OS</a>
+    <span class="drawer-sub">Fixed</span>
+    <a href="Spotter.html">Spotter</a><a href="Box Spotter.html">Box Spotter</a>
+    <span class="drawer-sub">Mobile &amp; Fixed</span>
+    <a href="X Spotter.html">X Spotter</a>
+    <span class="drawer-sub">Mobile</span>
+    <a href="Patrol G2.html">Patrol G2</a><a href="Bike Patrol.html">Bike Patrol</a><a href="Semistation.html">TerraEye</a>
   </div>
   <div class="drawer-group">
     <h6>Company</h6>
-    <a href="Why Ekin.html">Why Ekin</a><a href="About Ekin.html">About Us</a><a href="Careers.html">Careers</a><a href="Jobs.html">Open Positions</a><a href="Press.html">Press</a><a href="Events.html">Events</a>
+    <a href="Mission.html">Mission</a><a href="Our Founder.html">Leadership</a><a href="Jobs.html">Open Roles</a><a href="Ekin Ventures.html">Ekin Ventures</a><a href="Press.html">Newsroom</a><a href="Advisory Board.html">Advisory Board</a>
+  </div>
+  <div class="drawer-group">
+    <h6>Support</h6>
+    <a href="Support.html">Support</a><a href="Contact.html">Contact</a><a href="Locations.html">Locations</a>
   </div>
   <div class="drawer-cta">
-    <a href="#" class="btn btn-ghost">Sign in</a>
+    <a href="Support.html" class="btn btn-ghost">Support</a>
     <a href="Book a Demo.html" class="btn btn-primary">Book a Demo</a>
   </div>
 </div>
 
-<!-- ============ HERO ============ -->
-<section class="hero le-hero founder-hero" id="top">
-  <div class="hero-fallback"></div>
-  <img class="hero-photo" src="https://cdn.prod.website-files.com/67c4f1010035fe2c75689a55/67e18447bab45617d5abce3a_ekin-founder-1.avif" alt="Akif Ekin, Founder and CEO" />
-  <div class="wrap hero-content">
-    <h1 style="margin-top:22px;color:#fff;font-size:45px;max-width:none;white-space:nowrap">MEET OUR FOUNDER</h1>
-    <p>Akif Ekin, founder &amp; CEO, inventor, and pioneer of smart-city technology.</p>
-    <div class="actions"><a href="Why Ekin.html" class="btn btn-primary">Explore Ekin <span class="arrow">&rarr;</span></a></div>
+<!-- ============ LEADERSHIP HERO ============ -->
+<section class="ld-hero" id="top">
+  <div class="wrap">
+    <span class="ld-eyebrow">Leadership</span>
+    <h1>Leadership</h1>
+    <p class="ld-lead">Engineers, designers and operators who have spent their careers making cities safer.</p>
   </div>
-  <div class="scroll-hint"><span class="line"></span>Scroll</div>
 </section>
 
-<!-- BIO -->
-<section class="pad-y" id="about">
-  <div class="wrap" style="max-width:1100px;margin-left:0">
-    <div class="reveal" style="--lead-w:74ch">
-      <span class="eyebrow">Founder &amp; CEO</span>
-      <h2 class="split-title">A lifetime spent making cities smarter and safer.</h2>
-      <p class="split-lead">Akif Ekin, the founder and CEO of Ekin Smart City Technology, is an award-winning entrepreneur, industrial designer, and author.</p>
-      <p class="split-lead" style="margin-top:0">Born in Turkey and raised in Germany, he has dedicated his life to creating safer and smarter cities. He leads the development of innovative smart city technology at Ekin Smart City Technology, receiving accolades such as the Red Dot Design Award, the German Innovation Award, and the CES Innovation Award.</p>
-      <p class="split-lead" style="margin-top:0">Driven by a desire to reduce traffic accidents and save lives, he believes that smart city technologies will play a vital role in ensuring security for citizens worldwide. As a member of ICERT, he contributes to the advancement of global safe city technologies and public safety. Today, Ekin&rsquo;s innovative solutions can be found in cities, airports, shopping centers, campuses, and arenas across the globe.</p>
-      <h2 class="split-title" style="margin-top:48px">A track record of innovation, entrepreneurship, and success.</h2>
-      <p class="split-lead">From a young age, Akif Ekin was fascinated by innovation, which eventually led him to study aerospace engineering at the University of Stuttgart. During his studies, he founded Akart, a lamp design company that showcased his creativity and passion for design.</p>
-      <p class="split-lead" style="margin-top:0">After graduation, he moved to Istanbul, where he began distributing Sanyo products across the EMEA region. In 1998, he founded Ekin Electronics, which later became Ekin Smart City Technology.</p>
-      <p class="split-lead" style="margin-top:0">Akif Ekin&rsquo;s groundbreaking invention, the world&rsquo;s first smart patrol with facial recognition, revolutionized mobile enforcement and city safety.</p>
-      <p class="split-lead" style="margin-top:0">His company started by developing safety technologies for high-profile events like the NATO Summit 2004 and FIFA World Cup 2006 in Germany, and continues to lead the industry with innovative smart city solutions.</p>
+<!-- ============ LEADERSHIP GRID ============ -->
+<section class="ld-team" id="about">
+  <div class="wrap">
+    <span class="ld-eyebrow">Leadership team</span>
+    <div class="ld-grid">
+      <figure class="ld-card"><img class="ld-photo" src="images/team-v4-akif-ekin.png" alt="Akif Ekin" loading="lazy" /><figcaption><strong>Akif Ekin</strong><em>Founder &amp; Chief Executive Officer</em></figcaption></figure>
+      <figure class="ld-card"><img class="ld-photo" src="images/team-v3-malik-ekin.png" alt="Malik Ekin" loading="lazy" /><figcaption><strong>Malik Ekin</strong><em>Chief Strategy Officer</em></figcaption></figure>
+      <figure class="ld-card"><img class="ld-photo" src="images/team-v3-jared-kosina.png" alt="Jared Kosina" loading="lazy" /><figcaption><strong>Jared Kosina</strong><em>Managing Director</em></figcaption></figure>
+      <figure class="ld-card"><img class="ld-photo" src="images/team-v3-sherry-hooker.png" alt="Sherry Hooker" loading="lazy" /><figcaption><strong>Sherry Hooker</strong><em>GTM Operations Manager</em></figcaption></figure>
+      <figure class="ld-card"><img class="ld-photo" src="images/team-v3-sabrina-marquez.png" alt="Sabrina Marquez" loading="lazy" /><figcaption><strong>Sabrina Marquez</strong><em>Operations Administrator</em></figcaption></figure>
+      <figure class="ld-card"><img class="ld-photo" src="images/team-v3-joe-orozco.png" alt="Joe Orozco" loading="lazy" /><figcaption><strong>Joe Orozco</strong><em>Technical Account Engineer</em></figcaption></figure>
+      <figure class="ld-card"><img class="ld-photo" src="images/team-v3-vugar-salahli.png" alt="V&uuml;gar Salahl&#305;" loading="lazy" /><figcaption><strong>V&uuml;gar Salahl&#305;</strong><em>CIS Regional Manager</em></figcaption></figure>
+      <figure class="ld-card"><img class="ld-photo" src="images/team-v3-mario-kainz.png" alt="Mario C. Kainz" loading="lazy" /><figcaption><strong>Mario C. Kainz</strong><em>Business Development Director, Ekin Europe GMBH</em></figcaption></figure>
+      <figure class="ld-card"><img class="ld-photo" src="images/team-v3-thomas-yip.png" alt="Thomas Yip" loading="lazy" /><figcaption><strong>Thomas Yip</strong><em>SE Asia Sales Manager</em></figcaption></figure>
     </div>
   </div>
 </section>
 
-<!-- BY THE NUMBERS -->
-<section class="pad-y" style="background:var(--bg-2);border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)">
+<section class="ld-team" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="eyebrow">A track record of invention</span><h2>Building the future, patent by patent.</h2></div>
-    <div class="why-stats" style="margin-top:48px">
-      <div class="stat" data-count="28"><div class="num"><span class="val">0</span><span class="plus">+</span></div><div class="label">Years of innovation</div></div>
-      <div class="stat" data-count="35"><div class="num"><span class="val">0</span><span class="plus">+</span></div><div class="label">Patents to his name</div></div>
-      <div class="stat" data-count="9"><div class="num"><span class="val">0</span><span class="plus">+</span></div><div class="label">Offices worldwide</div></div>
+    <span class="ld-eyebrow">Advisory board</span>
+    <div class="ld-grid">
+      <figure class="ld-card"><img class="ld-photo ld-board" src="images/board/v9-mark-lamb.png" alt="Mark Lamb" loading="lazy" /><figcaption><strong>Mark Lamb</strong><em>Retired Sheriff, Pinal County, Arizona</em></figcaption></figure>
+      <figure class="ld-card"><img class="ld-photo ld-board" src="images/board/v9-don-delucca.png" alt="Donald W. De Lucca" loading="lazy" /><figcaption><strong>Donald W. De Lucca</strong><em>Retired Chief of Police; Past President, IACP</em></figcaption></figure>
+      <figure class="ld-card"><img class="ld-photo ld-board" src="images/board/v9-terence-monahan.png" alt="Terence Monahan" loading="lazy" /><figcaption><strong>Terence Monahan</strong><em>Retired Chief of Department, NYPD</em></figcaption></figure>
+      <figure class="ld-card"><img class="ld-photo ld-board" src="images/board/v9-david-morgan.png" alt="David Morgan" loading="lazy" /><figcaption><strong>David Morgan</strong><em>Retired Sheriff, Escambia County, Florida</em></figcaption></figure>
+      <figure class="ld-card"><img class="ld-photo ld-board" src="images/board/v9-bob-white.png" alt="Bob White" loading="lazy" /><figcaption><strong>Bob White</strong><em>Retired Sheriff, Pasco County, Florida</em></figcaption></figure>
+      <figure class="ld-card"><img class="ld-photo ld-board" src="images/board/v9-richard-ross.png" alt="Richard Ross" loading="lazy" /><figcaption><strong>Richard Ross</strong><em>Retired Police Commissioner, Philadelphia</em></figcaption></figure>
     </div>
   </div>
 </section>
@@ -562,24 +591,18 @@
     <div class="band-content">
       <span class="eyebrow">The mission continues</span>
       <h2 style="margin-top:16px">See what we're building next.</h2>
-      <p>Discover how Ekin turns 25 years of invention into safer streets today.</p>
+      <p>Discover how Ekin turns 28 years of invention into safer streets today.</p>
       <a href="Book a Demo.html" class="btn btn-primary">Book a Demo <span class="arrow">&rarr;</span></a>
     </div>
   </div></div>
-</section><!-- ============ TICKER ============ -->
-<div class="ticker">
-  <div class="ticker-track">
-    <span>Smarter is Safer <span class="star">&#9670;</span> <span class="accent">Smart City Technology</span> <span class="star">&#9670;</span> Greater Accuracy <span class="star">&#9670;</span> Peace of Mind <span class="star">&#9670;</span>&nbsp;</span>
-    <span>Smarter is Safer <span class="star">&#9670;</span> <span class="accent">Smart City Technology</span> <span class="star">&#9670;</span> Greater Accuracy <span class="star">&#9670;</span> Peace of Mind <span class="star">&#9670;</span>&nbsp;</span>
-  </div>
-</div>
+</section>
 
 <!-- ============ FINAL CTA / DEMO ============ -->
 <section class="pad-y dark-sec" id="demo">
   <div class="wrap" style="text-align:center;max-width:840px">
     <span class="eyebrow reveal" style="justify-content:center">Get started</span>
     <h2 class="reveal" style="font-size:clamp(36px,6vw,72px);font-weight:700;margin-top:20px">See what you've been missing.</h2>
-    <p class="reveal" style="color:rgba(255,255,255,.7);font-size:20px;margin:22px auto 0;max-width:54ch">Book a demo and watch Ekin's accuracy in action across enforcement, mobility and city safety.</p>
+    <p class="reveal" style="color:rgba(255,255,255,.7);font-size:20px;margin:22px auto 0;max-width:54ch">Book a demo and watch Ekin's accuracy in action across mobility, traffic and city safety.</p>
     <div class="reveal" style="margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
       <a href="Book a Demo.html" class="btn btn-primary" style="padding:16px 30px;font-size:16px">Book a Demo <span class="arrow">&rarr;</span></a>
       <a href="Partners.html" class="btn btn-ghost" style="padding:16px 30px;font-size:16px">Find a partner</a>
@@ -593,31 +616,27 @@
     <div class="foot-top" style="grid-template-columns:1.3fr 1fr 1fr 1fr 1fr">
       <div class="foot-brand">
         <a href="Ekin Home.html" class="logo foot-logo"><img class="logo-light" src="assets/ekin-logo-white.png" alt="Ekin" /></a>
-        <p>Innovative devices and software that keep people safe and improve quality of life.</p>
+        <p>Smarter is Safer.</p>
         <form class="news" id="newsForm">
           <input type="email" placeholder="Sign up for the newsletter" required />
           <button type="submit" aria-label="Subscribe">&rarr;</button>
         </form>
-        <div class="foot-locations">
-          <span class="loc-label" style="color:var(--muted-2);font-family:var(--display);font-size:12px;letter-spacing:.14em;text-transform:uppercase">Where we are</span>
-          <a href="Locations.html">Miami</a><a href="Locations.html">Phoenix</a><a href="Locations.html">Atlanta</a><a href="Locations.html">Stuttgart</a><a href="Locations.html">Zurich</a><a href="Locations.html">Istanbul</a><a href="Locations.html">Ankara</a><a href="Locations.html">Baku</a><a href="Locations.html">Singapore</a>
-        </div>
       </div>
       <div class="foot-col">
         <h5>Solutions</h5>
-        <a href="Ekin Law Enforcement.html">Law Enforcement</a><a href="Cities and Municipalities.html">Cities &amp; Municipalities</a><a href="Neighborhoods and HOAs.html">Neighborhoods &amp; HOAs</a><a href="Solutions for Education.html">Education</a><a href="Solutions for Business.html">Business</a><a href="Solutions for Private Security.html">Private Security</a>
+        <a href="Public Safety.html">Public Safety</a><a href="Cities and Municipalities.html">Cities &amp; Municipalities</a><a href="Parking.html">Parking</a>
       </div>
       <div class="foot-col">
-        <h5>Products</h5>
-        <a href="Patrol G2.html">Patrol G2</a><a href="Bike Patrol.html">Bike Patrol</a><a href="Spotter.html">Spotter</a><a href="X Spotter.html">X Spotter</a><a href="Box Spotter.html">Box Spotter</a><a href="Maestro OS.html">Maestro OS</a>
+        <h5>Devices</h5>
+        <a href="Maestro OS.html">Maestro OS</a><a href="Spotter.html">Spotter</a><a href="Patrol G2.html">Patrol G2</a><a href="Box Spotter.html">Box Spotter</a><a href="X Spotter.html">X Spotter</a><a href="Bike Patrol.html">Bike Patrol</a><a href="Semistation.html">TerraEye</a>
       </div>
       <div class="foot-col">
         <h5>Company</h5>
-        <a href="Why Ekin.html">Why Ekin</a><a href="About Ekin.html">About Us</a><a href="Our Founder.html">Our Founder</a><a href="Careers.html">Careers</a><a href="Jobs.html">Open Positions</a><a href="Ekin Ventures.html">Ekin Ventures</a><a href="Press.html">Press</a><a href="Events.html">Events</a>
+        <a href="Mission.html">Mission</a><a href="Our Founder.html">Leadership</a><a href="Jobs.html">Open Roles</a><a href="Ekin Ventures.html">Ekin Ventures</a><a href="Press.html">Newsroom</a><a href="Advisory Board.html">Advisory Board</a>
       </div>
       <div class="foot-col">
-        <h5>Contact Us</h5>
-        <a href="Contact.html">Contact</a><a href="Locations.html">Locations</a><a href="Partners.html">Find / Become a Partner</a>
+        <h5>Support</h5>
+        <a href="Support.html">Support</a><a href="Contact.html">Contact</a><a href="Locations.html">Locations</a><a href="Book a Demo.html">Book a Demo</a>
       </div>
     </div>
     <div class="foot-bottom">
@@ -626,7 +645,7 @@
         <a href="Legal.html#privacy">Privacy</a><a href="Legal.html#terms">Terms</a><a href="Legal.html#imprint">Imprint</a><a href="Legal.html#gdpr">GDPR</a><a href="Contact.html">Contact</a>
       </div>
       <div class="foot-social">
-        <a href="#" title="LinkedIn">in</a><a href="#" title="Instagram">ig</a><a href="#" title="Facebook">f</a><a href="#" title="X">X</a><a href="#" title="YouTube">yt</a>
+        <a href="https://www.linkedin.com/company/ekinsmartcity" target="_blank" rel="noopener" title="LinkedIn">in</a><a href="https://www.instagram.com/ekinsmartcity/" target="_blank" rel="noopener" title="Instagram">ig</a><a href="https://www.facebook.com/ekinsmartcity" target="_blank" rel="noopener" title="Facebook">f</a><a href="https://x.com/ekinsmartcity" target="_blank" rel="noopener" title="X">X</a><a href="https://www.youtube.com/c/EkinSmartCity" target="_blank" rel="noopener" title="YouTube">yt</a>
       </div>
     </div>
   </div>
@@ -675,7 +694,7 @@ document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
 if(document.querySelector('.tcard')){
 const TS=[
   {q:'We are proud to be a leading city in innovation and technology. This smart pole with safety cameras, public Wi-Fi, traffic and environmental sensors will assist emergency management in creating a safer community for residents, business owners, and visitors.',n:'Peter Iglesias',r:'Coral Gables, Florida, City Manager',p:'https://cdn.prod.website-files.com/67d50d6f1c74072379eb9674/67f7b9a4b35dfb90863570aa_EKIN-Pole-675x506.jpg'},
-  {q:'We had the opportunity to extensively test the Ekin technology in Switzerland. Ekin is the only supplier in the world who can provide the total package in one. We were surprised by the picture quality, the analytical performance, and the speed of the system.',n:'Gerhard Schaub',r:'President, Zurich Police Officer Association',p:'https://cdn.prod.website-files.com/67d50d6f1c74072379eb9674/67f262e432778f33e04ca3d2_82a7b2d53ef647c0a541cfbf4621029f7.jpeg'}
+  {q:'We\u2019ve seen a lot of technology in this space, but what Ekin is bringing to market truly stands apart. They\u2019re not a startup, they\u2019re already trusted globally, and their commitment to investing locally in U.S. operations, service, and support is exactly what agencies have been asking for.',n:'Donald W. De Lucca',r:'Retired Police Chief and Senior Public Safety Advisor',p:'images/testimonial-delucca.png'}
 ];
 let ti=0;
 const T={q:document.getElementById('tQuote'),n:document.getElementById('tName'),r:document.getElementById('tRole'),p:document.getElementById('tPhoto'),dots:document.getElementById('tDots')};
@@ -699,6 +718,8 @@ if(_nf)_nf.addEventListener('submit',e=>{
   e.preventDefault();const i=e.target.querySelector('input');i.value='';i.placeholder='Thank you! You\'re subscribed!';
   setTimeout(()=>i.placeholder='Sign up for the newsletter',3500);
 });
+
+(function(){var n=document.getElementById('nav');if(!n)return;function h(){document.documentElement.style.setProperty('--nav-h',n.offsetHeight+'px');}h();window.addEventListener('resize',h);window.addEventListener('scroll',h,{passive:true});})();
 </script>
 </body>
 </html>

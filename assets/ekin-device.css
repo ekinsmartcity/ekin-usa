@@ -1,0 +1,75 @@
+/* ===== Ekin device pages — Anduril-style spacing & typographic rhythm ===== */
+
+/* Generous vertical rhythm: big, quiet space between statements */
+.pad-y{padding-top:clamp(64px,11vh,150px)!important;padding-bottom:clamp(64px,11vh,150px)!important}
+.pad-y[style*="padding-top:0"]{padding-top:0!important}
+
+/* Eyebrows: small mono categorical labels, not slogans */
+.eyebrow{font-family:var(--mono)!important;font-size:11px!important;letter-spacing:.28em!important;text-transform:uppercase!important;color:var(--accent)!important;font-weight:500!important;display:block}
+
+/* Headlines: very large, tight, negative-tracked */
+.sec-head h2,.split-text h2,.demo-card .demo-text h2{font-family:var(--display)!important;font-size:clamp(30px,4.4vw,68px)!important;line-height:1.0!important;letter-spacing:-.035em!important;font-weight:600!important;margin-top:22px!important;max-width:22ch}
+.sec-head{max-width:1000px}
+
+/* Body: narrow measure, quiet colour, generous leading */
+.sec-head p,.split-text p{font-size:clamp(16px,1.25vw,19px)!important;line-height:1.65!important;color:var(--muted)!important;margin-top:26px!important;max-width:58ch!important}
+
+/* Hero: terse and bottom-weighted */
+.hero-content h1,.hero-copy h1{letter-spacing:-.04em!important;line-height:.98!important}
+.hero-content p,.hero-copy p{font-size:clamp(16px,1.3vw,20px)!important;line-height:1.6!important;max-width:56ch}
+
+.hero:has(.hero-arrow) .scroll-hint,.hero-page:has(.hero-arrow) .scroll-hint{display:none!important}
+/* hero scroll arrow (bottom-right) */
+.hero-arrow{position:absolute;right:clamp(20px,3vw,48px);bottom:clamp(24px,4vh,48px);z-index:6;display:flex;flex-direction:column;align-items:center;gap:10px;color:rgba(255,255,255,.72);text-decoration:none;font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;transition:color .22s}
+.hero-arrow:hover{color:#fff}
+.hero-arrow svg{width:20px;height:34px;animation:heroArrow 1.9s ease-in-out infinite}
+@keyframes heroArrow{0%,100%{transform:translateY(0);opacity:.65}50%{transform:translateY(8px);opacity:1}}
+@media(prefers-reduced-motion:reduce){.hero-arrow svg{animation:none}}
+@media(max-width:700px){.hero-arrow span{display:none}}
+
+/* Anduril product pattern: full-width image block, text area beneath it */
+html{overflow-x:clip}
+.split{display:flex!important;flex-direction:column!important;gap:clamp(40px,5.5vh,76px)!important;align-items:stretch!important}
+.split-media{order:1!important;width:auto!important;max-width:none!important;margin:0 calc(50% - 50vw)!important;border-radius:0!important;overflow:hidden}
+.split-media{aspect-ratio:auto!important;min-height:0!important;background:transparent!important;border:0!important}
+.split-media img,.split-media video{width:100%!important;height:auto!important;max-height:none!important;display:block;object-fit:contain!important}
+.split-text{order:2!important;max-width:none!important;width:100%!important;text-align:left!important;display:grid;grid-template-columns:minmax(0,.42fr) minmax(0,.58fr);gap:0 clamp(24px,6vw,110px);align-items:start}
+.split-text .eyebrow{grid-column:1;grid-row:1;align-self:start}
+.split-text h2{grid-column:2;grid-row:1;margin-top:0!important;font-size:clamp(30px,3.6vw,56px)!important;line-height:1.02!important;max-width:18ch}
+.split-text p{grid-column:2;grid-row:auto;margin-top:22px!important;padding-top:0;max-width:52ch!important;font-size:clamp(16px,1.2vw,19px)!important;line-height:1.5!important}
+.split-text p+p{margin-top:16px!important}
+.split-text .actions,.split-text ul{grid-column:2;grid-row:auto;margin-top:32px}
+@media(max-width:900px){
+  .split{gap:clamp(28px,4vh,44px)!important}
+  .split-text{grid-template-columns:1fr}
+  .split-text .eyebrow{grid-column:1;grid-row:1;margin-bottom:16px}
+  .split-text h2{grid-column:1;grid-row:2;max-width:none}
+  .split-text p{grid-column:1;grid-row:auto;margin-top:18px!important;padding-top:0}
+  .split-text .actions,.split-text ul{grid-column:1}
+}
+
+/* Capability cards: flat, hairline, spacious — no rounded blobs */
+.cm-benefits{gap:1px!important;border-top:1px solid var(--line);border-left:1px solid var(--line);margin-top:clamp(44px,7vh,84px)!important}
+.cm-bcard{border-radius:0!important;border:0!important;border-right:1px solid var(--line)!important;border-bottom:1px solid var(--line)!important;background:transparent!important;padding:clamp(28px,3.4vw,48px)!important}
+.cm-bcard h3{font-family:var(--display);font-size:clamp(18px,1.6vw,23px)!important;letter-spacing:-.02em!important;font-weight:600!important;margin-top:18px!important}
+.cm-bcard p{color:var(--muted)!important;font-size:15.5px!important;line-height:1.62!important;margin-top:12px!important;max-width:46ch}
+.cm-bcard .ic{width:30px!important;height:30px!important;opacity:.85}
+.cm-bcard.lead{background:transparent!important}
+
+/* Section boundaries as hairlines rather than filled bands */
+section[style*="background:var(--bg-2)"]{background:transparent!important;border-top:1px solid var(--line)!important;border-bottom:1px solid var(--line)!important}
+
+/* Product range strip: quieter */
+#products .sec-head h2{font-size:clamp(26px,3.2vw,46px)!important}
+
+/* Closing CTA: centred, restrained */
+.dark-sec h2{letter-spacing:-.035em!important;line-height:1.0!important}
+.dark-sec p{max-width:52ch!important}
+.dark-sec .wrap[style*="text-align:center"] p{margin-left:auto!important;margin-right:auto!important}
+
+@media(max-width:820px){
+  .pad-y{padding-top:clamp(64px,10vh,110px)!important;padding-bottom:clamp(64px,10vh,110px)!important}
+  .sec-head h2,.split-text h2{max-width:none}
+  .cm-benefits{border-left:0}
+  .cm-bcard{border-right:0!important}
+}
