@@ -433,10 +433,11 @@ const STAGES=[
 STAGES.forEach((s,i)=>{
   const b=document.createElement('div'); b.className='cblock'+(s.hero1?' hero1':''); b.dataset.i=i;
   b.innerHTML='<h1>'+s.h+'</h1><p>'+s.p+'</p>'
-    +(s.hero1?'<div class="hero1-cta"><a class="btn primary" href="Book a Demo.html">Book a Demo <span class="a">&rarr;</span></a></div>':'')
-    +(s.cta?'<div class="cta-row"><a class="btn primary" href="#">Explore Ekin <span class="a">&rarr;</span></a></div><div class="maestro-tag"><img src="images/hero/maestro-logo.png" alt="Maestro OS"> Unified by Maestro&nbsp;OS</div>':'');
+    +(s.hero1?'<div class="hero1-cta"><a class="btn primary" href="book-a-demo.html">Book a Demo <span class="a">&rarr;</span></a></div>':'')
+    +(s.cta?'<div class="cta-row"><a class="btn primary" href="#products">Explore Ekin <span class="a">&rarr;</span></a></div><div class="maestro-tag"><img src="images/hero/maestro-logo.png" alt="Maestro OS"> Unified by Maestro&nbsp;OS</div>':'');
   copyEl.appendChild(b); s.el=b;
 });
+{const nh=document.querySelector('.numhero');if(nh){nh.classList.add('nh-ready');nh.classList.remove('nh-fail');}}
 
 // annotation cards removed — data now ascends to Maestro instead
 const annots=document.getElementById('annots');

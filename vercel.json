@@ -1,0 +1,26 @@
+{
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/",
+      "has": [{ "type": "header", "key": "x-vercel-ip-country", "value": "US" }],
+      "destination": "/us",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    { "source": "/", "destination": "/ekin-home.html" },
+    { "source": "/us", "destination": "/ekin-home.html" }
+  ],
+  "headers": [
+    { "source": "/", "headers": [{ "key": "Vary", "value": "x-vercel-ip-country" }] }
+  ],
+  "functions": {
+    "api/forms/submit.js": { "maxDuration": 15 },
+    "api/forms/retry.js": { "maxDuration": 60 },
+    "api/forms/review.js": { "maxDuration": 15 }
+  },
+  "crons": [
+    { "path": "/api/forms/retry", "schedule": "0 6 * * *" }
+  ]
+}

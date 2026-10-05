@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ekin Spotter, AI-Powered Smart City Module (LPR, Speed &amp; More)</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/ekin.css" />
+<link rel="stylesheet" href="assets/ekin-dark.css" />
+<link rel="stylesheet" href="assets/ekin-device.css" />
+<style>
+  .mod-text{display:block!important;max-width:760px;margin-bottom:clamp(32px,5vw,56px)}
+  .mod-text h2{grid-column:auto!important;max-width:22ch!important;margin-top:16px!important}
+  .mod-text p{grid-column:auto!important;max-width:52ch!important}
+  .mod-fullvideo{width:100vw;margin-left:calc(50% - 50vw);line-height:0}
+  .mod-fullvideo video{width:100%;height:auto;display:block}
+  /* ---- full-bleed product hero ---- */
+  .hero-bp{background:#080808;align-items:flex-end;min-height:0;height:auto;aspect-ratio:16/9;overflow:hidden}
+  .hero-bp .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;z-index:0}
+  .hero-bp::before{content:none}
+  .hero-bp::after{background:linear-gradient(180deg,rgba(8,8,8,.35) 0%,rgba(8,8,8,0) 30%,rgba(8,8,8,0) 60%,rgba(8,8,8,.7) 100%)}
+  .hero-bp .hero-content{position:relative;z-index:2;width:100%;padding-bottom:clamp(64px,11vh,130px)}
+  .hero-bp .hero-copy{max-width:600px;text-align:left}
+  .hero-bp .hero-copy h1{font-size:clamp(44px,5.4vw,76px)}
+  .hero-bp .hero-copy p{color:rgba(255,255,255,.78)}
+  @media(max-width:820px){
+    .hero-bp .hero-copy{max-width:100%}
+  }
+  /* scene placeholder */
+  .ph{display:flex;align-items:flex-end;padding:18px;background:repeating-linear-gradient(135deg,#ecebe9,#ecebe9 16px,#f5f4f3 16px,#f5f4f3 32px)}
+  .ph span{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2)}
+  .demo-card{position:relative;border-radius:14px;background:#0a0a0a;overflow:hidden;min-height:520px;display:flex;align-items:center;padding:clamp(34px,5vw,64px);color:#fff;border:1px solid var(--line-2)}
+  .demo-card .demo-text{position:relative;z-index:2;max-width:480px}
+  .demo-card .demo-text h2{color:#fff;font-size:clamp(27px,3.3vw,40px)}
+  .demo-card .demo-text p{color:rgba(255,255,255,.72);font-size:16px;margin:18px 0 0}
+  .demo-card .demo-img{position:absolute;right:-3%;bottom:-5%;width:66%;max-width:940px;z-index:1;filter:drop-shadow(0 40px 60px rgba(0,0,0,.6))}
+  .demo-card::before{content:"";position:absolute;right:-5%;bottom:-30%;width:70%;height:120%;background:radial-gradient(circle at 60% 50%,rgba(255,57,50,.16),transparent 62%);z-index:0}
+  .demo-card .demo-img.demo-pole{width:auto;height:92%;max-width:none;right:14%;top:4%;bottom:auto;filter:drop-shadow(0 0 40px rgba(255,57,50,.18)) drop-shadow(0 40px 60px rgba(0,0,0,.6))}
+  @media(max-width:1024px){
+    .demo-card .demo-img.demo-pole{position:relative!important;width:auto!important;height:clamp(320px,60vw,460px)!important;max-width:none!important;top:auto!important;right:auto!important;margin:32px auto 0!important;align-self:center}
+    .demo-card{flex-direction:column;align-items:flex-start;min-height:0;padding-bottom:clamp(220px,40vw,340px)}
+    .demo-card .demo-text{max-width:100%}
+    .demo-card .demo-img{position:absolute;right:0;bottom:0;width:min(80%,460px)}
+  }
+  /* Modular exploded-view tower (sliced + sequential assembly) */
+  .split.split-modular{grid-template-columns:minmax(300px,.92fr) 1fr;align-items:center}
+  .modular-media{aspect-ratio:auto;border:none;border-radius:0;overflow:visible;background:none;position:relative;display:flex;align-items:center;justify-content:center;min-height:780px}
+  .modular-media::before{content:"";position:absolute;top:50%;left:42%;transform:translate(-50%,-50%);width:300px;height:92%;border-radius:50%;background:radial-gradient(ellipse at center,rgba(255,57,50,.12),rgba(120,130,140,.12) 40%,transparent 70%);filter:blur(12px);z-index:0}
+  .modular-stack{position:relative;aspect-ratio:1744/7788;height:min(940px,82vh);margin:0 auto;z-index:1}
+  .modular-stack .mod{position:absolute;left:0;width:100%;height:auto;max-height:none;object-fit:contain;filter:drop-shadow(0 16px 26px rgba(0,0,0,.22));transition:opacity .5s ease,transform .65s cubic-bezier(.22,.7,.2,1);transition-delay:var(--d,0s);will-change:transform,opacity}
+  @media(prefers-reduced-motion:no-preference){
+    .modular-stack.preanim .mod{opacity:0;transform:translateY(-46px)}
+    .modular-stack.preanim .mod-post{opacity:1;transform:none}
+  }
+  @media(max-width:1024px){
+    .split.split-modular{grid-template-columns:1fr}
+    .modular-media{min-height:0;padding:20px 0}
+    .modular-stack{height:min(680px,72vh)}
+  }
+  /* Full picture looping video */
+  .fp-video{aspect-ratio:16/9;background:#080808;padding:0}
+  .fp-video video{width:100%;height:100%;object-fit:cover;display:block}
+  /* Modular by design video */
+  .modular-video{max-width:940px;margin-inline:auto;border-radius:14px;overflow:hidden;border:1px solid var(--line-2);background:#080808;box-shadow:0 40px 80px rgba(0,0,0,.22)}
+  .modular-video video{display:block;width:100%;height:auto;object-fit:cover}
+  .dm-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:clamp(34px,4.5vw,58px)}
+  .dm-tile{position:relative;display:block;aspect-ratio:1/1;overflow:hidden;background:#0a0b0d;border:1px solid var(--line-2);color:inherit;text-decoration:none}
+  .dm-tile.dm-wide{grid-column:span 2;aspect-ratio:2.03/1}
+  .dm-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.22,.7,.2,1)}
+  .dm-tile::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.86),rgba(0,0,0,.16) 46%,transparent)}
+  .dm-tile:hover img{transform:scale(1.05)}
+  .dm-tile:hover{border-color:rgba(255,57,50,.6)}
+  .dm-meta{position:absolute;left:clamp(16px,1.6vw,26px);bottom:clamp(16px,1.6vw,26px);right:56px;z-index:2;display:flex;flex-direction:column;gap:6px}
+  .dm-meta strong{font-size:clamp(19px,1.6vw,26px);font-weight:600;letter-spacing:-.01em;color:#fff}
+  .dm-meta em{font-style:normal;font-size:14px;line-height:1.4;color:rgba(245,247,250,.74)}
+  .dm-arrow{position:absolute;right:clamp(16px,1.6vw,26px);bottom:clamp(18px,1.7vw,28px);z-index:2;font-size:18px;color:#fff;opacity:.7;transition:opacity .25s,transform .25s}
+  .dm-tile:hover .dm-arrow{opacity:1;transform:translate(2px,-2px)}
+  @media(max-width:900px){.dm-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.dm-tile.dm-wide{grid-column:span 2;aspect-ratio:2/1}}
+  @media(max-width:560px){.dm-grid{grid-template-columns:1fr}.dm-tile,.dm-tile.dm-wide{grid-column:span 1;aspect-ratio:4/3}}
+</style>
+<link rel="stylesheet" href="assets/ekin-ecosystem.css" />
+<link rel="stylesheet" href="assets/ekin-responsive.css" />
+<link rel="preload" as="image" href="assets/spotter-hero-poster.jpg" fetchpriority="high" />
+<style>@media (max-width:640px){.pe-card.pe-card-bp{background:#000;border-color:#000;outline:0;box-shadow:none}.pe-card.pe-card-bp picture{position:absolute;inset:0;display:block}.pe-card.pe-card-bp img{position:absolute;inset:0;width:100%!important;height:100%!important;object-fit:cover!important;object-position:50% 12%!important}.pe-card.pe-card-bp:hover img{transform:none}}</style>
+<style id="m-sp-modvid">@media (max-width:640px){#next-section .mod-fullvideo{aspect-ratio:auto!important;height:auto!important;max-height:none!important}#next-section .mod-fullvideo video{width:100%!important;height:auto!important;aspect-ratio:auto!important;object-fit:contain!important;object-position:50% 50%!important}}</style>
+<style id="m-mpa">@media (max-width:640px){
+.mpa{padding-bottom:0!important}
+.mpa-mobile{display:none!important}
+.mpa-scroll{display:block!important;margin-top:8px!important;height:calc(10 * 62svh + 100svh)!important}
+.mpa-sticky{height:100svh!important;top:0!important;align-items:stretch!important;padding:76px 0 22px}
+.mpa-stage{display:flex!important;flex-direction:column;gap:14px!important;height:100%;padding:0 20px}
+.mpa-index{flex-direction:row!important;gap:6px!important;border-left:0!important;overflow-x:auto;scrollbar-width:none;margin:0 -20px;padding:0 20px;flex:none;scroll-behavior:smooth}
+.mpa-index::-webkit-scrollbar{display:none}
+.mpa-item{flex:none;margin:0!important;border:1px solid rgba(255,255,255,.14)!important;border-radius:999px;min-height:34px;padding:0 13px!important;font-size:10.5px!important;letter-spacing:.1em!important;white-space:nowrap;color:#8a97ac!important}
+.mpa-item.on{color:#fff!important;border-color:#FF3932!important;background:rgba(255,57,50,.12)}
+.mpa-item i{margin-right:6px!important}
+.mpa-count{display:none}
+.mpa-viewer{flex:1 1 0;min-height:200px;width:100%!important;align-self:stretch;margin:0!important;height:auto!important;display:block!important;position:relative}
+.mpa-imgs{position:absolute!important;inset:0;width:auto!important;height:auto!important}
+.mpa-guide,.mpa-line,.mpa-base{display:none!important}
+.mpa-imgs img{inset:12% 20%!important;width:60%!important;height:76%!important;max-width:none!important;max-height:none!important;object-fit:contain!important;transition:opacity .45s ease,transform .45s ease!important;transform:translateY(14px)}
+.mpa-imgs img.on{transform:none}
+.mpa-imgs img.mpa-xl.on{transform:scale(1.15)}
+.mpa-card{flex:none;max-width:none!important;width:100%;padding:18px 18px 20px!important;border-radius:14px!important}
+.mpa-card::before{display:none}
+.mpa-card h3{font-size:20px!important;margin-top:8px!important}
+.mpa-card p{font-size:14.5px!important;line-height:1.55!important;margin-top:8px!important;min-height:4.65em}
+.mpa-card.swap{animation:mpaSwap .4s cubic-bezier(.2,.7,.2,1)!important}
+}
+@media (max-width:640px) and (prefers-reduced-motion:reduce){.mpa-imgs img{transition:none!important;transform:none!important}.mpa-card.swap{animation:none!important}}</style>
+<style id="m-hero-restore">@media (max-width:640px){#top.hero-bp{aspect-ratio:16/9!important;height:auto!important;min-height:0!important;max-height:none!important;padding:0!important;margin-top:var(--nav-h,77px)!important}#top.hero-bp .hero-bg{inset:0!important;top:0!important;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important;transform:none!important}#top.hero-bp .hero-arrow{display:none}}</style>
+<style id="m-fp-restore">@media (max-width:640px){.split-media.fp-video{aspect-ratio:16/9!important;height:auto!important;min-height:0!important;max-height:none!important}.split-media.fp-video video{width:100%!important;height:100%!important;aspect-ratio:auto!important;object-fit:contain!important;object-position:50% 50%!important}}</style>
+</head>
+<style>html{scroll-behavior:smooth}</style>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="ekin-home.html" class="logo"><img class="logo-light" src="assets/ekin-logo-white.png" alt="Ekin" /><img class="logo-dark" src="assets/ekin-logo-black.png" alt="Ekin" /></a>
+
+    <nav class="nav-links" id="navLinks">
+      <div class="nav-item" data-menu>
+        <button class="nav-trigger">Solutions <span class="chev"></span></button>
+        <div class="mega mega-1">
+          <div class="mega-lead"><span class="ml-label">SOLUTIONS</span><p>Working together to fulfill cities&rsquo; needs.</p></div>
+          <div class="mega-col"><span class="ml-label">SOLUTIONS</span>
+            <a class="mega-link" href="public-safety.html"><span class="dot"></span>Public Safety</a>
+              <a class="mega-link" href="cities-and-municipalities.html"><span class="dot"></span>Cities &amp; Municipalities</a>
+              <a class="mega-link" href="parking.html"><span class="dot"></span>Parking</a>
+              <a class="mega-link" href="city-health.html"><span class="dot"></span>City Health</a>
+              </div>
+        </div>
+      </div>
+
+      <div class="nav-item" data-menu>
+        <button class="nav-trigger">Devices <span class="chev"></span></button>
+        <div class="mega mega-1 mega-devices">
+          <div class="mega-lead"><span class="ml-label">DEVICES</span><p>Mobile and fixed devices, on the go, plug and play.</p></div>
+          <div class="mega-devices-cols"><div class="mega-col"><span class="ml-label">CONNECTED SYSTEMS</span>
+            <a class="mega-link" href="maestro-os.html"><span class="dot"></span>Maestro OS</a>
+          </div>
+          <div class="mega-col"><span class="ml-label">FIXED</span>
+            <a class="mega-link" href="spotter.html"><span class="dot"></span>Spotter</a>
+            <a class="mega-link" href="box-spotter.html"><span class="dot"></span>Box Spotter</a>
+          </div>
+          <div class="mega-col"><span class="ml-label">MOBILE &amp; FIXED</span>
+            <a class="mega-link" href="x-spotter.html"><span class="dot"></span>X Spotter</a>
+          </div>
+          <div class="mega-col"><span class="ml-label">MOBILE</span>
+            <a class="mega-link" href="patrol-g2.html"><span class="dot"></span>Patrol G2</a>
+            <a class="mega-link" href="bike-patrol.html"><span class="dot"></span>Bike Patrol</a>
+            <a class="mega-link" href="semistation.html"><span class="dot"></span>TerraEye</a>
+          </div></div>
+</div>
+      </div>
+
+      <div class="nav-item" data-menu>
+        <button class="nav-trigger">Company <span class="chev"></span></button>
+        <div class="mega mega-company">
+          <div class="mega-lead"><span class="ml-label">COMPANY</span><p>Engineering the future.</p><a class="mega-mail" href="mailto:contact@ekin.com" style="display:inline-block;margin-top:18px;color:#fff;font-size:15px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:2px">contact@ekin.com</a></div>
+          <div class="mega-company-cols">
+            <div class="mega-col"><span class="ml-label">PEOPLE</span>
+              <a class="mega-link" href="leadership.html"><span class="dot"></span>Leadership</a>
+              <a class="mega-link" href="advisory-board.html"><span class="dot"></span>Advisory Board</a>
+              <a class="mega-link" href="jobs.html"><span class="dot"></span>Open Roles</a>
+            </div>
+            <div class="mega-col"><span class="ml-label">ABOUT</span>
+              <a class="mega-link" href="mission.html"><span class="dot"></span>Mission</a>
+              <a class="mega-link" href="ekin-ventures.html"><span class="dot"></span>Ekin Ventures</a>
+              <a class="mega-link" href="press.html"><span class="dot"></span>Newsroom</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="nav-cta">
+      
+      <a href="support.html" class="btn btn-ghost btn-support">Support</a>
+      <a href="book-a-demo.html" class="btn btn-primary">Book a Demo</a>
+      <button class="nav-burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- mobile drawer -->
+<div class="drawer" id="drawer">
+  <div class="drawer-head">
+    <a href="#top" class="logo"><img class="logo-light" style="display:block" src="assets/ekin-logo-white.png" alt="Ekin" /></a>
+    <button class="drawer-close" id="drawerClose" aria-label="Close">&times;</button>
+  </div>
+  <div class="drawer-group">
+    <h6>Solutions</h6>
+    <a href="public-safety.html">Public Safety</a><a href="cities-and-municipalities.html">Cities &amp; Municipalities</a><a href="parking.html">Parking</a><a href="city-health.html">City Health</a>
+  </div>
+  <div class="drawer-group">
+    <h6>Devices</h6>
+    <a href="maestro-os.html">Maestro OS</a>
+    <span class="drawer-sub">Fixed</span>
+    <a href="spotter.html">Spotter</a><a href="box-spotter.html">Box Spotter</a>
+    <span class="drawer-sub">Mobile &amp; Fixed</span>
+    <a href="x-spotter.html">X Spotter</a>
+    <span class="drawer-sub">Mobile</span>
+    <a href="patrol-g2.html">Patrol G2</a><a href="bike-patrol.html">Bike Patrol</a><a href="semistation.html">TerraEye</a>
+  </div>
+  <div class="drawer-group">
+    <h6>Company</h6>
+    <a href="mission.html">Mission</a><a href="leadership.html">Leadership</a><a href="jobs.html">Open Roles</a><a href="ekin-ventures.html">Ekin Ventures</a><a href="press.html">Newsroom</a><a href="advisory-board.html">Advisory Board</a>
+  </div>
+  <div class="drawer-group">
+    <h6>Support</h6>
+    <a href="support.html">Support</a><a href="contact.html">Contact</a><a href="locations.html">Locations</a>
+  </div>
+  <div class="drawer-cta">
+    <a href="support.html" class="btn btn-ghost">Support</a>
+    <a href="book-a-demo.html" class="btn btn-primary">Book a Demo</a>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero hero-bp" id="top" data-screen-label="Hero" style="position:relative">
+  <h1 class="sr-only">Ekin Spotter</h1>
+  <video class="hero-bg" src="assets/spotter-hero-fs.mp4" autoplay muted loop playsinline preload="auto" poster="assets/spotter-hero-poster.jpg"></video>
+<a class="hero-arrow" href="#next-section" aria-label="Scroll"><span>Scroll</span><svg viewBox="0 0 20 34" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 2v27"/><path d="M3 22l7 8 7-8"/></svg></a>
+</section>
+
+
+
+
+<!-- ============ MODULAR BY DESIGN ============ -->
+<section class="pad-y" id="next-section">
+  <div class="wrap reveal">
+    <div class="split-text mod-text">
+      <span class="eyebrow">Modular by design</span>
+      <h2>Smartest pole, multiple modules, multiple missions.</h2>
+      <p>Choose the detection modules the site needs. Add more as requirements change.</p>
+    </div>
+  </div>
+  <div class="mod-fullvideo">
+    <video preload="none" src="assets/spotter-modular-full.mp4" data-lazy-play="" data-m-portrait="skip" muted loop playsinline></video>
+  </div>
+</section>
+
+
+<!-- ============ MODULAR PRODUCT ARCHITECTURE ============ -->
+<section class="mpa" id="modules" aria-labelledby="mpa-title">
+  <div class="wrap mpa-intro reveal">
+    <span class="eyebrow">Modular product architecture</span>
+    <h2 id="mpa-title">15+ modules to stack on top of each other.</h2>
+    <p>Configure Spotter around different operational needs by combining purpose-built modules within one integrated smart city platform.</p>
+  </div>
+  <div class="mpa-scroll" id="mpaScroll">
+    <div class="mpa-sticky">
+      <div class="wrap mpa-stage">
+        <nav class="mpa-index" id="mpaIndex" aria-label="Spotter modules"></nav>
+        <figure class="mpa-viewer">
+          <span class="mpa-guide" aria-hidden="true"></span>
+          <span class="mpa-line mpa-line-a" aria-hidden="true"></span>
+          <span class="mpa-line mpa-line-b" aria-hidden="true"></span>
+          <span class="mpa-base" aria-hidden="true"></span>
+          <div class="mpa-imgs" id="mpaImgs"></div>
+        </figure>
+        <article class="mpa-card" id="mpaCard">
+          <span class="mpa-num" id="mpaNum">01 / 10</span>
+          <h3 id="mpaTitle">Antenna Module</h3>
+          <p id="mpaDesc">Supports the communication infrastructure required to keep Spotter connected with the wider Ekin ecosystem.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+  <div class="wrap mpa-mobile" id="mpaMobile"></div>
+</section>
+<style>
+  .mpa{background:#050505;border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2);padding-top:clamp(44px,6vh,72px)}
+  .mpa-intro{max-width:none;margin-inline:auto}
+  .mpa-intro h2,.mpa-intro p{max-width:760px}
+  .mpa-intro h2{margin-top:16px;font-size:clamp(30px,3.4vw,52px);line-height:1.04;letter-spacing:-.03em}
+  .mpa-intro p{margin-top:20px;color:var(--muted);font-size:clamp(16px,1.2vw,19px);line-height:1.6;max-width:56ch}
+  .mpa-scroll{position:relative;margin-top:clamp(16px,2vh,28px)}
+  .mpa-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden}
+  .mpa-stage{display:grid;grid-template-columns:14% 50% 36%;align-items:center;gap:clamp(24px,3vw,48px);width:100%}
+  .mpa-index{display:flex;flex-direction:column;gap:2px;border-left:1px solid var(--line)}
+  .mpa-item{appearance:none;background:none;border:0;text-align:left;padding:9px 0 9px 16px;margin-left:-1px;border-left:1px solid transparent;cursor:pointer;color:#4c5666;font-family:var(--mono,monospace);font-size:11px;letter-spacing:.14em;text-transform:uppercase;transition:color .3s,border-color .3s}
+  .mpa-item:hover{color:#9fb4d6}
+  .mpa-item.on{color:#fff;border-left-color:#FF3932}
+  .mpa-item i{font-style:normal;color:#FF3932;opacity:.7;margin-right:9px}
+  .mpa-item.on i{opacity:1}
+  .mpa-count{margin-top:22px;padding-left:16px;font-family:var(--mono,monospace);font-size:11px;letter-spacing:.16em;color:#606a7a}
+  .mpa-viewer{position:relative;margin:0;height:74vh;display:grid;place-items:center}
+  .mpa-guide{position:absolute;width:min(46vh,420px);aspect-ratio:1;border:1px solid rgba(255,255,255,.055);border-radius:50%}
+  .mpa-line{position:absolute;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.07) 22%,rgba(255,255,255,.07) 78%,transparent)}
+  .mpa-line-a{left:26%}
+  .mpa-line-b{right:26%}
+  .mpa-base{position:absolute;bottom:6%;width:min(40vh,360px);height:120px;background:radial-gradient(ellipse at center,rgba(255,57,50,.16),transparent 70%);filter:blur(2px)}
+  .mpa-imgs{position:relative;width:100%;height:100%}
+  .mpa-imgs img{position:absolute;inset:0;margin:auto;height:84%;width:auto;max-width:62%;max-height:84%;width:auto;height:auto;object-fit:contain;opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);filter:drop-shadow(0 30px 60px rgba(0,0,0,.7))}
+  .mpa-imgs img.on{opacity:1;transform:none}
+  .mpa-imgs img.mpa-xl.on{transform:scale(1.25)}
+  .mpa-mblock img.mpa-xl{transform:scale(1.25)}
+  .mpa-card{max-width:400px;background:#0a0c10;border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:32px 30px;box-shadow:0 26px 60px -34px rgba(0,0,0,.9);position:relative}
+  .mpa-card::before{content:"";position:absolute;left:calc(-1 * clamp(16px,3vw,44px));top:50%;width:clamp(16px,3vw,44px);height:1px;background:linear-gradient(90deg,rgba(255,57,50,0),rgba(255,57,50,.55))}
+  .mpa-num{font-family:var(--mono,monospace);font-size:11px;letter-spacing:.2em;color:#FF3932}
+  .mpa-card h3{margin-top:14px;font-size:clamp(22px,2vw,30px);font-weight:600;letter-spacing:-.02em;color:#fff;line-height:1.14}
+  .mpa-card p{margin-top:14px;font-size:15.5px;line-height:1.62;color:#8a97ac}
+  .mpa-card.swap{animation:mpaSwap .45s cubic-bezier(.2,.7,.2,1)}
+  @keyframes mpaSwap{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
+  .mpa-mobile{display:none}
+  .mpa-mblock{padding:clamp(22px,4vh,36px) 0;border-top:1px solid var(--line)}
+  .mpa-mblock .mpa-mimg{height:300px;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr);justify-items:start;align-items:center;position:relative;overflow:hidden}
+  .mpa-mblock .mpa-mimg::after{content:"";position:absolute;bottom:8%;left:0;width:46%;height:70px;background:radial-gradient(ellipse at center,rgba(255,57,50,.14),transparent 70%)}
+  .mpa-mblock img{height:100%;width:auto;max-width:70%;max-height:100%;object-fit:contain;position:relative;z-index:1}
+  .mpa-mblock .mpa-num{display:block;margin-top:24px}
+  .mpa-mblock h3{margin-top:12px;font-size:23px;font-weight:600;color:#fff;letter-spacing:-.02em}
+  .mpa-mblock p{margin-top:10px;font-size:15.5px;line-height:1.62;color:#8a97ac;max-width:52ch}
+  @media(max-width:1024px){
+    .mpa{padding-bottom:clamp(12px,2vh,24px)}
+    .mpa-scroll{display:none}
+    .mpa-mobile{display:block;margin-top:clamp(12px,2vh,22px)}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .mpa-imgs img{transition:none;transform:none}
+    .mpa-card.swap{animation:none}
+  }
+</style>
+<script>
+(function(){
+var MODULES=[
+ {n:'01',short:'Antenna',title:'Antenna Module',img:'images/modules/antenna.png',desc:'Supports the communication infrastructure required to keep Spotter connected with the wider Ekin ecosystem.'},
+ {n:'02',short:'360\u00b012K Video',title:'360\u00b0 12K Video Module',img:'images/modules/surveillance.png',desc:'Integrates camera-based monitoring into the Spotter platform to support continuous visual awareness across monitored areas.'},
+ {n:'03',short:'PTZ Dome',title:'PTZ Dome Module',img:'images/modules/ptz-dome.png',desc:'Provides controllable pan, tilt, and zoom viewing for focused observation of changing activity within the monitored area.'},
+ {n:'04',short:'Safe Traffic',title:'Safe Traffic Module',img:'images/modules/safe-traffic.png',desc:'Brings AI-powered traffic monitoring and detection capabilities into Spotter\u2019s modular architecture.'},
+ {n:'05',short:'Hotspot',title:'Hotspot Module',img:'images/modules/hotspot.png',desc:'Extends local wireless connectivity through a module integrated directly into the Spotter platform.'},
+ {n:'06',short:'White Flash',title:'White Flash Module',img:'images/modules/wf.png',desc:'Provides controlled white-light illumination to support clear image capture in low-light and nighttime conditions.'},
+ {n:'07',short:'Speaker',title:'Speaker Module',img:'images/modules/speaker.png',desc:'Adds integrated audio output for authorized public announcements and location-based communication.'},
+ {n:'08',short:'City Light',title:'City Light Module',img:'images/modules/city-light.png',desc:'Integrates urban lighting into Spotter\u2019s modular structure to support illuminated public environments.'},
+ {n:'09',short:'Beacon Light',title:'Beacon Light Module',img:'images/modules/beacon-light.png',desc:'Provides a highly visible light signal for operational warnings and location-based visual notifications.'},
+ {n:'10',short:'Solar',title:'Solar Module',img:'images/modules/solar.png',xl:true,desc:'Provides renewable energy to support efficient, off-grid operation in locations with access to sunlight.'}
+];
+var scroller=document.getElementById('mpaScroll');
+if(!scroller)return;
+var idx=document.getElementById('mpaIndex'),imgs=document.getElementById('mpaImgs'),card=document.getElementById('mpaCard'),mob=document.getElementById('mpaMobile');
+scroller.style.height=(MODULES.length*85+100)+'vh';
+MODULES.forEach(function(m,i){
+  var b=document.createElement('button');b.type='button';b.className='mpa-item'+(i===0?' on':'');
+  b.innerHTML='<i>'+m.n+'</i>'+m.short;
+  b.addEventListener('click',function(){var r=scroller.getBoundingClientRect(),top=r.top+(document.scrollingElement||document.documentElement).scrollTop;var step=(scroller.offsetHeight-window.innerHeight)/MODULES.length;(document.scrollingElement||document.documentElement).scrollTo({top:top+step*i+step*0.5,behavior:'smooth'})});
+  idx.appendChild(b);
+  var im=document.createElement('img');im.src=m.img;im.alt=m.title+' render for the Ekin Spotter platform';im.className=(i===0?'on':'')+(m.xl?' mpa-xl':'');if(i>0)im.loading='lazy';
+  imgs.appendChild(im);
+  var blk=document.createElement('article');blk.className='mpa-mblock';
+  blk.innerHTML='<div class="mpa-mimg"><img class="'+(m.xl?'mpa-xl':'')+'" src="'+m.img+'" alt="'+m.title+' render" loading="lazy" /></div><span class="mpa-num">'+m.n+' / 09</span><h3>'+m.title+'</h3><p>'+m.desc+'</p>';
+  mob.appendChild(blk);
+});
+var items=idx.querySelectorAll('.mpa-item'),pics=imgs.querySelectorAll('img'),cur=-1;
+var count=document.createElement('div');count.className='mpa-count';count.textContent='01 / 10';idx.appendChild(count);
+var num=document.getElementById('mpaNum'),ttl=document.getElementById('mpaTitle'),dsc=document.getElementById('mpaDesc');
+function show(i){
+  if(i===cur)return;cur=i;var m=MODULES[i];
+  items.forEach(function(b,k){b.classList.toggle('on',k===i)});
+  pics.forEach(function(p,k){p.classList.toggle('on',k===i)});
+  num.textContent=m.n+' / 10';ttl.textContent=m.title;dsc.textContent=m.desc;
+  count.textContent=m.n+' / 10';
+  card.classList.remove('swap');void card.offsetWidth;card.classList.add('swap');
+}
+var ticking=false;
+function update(){
+  ticking=false;
+  var r=scroller.getBoundingClientRect(),h=scroller.offsetHeight-window.innerHeight;
+  if(h<=0)return;
+  var p=Math.min(1,Math.max(0,-r.top/h));
+  show(Math.min(MODULES.length-1,Math.floor(p*MODULES.length)));
+}
+function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(update)}}
+window.addEventListener('scroll',onScroll,{passive:true});
+document.body.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',onScroll);
+update();
+})();
+</script>
+
+
+
+<!-- ============ ADAPT TO OPERATION ============ -->
+<section class="pad-y">
+  <div class="wrap reveal">
+    <div class="split-text mod-text">
+      <span class="eyebrow">One platform. Different urban needs.</span>
+      <h2>Adapt Spotter to the operation.</h2>
+      <p>Spotter combines traffic enforcement, road safety, and environmental monitoring in one smart city platform.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BROCHURE SPLIT ============ -->
+<section class="pad-y" style="padding-top:0">
+  <div class="wrap split reveal">
+    <div class="split-media fp-video"><video preload="none" src="assets/spotter-full-picture.mp4" data-lazy-play="" data-m-portrait="skip" muted loop playsinline></video></div>
+  </div>
+</section>
+
+<!-- ============ DEMO CARD (dark, rounded) ============ -->
+<section class="pad-y" style="padding-top:0">
+  <div class="wrap">
+    <div class="demo-card reveal" style="background:transparent;border:0">
+      <div class="demo-text">
+        <span class="eyebrow" style="color:var(--accent)">See it in action</span>
+        <h2 style="margin-top:16px">See what the Spotter can do for your community.</h2>
+        <p>See real-time detection and analytics, first hand.</p>
+        <div class="actions" style="margin-top:30px;display:flex;gap:14px;flex-wrap:wrap">
+          <a href="book-a-demo.html" class="btn btn-primary">Book a Demo <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+      <img class="demo-img demo-pole" src="assets/spotter-cut.png" alt="Ekin Spotter smart pole" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS / WHY EKIN ============ -->
+<section class="pad-y" style="background:var(--bg-2);border-top:1px solid var(--line-2)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Why Ekin</span>
+      <h2>Trusted by industry leaders</h2>
+    </div>
+    <div class="tcard reveal" style="margin-top:50px">
+      <img loading="lazy" decoding="async" class="tphoto" id="tPhoto" src="https://cdn.prod.website-files.com/67d50d6f1c74072379eb9674/67f7b9a4b35dfb90863570aa_EKIN-Pole-675x506.jpg" alt="" />
+      <div>
+        <span class="tquote-mark">&ldquo;</span>
+        <blockquote id="tQuote">We are proud to be a leading city in innovation and technology. This smart pole with safety cameras, public Wi-Fi, traffic and environmental sensors will assist emergency management in creating a safer community for residents, business owners, and visitors.</blockquote>
+        <div class="tmeta">
+          <div class="tname" id="tName">Peter Iglesias</div>
+          <div class="trole" id="tRole">Coral Gables, Florida, City Manager</div>
+        </div>
+        <div class="tctrl">
+          <div class="tdots" id="tDots"></div>
+          <div class="tarrows">
+            <button class="tarrow" id="tPrev" aria-label="Previous">&larr;</button>
+            <button class="tarrow" id="tNext" aria-label="Next">&rarr;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+if(document.querySelector('.tcard')){
+const TS=[
+  {q:'We are proud to be a leading city in innovation and technology. This smart pole with safety cameras, public Wi-Fi, traffic and environmental sensors will assist emergency management in creating a safer community for residents, business owners, and visitors.',n:'Peter Iglesias',r:'Coral Gables, Florida, City Manager',p:'https://cdn.prod.website-files.com/67d50d6f1c74072379eb9674/67f7b9a4b35dfb90863570aa_EKIN-Pole-675x506.jpg'},
+  {q:'We\u2019ve seen a lot of technology in this space, but what Ekin is bringing to market truly stands apart. They\u2019re not a startup, they\u2019re already trusted globally, and their commitment to investing locally in U.S. operations, service, and support is exactly what agencies have been asking for.',n:'Donald W. De Lucca',r:'Retired Police Chief and Senior Public Safety Advisor',p:'images/testimonial-delucca.png'}
+];
+let ti=0;
+const T={q:document.getElementById('tQuote'),n:document.getElementById('tName'),r:document.getElementById('tRole'),p:document.getElementById('tPhoto'),dots:document.getElementById('tDots')};
+TS.forEach(function(_,i){var d=document.createElement('button');d.className='tdot'+(i===0?' active':'');d.onclick=function(){go(i)};T.dots.appendChild(d)});
+function go(i){ti=(i+TS.length)%TS.length;var t=TS[ti];T.q.textContent=t.q;T.n.textContent=t.n;T.r.textContent=t.r;T.p.src=t.p;T.dots.querySelectorAll('.tdot').forEach(function(d,k){d.classList.toggle('active',k===ti)});T.q.classList.remove('prod-fade');void T.q.offsetWidth;T.q.classList.add('prod-fade')}
+document.getElementById('tNext').onclick=function(){go(ti+1)};
+document.getElementById('tPrev').onclick=function(){go(ti-1)};
+var tauto=setInterval(function(){go(ti+1)},7000);
+document.querySelector('.tcard').addEventListener('mouseenter',function(){clearInterval(tauto)});
+document.querySelector('.tcard').addEventListener('mouseleave',function(){tauto=setInterval(function(){go(ti+1)},7000)});
+}
+</script>
+
+<!-- ============ PRODUCTS SHOWCASE ============ -->
+<!-- ============ PRODUCT ECOSYSTEM ============ -->
+<section class="pe-sec" id="products">
+  <div class="pe-shell">
+    <div class="pe-head reveal">
+      <span class="eyebrow">Ekin product ecosystem</span>
+      <h2>One Connected Ecosystem</h2>
+      <p>Connected intelligence for mobility, environmental insight and city operations.</p>
+    </div>
+    <div class="pe-rows reveal">
+      <div class="pe-row pe-row-1">
+      <a class="pe-card pe-lead" href="maestro-os.html"><img src="assets/maestro-city-red.jpg" alt="A connected city unified by Maestro OS" loading="lazy" /><img class="pe-logo" src="images/hero/maestro-logo.png" alt="Maestro OS" loading="lazy" /><span class="pe-meta"><strong>Maestro OS</strong><em>The command layer where connected city intelligence becomes coordinated action.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
+      <a class="pe-card" href="patrol-g2.html"><img src="assets/patrol-g2-car-roof.opt.webp" alt="Ekin Patrol G2 on a vehicle roof" loading="lazy" /><span class="pe-meta"><strong>Patrol G2</strong><em>Mobile intelligence that travels with the vehicle and keeps teams aware in real time.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
+      <a class="pe-card" href="spotter.html"><img src="assets/spotter-roadside-wide.opt.jpg" alt="Ekin Spotter modular pole installed on a roadside verge" loading="lazy" /><span class="pe-meta"><strong>Spotter</strong><em>A modular city platform uniting traffic insight, environmental data and operations.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
+      </div>
+      <div class="pe-row pe-row-2">
+      <a class="pe-card" href="x-spotter.html"><img src="assets/x-spotter-windscreen.jpg" alt="Ekin X Spotter unit mounted on a vehicle windscreen" loading="lazy" /><span class="pe-meta"><strong>X Spotter</strong><em>Fixed or mobile edge intelligence delivering real time insight across multiple lanes.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
+      <a class="pe-card" href="box-spotter.html"><img src="assets/box-spotter-street-square.opt.jpg" alt="Ekin Box Spotter mounted on a street-side arm above a city block" loading="lazy" /><span class="pe-meta"><strong>Box Spotter</strong><em>Rapid deployment intelligence for wherever operational support is needed next.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
+      <a class="pe-card pe-card-bp" href="bike-patrol.html"><picture><source media="(max-width:640px)" srcset="assets/bike-patrol-eco-mobile.webp" /><img src="assets/bike-patrol-ecosystem.opt.webp" alt="Ekin Bike Patrol unit mounted on the handlebars of an Ekin e-bike" loading="lazy" /></picture><span class="pe-meta"><strong>Bike Patrol</strong><em>Full Edge AI intelligence for the agile, e-mobility side of the city.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
+      <a class="pe-card" href="semistation.html"><img src="https://cdn.prod.website-files.com/67c4f1010035fe2c75689a55/67f6836b9066f99f111bb6f4_image%20556.avif" alt="Ekin TerraEye on a city street" loading="lazy" /><span class="pe-meta"><strong>TerraEye</strong><em>Solar powered intelligence for places without power or connectivity.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA / DEMO ============ -->
+<section class="pad-y dark-sec" id="demo">
+  <div class="wrap" style="text-align:center;max-width:840px">
+    <span class="eyebrow reveal" style="justify-content:center">Get started</span>
+    <h2 class="reveal" style="font-size:clamp(36px,6vw,72px);font-weight:700;margin-top:20px">Make your city smarter and safer.</h2>
+    <p class="reveal" style="color:rgba(255,255,255,.72);font-size:20px;margin:22px auto 0;max-width:54ch">Book a demo and watch the Ekin Spotter&rsquo;s accuracy in action across speed, parking and surveillance.</p>
+    <div class="reveal" style="margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="book-a-demo.html" class="btn btn-primary" style="padding:16px 30px;font-size:16px">Book a Demo <span class="arrow">&rarr;</span></a>
+      <a href="partners.html" class="btn btn-ghost" style="padding:16px 30px;font-size:16px;color:#fff">Find a partner</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top" style="grid-template-columns:1.3fr 1fr 1fr 1fr 1fr">
+      <div class="foot-brand">
+        <a href="ekin-home.html" class="logo foot-logo"><img loading="lazy" decoding="async" class="logo-light" src="assets/ekin-logo-white.png" alt="Ekin" /></a>
+        <p>Smarter is Safer.</p>
+        <form class="news" id="newsForm">
+          <input type="email" placeholder="Sign up for the newsletter" required />
+          <button type="submit" aria-label="Subscribe">&rarr;</button>
+        </form>
+      </div>
+      <div class="foot-col">
+        <h5>Solutions</h5>
+        <a href="public-safety.html">Public Safety</a><a href="cities-and-municipalities.html">Cities &amp; Municipalities</a><a href="parking.html">Parking</a><a href="city-health.html">City Health</a>
+      </div>
+      <div class="foot-col">
+        <h5>Devices</h5>
+        <a href="maestro-os.html">Maestro OS</a><a href="spotter.html">Spotter</a><a href="patrol-g2.html">Patrol G2</a><a href="box-spotter.html">Box Spotter</a><a href="x-spotter.html">X Spotter</a><a href="bike-patrol.html">Bike Patrol</a><a href="semistation.html">TerraEye</a>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <a href="mission.html">Mission</a><a href="leadership.html">Leadership</a><a href="jobs.html">Open Roles</a><a href="ekin-ventures.html">Ekin Ventures</a><a href="press.html">Newsroom</a><a href="advisory-board.html">Advisory Board</a>
+      </div>
+      <div class="foot-col">
+        <h5>Support</h5>
+        <a href="support.html">Support</a><a href="book-a-demo.html">Book a Demo</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Ekin Inc. Smarter is Safer.</div>
+      <div class="foot-legal">
+        <a href="legal.html#privacy">Privacy</a><a href="legal.html#terms">Terms</a><a href="legal.html#imprint">Company Information</a>
+      </div>
+      <div class="foot-social">
+        <a href="https://www.linkedin.com/company/ekinsmartcity" target="_blank" rel="noopener" title="LinkedIn">in</a><a href="https://www.instagram.com/ekinsmartcity/" target="_blank" rel="noopener" title="Instagram">ig</a><a href="https://www.facebook.com/ekinsmartcity" target="_blank" rel="noopener" title="Facebook">f</a><a href="https://x.com/ekinsmartcity" target="_blank" rel="noopener" title="X">X</a><a href="https://www.youtube.com/c/EkinSmartCity" target="_blank" rel="noopener" title="YouTube">yt</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- nav scroll ---------- */
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>20)},{passive:true});
+
+/* ---------- mega menu ---------- */
+document.querySelectorAll('.nav-item[data-menu]').forEach(item=>{
+  let t;
+  const open=()=>{clearTimeout(t);document.querySelectorAll('.nav-item.open').forEach(o=>{if(o!==item)o.classList.remove('open')});item.classList.add('open')};
+  const close=()=>{t=setTimeout(()=>item.classList.remove('open'),120)};
+  item.addEventListener('mouseenter',open);
+  item.addEventListener('mouseleave',close);
+  item.querySelector('.nav-trigger').addEventListener('click',e=>{e.stopPropagation();item.classList.toggle('open')});
+});
+document.addEventListener('click',()=>document.querySelectorAll('.nav-item.open').forEach(o=>o.classList.remove('open')));
+
+/* ---------- mobile drawer ---------- */
+const drawer=document.getElementById('drawer');
+document.getElementById('burger').onclick=()=>drawer.classList.add('open');
+document.getElementById('drawerClose').onclick=()=>drawer.classList.remove('open');
+drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>drawer.classList.remove('open')));
+
+/* ---------- reveal on scroll ---------- */
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---------- modular tower: sequential assembly ---------- */
+(function(){
+  const ms=document.getElementById('modStack');
+  if(!ms)return;
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: no-preference)').matches){ms.classList.add('preanim');}
+  if(!ms.classList.contains('preanim')){return;}
+  const mo=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){ms.classList.remove('preanim');mo.disconnect();}})},{threshold:0.35});
+  mo.observe(ms);
+})();
+
+/* ---------- newsletter ---------- */
+document.getElementById('newsForm').addEventListener('submit',e=>{
+  e.preventDefault();const i=e.target.querySelector('input');i.value='';i.placeholder='Thank you! You\'re subscribed!';
+  setTimeout(()=>i.placeholder='Sign up for the newsletter',3500);
+});
+
+(function(){var n=document.getElementById('nav');if(!n)return;function h(){document.documentElement.style.setProperty('--nav-h',n.offsetHeight+'px');}h();window.addEventListener('resize',h);window.addEventListener('scroll',h,{passive:true});})();
+</script>
+<script src="assets/ekin-mobile.js" defer></script>
+<script src="assets/ekin-mobile-media.js" defer></script>
+<script src="assets/ekin-mobile-accordion.js" defer></script>
+<script id="m-mpa-js">(function(){var idx=document.getElementById('mpaIndex');if(!idx||!window.MutationObserver)return;var mq=matchMedia('(max-width:640px)');new MutationObserver(function(){if(!mq.matches)return;var on=idx.querySelector('.mpa-item.on');if(on)idx.scrollTo({left:on.offsetLeft-20,behavior:'smooth'})}).observe(idx,{subtree:true,attributes:true,attributeFilter:['class']})})();</script>
+</body>
+</html>

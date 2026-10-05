@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Phone Preview — Ekin</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#111;color:#e8edf6;font:14px/1.4 ui-monospace,Menlo,monospace}a{color:#e8edf6}a:hover{color:#fff}
+.bar{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:14px 20px;background:#000;border-bottom:1px solid #222}
+.bar b{letter-spacing:.18em;text-transform:uppercase;font-size:11px;color:#8a97ac;margin-right:8px}
+select,button{background:#1a1a1a;color:#e8edf6;border:1px solid #333;border-radius:8px;padding:8px 12px;font:inherit;cursor:pointer}
+select{max-width:340px}
+button[aria-pressed="true"]{border-color:#e8edf6}
+.stage{display:flex;flex-wrap:wrap;gap:40px;justify-content:center;padding:40px 20px 80px}
+.dev{display:flex;flex-direction:column;align-items:center;gap:12px}
+.dev span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8a97ac}
+.phone{position:relative;background:#000;border:10px solid #2a2a2a;border-radius:48px;overflow:hidden;box-shadow:0 30px 60px -30px #000}
+.phone iframe{display:block;border:0;background:#000}
+.phone .ld{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:#8a97ac;background:#000;pointer-events:none;transition:opacity .2s}
+.phone.ok .ld{opacity:0}
+.phone.slow .ld{color:#ff8a84}
+</style></head><body>
+<div class="bar"><b>Phone preview</b>
+<select id="pg" aria-label="Page"></select>
+<button id="prev" type="button" aria-label="Previous page">←</button><button id="next" type="button" aria-label="Next page">→</button>
+<button class="sz" type="button" data-s="390" aria-pressed="true">iPhone 15</button>
+<button class="sz" type="button" data-s="375">iPhone SE</button>
+<button class="sz" type="button" data-s="412">Pixel 8 Pro</button>
+<button class="sz" type="button" data-s="834">iPad</button>
+<button class="sz" type="button" data-s="all">All phones</button>
+<a id="open" href="#" target="_blank">Open page ↗</a>
+</div>
+<div class="stage" id="stage"></div>
+<script>
+const groups={
+ "Main":["ekin-home","public-safety","cities-and-municipalities","solutions-for-business"],
+ "Products":["maestro-os","spotter","x-spotter","box-spotter","patrol-g2","bike-patrol","parking","semistation"],
+ "Company":["about-ekin","mission","leadership","advisory-board","ekin-ventures","partners","locations","careers","jobs","general-application"],
+ "Contact":["contact","book-a-demo","support","legal"],
+ "Newsroom":["press","ekin-25m-us-expansion","coral-gables-ekin-spotter-smart-poles","ekin-at-aacop-2026","ekin-at-enforce-tac-2025","ekin-at-enforce-tac-2026","ekin-at-european-police-congress-2025","ekin-at-gpec-digital-2025","ekin-at-intertraffic-amsterdam-2026","ekin-at-its-world-congress-2025","ekin-at-nsa-winter-conference-2026","ekin-at-smart-city-summit-expo-2025","ekin-featured-in-its-international","ekin-patrol-g2-sarajevo-canton-police","ekin-patrol-sarajevo-high-tech-interceptors","ekin-showcases-smart-city-solutions-at-thailand-roadshow-bangkok","ekin-spotter-malay-mail-point-to-point","ekin-supports-sett-shell-eco-marathon-2025","smart-policing-conference-switzerland","5-ways-ekin-maestro-simplifies-real-time-policing","a-day-in-the-life-ekin-patrol-g2"],
+ "Jobs":["job-regional-sales-manager-arizona","job-regional-sales-manager-california","job-regional-sales-manager-east-coast","job-regional-sales-manager-florida","job-regional-sales-manager-new-york","job-regional-sales-manager-texas","job-regional-sales-manager-west-coast","job-customer-success-manager-poland","job-executive-secretary-miami","job-application-technician-engineer-germany","job-application-technician-engineer-hungary","job-application-technician-engineer-poland","job-application-technician-engineer-switzerland"]
+};
+const pages=Object.values(groups).flat();
+const devs=[{n:"iPhone SE",w:375,h:667},{n:"iPhone 15",w:390,h:844},{n:"Pixel 8 Pro",w:412,h:892},{n:"iPad",w:834,h:1112}];
+const pg=document.getElementById('pg'),st=document.getElementById('stage');
+pg.innerHTML=Object.entries(groups).map(([g,l])=>`<optgroup label="${g}">`+l.map(p=>`<option value="${p}">${p}</option>`).join('')+'</optgroup>').join('');
+let size=localStorage.getItem('pp-size2')||'390';if(!['375','390','412','834','all'].includes(size))size='390';
+const sv=localStorage.getItem('pp-page');pg.value=pages.includes(sv)?sv:'ekin-home';const qp=new URLSearchParams(location.search).get('p');if(qp&&pages.includes(qp))pg.value=qp;
+function pageFromUrl(u){const m=String(u).split('#')[0].split('?')[0].match(/([^\/]+)\.html?$/);return m?m[1]:null}
+function render(){
+ const url=encodeURI(pg.value+'.html');document.getElementById('open').href=url;
+ localStorage.setItem('pp-page',pg.value);localStorage.setItem('pp-size2',size);
+ document.querySelectorAll('.sz').forEach(b=>b.setAttribute('aria-pressed',b.dataset.s===size));
+ const list=size==='all'?devs.filter(d=>d.w<800):devs.filter(d=>String(d.w)===size);
+ st.innerHTML=list.map(d=>`<div class="dev"><div class="phone" style="width:${d.w+20}px"><iframe src="${url}" width="${d.w}" height="${d.h}" title="${d.n} preview"></iframe><div class="ld">Loading ${pg.value}…</div></div><span>${d.n} · ${d.w}px</span></div>`).join('');
+ st.querySelectorAll('.phone').forEach(ph=>{
+  const f=ph.querySelector('iframe'),ld=ph.querySelector('.ld');
+  const slow=setTimeout(()=>{if(!ph.classList.contains('ok')){ph.classList.add('slow');ld.textContent='Still loading… video-heavy pages can take a while. Use “Open page ↗” if it stays blank.'}},12000);
+  f.addEventListener('load',()=>{clearTimeout(slow);ph.classList.add('ok');
+   // keep the dropdown in sync when you tap links inside the phone
+   try{const p=pageFromUrl(f.contentWindow.location.href);if(p&&p!==pg.value&&pages.includes(p)){pg.value=p;localStorage.setItem('pp-page',p);document.getElementById('open').href=encodeURI(p+'.html')}}catch(e){}
+  });
+ });
+}
+pg.onchange=render;
+document.getElementById('prev').onclick=()=>{const i=pages.indexOf(pg.value);pg.value=pages[(i-1+pages.length)%pages.length];render()};
+document.getElementById('next').onclick=()=>{const i=pages.indexOf(pg.value);pg.value=pages[(i+1)%pages.length];render()};
+document.querySelectorAll('.sz').forEach(b=>b.onclick=()=>{size=b.dataset.s;render()});
+render();
+</script>
+</body></html>

@@ -1,0 +1,5 @@
+{
+  "name": "ekin-usa-site",
+  "private": true,
+  "engines": { "node": ">=18" }
+}

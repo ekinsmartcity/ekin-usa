@@ -54,18 +54,18 @@ for(var i=0;i<N;i++)for(var j=0;j<N;j++){
 // ---- devices on the plan ----
 var DEV=[
   {id:'x-spotter',n:'X Spotter',lbl:'X Spotter',x:origin+2*STEP,z:origin+2*STEP,h:16,
-   d:'Multi-lane detection and pedestrian-crossing enforcement at the junction.',href:'X Spotter.html'},
+   d:'Multi-lane detection and pedestrian-crossing enforcement at the junction.',href:'x-spotter.html'},
   {id:'spotter',n:'Spotter',lbl:'Spotter',x:origin+4*STEP,z:origin+3*STEP,h:19,
-   d:'Smart-city module: ALPR, speed and environmental monitoring on one pole.',href:'Spotter.html'},
+   d:'Smart-city module: ALPR, speed and environmental monitoring on one pole.',href:'spotter.html'},
   {id:'box',n:'Box Spotter',lbl:'Box Spotter',x:origin+5*STEP,z:origin+1*STEP,h:12,
-   d:'Portable unit deployed where coverage is needed, with no fixed infrastructure.',href:'Box Spotter.html'},
+   d:'Portable unit deployed where coverage is needed, with no fixed infrastructure.',href:'box-spotter.html'},
   {id:'patrol',n:'Patrol G2',lbl:'Patrol G2',x:origin+1*STEP,z:origin+4*STEP,h:3,
-   d:'Mobile enforcement covering changing routes across the city.',href:'Patrol G2.html'},
+   d:'Mobile enforcement covering changing routes across the city.',href:'patrol-g2.html'},
   {id:'bike',n:'Bike Patrol',lbl:'Bike Patrol',x:origin+5*STEP,z:origin+5*STEP,h:2.5,
-   d:'Enforcement reaching dense streets and areas vehicles cannot.',href:'Bike Patrol.html'}
+   d:'Enforcement reaching dense streets and areas vehicles cannot.',href:'bike-patrol.html'}
 ];
 var STOPS=[{n:'One connected city',lbl:'Overview',
-  d:'Every Ekin device on one map, reporting into Maestro OS.',href:'Maestro OS.html',
+  d:'Every Ekin device on one map, reporting into Maestro OS.',href:'maestro-os.html',
   cam:{x:0,y:6,z:0,s:1}}];
 DEV.forEach(function(dv){
   STOPS.push({n:dv.n,lbl:dv.lbl,d:dv.d,href:dv.href,dev:dv,

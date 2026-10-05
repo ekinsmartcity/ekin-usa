@@ -6,15 +6,15 @@ function build(HOST){
 
 /* ---------- data: edit everything here ---------- */
 var PRODUCTS=[
- {id:'spotter',name:'Spotter',zone:'Zone 01',units:6,color:'#3ddc84',scale:1.0,form:'tall',img:'assets/map/spotter.png',href:'Spotter.html',
+ {id:'spotter',name:'Spotter',zone:'Zone 01',units:6,color:'#3ddc84',scale:1.0,form:'tall',img:'assets/map/spotter.png',href:'spotter.html',
   pins:[{x:19,y:22,zone:'Zone 01',status:'Connected',sync:'Just now'},{x:62,y:45,zone:'Zone 03',status:'Connected',sync:'1 min ago'},{x:74,y:72,zone:'Zone 05',status:'Connected',sync:'Just now'}]},
- {id:'xspotter',name:'X Spotter',zone:'Zone 02',units:4,color:'#4a90ff',scale:1.4,form:'wide',img:'assets/map/x-spotter.png',href:'X Spotter.html',
+ {id:'xspotter',name:'X Spotter',zone:'Zone 02',units:4,color:'#4a90ff',scale:1.4,form:'wide',img:'assets/map/x-spotter.png',href:'x-spotter.html',
   pins:[{x:82,y:58,zone:'Zone 03',status:'Connected',sync:'Just now'},{x:30,y:71,zone:'Zone 04',status:'Standby',sync:'6 min ago'}]},
- {id:'boxspotter',name:'Box Spotter',zone:'Zone 03',units:3,color:'#9b6bff',scale:1.35,form:'wide',img:'assets/map/box-spotter.png',href:'Box Spotter.html',
+ {id:'boxspotter',name:'Box Spotter',zone:'Zone 03',units:3,color:'#9b6bff',scale:1.35,form:'wide',img:'assets/map/box-spotter.png',href:'box-spotter.html',
   pins:[{x:76,y:27,zone:'Zone 02',status:'Connected',sync:'2 min ago'}]},
- {id:'patrolg2',name:'Patrol G2',zone:'Zone 04',units:6,color:'#FF3932',scale:1.45,form:'wide',img:'assets/map/patrol-g2.png',href:'Patrol G2.html',
+ {id:'patrolg2',name:'Patrol G2',zone:'Zone 04',units:6,color:'#FF3932',scale:1.45,form:'wide',img:'assets/map/patrol-g2.png',href:'patrol-g2.html',
   pins:[{x:47,y:45,zone:'Zone 04',status:'Connected',sync:'Just now',trail:[[47,45],[52,52],[52,57]]}]},
- {id:'bikepatrol',name:'Bike Patrol',zone:'Zone 05',units:5,color:'#e8edf6',scale:1.4,form:'wide',img:'assets/map/bike-patrol.png',href:'Bike Patrol.html',
+ {id:'bikepatrol',name:'Bike Patrol',zone:'Zone 05',units:5,color:'#e8edf6',scale:1.4,form:'wide',img:'assets/map/bike-patrol.png',href:'bike-patrol.html',
   pins:[{x:43,y:24,zone:'Zone 01',status:'Connected',sync:'Just now',trail:[[43,24],[47,32],[52,37]]},{x:60,y:75,zone:'Zone 05',status:'Standby',sync:'4 min ago',trail:[[60,75],[66,82],[72,84]]}]}
 ];
 var SUMMARY={connected:24,active:21,standby:3};
@@ -143,10 +143,15 @@ function buildNet(){
   }
   net={majors:majors,minors:minors,river:river,districts:districts};
 }
+var rzPending=false,lastW=-1,lastH=-1;
 function resize(){
-  var dpr=Math.min(devicePixelRatio||1,2),r=main.getBoundingClientRect();
-  W=r.width;H=r.height;cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);
-  ctx.setTransform(dpr,0,0,dpr,0,0);draw();
+  if(rzPending)return;rzPending=true;
+  requestAnimationFrame(function(){rzPending=false;
+  var dpr=Math.min(devicePixelRatio||1,2),r=cv.getBoundingClientRect();
+  var nw=Math.round(r.width),nh=Math.round(r.height);
+  if(!nw||!nh||(nw===lastW&&nh===lastH))return;
+  lastW=nw;lastH=nh;W=r.width;H=r.height;cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);
+  ctx.setTransform(dpr,0,0,dpr,0,0);draw();});
 }
 function poly(pts,close){ctx.beginPath();ctx.moveTo(pts[0][0]*W,pts[0][1]*H);for(var i=1;i<pts.length;i++)ctx.lineTo(pts[i][0]*W,pts[i][1]*H);if(close)ctx.closePath();ctx.stroke()}
 function draw(){

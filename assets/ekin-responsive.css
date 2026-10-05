@@ -105,7 +105,7 @@
 
 /* ---------- mobile drawer: safe areas, scroll containment ---------- */
 @media (max-width:1024px){
-  .drawer{
+  .drawer{z-index:1000!important;
     padding-top:max(22px,env(safe-area-inset-top))!important;
     padding-bottom:max(30px,calc(env(safe-area-inset-bottom) + 24px))!important;
     padding-left:max(22px,env(safe-area-inset-left))!important;
@@ -169,24 +169,165 @@
   .xs-mrow u{font-size:11px!important}
 }
 
-/* ---------- connected city map on a phone ---------- */
+/* ---------- connected city map on a phone ----------
+   Sidebar list becomes a horizontal chip filter above the map;
+   stats sit above the map, the detail card below it — nothing overlays the pins. */
 @media (max-width:640px){
-  .cs-main{aspect-ratio:4/5!important}
-  .cs-summary{position:static!important;left:auto!important;top:auto!important;transform:none!important;
+  .cs-side{display:grid!important;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:12px 10px;padding:18px 16px 14px!important;border-bottom:1px solid rgba(159,180,214,.1)}
+  .cs-side .cs-brand,.cs-side .cs-lhead,.cs-side .cs-foot{display:none!important}
+  .cs-side .cs-eyebrow{grid-column:1/-1;margin:0!important}
+  .cs-side .cs-title{grid-column:1/-1;margin:0!important;font-size:22px!important}
+  .cs-side .cs-title br{display:none}
+  .cs-reset{grid-column:1;grid-row:3;margin:0!important;min-height:44px;padding:0 16px!important;width:auto!important;border-radius:999px!important;white-space:nowrap}
+  .cs-list{grid-column:2;grid-row:3;margin:0!important;max-width:none!important;flex-direction:row!important;gap:8px!important;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+    mask-image:linear-gradient(90deg,#000 85%,transparent);-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);padding-right:24px}
+  .cs-list::-webkit-scrollbar{display:none}
+  .cs-row{flex:none;scroll-snap-align:start;grid-template-columns:auto auto!important;gap:8px!important;min-height:44px;padding:6px 14px 6px 6px!important;border-radius:999px!important}
+  .cs-row::before{display:none}
+  .cs-row.on{border-color:#FF3932!important}
+  .cs-row .cs-thumb{width:32px!important;height:32px!important;border-radius:50%!important}
+  .cs-row .cs-rzone,.cs-row .cs-runits{display:none!important}
+  .cs-row .cs-rname{white-space:nowrap;font-size:14px!important}
+
+  .cs-main{display:grid!important;aspect-ratio:auto!important;grid-template-columns:minmax(0,1fr);overflow:hidden}
+  .cs-summary{grid-row:1;grid-column:1;position:static!important;left:auto!important;top:auto!important;transform:none!important;
     grid-auto-flow:row!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:0!important;
-    border-radius:0!important;padding:12px 14px!important}
+    border:0!important;border-bottom:1px solid rgba(159,180,214,.1)!important;border-radius:0!important;padding:12px 8px!important;background:rgba(10,11,13,.9)!important}
   .cs-summary div+div{padding-left:0!important;border-left:1px solid rgba(159,180,214,.12)!important}
-  .cs-detail{position:static!important;inset:auto!important;grid-template-columns:auto minmax(0,1fr)!important;
-    gap:12px!important;margin:12px 14px 14px!important}
-  .cs-detail>*:nth-child(n+4){grid-column:1/-1}
+  .cs-canvas,.cs-zones,.cs-pins{grid-row:2;grid-column:1;position:relative!important;inset:auto!important;width:100%!important;height:auto!important;aspect-ratio:1/1}
+  .cs-compass{grid-row:2;grid-column:1;position:relative!important;right:auto!important;top:auto!important;justify-self:end;align-self:start;margin:12px;z-index:2}
+  .cs-detail{grid-row:3;grid-column:1;position:static!important;inset:auto!important;grid-template-columns:auto minmax(0,1fr) auto!important;
+    gap:12px!important;margin:0!important;border-radius:0!important;border:0!important;border-top:1px solid rgba(159,180,214,.1)!important;padding:14px 16px!important}
+  .cs-detail .cs-dline{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;line-height:1.5}
+  .cs-detail .cs-dstate{grid-column:2;grid-row:2}
+  .cs-detail .cs-dmore{grid-column:3;grid-row:1/span 2;width:44px!important;height:44px!important}
+  .cs-detail .cs-dmark{grid-row:1/span 2}
 }
 
 /* ---------- demo cards: let the copy breathe instead of clipping ---------- */
 @media (max-width:1024px){
   .demo-card{overflow:visible!important;min-height:0!important;padding-bottom:clamp(34px,5vw,64px)!important;flex-direction:column;align-items:flex-start}
-  .demo-card .demo-img{position:relative!important;right:auto!important;bottom:auto!important;
-    width:100%!important;max-width:460px;margin-top:26px}
+  .demo-card .demo-img{position:relative!important;right:auto!important;bottom:auto!important;top:auto!important;transform:none!important;max-height:none!important;
+    width:100%!important;max-width:460px!important;margin-top:26px}
 }
 @media (max-width:640px){
   .demo-card{padding:30px 22px!important;border-radius:12px}
+}
+
+/* ==========================================================================
+   Mobile polish pass — 320–430px audit (Sep 2026)
+   ========================================================================== */
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important;border:0!important}
+
+@media (max-width:640px){
+  /* product heroes: show the whole 16:9 film edge to edge — no sideways overflow, no letterbox */
+  .hero-bp{min-height:0!important;height:auto!important;width:100%!important;aspect-ratio:16/9!important;max-width:100vw;margin-top:var(--nav-h,77px)}
+  .hero-bp .hero-bg{object-fit:contain!important}
+  .hero-film{min-height:0!important;height:auto!important;aspect-ratio:16/9!important;margin-top:var(--nav-h,77px)}
+  .hero-film video.hero-bg{inset:0!important;top:0!important;height:100%!important;object-fit:cover!important}
+  .hero-film .scroll-hint{display:none!important}
+  .hero-arrow,.scrollcue{display:none!important}
+
+  /* forms: long option labels must not widen the grid */
+  .demo-split>*,.sup-split>*,.pform-wrap>*,form.dform>*,form.pform>*,form.vform2>*{min-width:0}
+  form.dform input:not([type=checkbox]):not([type=radio]),form.dform select,form.dform textarea,
+  form.pform input:not([type=checkbox]):not([type=radio]),form.pform select,form.pform textarea,
+  form.vform2 input{width:100%;max-width:100%;min-width:0;font-size:16px}
+  .prod-grid label{min-height:48px}
+  form.dform .fsubmit .btn,form.pform .fsubmit .btn,form.vform2 .btn{width:100%;justify-content:center}
+
+  /* tap targets */
+  header .logo{min-height:44px;display:inline-flex!important;align-items:center}
+  .foot-col a{min-height:44px;display:flex!important;align-items:center;padding-block:0!important}
+  .foot-legal{display:flex;flex-wrap:wrap;gap:4px 18px}
+  .foot-legal a,.foot-social a{min-height:44px;min-width:44px;display:inline-flex!important;align-items:center;justify-content:center}
+  .off-zoom button{width:44px!important;height:44px!important}
+  #catFilter button,#locFilter button{min-height:44px}
+  .tdot{padding:16px 17px!important}
+
+  /* footer: brand on its own row, link columns two-up */
+  .foot-top{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:28px 20px!important}
+  .foot-top>.foot-brand{grid-column:1/-1}
+  .foot-bottom{flex-direction:column;align-items:flex-start!important;gap:10px}
+
+  /* numbers read as a 2×2 block, not a tall stack */
+  .results-grid{grid-template-columns:1fr!important}
+  .stats,.why-stats{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+
+  /* award wall: tidy 4-up grid instead of a hidden side-scroller */
+  .awards-grid{grid-auto-flow:row!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;grid-auto-columns:auto!important;overflow:visible!important;padding-bottom:0!important}
+  .award-tile{min-height:64px!important;padding:10px 6px!important}
+
+  /* bike patrol deployment tiles: a 2-col span inside a 1-col grid collapsed to 2px */
+  .dm-tile.dm-wide{grid-column:auto!important;aspect-ratio:16/10!important}
+
+  /* readable micro-labels (was 9.5–11px) */
+  .eyebrow,.xs-eyebrow,.ml-label,.drawer-sub,.label,.k,.idx,.env,.pw-i,.mh-hub-label,.mpa-num,.maestro-tag,
+  .off-legend,.v-tag,.bc-date,.ab-role,.ev-pin,.awards-label,.jb-fgroup h6,.legal-nav h5,.field label,
+  .cs-eyebrow,.cs-lhead,.cs-lhead span,.cs-rname,.cs-rzone,.cs-zone,.dh .live,.drow .k,
+  .xs-lcard .idx,.xs-lcard .env,.sup-aside .eyebrow,.ms-eyebrow,.cs-side .cs-eyebrow,.cs-rtext .cs-rname,.cs-rtext .cs-rzone,.cs-reset,.cs-foot span,.demo-aside .eyebrow,.pform-head .eyebrow{font-size:12px!important}
+
+  /* card rails bleed exactly to the screen edge */
+  .rail{margin-inline:-20px!important;padding-inline:20px!important;scroll-padding-inline:20px}
+  .rail-card{flex:0 0 min(82vw,320px)!important}
+
+  /* home — explore list: every card carries a visible call to action */
+  .xs-lcard{padding:20px 18px 6px!important}
+  .xs-lcard .lmedia{aspect-ratio:16/10}
+  .xs-lcard::after{content:"Explore product \2192";display:flex;align-items:center;min-height:48px;margin-top:2px;border-top:1px solid var(--line);font-family:var(--display);font-weight:600;font-size:15px;color:#fff}
+
+  /* home hero: three-stage scroll sequence in two screens instead of three */
+  .numhero{height:200vh!important}
+  .numhero-stage::before{content:"";position:absolute;left:0;right:0;top:0;height:55%;z-index:7;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.6) 55%,rgba(0,0,0,0) 100%)}
+  .numhero .cblock p{color:rgba(255,255,255,.88)!important}
+  .numhero.nh-fail{height:100svh!important}
+}
+@media (max-width:360px){
+  .wrap{padding-inline:16px}
+  .rail{margin-inline:-16px!important;padding-inline:16px!important}
+  .awards-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  .stats .num,.why-stats .num{font-size:clamp(34px,11vw,44px)!important}
+}
+
+/* home hero fallback: shown only if the WebGL scene cannot start */
+.nh-fallback{display:none}
+.numhero.nh-fail .numhero-stage{background:#000 url(../images/maestro-city-wide.opt.jpg) center/cover no-repeat}
+.numhero.nh-fail .nh-fallback{display:block;position:absolute;inset:0;z-index:9;padding:clamp(110px,16vh,170px) var(--pad,20px) 40px;background:linear-gradient(180deg,rgba(0,0,0,.72),rgba(0,0,0,.35) 60%,rgba(0,0,0,.8))}
+.nh-fallback h1{font-family:var(--display);font-weight:600;font-size:clamp(34px,9vw,96px);line-height:.95;letter-spacing:-.04em;color:#fff;max-width:14ch}
+.nh-fallback p{color:rgba(255,255,255,.82);font-size:clamp(16px,1.4vw,20px);line-height:1.55;margin-top:20px;max-width:44ch}
+.nh-fallback .btn{margin-top:26px}
+.numhero.nh-fail #glcanvas,.numhero.nh-fail .dash,.numhero.nh-fail .prail,.numhero.nh-fail .scrollcue{display:none!important}
+
+/* reduced motion: no autoplay loops, no reveal choreography, no smooth scrolling */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .reveal{opacity:1!important;transform:none!important}
+}
+
+@media (max-width:1024px){
+  .drawer-head{display:flex;align-items:center;justify-content:space-between;min-height:56px;margin-bottom:8px}
+  .drawer-close{display:inline-flex!important;align-items:center;justify-content:center;font-size:30px;line-height:1;color:#fff;background:none;border:1px solid var(--line-2,rgba(255,255,255,.14));border-radius:10px}
+  .drawer-cta{display:flex;flex-direction:column;gap:10px;margin-top:auto;padding-top:22px}
+  .drawer-cta .btn{justify-content:center;width:100%}
+}
+
+/* ---- Phone accordions: drawer + footer ---- */
+.m-acc-btn{all:unset;display:contents}
+.m-acc-btn svg{display:none}
+@media (max-width:640px){
+  .m-acc-drawer,.m-acc-foot{border-bottom:1px solid rgba(255,255,255,.12)}
+  .m-acc-drawer>h6,.m-acc-foot>h5{margin:0!important;padding:0!important}
+  .m-acc-btn{all:unset;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;width:100%;min-height:52px;padding:14px 0;cursor:pointer;color:inherit;font:inherit;letter-spacing:inherit;text-transform:inherit}
+  .m-acc-btn:focus-visible{outline:2px solid #FF3932;outline-offset:2px}
+  .m-acc-btn svg{display:block;width:16px;height:16px;flex:none;transition:transform .25s}
+  .is-open>h6 .m-acc-btn svg,.is-open>h5 .m-acc-btn svg{transform:rotate(180deg);color:#FF3932}
+  .m-acc-body{display:none!important}
+  .is-open>.m-acc-body{display:flex!important;flex-direction:column;gap:2px;padding:0 0 16px}
+  .m-acc-body>a{display:flex;align-items:center;min-height:44px;padding:0!important;margin:0!important}
+  .m-acc-body>.drawer-sub{margin:10px 0 2px!important}
+  .drawer .drawer-group.m-acc-drawer{margin:0!important;padding:0!important}
+  footer .foot-top{display:flex!important;flex-direction:column;gap:0!important}
+  footer .foot-brand{padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.12)}
+  footer .foot-col.m-acc-foot{padding:0!important;margin:0!important}
 }

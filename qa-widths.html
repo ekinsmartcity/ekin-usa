@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Mobile widths</title>
+<style>body{margin:0;background:#2a2d31;color:#ddd;font:11px ui-monospace,monospace}#row{display:flex;gap:10px;padding:8px;align-items:flex-start}.col{display:flex;flex-direction:column;gap:4px}img{display:block;background:#000;outline:1px solid #555}#st{position:fixed;right:6px;top:4px;color:#ff0}</style>
+<script src="https://unpkg.com/html-to-image@1.11.11/dist/html-to-image.js"></script></head><body>
+<div id="st">…</div><div id="row"></div>
+<script>
+// ?p=page&ws=320,375,390,430&from=0&h=720&scale=0.55&act=menu
+var Q=new URLSearchParams(location.search),P=Q.get('p')||'ekin-home',WS=(Q.get('ws')||'320,375,390,430').split(',').map(Number),H=+Q.get('h')||720,FROM=+Q.get('from')||0,S=+Q.get('scale')||0.55,ACT=Q.get('act')||'',SEL=Q.get('sel')||'';
+function shot(W){return new Promise(function(done){var f=document.createElement('iframe');f.style.cssText='position:fixed;left:-99999px;top:0;border:0;width:'+W+'px;height:780px';f.src=P+'.html';document.body.appendChild(f);
+ f.onload=function(){var d=f.contentDocument,w=f.contentWindow;var hs=d.createElement('style');hs.textContent='html{scrollbar-width:none}html::-webkit-scrollbar{display:none}*{animation:none!important;transition:none!important}.hero-content>*,.hero-copy>*{opacity:1!important;transform:none!important}';d.head.appendChild(hs);
+  setTimeout(async function(){d.querySelectorAll('.reveal').forEach(function(e){e.classList.add('in','visible')});d.querySelectorAll('img[loading=lazy]').forEach(function(i){i.loading='eager'});
+   if(ACT==='menu'){var b=d.getElementById('burger');if(b)b.click()}
+   await new Promise(function(r){setTimeout(r,2500)});
+   var y0=FROM;if(SEL){var el=d.querySelector(SEL);if(el)y0=Math.max(0,el.getBoundingClientRect().top+w.scrollY-12)}
+   var full=ACT==='menu'?780:d.documentElement.scrollHeight;
+   try{var url=await htmlToImage.toJpeg(d.documentElement,{quality:.85,width:W,height:full,canvasWidth:W,canvasHeight:full,pixelRatio:1});
+    var img=new Image();img.onload=function(){var hh=Math.min(H,full-y0);var cv=document.createElement('canvas');cv.width=W;cv.height=hh;cv.getContext('2d').drawImage(img,0,y0,W,hh,0,0,W,hh);var col=document.createElement('div');col.className='col';col.innerHTML='<b>'+P+' @'+W+'px</b>';var im=new Image();im.src=cv.toDataURL('image/jpeg',.88);im.style.width=(W*S)+'px';col.appendChild(im);document.getElementById('row').appendChild(col);f.remove();done()};img.src=url}catch(e){document.getElementById('st').textContent='ERR '+e;done()}
+  },1500)}})}
+(async function(){for(var W of WS){document.getElementById('st').textContent=P+' '+W;await shot(W)}document.getElementById('st').textContent=P+' DONE'})();
+</script></body></html>

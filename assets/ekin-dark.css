@@ -172,6 +172,12 @@ header.nav:has(.nav-item.open){background:#000!important;backdrop-filter:none!im
 @media(max-width:900px){.mega.mega-1{grid-template-columns:1fr!important}}
 
 .mega.mega-1::before{display:none!important}
+.mega.mega-company{background:#000!important;z-index:390!important;display:grid!important;width:100vw!important;max-width:100vw!important;left:0!important;right:0!important;transform:none!important;grid-template-columns:minmax(0,46ch) minmax(0,1fr)!important;gap:clamp(40px,8vw,140px)!important;align-items:start!important;margin:0!important;min-height:38vh!important;padding-block:clamp(44px,5.5vw,76px) clamp(56px,8vw,104px)!important;padding-inline:var(--pad)!important}
+.mega.mega-company::before{display:none!important}
+.mega.mega-company .mega-company-cols{display:grid!important;grid-template-columns:repeat(2,max-content)!important;gap:clamp(40px,6vw,110px)!important}
+.mega.mega-company .mega-col{display:block!important}
+.mega.mega-company .mega-link{white-space:nowrap}
+@media(max-width:900px){.mega.mega-company{grid-template-columns:1fr!important}}
 
 .nav-cta .btn-support{padding:10px 18px;font-size:14px;border-color:rgba(255,255,255,.28);color:#f5f7fa}
 .nav-cta .btn-support:hover{border-color:#fff;color:#fff}
@@ -183,9 +189,8 @@ header.nav:has(.nav-item.open){background:#000!important;backdrop-filter:none!im
 .award-tile img{filter:none!important;opacity:1!important}
 .award-tile img.aw-color{filter:none!important;mix-blend-mode:normal!important;opacity:1!important}
 
-.mega.mega-1.mega-devices{grid-template-columns:minmax(0,1fr) repeat(4,max-content)!important;gap:clamp(24px,3.4vw,64px)!important;max-width:calc(100vw - 48px)!important}
-.nav-item .mega.mega-1.mega-devices{left:50%!important;transform:translateX(calc(-50% - min(120px,max(0px,(100vw - 1180px)/2)))) translateY(8px)!important}
-.nav-item.open .mega.mega-1.mega-devices{transform:translateX(calc(-50% - min(120px,max(0px,(100vw - 1180px)/2)))) translateY(0)!important}
+.mega.mega-1.mega-devices{grid-template-columns:minmax(0,1fr) repeat(4,max-content)!important;gap:clamp(24px,3.4vw,64px)!important;width:100vw!important;max-width:100vw!important}
+.nav-item .mega.mega-1.mega-devices,.nav-item.open .mega.mega-1.mega-devices{left:0!important;right:0!important;transform:none!important}
 .mega-lead-link{margin-top:26px!important;font-size:19px!important}
 @media(max-width:1180px){.mega.mega-1.mega-devices{gap:clamp(18px,2.4vw,40px)!important}}
 @media(max-width:1024px){.mega.mega-1.mega-devices{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:20px 34px!important}.mega.mega-1.mega-devices .mega-lead{grid-column:1/-1}}

@@ -1,10 +1,14 @@
 <!doctype html><html><head><meta charset="utf-8"><title>Layout probe</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
 <style>body{margin:0;background:#15171a;color:#dfe5ec;font:12px/1.5 ui-monospace,monospace;padding:16px}
 pre{white-space:pre-wrap;word-break:break-word}
 .bad{color:#ff6b61}.warn{color:#ffb454}.ok{color:#4ec98a}</style></head><body>
 <div id="st">running…</div><pre id="out"></pre>
 <script>
-var PAGES=['Ekin Home.html','Public Safety.html','Cities and Municipalities.html','Parking.html','Maestro OS.html','Spotter.html','Box Spotter.html','X Spotter.html','Patrol G2.html','Bike Patrol.html','Semistation.html','Our Founder.html','Advisory Board.html','Press.html','Ekin Ventures.html','Mission.html','Jobs.html','Locations.html','Contact.html','Book a Demo.html'];
+var PAGES=['ekin-home.html','public-safety.html','cities-and-municipalities.html','parking.html','maestro-os.html','spotter.html','box-spotter.html','x-spotter.html','patrol-g2.html','bike-patrol.html','semistation.html','leadership.html','advisory-board.html','press.html','ekin-ventures.html','mission.html','jobs.html','locations.html','contact.html','book-a-demo.html'];
 function probe(p,w){return new Promise(function(res){
   var f=document.createElement('iframe');
   f.style.cssText='position:fixed;left:-99999px;top:0;border:0;width:'+w+'px;height:1400px';
