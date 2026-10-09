@@ -107,3 +107,5 @@
  .pe-cards .pe-card{height:210px}
 }
 @media(max-width:560px){.pe-cards{grid-template-columns:1fr}}
+
+.cs-brand img.cs-brand-maestro{height:clamp(30px,2.6vw,40px)!important;width:auto!important;max-width:100%;display:block}

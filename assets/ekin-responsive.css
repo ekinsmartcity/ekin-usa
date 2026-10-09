@@ -178,16 +178,14 @@
   .cs-side .cs-eyebrow{grid-column:1/-1;margin:0!important}
   .cs-side .cs-title{grid-column:1/-1;margin:0!important;font-size:22px!important}
   .cs-side .cs-title br{display:none}
-  .cs-reset{grid-column:1;grid-row:3;margin:0!important;min-height:44px;padding:0 16px!important;width:auto!important;border-radius:999px!important;white-space:nowrap}
-  .cs-list{grid-column:2;grid-row:3;margin:0!important;max-width:none!important;flex-direction:row!important;gap:8px!important;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;-webkit-overflow-scrolling:touch;
-    mask-image:linear-gradient(90deg,#000 85%,transparent);-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);padding-right:24px}
-  .cs-list::-webkit-scrollbar{display:none}
-  .cs-row{flex:none;scroll-snap-align:start;grid-template-columns:auto auto!important;gap:8px!important;min-height:44px;padding:6px 14px 6px 6px!important;border-radius:999px!important}
+  .cs-list{grid-column:1/-1;grid-row:3;margin:0!important;max-width:none!important;display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px!important;overflow:visible!important;padding:0!important}
+  .cs-reset{grid-column:1/-1;grid-row:4;justify-self:stretch;margin:0!important;min-height:44px;padding:0 16px!important;width:100%!important;border-radius:999px!important;white-space:nowrap}
+  .cs-row{min-width:0;grid-template-columns:auto minmax(0,1fr)!important;gap:8px!important;min-height:44px;padding:6px 12px 6px 6px!important;border-radius:999px!important}
   .cs-row::before{display:none}
   .cs-row.on{border-color:#FF3932!important}
   .cs-row .cs-thumb{width:32px!important;height:32px!important;border-radius:50%!important}
   .cs-row .cs-rzone,.cs-row .cs-runits{display:none!important}
-  .cs-row .cs-rname{white-space:nowrap;font-size:14px!important}
+  .cs-row .cs-rname{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:14px!important}
 
   .cs-main{display:grid!important;aspect-ratio:auto!important;grid-template-columns:minmax(0,1fr);overflow:hidden}
   .cs-summary{grid-row:1;grid-column:1;position:static!important;left:auto!important;top:auto!important;transform:none!important;
@@ -291,7 +289,7 @@
 
 /* home hero fallback: shown only if the WebGL scene cannot start */
 .nh-fallback{display:none}
-.numhero.nh-fail .numhero-stage{background:#000 url(../images/maestro-city-wide.opt.jpg) center/cover no-repeat}
+.numhero.nh-fail .numhero-stage{background:#000 url(../images/maestro-city-wide.opt.webp) center/cover no-repeat}
 .numhero.nh-fail .nh-fallback{display:block;position:absolute;inset:0;z-index:9;padding:clamp(110px,16vh,170px) var(--pad,20px) 40px;background:linear-gradient(180deg,rgba(0,0,0,.72),rgba(0,0,0,.35) 60%,rgba(0,0,0,.8))}
 .nh-fallback h1{font-family:var(--display);font-weight:600;font-size:clamp(34px,9vw,96px);line-height:.95;letter-spacing:-.04em;color:#fff;max-width:14ch}
 .nh-fallback p{color:rgba(255,255,255,.82);font-size:clamp(16px,1.4vw,20px);line-height:1.55;margin-top:20px;max-width:44ch}
@@ -331,3 +329,20 @@
   footer .foot-brand{padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.12)}
   footer .foot-col.m-acc-foot{padding:0!important;margin:0!important}
 }
+
+/* unified section headings + spacing (all widths) */
+section:not(:first-of-type):not(#_x) .eyebrow{font-family:var(--mono)!important;font-size:12px!important;font-weight:500!important;line-height:1.6!important;letter-spacing:clamp(.14em,1.2vw,.2em)!important;text-transform:uppercase!important;margin:0!important}
+section:not(:first-of-type):not(#_x) h2:not(.prose h2){font-family:var(--display)!important;font-size:clamp(30px,4.4vw,64px)!important;font-weight:700!important;line-height:1.06!important;letter-spacing:-.025em!important;margin-top:0!important;margin-bottom:0!important}
+section:not(:first-of-type):not(#_x) .eyebrow+h2:not(.prose h2),section:not(:first-of-type):not(#_x) .eyebrow~h2:not(.prose h2){margin-top:clamp(14px,1.5vw,22px)!important}
+section:not(:first-of-type):not(#_x) .eyebrow+h2:not(.prose h2){display:block}
+section:not(:first-of-type):not(#_x) h2:not(.prose h2)+p{font-family:var(--body)!important;font-size:clamp(16px,1.4vw,20px)!important;font-weight:400!important;line-height:1.6!important;letter-spacing:0!important;margin-top:clamp(14px,1.5vw,22px)!important}
+section:not(:first-of-type):not(#_x).pad-y,section:not(:first-of-type):not(#_x).pe-sec,section:not(:first-of-type):not(#_x).ws-sec,section:not(:first-of-type):not(#_x).demo-band,section:not(:first-of-type):not(#_x).chd,section:not(:first-of-type):not(#_x).oi-section,section:not(:first-of-type):not(#_x).mh-sec,section:not(:first-of-type):not(#_x).mi,section:not(:first-of-type):not(#_x).ms-statement,section:not(:first-of-type):not(#_x).ms-band,section:not(:first-of-type):not(#_x).ms-close,section:not(:first-of-type):not(#_x).v-state,section:not(:first-of-type):not(#_x).pform-sec,section:not(:first-of-type):not(#_x).edge-sec,section:not(:first-of-type):not(#_x).ld-team{padding-top:clamp(64px,6.9vw,100px)!important;padding-bottom:clamp(64px,6.9vw,100px)!important}
+section:not(:first-of-type):not(#_x).ms-offices{padding-top:clamp(64px,6.9vw,100px)!important}
+section[style*="padding-top:0"]{padding-top:0!important}
+@media (max-width:640px){section:not(:first-of-type):not(#_x) h2:not(.prose h2){max-width:none!important}}
+
+/* centered CTA/form heads → left-aligned stack like other sections */
+.demo-band,.demo-band .wrap,.demo-band .demo-inner,.demo-band .db-inner,.pform-head{text-align:left!important}
+.demo-band .eyebrow,.demo-band h2,.demo-band p,.pform-head .eyebrow,.pform-head h2,.pform-head p{margin-left:0!important;margin-right:0!important;text-align:left!important}
+.demo-band .actions,.demo-band .db-actions,.pform-head .actions{justify-content:flex-start!important}
+.demo-band [class*="inner"],.pform-head{align-items:flex-start!important;margin-left:0!important}

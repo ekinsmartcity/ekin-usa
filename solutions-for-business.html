@@ -11,12 +11,26 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/ekin.css" />
-<link rel="stylesheet" href="assets/ekin-dark.css" />
-<link rel="stylesheet" href="assets/ekin-device.css" />
-<link rel="stylesheet" href="assets/ekin-ecosystem.css" />
-<link rel="stylesheet" href="assets/ekin-responsive.css" />
-<style>@media (max-width:640px){.pe-card.pe-card-bp{background:#000;border-color:#000;outline:0;box-shadow:none}.pe-card.pe-card-bp picture{position:absolute;inset:0;display:block}.pe-card.pe-card-bp img{position:absolute;inset:0;width:100%!important;height:100%!important;object-fit:cover!important;object-position:50% 12%!important}.pe-card.pe-card-bp:hover img{transform:none}}</style>
+<link rel="stylesheet" href="assets/ekin.css?v=20261005b" />
+<link rel="stylesheet" href="assets/ekin-dark.css?v=20261005b" />
+<link rel="stylesheet" href="assets/ekin-device.css?v=20261005b" />
+<link rel="stylesheet" href="assets/ekin-ecosystem.css?v=20261005b" />
+<link rel="stylesheet" href="assets/ekin-responsive.css?v=20261005b" />
+<style>@media (max-width:640px){.pe-card.pe-card-bp{background:#000;border-color:#000;outline:0;box-shadow:none}.pe-card.pe-card-bp picture{position:absolute;inset:0;display:block}.pe-card.pe-card-bp img{position:absolute;inset:auto 0 0 0;top:auto!important;width:100%!important;height:80%!important;object-fit:cover!important;object-position:50% 0%!important}.pe-card.pe-card-bp:hover img{transform:none}}</style>
+<link rel="stylesheet" href="assets/ekin-hero.css?v=2" />
+<style id="pe-bp-all">.pe-card.pe-card-bp{container-type:inline-size}.pe-card.pe-card-bp{background:#000!important}.pe-card.pe-card-bp picture{position:absolute;inset:0;display:block}.pe-card.pe-card-bp img,.pe-card.pe-card-bp picture img{position:absolute!important;inset:auto 0 0 0!important;top:calc(52px - 20.8cqw)!important;width:100%!important;height:92.5cqw!important;object-fit:cover!important;object-position:50% 0%!important}.pe-card.pe-card-bp:hover img{transform:none!important}.pe-card.pe-card-bp .pe-meta,.pe-card.pe-card-bp .pe-arrow{position:relative;z-index:2}@media (max-width:640px){.pe-card.pe-card-bp img,.pe-card.pe-card-bp picture img{top:calc(52px - 15.8cqw)!important;height:80cqw!important}}</style>
+<style id="pe-xs-pos">.pe-card[href="x-spotter.html"]>img{object-position:50% 92%!important}</style>
+<style id="m-icon-list">@media (max-width:640px){
+.cap-grid.ss-caps,.cm-benefits,.partner-grid:has(>.partner-card>p){display:flex!important;flex-direction:column!important;gap:0!important;grid-template-columns:none!important;margin-top:24px!important;border-top:1px solid rgba(255,255,255,.1)}
+.cap-grid.ss-caps>.cap,.cm-benefits>.cm-bcard,.partner-grid>.partner-card:has(>p){display:grid!important;grid-template-columns:40px minmax(0,1fr)!important;column-gap:16px!important;row-gap:6px!important;align-items:start!important;padding:20px 0!important;margin:0!important;min-height:0!important;height:auto!important;background:none!important;border:0!important;border-bottom:1px solid rgba(255,255,255,.1)!important;border-radius:0!important;box-shadow:none!important;transform:none!important}
+.cap-grid.ss-caps>.cap::before,.cap-grid.ss-caps>.cap::after,.cm-benefits>.cm-bcard::before,.cm-benefits>.cm-bcard::after{display:none!important}
+.cap-grid.ss-caps>.cap>.cap-ic,.cm-benefits>.cm-bcard>.ic,.partner-grid>.partner-card:has(>p)>.pk-icon{grid-column:1;grid-row:1/span 2;width:40px!important;height:40px!important;margin:0!important;padding:0!important;background:none!important;border:0!important;display:flex;align-items:flex-start;justify-content:center}
+.cap-grid.ss-caps>.cap>.cap-ic img{width:36px!important;height:36px!important;object-fit:contain;margin:0!important}
+.cm-benefits>.cm-bcard>.ic,.partner-grid>.partner-card:has(>p)>.pk-icon{object-fit:contain;width:36px!important;height:36px!important;margin:2px 2px 0!important}
+.cap-grid.ss-caps>.cap>h3,.cm-benefits>.cm-bcard>h3,.partner-grid>.partner-card:has(>p)>h3{grid-column:2;margin:0!important;font-size:17px!important;line-height:1.25!important;color:#fff!important;text-wrap:balance}
+.partner-grid>.partner-card:has(>p)>h3 br{display:none}
+.cap-grid.ss-caps>.cap>p,.cm-benefits>.cm-bcard>p,.partner-grid>.partner-card:has(>p)>p{grid-column:2;margin:0!important;font-size:14.5px!important;line-height:1.55!important;color:rgba(255,255,255,.66)!important;max-width:none!important;text-wrap:pretty}
+}</style>
 </head>
 <style>html{scroll-behavior:smooth}  .dm-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:clamp(34px,4.5vw,58px)}
   .dm-tile{position:relative;display:block;aspect-ratio:1/1;overflow:hidden;background:#0a0b0d;border:1px solid var(--line-2);color:inherit;text-decoration:none}
@@ -140,7 +154,7 @@
 </div>
 
 <!-- ============ HERO ============ -->
-<section class="hero hero-page" id="top" style="position:relative">
+<section class="hero hero-page hero-std" id="top" style="position:relative">
   <div class="hero-fallback"></div>
   <img class="hero-bg" src="images/business-hero.opt.jpg" alt="Modern business district at sunrise" />
   <div class="wrap hero-content">
@@ -236,11 +250,11 @@
       <div class="pe-row pe-row-1">
       <a class="pe-card pe-lead" href="maestro-os.html"><img src="assets/maestro-city-red.jpg" alt="A connected city unified by Maestro OS" loading="lazy" /><img class="pe-logo" src="images/hero/maestro-logo.png" alt="Maestro OS" loading="lazy" /><span class="pe-meta"><strong>Maestro OS</strong><em>The command layer where connected city intelligence becomes coordinated action.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
       <a class="pe-card" href="patrol-g2.html"><img src="assets/patrol-g2-car-roof.opt.webp" alt="Ekin Patrol G2 on a vehicle roof" loading="lazy" /><span class="pe-meta"><strong>Patrol G2</strong><em>Mobile intelligence that travels with the vehicle and keeps teams aware in real time.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
-      <a class="pe-card" href="spotter.html"><img src="assets/spotter-roadside-wide.opt.jpg" alt="Ekin Spotter modular pole installed on a roadside verge" loading="lazy" /><span class="pe-meta"><strong>Spotter</strong><em>A modular city platform uniting traffic insight, environmental data and operations.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
+      <a class="pe-card" href="spotter.html"><img src="assets/spotter-roadside-wide.opt.webp" alt="Ekin Spotter modular pole installed on a roadside verge" loading="lazy" /><span class="pe-meta"><strong>Spotter</strong><em>A modular city platform uniting traffic insight, environmental data and operations.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
       </div>
       <div class="pe-row pe-row-2">
       <a class="pe-card" href="x-spotter.html"><img src="assets/x-spotter-windscreen.jpg" alt="Ekin X Spotter unit mounted on a vehicle windscreen" loading="lazy" /><span class="pe-meta"><strong>X Spotter</strong><em>Fixed or mobile edge intelligence delivering real time insight across multiple lanes.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
-      <a class="pe-card" href="box-spotter.html"><img src="assets/box-spotter-street-square.opt.jpg" alt="Ekin Box Spotter mounted on a street-side arm above a city block" loading="lazy" /><span class="pe-meta"><strong>Box Spotter</strong><em>Rapid deployment intelligence for wherever operational support is needed next.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
+      <a class="pe-card" href="box-spotter.html"><img src="assets/box-spotter-street-square.opt.webp" alt="Ekin Box Spotter mounted on a street-side arm above a city block" loading="lazy" /><span class="pe-meta"><strong>Box Spotter</strong><em>Rapid deployment intelligence for wherever operational support is needed next.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
       <a class="pe-card pe-card-bp" href="bike-patrol.html"><picture><source media="(max-width:640px)" srcset="assets/bike-patrol-eco-mobile.webp" /><img src="assets/bike-patrol-ecosystem.opt.webp" alt="Ekin Bike Patrol unit mounted on the handlebars of an Ekin e-bike" loading="lazy" /></picture><span class="pe-meta"><strong>Bike Patrol</strong><em>Full Edge AI intelligence for the agile, e-mobility side of the city.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
       <a class="pe-card" href="semistation.html"><img src="https://cdn.prod.website-files.com/67c4f1010035fe2c75689a55/67f6836b9066f99f111bb6f4_image%20556.avif" alt="Ekin TerraEye on a city street" loading="lazy" /><span class="pe-meta"><strong>TerraEye</strong><em>Solar powered intelligence for places without power or connectivity.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
       </div>
@@ -250,11 +264,11 @@
 
 <!-- ============ FINAL CTA / DEMO ============ -->
 <section class="pad-y dark-sec" id="demo">
-  <div class="wrap" style="text-align:center;max-width:840px">
-    <span class="eyebrow reveal" style="justify-content:center">Get started</span>
+  <div class="wrap">
+    <span class="eyebrow reveal">Get started</span>
     <h2 class="reveal" style="font-size:clamp(36px,6vw,72px);font-weight:700;margin-top:20px">Make your business smarter and safer.</h2>
-    <p class="reveal" style="color:rgba(255,255,255,.72);font-size:20px;margin:22px auto 0;max-width:54ch">Book a demo and watch Ekin's accuracy in action across property protection, theft reduction and monitoring.</p>
-    <div class="reveal" style="margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+    <p class="reveal" style="color:rgba(255,255,255,.72);font-size:20px;margin:22px 0 0;max-width:54ch">Book a demo and watch Ekin's accuracy in action across property protection, theft reduction and monitoring.</p>
+    <div class="reveal" style="margin-top:36px;display:flex;gap:14px;justify-content:flex-start;flex-wrap:wrap">
       <a href="book-a-demo.html" class="btn btn-primary" style="padding:16px 30px;font-size:16px">Book a Demo <span class="arrow">&rarr;</span></a>
       <a href="partners.html" class="btn btn-ghost" style="padding:16px 30px;font-size:16px;color:#fff">Find a partner</a>
     </div>
@@ -331,7 +345,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 /* ---------- testimonials ---------- */
 const TS=[
   {q:'We are proud to be a leading city in innovation and technology. This smart pole with safety cameras, public Wi-Fi, traffic and environmental sensors will assist emergency management in creating a safer community for residents, business owners, and visitors.',n:'Peter Iglesias',r:'Coral Gables, Florida, City Manager',p:'https://cdn.prod.website-files.com/67d50d6f1c74072379eb9674/67f7b9a4b35dfb90863570aa_EKIN-Pole-675x506.jpg'},
-  {q:'We\u2019ve seen a lot of technology in this space, but what Ekin is bringing to market truly stands apart. They\u2019re not a startup, they\u2019re already trusted globally, and their commitment to investing locally in U.S. operations, service, and support is exactly what agencies have been asking for.',n:'Donald W. De Lucca',r:'Retired Police Chief and Senior Public Safety Advisor',p:'images/testimonial-delucca.png'}
+  {q:'We\u2019ve seen a lot of technology in this space, but what Ekin is bringing to market truly stands apart. They\u2019re not a startup, they\u2019re already trusted globally, and their commitment to investing locally in U.S. operations, service, and support is exactly what agencies have been asking for.',n:'Donald W. De Lucca',r:'Retired Police Chief and Senior Public Safety Advisor',p:'images/testimonial-delucca.webp'}
 ];
 let ti=0;
 const T={q:document.getElementById('tQuote'),n:document.getElementById('tName'),r:document.getElementById('tRole'),p:document.getElementById('tPhoto'),dots:document.getElementById('tDots')};
@@ -356,8 +370,8 @@ document.getElementById('newsForm').addEventListener('submit',e=>{
 
 (function(){var n=document.getElementById('nav');if(!n)return;function h(){document.documentElement.style.setProperty('--nav-h',n.offsetHeight+'px');}h();window.addEventListener('resize',h);window.addEventListener('scroll',h,{passive:true});})();
 </script>
-<script src="assets/ekin-mobile.js" defer></script>
-<script src="assets/ekin-mobile-media.js" defer></script>
-<script src="assets/ekin-mobile-accordion.js" defer></script>
+<script src="assets/ekin-mobile.js?v=20261005b" defer></script>
+<script src="assets/ekin-mobile-media.js?v=20261005b" defer></script>
+<script src="assets/ekin-mobile-accordion.js?v=20261005b" defer></script>
 </body>
 </html>

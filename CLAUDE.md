@@ -1,3 +1,3 @@
 # Project instructions
 
-- Until told otherwise, all requested design updates apply to the PHONE view only (≤640px). Never change the desktop version. Use `<picture><source media="(max-width:640px)">` for image swaps and `@media (max-width:640px)` for style changes.
+- Until told otherwise, all requested design updates apply to BOTH desktop and phone views. Use `@media (max-width:640px)` only when the user asks for a phone-only change.

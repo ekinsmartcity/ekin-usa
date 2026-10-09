@@ -303,7 +303,7 @@
   .le-hero .hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;object-position:center 30%}
   .le-hero h1{font-size:clamp(46px,7.5vw,98px)}
   .le-hero::after{background:linear-gradient(180deg,rgba(8,11,16,.5) 0%,rgba(8,11,16,.18) 30%,rgba(8,11,16,.62) 64%,rgba(8,11,16,.95) 100%)}
-  .le-hero .hero-content h1,.le-hero .hero-content p,.le-hero .hero-content .eyebrow{text-shadow:0 2px 30px rgba(0,0,0,.55),0 1px 6px rgba(0,0,0,.45)}
+  .le-hero .hero-content h1,.le-hero .hero-content p,.le-hero .hero-content .eyebrow{text-shadow:none}
   .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,80px);align-items:center}
   .split.reverse .split-media{order:-1}
   .split-title{font-size:clamp(32px,3.2vw,46px);font-weight:600;margin-top:16px}
@@ -428,8 +428,8 @@
     .why-stats{grid-template-columns:1fr}
   }
 </style>
-<link rel="stylesheet" href="assets/ekin-dark.css" />
-<link rel="stylesheet" href="assets/ekin-device.css" />
+<link rel="stylesheet" href="assets/ekin-dark.css?v=20261005b" />
+<link rel="stylesheet" href="assets/ekin-device.css?v=20261005b" />
 <style>
   .split:has(.split-text) .split-text{display:block!important;max-width:none!important}
   .split:has(.split-text) .split-text h2{max-width:none!important;margin-top:16px!important;font-size:clamp(32px,3.2vw,46px)!important}
@@ -455,9 +455,9 @@
   .cta-media .cta-cap em{font-style:normal;font-size:14px;line-height:1.4;color:rgba(245,247,250,.74)}
   @media(max-width:860px){.wrap.cta-split{grid-template-columns:1fr!important}}
 </style>
-<link rel="stylesheet" href="assets/ekin-connected-map.css" />
+<link rel="stylesheet" href="assets/ekin-connected-map.css?v=20261006a" />
 <style>.pk-map{width:100%;min-width:0}.pk-map .cs-mount{width:100%}.pk-map .cs-frame{width:100%;max-width:100%}</style>
-<link rel="stylesheet" href="assets/ekin-responsive.css" />
+<link rel="stylesheet" href="assets/ekin-responsive.css?v=20261005b" />
 <style id="m-hero-align">@media (max-width:640px){#top.hero{min-height:0!important;height:auto!important;padding:clamp(96px,18vw,140px) 0 14px!important;align-items:flex-end!important}#top .hero-content{padding-top:210px!important;padding-bottom:0!important}#top .hero-content h1{margin-top:22px!important;line-height:1.02!important}#top .hero-content p{margin-top:26px!important}#top .hero-content .actions{margin-top:38px!important}}</style>
 <style id="m-pk-enforce">@media (max-width:640px){.pk-bleed picture{display:block;width:100%;height:100%}.pk-bleed picture img{width:100%;height:100%;object-fit:cover;object-position:60% 55%}.split-media.pk-bleed{aspect-ratio:4/5!important;height:auto!important;max-height:none!important}.pk-bleed picture img{object-position:50% 50%!important}}</style>
 <style id="m-pk-icons">@media (max-width:640px){
@@ -471,6 +471,18 @@
 .pk-plat .partner-card h3{font-size:16px!important;line-height:1.25!important;margin:0!important}
 .pk-plat .partner-card h3 br{display:none}
 .pk-plat .partner-card p{font-size:14.5px!important;line-height:1.5!important;margin:0!important}
+}</style>
+<link rel="stylesheet" href="assets/ekin-hero.css?v=2" />
+<style id="m-icon-list">@media (max-width:640px){
+.cap-grid.ss-caps,.cm-benefits,.partner-grid:has(>.partner-card>p){display:flex!important;flex-direction:column!important;gap:0!important;grid-template-columns:none!important;margin-top:24px!important;border-top:1px solid rgba(255,255,255,.1)}
+.cap-grid.ss-caps>.cap,.cm-benefits>.cm-bcard,.partner-grid>.partner-card:has(>p){display:grid!important;grid-template-columns:40px minmax(0,1fr)!important;column-gap:16px!important;row-gap:6px!important;align-items:start!important;padding:20px 0!important;margin:0!important;min-height:0!important;height:auto!important;background:none!important;border:0!important;border-bottom:1px solid rgba(255,255,255,.1)!important;border-radius:0!important;box-shadow:none!important;transform:none!important}
+.cap-grid.ss-caps>.cap::before,.cap-grid.ss-caps>.cap::after,.cm-benefits>.cm-bcard::before,.cm-benefits>.cm-bcard::after{display:none!important}
+.cap-grid.ss-caps>.cap>.cap-ic,.cm-benefits>.cm-bcard>.ic,.partner-grid>.partner-card:has(>p)>.pk-icon{grid-column:1;grid-row:1/span 2;width:40px!important;height:40px!important;margin:0!important;padding:0!important;background:none!important;border:0!important;display:flex;align-items:flex-start;justify-content:center}
+.cap-grid.ss-caps>.cap>.cap-ic img{width:36px!important;height:36px!important;object-fit:contain;margin:0!important}
+.cm-benefits>.cm-bcard>.ic,.partner-grid>.partner-card:has(>p)>.pk-icon{object-fit:contain;width:36px!important;height:36px!important;margin:2px 2px 0!important}
+.cap-grid.ss-caps>.cap>h3,.cm-benefits>.cm-bcard>h3,.partner-grid>.partner-card:has(>p)>h3{grid-column:2;margin:0!important;font-size:17px!important;line-height:1.25!important;color:#fff!important;text-wrap:balance}
+.partner-grid>.partner-card:has(>p)>h3 br{display:none}
+.cap-grid.ss-caps>.cap>p,.cm-benefits>.cm-bcard>p,.partner-grid>.partner-card:has(>p)>p{grid-column:2;margin:0!important;font-size:14.5px!important;line-height:1.55!important;color:rgba(255,255,255,.66)!important;max-width:none!important;text-wrap:pretty}
 }</style>
 </head>
 <body>
@@ -580,9 +592,9 @@
 </div>
 
 <!-- ============ HERO ============ -->
-<section class="hero le-hero parking-hero" id="top" style="position:relative">
+<section class="hero le-hero parking-hero hero-std" id="top" style="position:relative">
   <div class="hero-fallback"></div>
-  <img class="hero-photo" src="images/parking-hero-lot.opt.jpg" alt="Aerial view of a numbered parking lot" style="filter:brightness(.52) saturate(.9)" />
+  <img class="hero-photo" src="images/parking-hero-lot.opt.webp" alt="Aerial view of a numbered parking lot" style="filter:brightness(.52) saturate(.9)" />
   <div class="wrap hero-content">
     <h1 style="margin-top:22px;color:#fff">Smartest parking <em><br />management</em> technology.</h1>
     <div class="actions"><a href="book-a-demo.html" class="btn btn-primary">Book a Demo <span class="arrow">&rarr;</span></a></div>
@@ -598,7 +610,7 @@
       <p>Ekin gives parking teams accurate detections and clear evidence, so every decision stays consistent and holds up.</p>
     </div>
     <div class="split-media pk-bleed reveal">
-      <picture><source media="(max-width:640px)" srcset="assets/parking-enforce-mobile.png" /><img loading="lazy" decoding="async" src="images/pk-enforce-accuracy-v2.opt.jpg" alt="Ekin camera pole overlooking a downtown parking lot entrance barrier" width="2560" height="1428" /></picture>
+      <picture><source media="(max-width:640px)" srcset="assets/parking-enforce-mobile.webp" /><img loading="lazy" decoding="async" src="images/pk-enforce-accuracy-v2.opt.webp" alt="Ekin camera pole overlooking a downtown parking lot entrance barrier" width="2560" height="1428" /></picture>
     </div>
   </div>
 </section>
@@ -611,7 +623,7 @@
       <div class="actions" style="display:flex;gap:14px;flex-wrap:wrap;margin-top:28px"><a href="patrol-g2.html" class="btn btn-ghost">Explore Patrol G2 <span class="arrow">&rarr;</span></a><a href="bike-patrol.html" class="btn btn-ghost">Explore Bike Patrol <span class="arrow">&rarr;</span></a></div>
     </div>
     <div class="split-media pk-bleed reveal">
-      <picture><source media="(max-width:640px)" srcset="assets/parking-streamlined-mobile.png" /><img loading="lazy" decoding="async" src="images/pk-streamlined-bike-2400.jpg" alt="Officer on an Ekin Bike Patrol unit enforcing parking on a downtown street" width="2400" height="1050" /></picture>
+      <picture><source media="(max-width:640px)" srcset="assets/parking-streamlined-mobile.webp" /><img loading="lazy" decoding="async" src="images/pk-streamlined-bike-2400.webp" alt="Officer on an Ekin Bike Patrol unit enforcing parking on a downtown street" width="2400" height="1050" /></picture>
     </div>
   </div>
 </section>
@@ -663,7 +675,7 @@
     <div class="sec-head reveal"><span class="eyebrow">One platform</span><h2>From the edge to the ecosystem.</h2></div>
     <div class="partner-grid">
       <div class="partner-card reveal" style="background:#141414;border-color:rgba(255,255,255,.12)">
-        <img class="pk-icon" src="images/icon-ai-powered.png" alt="" loading="lazy" />
+        <img class="pk-icon" src="images/icon-ai-powered.webp" alt="" loading="lazy" />
         <h3 style="color:#fff">From the edge<br /><br /></h3>
         <p style="color:rgba(255,255,255,.7)">Edge processing handles multiple solutions in real time, simultaneously.</p>
       </div>
@@ -690,7 +702,7 @@
       <a href="book-a-demo.html" class="btn btn-primary" style="margin-top:32px">Book a Demo <span class="arrow">&rarr;</span></a>
     </div>
     <div class="cta-media reveal">
-      <img src="images/parking-hero-lot.opt.jpg" alt="Aerial view of a numbered parking lot" loading="lazy" />
+      <img src="images/parking-hero-lot.opt.webp" alt="Aerial view of a numbered parking lot" loading="lazy" />
       <span class="cta-cap"><strong>Mobile parking coverage</strong><em>One vehicle, every monitored lot</em></span>
     </div>
   </div>
@@ -727,11 +739,11 @@
 
 <!-- ============ FINAL CTA / DEMO ============ -->
 <section class="pad-y dark-sec" id="demo">
-  <div class="wrap" style="text-align:center;max-width:840px">
-    <span class="eyebrow reveal" style="justify-content:center">Get started</span>
+  <div class="wrap">
+    <span class="eyebrow reveal">Get started</span>
     <h2 class="reveal" style="font-size:clamp(36px,6vw,72px);font-weight:700;margin-top:20px">See what you've been missing.</h2>
-    <p class="reveal" style="color:rgba(255,255,255,.7);font-size:20px;margin:22px auto 0;max-width:54ch">Book a demo and watch Ekin's accuracy in action across mobility, traffic and city safety.</p>
-    <div class="reveal" style="margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+    <p class="reveal" style="color:rgba(255,255,255,.7);font-size:20px;margin:22px 0 0;max-width:54ch">Book a demo and watch Ekin's accuracy in action across mobility, traffic and city safety.</p>
+    <div class="reveal" style="margin-top:36px;display:flex;gap:14px;justify-content:flex-start;flex-wrap:wrap">
       <a href="book-a-demo.html" class="btn btn-primary" style="padding:16px 30px;font-size:16px">Book a Demo <span class="arrow">&rarr;</span></a>
       <a href="partners.html" class="btn btn-ghost" style="padding:16px 30px;font-size:16px">Find a partner</a>
     </div>
@@ -822,7 +834,7 @@ document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
 if(document.querySelector('.tcard')){
 const TS=[
   {q:'We are proud to be a leading city in innovation and technology. This smart pole with safety cameras, public Wi-Fi, traffic and environmental sensors will assist emergency management in creating a safer community for residents, business owners, and visitors.',n:'Peter Iglesias',r:'Coral Gables, Florida, City Manager',p:'https://cdn.prod.website-files.com/67d50d6f1c74072379eb9674/67f7b9a4b35dfb90863570aa_EKIN-Pole-675x506.jpg'},
-  {q:'We\u2019ve seen a lot of technology in this space, but what Ekin is bringing to market truly stands apart. They\u2019re not a startup, they\u2019re already trusted globally, and their commitment to investing locally in U.S. operations, service, and support is exactly what agencies have been asking for.',n:'Donald W. De Lucca',r:'Retired Police Chief and Senior Public Safety Advisor',p:'images/testimonial-delucca.png'}
+  {q:'We\u2019ve seen a lot of technology in this space, but what Ekin is bringing to market truly stands apart. They\u2019re not a startup, they\u2019re already trusted globally, and their commitment to investing locally in U.S. operations, service, and support is exactly what agencies have been asking for.',n:'Donald W. De Lucca',r:'Retired Police Chief and Senior Public Safety Advisor',p:'images/testimonial-delucca.webp'}
 ];
 let ti=0;
 const T={q:document.getElementById('tQuote'),n:document.getElementById('tName'),r:document.getElementById('tRole'),p:document.getElementById('tPhoto'),dots:document.getElementById('tDots')};
@@ -849,9 +861,40 @@ if(_nf)_nf.addEventListener('submit',e=>{
 
 (function(){var n=document.getElementById('nav');if(!n)return;function h(){document.documentElement.style.setProperty('--nav-h',n.offsetHeight+'px');}h();window.addEventListener('resize',h);window.addEventListener('scroll',h,{passive:true});})();
 </script>
-<script src="ekin-connected-map.js"></script>
-<script src="assets/ekin-mobile.js" defer></script>
-<script src="assets/ekin-mobile-media.js" defer></script>
-<script src="assets/ekin-mobile-accordion.js" defer></script>
+<script src="ekin-connected-map.js?v=20261006a"></script>
+<script src="assets/ekin-mobile.js?v=20261005b" defer></script>
+<script src="assets/ekin-mobile-media.js?v=20261005b" defer></script>
+<script src="assets/ekin-mobile-accordion.js?v=20261005b" defer></script>
+<style id="m-icon-rows">@media (max-width:640px){
+html body #why .ben-grid,html body .pw-grid,html body .ch-grid,html body .mh-grid,html body .pg-m-grid,html body .bs-m-grid,html body .xs-m-grid,html body .pk-vis .partner-grid{display:flex!important;flex-direction:column!important;gap:0!important;grid-template-columns:none!important;margin-top:24px!important;background:none!important;border:0!important;border-top:1px solid rgba(255,255,255,.1)!important;padding:0!important;max-width:none!important;width:auto!important;aspect-ratio:auto!important;height:auto!important;min-height:0!important}
+html body #why .ben-grid>.ben-card,html body .pw-grid>.pw-card,html body .ch-grid>.ch-card,html body .mh-grid>.mh-card,html body .pg-m-grid>div,html body .bs-m-grid>div,html body .xs-m-grid>div,html body .pk-vis .partner-grid>.partner-card{display:grid!important;grid-template-columns:44px minmax(0,1fr)!important;grid-auto-rows:auto;column-gap:16px!important;row-gap:4px!important;align-items:center!important;justify-items:start!important;text-align:left!important;padding:18px 2px!important;margin:0!important;min-height:0!important;height:auto!important;width:auto!important;max-width:none!important;background:none!important;border:0!important;border-bottom:1px solid rgba(255,255,255,.1)!important;border-radius:0!important;box-shadow:none!important;position:relative!important;inset:auto!important;left:auto!important;top:auto!important;right:auto!important;bottom:auto!important;grid-column:auto!important;order:0}
+html body #why .ben-grid>.ben-card::before,html body .pw-grid>.pw-card::before,html body .ch-grid>.ch-card::before,html body .mh-grid>.mh-card::before,html body .pg-m-grid>div::before,html body .bs-m-grid>div::before,html body .xs-m-grid>div::before,html body .pk-vis .partner-grid>.partner-card::before,html body #why .ben-grid>.ben-card::after,html body .pw-grid>.pw-card::after,html body .ch-grid>.ch-card::after,html body .mh-grid>.mh-card::after,html body .pg-m-grid>div::after,html body .bs-m-grid>div::after,html body .xs-m-grid>div::after,html body .pk-vis .partner-grid>.partner-card::after{display:none!important}
+html body #why .ben-grid>.ben-card>.ben-icon,html body .pw-grid>.pw-card>.pw-ic,html body .ch-grid>.ch-card>.ch-ic,html body .mh-grid>.mh-card>.mh-ic,html body .pg-m-grid>div>.pg-m-ic,html body .bs-m-grid>div>.bs-m-ic,html body .xs-m-grid>div>.xs-m-ic,html body .pk-vis .partner-grid>.partner-card>.pk-icon{grid-column:1!important;grid-row:1/span 3!important;width:40px!important;height:40px!important;margin:0!important;padding:0!important;object-fit:contain!important;background:none!important;border:0!important;align-self:center!important;justify-self:center!important}
+html body .pw-grid>.pw-card>.pw-ic img,html body .ch-grid>.ch-card>.ch-ic img{width:40px!important;height:40px!important;object-fit:contain}
+html body #why .ben-grid>.ben-card>h3,html body .pw-grid>.pw-card>h3,html body .ch-grid>.ch-card>h3,html body .mh-grid>.mh-card>h3,html body .pg-m-grid>div>h4,html body .bs-m-grid>div>h4,html body .xs-m-grid>div>h4,html body .pk-vis .partner-grid>.partner-card>h3{grid-column:2!important;margin:0!important;font-size:16.5px!important;line-height:1.3!important;color:#fff!important;text-wrap:balance;max-width:none!important;text-align:left!important}
+html body .pk-vis .partner-grid>.partner-card>h3 br{display:none}
+html body .pw-grid>.pw-card>.pw-i,html body .pg-m-grid>div>.pn,html body .bs-m-grid>div>.pn,html body .xs-m-grid>div>.pn{grid-column:2!important;margin:0!important;font-size:10.5px!important;letter-spacing:.16em!important;line-height:1.4!important}
+html body .pg-m-grid>div,html body .bs-m-grid>div,html body .xs-m-grid>div{grid-template-columns:44px minmax(0,1fr) auto!important}
+html body .pg-m-grid>div>.pn,html body .bs-m-grid>div>.pn,html body .xs-m-grid>div>.pn{grid-column:3!important;grid-row:1!important;color:rgba(255,255,255,.4)!important}
+html body .pg-m-grid>div>h4,html body .bs-m-grid>div>h4,html body .xs-m-grid>div>h4{grid-row:1!important}
+html body #why .ben-grid>.ben-card.ben-feature{order:-1!important;padding:22px 2px!important}
+html body #why .ben-grid>.ben-card.ben-feature>.ben-icon{width:44px!important;height:44px!important}
+html body #why .ben-grid>.ben-card.ben-feature>h3{color:#FF3932!important}
+html body #why .ben-wrap>#benFlow,html body .mh-grid>.mh-wires,html body .mh-hub::after{display:none!important}
+html body .mh-grid>.mh-hub{order:-1!important;position:relative!important;inset:auto!important;transform:none!important;margin:0 0 6px!important;padding:6px 0 20px!important;width:auto!important;max-width:none!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;gap:14px!important;grid-column:auto!important}
+html body .mh-grid>.mh-hub>img{width:120px!important;height:auto!important;margin:0!important}
+html body .mh-grid>.mh-hub>.mh-ring{display:none!important}
+html body .mh-grid>.mh-hub>.mh-hub-label{position:static!important;transform:none!important;margin:0!important}
+html body .mh-grid:has(>.mh-hub){border-top:0!important}
+html body .mh-grid>.mh-hub+.mh-card{border-top:1px solid rgba(255,255,255,.1)!important}
+html body .mh-grid{align-items:stretch!important}html body .mh-grid>.mh-card{width:100%!important;align-self:stretch!important}html body .mh-grid>.mh-hub{aspect-ratio:auto!important;height:auto!important;min-height:0!important;align-self:stretch!important}
+html.ir-js body .ir-row{opacity:0!important;transform:translate3d(0,18px,0)!important;transition:opacity .55s cubic-bezier(.22,.7,.2,1),transform .55s cubic-bezier(.22,.7,.2,1)!important;transition-delay:var(--ir-d,0s)!important}
+html.ir-js body .ir-row.ir-in{opacity:1!important;transform:none!important}
+html.ir-js body .ir-row>img,html.ir-js body .ir-row>span:first-child{transition:transform .6s cubic-bezier(.22,.7,.2,1);transition-delay:calc(var(--ir-d,0s) + .08s);transform:scale(.86)}
+html.ir-js body .ir-row.ir-in>img,html.ir-js body .ir-row.ir-in>span:first-child{transform:none}
+}
+@media (max-width:640px) and (prefers-reduced-motion:reduce){html.ir-js body .ir-row,html.ir-js body .ir-row>*{opacity:1!important;transform:none!important;transition:none!important}}
+</style>
+<script id="m-icon-rows-js">(function(){if(!matchMedia('(max-width:640px)').matches||matchMedia('(prefers-reduced-motion:reduce)').matches||!('IntersectionObserver' in window))return;var sel="#why .ben-grid>.ben-card,.pw-grid>.pw-card,.ch-grid>.ch-card,.mh-grid>.mh-card,.pg-m-grid>div,.bs-m-grid>div,.xs-m-grid>div,.pk-vis .partner-grid>.partner-card";var rows=[].slice.call(document.querySelectorAll(sel));if(!rows.length)return;document.documentElement.classList.add('ir-js');rows.forEach(function(r){r.classList.add('ir-row')});var io=new IntersectionObserver(function(es){var n=0;es.forEach(function(e){if(e.isIntersecting){e.target.style.setProperty('--ir-d',(n++*0.07)+'s');e.target.classList.add('ir-in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.15});rows.forEach(function(r){io.observe(r)});setTimeout(function(){rows.forEach(function(r){r.classList.add('ir-in')})},8000)})();</script>
 </body>
 </html>

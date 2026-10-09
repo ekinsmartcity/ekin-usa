@@ -11,9 +11,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/ekin.css" />
-<link rel="stylesheet" href="assets/ekin-dark.css" />
-<link rel="stylesheet" href="assets/ekin-device.css" />
+<link rel="stylesheet" href="assets/ekin.css?v=20261005b" />
+<link rel="stylesheet" href="assets/ekin-dark.css?v=20261005b" />
+<link rel="stylesheet" href="assets/ekin-device.css?v=20261005b" />
 <style>
   .mod-text{display:block!important;max-width:760px;margin-bottom:clamp(32px,5vw,56px)}
   .mod-text h2{grid-column:auto!important;max-width:22ch!important;margin-top:16px!important}
@@ -84,10 +84,10 @@
   @media(max-width:900px){.dm-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.dm-tile.dm-wide{grid-column:span 2;aspect-ratio:2/1}}
   @media(max-width:560px){.dm-grid{grid-template-columns:1fr}.dm-tile,.dm-tile.dm-wide{grid-column:span 1;aspect-ratio:4/3}}
 </style>
-<link rel="stylesheet" href="assets/ekin-ecosystem.css" />
-<link rel="stylesheet" href="assets/ekin-responsive.css" />
+<link rel="stylesheet" href="assets/ekin-ecosystem.css?v=20261005b" />
+<link rel="stylesheet" href="assets/ekin-responsive.css?v=20261005b" />
 <link rel="preload" as="image" href="assets/spotter-hero-poster.jpg" fetchpriority="high" />
-<style>@media (max-width:640px){.pe-card.pe-card-bp{background:#000;border-color:#000;outline:0;box-shadow:none}.pe-card.pe-card-bp picture{position:absolute;inset:0;display:block}.pe-card.pe-card-bp img{position:absolute;inset:0;width:100%!important;height:100%!important;object-fit:cover!important;object-position:50% 12%!important}.pe-card.pe-card-bp:hover img{transform:none}}</style>
+<style>@media (max-width:640px){.pe-card.pe-card-bp{background:#000;border-color:#000;outline:0;box-shadow:none}.pe-card.pe-card-bp picture{position:absolute;inset:0;display:block}.pe-card.pe-card-bp img{position:absolute;inset:auto 0 0 0;top:auto!important;width:100%!important;height:80%!important;object-fit:cover!important;object-position:50% 0%!important}.pe-card.pe-card-bp:hover img{transform:none}}</style>
 <style id="m-sp-modvid">@media (max-width:640px){#next-section .mod-fullvideo{aspect-ratio:auto!important;height:auto!important;max-height:none!important}#next-section .mod-fullvideo video{width:100%!important;height:auto!important;aspect-ratio:auto!important;object-fit:contain!important;object-position:50% 50%!important}}</style>
 <style id="m-mpa">@media (max-width:640px){
 .mpa{padding-bottom:0!important}
@@ -115,7 +115,14 @@
 }
 @media (max-width:640px) and (prefers-reduced-motion:reduce){.mpa-imgs img{transition:none!important;transform:none!important}.mpa-card.swap{animation:none!important}}</style>
 <style id="m-hero-restore">@media (max-width:640px){#top.hero-bp{aspect-ratio:16/9!important;height:auto!important;min-height:0!important;max-height:none!important;padding:0!important;margin-top:var(--nav-h,77px)!important}#top.hero-bp .hero-bg{inset:0!important;top:0!important;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important;transform:none!important}#top.hero-bp .hero-arrow{display:none}}</style>
-<style id="m-fp-restore">@media (max-width:640px){.split-media.fp-video{aspect-ratio:16/9!important;height:auto!important;min-height:0!important;max-height:none!important}.split-media.fp-video video{width:100%!important;height:100%!important;aspect-ratio:auto!important;object-fit:contain!important;object-position:50% 50%!important}}</style>
+<style id="m-fp-restore">@media (max-width:640px){.split-media.fp-video{aspect-ratio:4/5!important;height:auto!important;min-height:0!important;max-height:none!important;background:#000}.split-media.fp-video video{width:100%!important;height:100%!important;aspect-ratio:auto!important;object-fit:cover!important;object-position:50% 50%!important}}</style>
+<style id="pe-bp-all">.pe-card.pe-card-bp{container-type:inline-size}.pe-card.pe-card-bp{background:#000!important}.pe-card.pe-card-bp picture{position:absolute;inset:0;display:block}.pe-card.pe-card-bp img,.pe-card.pe-card-bp picture img{position:absolute!important;inset:auto 0 0 0!important;top:calc(52px - 20.8cqw)!important;width:100%!important;height:92.5cqw!important;object-fit:cover!important;object-position:50% 0%!important}.pe-card.pe-card-bp:hover img{transform:none!important}.pe-card.pe-card-bp .pe-meta,.pe-card.pe-card-bp .pe-arrow{position:relative;z-index:2}@media (max-width:640px){.pe-card.pe-card-bp img,.pe-card.pe-card-bp picture img{top:calc(52px - 15.8cqw)!important;height:80cqw!important}}</style>
+<style id="pe-xs-pos">.pe-card[href="x-spotter.html"]>img{object-position:50% 92%!important}</style>
+<style id="m-sp-hero45">@media (max-width:640px){#top.hero-bp{height:auto!important;min-height:0!important;max-height:none!important;aspect-ratio:4/5!important;background:#000}#top.hero-bp .hero-bg{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;aspect-ratio:auto!important;object-fit:cover!important;object-position:50% 50%!important}}</style>
+<style id="m-sp-demo">@media (max-width:640px){.demo-card{display:grid!important;grid-template-columns:minmax(0,1fr) 84px;align-items:center!important;column-gap:16px;padding:24px 0!important;min-height:0!important;overflow:hidden}.demo-card::before{left:auto!important;right:-70px!important;top:50%!important;bottom:auto!important;width:260px!important;height:360px!important;transform:translateY(-50%);background:radial-gradient(ellipse at 50% 50%,rgba(255,57,50,.22) 0%,rgba(255,57,50,.07) 40%,transparent 68%)!important}.demo-card .demo-text{grid-column:1;grid-row:1;max-width:none!important}.demo-card .demo-text h2{font-size:25px!important}.demo-card .demo-img.demo-pole{grid-column:2;grid-row:1;position:relative!important;height:330px!important;width:auto!important;margin:0 auto!important;justify-self:center;align-self:center!important}}</style>
+<style id="m-demo-noimg">@media (max-width:640px){.demo-card .demo-img,.pg-demo-media,.pg-demo::before{display:none!important}.demo-card{min-height:0!important;height:auto!important;aspect-ratio:auto!important;padding-right:0!important}.demo-card .demo-text{max-width:none!important;width:100%!important}}</style>
+<style id="m-mod-45">@media (max-width:640px){.mod-fullvideo{aspect-ratio:4/5!important;height:auto!important;min-height:0!important;max-height:none!important;background:#000;overflow:hidden}.mod-fullvideo video{width:100%!important;height:100%!important;object-fit:cover!important;object-position:50% 50%!important}}</style>
+<style id="m-demo-full">@media (max-width:640px){.demo-card{display:flex!important;flex-direction:column!important;align-items:flex-start!important;grid-template-columns:none!important;padding-right:0!important}.demo-card .demo-text,.pg-demo .split-text,.pg-demo .mod-text{max-width:none!important;width:100%!important;grid-column:1/-1!important}.demo-card .demo-text h2,.demo-card .demo-text p{max-width:none!important}}</style>
 </head>
 <style>html{scroll-behavior:smooth}</style>
 <body>
@@ -228,6 +235,7 @@
 <section class="hero hero-bp" id="top" data-screen-label="Hero" style="position:relative">
   <h1 class="sr-only">Ekin Spotter</h1>
   <video class="hero-bg" src="assets/spotter-hero-fs.mp4" autoplay muted loop playsinline preload="auto" poster="assets/spotter-hero-poster.jpg"></video>
+  <script>(function(){if(!matchMedia("(max-width:640px)").matches)return;var v=document.querySelector("#top .hero-bg");if(!v)return;v.removeAttribute("poster");v.src="assets/spotter-hero-4x5.mp4";v.setAttribute("data-m-portrait","skip");v.load();var p=v.play();if(p&&p.catch)p.catch(function(){})})();</script>
 <a class="hero-arrow" href="#next-section" aria-label="Scroll"><span>Scroll</span><svg viewBox="0 0 20 34" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 2v27"/><path d="M3 22l7 8 7-8"/></svg></a>
 </section>
 
@@ -246,6 +254,7 @@
   <div class="mod-fullvideo">
     <video preload="none" src="assets/spotter-modular-full.mp4" data-lazy-play="" data-m-portrait="skip" muted loop playsinline></video>
   </div>
+  <script>(function(){if(!matchMedia("(max-width:640px)").matches)return;var v=document.querySelector(".mod-fullvideo video");if(v)v.src="assets/spotter-modular-4x5.mp4";})();</script>
 </section>
 
 
@@ -334,14 +343,14 @@
 var MODULES=[
  {n:'01',short:'Antenna',title:'Antenna Module',img:'images/modules/antenna.png',desc:'Supports the communication infrastructure required to keep Spotter connected with the wider Ekin ecosystem.'},
  {n:'02',short:'360\u00b012K Video',title:'360\u00b0 12K Video Module',img:'images/modules/surveillance.png',desc:'Integrates camera-based monitoring into the Spotter platform to support continuous visual awareness across monitored areas.'},
- {n:'03',short:'PTZ Dome',title:'PTZ Dome Module',img:'images/modules/ptz-dome.png',desc:'Provides controllable pan, tilt, and zoom viewing for focused observation of changing activity within the monitored area.'},
- {n:'04',short:'Safe Traffic',title:'Safe Traffic Module',img:'images/modules/safe-traffic.png',desc:'Brings AI-powered traffic monitoring and detection capabilities into Spotter\u2019s modular architecture.'},
+ {n:'03',short:'PTZ Dome',title:'PTZ Dome Module',img:'images/modules/ptz-dome.webp',desc:'Provides controllable pan, tilt, and zoom viewing for focused observation of changing activity within the monitored area.'},
+ {n:'04',short:'Safe Traffic',title:'Safe Traffic Module',img:'images/modules/safe-traffic.webp',desc:'Brings AI-powered traffic monitoring and detection capabilities into Spotter\u2019s modular architecture.'},
  {n:'05',short:'Hotspot',title:'Hotspot Module',img:'images/modules/hotspot.png',desc:'Extends local wireless connectivity through a module integrated directly into the Spotter platform.'},
- {n:'06',short:'White Flash',title:'White Flash Module',img:'images/modules/wf.png',desc:'Provides controlled white-light illumination to support clear image capture in low-light and nighttime conditions.'},
+ {n:'06',short:'White Flash',title:'White Flash Module',img:'images/modules/wf.webp',desc:'Provides controlled white-light illumination to support clear image capture in low-light and nighttime conditions.'},
  {n:'07',short:'Speaker',title:'Speaker Module',img:'images/modules/speaker.png',desc:'Adds integrated audio output for authorized public announcements and location-based communication.'},
- {n:'08',short:'City Light',title:'City Light Module',img:'images/modules/city-light.png',desc:'Integrates urban lighting into Spotter\u2019s modular structure to support illuminated public environments.'},
- {n:'09',short:'Beacon Light',title:'Beacon Light Module',img:'images/modules/beacon-light.png',desc:'Provides a highly visible light signal for operational warnings and location-based visual notifications.'},
- {n:'10',short:'Solar',title:'Solar Module',img:'images/modules/solar.png',xl:true,desc:'Provides renewable energy to support efficient, off-grid operation in locations with access to sunlight.'}
+ {n:'08',short:'City Light',title:'City Light Module',img:'images/modules/city-light.webp',desc:'Integrates urban lighting into Spotter\u2019s modular structure to support illuminated public environments.'},
+ {n:'09',short:'Beacon Light',title:'Beacon Light Module',img:'images/modules/beacon-light.webp',desc:'Provides a highly visible light signal for operational warnings and location-based visual notifications.'},
+ {n:'10',short:'Solar',title:'Solar Module',img:'images/modules/solar.webp',xl:true,desc:'Provides renewable energy to support efficient, off-grid operation in locations with access to sunlight.'}
 ];
 var scroller=document.getElementById('mpaScroll');
 if(!scroller)return;
@@ -401,7 +410,7 @@ update();
 <!-- ============ BROCHURE SPLIT ============ -->
 <section class="pad-y" style="padding-top:0">
   <div class="wrap split reveal">
-    <div class="split-media fp-video"><video preload="none" src="assets/spotter-full-picture.mp4" data-lazy-play="" data-m-portrait="skip" muted loop playsinline></video></div>
+    <div class="split-media fp-video"><video preload="none" src="assets/spotter-full-picture.mp4" data-lazy-play="" data-m-portrait="skip" muted loop playsinline></video></div><script>(function(){if(!matchMedia("(max-width:640px)").matches)return;var v=document.querySelector(".split-media.fp-video video");if(v)v.src="assets/spotter-full-picture-4x5.mp4";})();</script>
   </div>
 </section>
 
@@ -453,7 +462,7 @@ update();
 if(document.querySelector('.tcard')){
 const TS=[
   {q:'We are proud to be a leading city in innovation and technology. This smart pole with safety cameras, public Wi-Fi, traffic and environmental sensors will assist emergency management in creating a safer community for residents, business owners, and visitors.',n:'Peter Iglesias',r:'Coral Gables, Florida, City Manager',p:'https://cdn.prod.website-files.com/67d50d6f1c74072379eb9674/67f7b9a4b35dfb90863570aa_EKIN-Pole-675x506.jpg'},
-  {q:'We\u2019ve seen a lot of technology in this space, but what Ekin is bringing to market truly stands apart. They\u2019re not a startup, they\u2019re already trusted globally, and their commitment to investing locally in U.S. operations, service, and support is exactly what agencies have been asking for.',n:'Donald W. De Lucca',r:'Retired Police Chief and Senior Public Safety Advisor',p:'images/testimonial-delucca.png'}
+  {q:'We\u2019ve seen a lot of technology in this space, but what Ekin is bringing to market truly stands apart. They\u2019re not a startup, they\u2019re already trusted globally, and their commitment to investing locally in U.S. operations, service, and support is exactly what agencies have been asking for.',n:'Donald W. De Lucca',r:'Retired Police Chief and Senior Public Safety Advisor',p:'images/testimonial-delucca.webp'}
 ];
 let ti=0;
 const T={q:document.getElementById('tQuote'),n:document.getElementById('tName'),r:document.getElementById('tRole'),p:document.getElementById('tPhoto'),dots:document.getElementById('tDots')};
@@ -480,11 +489,11 @@ document.querySelector('.tcard').addEventListener('mouseleave',function(){tauto=
       <div class="pe-row pe-row-1">
       <a class="pe-card pe-lead" href="maestro-os.html"><img src="assets/maestro-city-red.jpg" alt="A connected city unified by Maestro OS" loading="lazy" /><img class="pe-logo" src="images/hero/maestro-logo.png" alt="Maestro OS" loading="lazy" /><span class="pe-meta"><strong>Maestro OS</strong><em>The command layer where connected city intelligence becomes coordinated action.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
       <a class="pe-card" href="patrol-g2.html"><img src="assets/patrol-g2-car-roof.opt.webp" alt="Ekin Patrol G2 on a vehicle roof" loading="lazy" /><span class="pe-meta"><strong>Patrol G2</strong><em>Mobile intelligence that travels with the vehicle and keeps teams aware in real time.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
-      <a class="pe-card" href="spotter.html"><img src="assets/spotter-roadside-wide.opt.jpg" alt="Ekin Spotter modular pole installed on a roadside verge" loading="lazy" /><span class="pe-meta"><strong>Spotter</strong><em>A modular city platform uniting traffic insight, environmental data and operations.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
+      <a class="pe-card" href="spotter.html"><img src="assets/spotter-roadside-wide.opt.webp" alt="Ekin Spotter modular pole installed on a roadside verge" loading="lazy" /><span class="pe-meta"><strong>Spotter</strong><em>A modular city platform uniting traffic insight, environmental data and operations.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
       </div>
       <div class="pe-row pe-row-2">
       <a class="pe-card" href="x-spotter.html"><img src="assets/x-spotter-windscreen.jpg" alt="Ekin X Spotter unit mounted on a vehicle windscreen" loading="lazy" /><span class="pe-meta"><strong>X Spotter</strong><em>Fixed or mobile edge intelligence delivering real time insight across multiple lanes.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
-      <a class="pe-card" href="box-spotter.html"><img src="assets/box-spotter-street-square.opt.jpg" alt="Ekin Box Spotter mounted on a street-side arm above a city block" loading="lazy" /><span class="pe-meta"><strong>Box Spotter</strong><em>Rapid deployment intelligence for wherever operational support is needed next.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
+      <a class="pe-card" href="box-spotter.html"><img src="assets/box-spotter-street-square.opt.webp" alt="Ekin Box Spotter mounted on a street-side arm above a city block" loading="lazy" /><span class="pe-meta"><strong>Box Spotter</strong><em>Rapid deployment intelligence for wherever operational support is needed next.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
       <a class="pe-card pe-card-bp" href="bike-patrol.html"><picture><source media="(max-width:640px)" srcset="assets/bike-patrol-eco-mobile.webp" /><img src="assets/bike-patrol-ecosystem.opt.webp" alt="Ekin Bike Patrol unit mounted on the handlebars of an Ekin e-bike" loading="lazy" /></picture><span class="pe-meta"><strong>Bike Patrol</strong><em>Full Edge AI intelligence for the agile, e-mobility side of the city.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
       <a class="pe-card" href="semistation.html"><img src="https://cdn.prod.website-files.com/67c4f1010035fe2c75689a55/67f6836b9066f99f111bb6f4_image%20556.avif" alt="Ekin TerraEye on a city street" loading="lazy" /><span class="pe-meta"><strong>TerraEye</strong><em>Solar powered intelligence for places without power or connectivity.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
       </div>
@@ -494,11 +503,11 @@ document.querySelector('.tcard').addEventListener('mouseleave',function(){tauto=
 
 <!-- ============ FINAL CTA / DEMO ============ -->
 <section class="pad-y dark-sec" id="demo">
-  <div class="wrap" style="text-align:center;max-width:840px">
-    <span class="eyebrow reveal" style="justify-content:center">Get started</span>
+  <div class="wrap">
+    <span class="eyebrow reveal">Get started</span>
     <h2 class="reveal" style="font-size:clamp(36px,6vw,72px);font-weight:700;margin-top:20px">Make your city smarter and safer.</h2>
-    <p class="reveal" style="color:rgba(255,255,255,.72);font-size:20px;margin:22px auto 0;max-width:54ch">Book a demo and watch the Ekin Spotter&rsquo;s accuracy in action across speed, parking and surveillance.</p>
-    <div class="reveal" style="margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+    <p class="reveal" style="color:rgba(255,255,255,.72);font-size:20px;margin:22px 0 0;max-width:54ch">Book a demo and watch the Ekin Spotter&rsquo;s accuracy in action across speed, parking and surveillance.</p>
+    <div class="reveal" style="margin-top:36px;display:flex;gap:14px;justify-content:flex-start;flex-wrap:wrap">
       <a href="book-a-demo.html" class="btn btn-primary" style="padding:16px 30px;font-size:16px">Book a Demo <span class="arrow">&rarr;</span></a>
       <a href="partners.html" class="btn btn-ghost" style="padding:16px 30px;font-size:16px;color:#fff">Find a partner</a>
     </div>
@@ -590,9 +599,9 @@ document.getElementById('newsForm').addEventListener('submit',e=>{
 
 (function(){var n=document.getElementById('nav');if(!n)return;function h(){document.documentElement.style.setProperty('--nav-h',n.offsetHeight+'px');}h();window.addEventListener('resize',h);window.addEventListener('scroll',h,{passive:true});})();
 </script>
-<script src="assets/ekin-mobile.js" defer></script>
-<script src="assets/ekin-mobile-media.js" defer></script>
-<script src="assets/ekin-mobile-accordion.js" defer></script>
+<script src="assets/ekin-mobile.js?v=20261005b" defer></script>
+<script src="assets/ekin-mobile-media.js?v=20261005b" defer></script>
+<script src="assets/ekin-mobile-accordion.js?v=20261005b" defer></script>
 <script id="m-mpa-js">(function(){var idx=document.getElementById('mpaIndex');if(!idx||!window.MutationObserver)return;var mq=matchMedia('(max-width:640px)');new MutationObserver(function(){if(!mq.matches)return;var on=idx.querySelector('.mpa-item.on');if(on)idx.scrollTo({left:on.offsetLeft-20,behavior:'smooth'})}).observe(idx,{subtree:true,attributes:true,attributeFilter:['class']})})();</script>
 </body>
 </html>

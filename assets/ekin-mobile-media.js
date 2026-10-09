@@ -13,11 +13,11 @@
     'patrol-g2-workflow-v2.mp4': '50% 50%',
     'spotter-modular-full.mp4': '50% 50%',
     'spotter-full-picture.mp4': '50% 50%',
-    'pk-enforce-accuracy-v2.opt.jpg': '50% 50%',
-    'pk-streamlined-bike-2400.jpg': '45% 50%',
-    'public-safety-accuracy.opt.jpg': '50% 50%',
-    'mission-campus-aerial.opt.jpg': '50% 50%',
-    'mission-sariyer-office.opt.jpg': '50% 50%'
+    'pk-enforce-accuracy-v2.opt.webp': '50% 50%',
+    'pk-streamlined-bike-2400.webp': '45% 50%',
+    'public-safety-accuracy.opt.webp': '50% 50%',
+    'mission-campus-aerial.opt.webp': '50% 50%',
+    'mission-sariyer-office.opt.webp': '50% 50%'
   };
   var SKIP = 'header,footer,#drawer,.drawer,#top,#videoSlot,.hero,.numhero,.band,.band-bleed,.ms-band,.le-cta-card,.le-cta-bleed,.pe-card,.xs-sec,.xs-lcard,.rail,.rail-card,.cs-mount,.cs-frame,.awards-wall,.award-tile,.logo,.pe-logo,.dm-tile,.jb-card,.news-card,.v-card,.ab-card,.lead-card,[data-m-keep]';
   var done = [];

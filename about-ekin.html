@@ -300,7 +300,7 @@
   .le-hero .hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;object-position:center 30%}
   .le-hero h1{font-size:clamp(46px,7.5vw,98px)}
   .le-hero::after{background:linear-gradient(180deg,rgba(8,11,16,.5) 0%,rgba(8,11,16,.18) 30%,rgba(8,11,16,.62) 64%,rgba(8,11,16,.95) 100%)}
-  .le-hero .hero-content h1,.le-hero .hero-content p,.le-hero .hero-content .eyebrow{text-shadow:0 2px 30px rgba(0,0,0,.55),0 1px 6px rgba(0,0,0,.45)}
+  .le-hero .hero-content h1,.le-hero .hero-content p,.le-hero .hero-content .eyebrow{text-shadow:none}
   .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,80px);align-items:center}
   .split.reverse .split-media{order:-1}
   .split-title{font-size:clamp(32px,3.2vw,46px);font-weight:600;margin-top:16px}
@@ -422,8 +422,10 @@
 .recognized-logos img{height:46px;width:auto;object-fit:contain;opacity:.82;filter:grayscale(1);transition:opacity .25s,filter .25s}
 .recognized-logos img:hover{opacity:1;filter:none}
 </style>
-<link rel="stylesheet" href="assets/ekin-dark.css" />
-<link rel="stylesheet" href="assets/ekin-responsive.css" />
+<link rel="stylesheet" href="assets/ekin-dark.css?v=20261005b" />
+<link rel="stylesheet" href="assets/ekin-responsive.css?v=20261005b" />
+<link rel="stylesheet" href="assets/ekin-hero.css?v=2" />
+<style id="m-awards">@media (max-width:640px){.awards-wall .awards-label{display:block;text-align:center;margin-bottom:18px}.awards-wall .awards-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important;width:100%!important;padding:0!important}.awards-wall .award-tile{display:flex!important;align-items:center;justify-content:center;height:78px!important;min-height:0!important;padding:12px!important;margin:0!important;width:auto!important;background:#0b0b0c!important;border:1px solid rgba(255,255,255,.07)!important;border-radius:10px!important;transform:none!important}.awards-wall .award-tile img{width:auto!important;height:auto!important;max-width:78%!important;max-height:40px!important;object-fit:contain!important;margin:0!important}.awards-wall .award-tile:last-child:nth-child(3n+1){grid-column:2}}</style>
 </head>
 <body>
 
@@ -450,7 +452,7 @@
         <button class="nav-trigger">Devices <span class="chev"></span></button>
         <div class="mega mega-1 mega-devices">
           <div class="mega-lead"><span class="ml-label">DEVICES</span><p>Mobile and fixed devices, on the go, plug and play.</p></div>
-          <div class="mega-col"><span class="ml-label">CONNECTED SYSTEMS</span>
+          <div class="mega-devices-cols"><div class="mega-col"><span class="ml-label">CONNECTED SYSTEMS</span>
             <a class="mega-link" href="maestro-os.html"><span class="dot"></span>Maestro OS</a>
           </div>
           <div class="mega-col"><span class="ml-label">FIXED</span>
@@ -464,8 +466,8 @@
             <a class="mega-link" href="patrol-g2.html"><span class="dot"></span>Patrol G2</a>
             <a class="mega-link" href="bike-patrol.html"><span class="dot"></span>Bike Patrol</a>
             <a class="mega-link" href="semistation.html"><span class="dot"></span>TerraEye</a>
-          </div>
-        </div>
+          </div></div>
+</div>
       </div>
 
       <div class="nav-item" data-menu>
@@ -532,7 +534,7 @@
 </div>
 
 <!-- ============ HERO ============ -->
-<section class="hero le-hero founder-hero" id="top" style="position:relative">
+<section class="hero le-hero founder-hero hero-std" id="top" style="position:relative">
   <div class="hero-fallback"></div>
   <img class="hero-photo" src="https://cdn.prod.website-files.com/67c4f1010035fe2c75689a55/67df73d9291803a3b12654f1_ekin-about-1.avif" alt="About Ekin" />
   <div class="wrap hero-content">
@@ -558,8 +560,8 @@
       <div class="recognized-logos">
         <img class="aw-color" src="assets/awards/reddot.opt.webp" alt="Red Dot Design Award" loading="lazy" />
         <img class="aw-color" src="assets/awards/german-design.png" alt="German Design Award" loading="lazy" />
-        <img class="aw-color" src="assets/awards/german-innovation.png" alt="German Innovation Award" loading="lazy" />
-        <img src="assets/awards/ces.png" alt="CES Innovation Award" loading="lazy" />
+        <img class="aw-color" src="assets/awards/german-innovation.webp" alt="German Innovation Award" loading="lazy" />
+        <img src="assets/awards/ces.webp" alt="CES Innovation Award" loading="lazy" />
         <img src="assets/awards/if-design.png" alt="iF Design Award" loading="lazy" />
       </div>
     </div>
@@ -585,7 +587,7 @@
 <!-- CTA BAND -->
 <section class="pad-y">
   <div class="wrap"><div class="band reveal">
-    <img class="band-bg" src="assets/community-night-city.opt.jpg" alt="Smart city at night" loading="lazy" />
+    <img class="band-bg" src="assets/community-night-city.opt.webp" alt="Smart city at night" loading="lazy" />
     <div class="band-content">
       <span class="eyebrow">For your community</span>
       <h2 style="margin-top:16px">See what Ekin can do for your community.</h2>
@@ -625,7 +627,7 @@
         <div class="award-tile"><img src="assets/awards/seq-23.png" alt="The Golden Bridge Awards Best 2017" loading="lazy" /></div>
         <div class="award-tile"><img src="assets/awards/seq-24.png" alt="CES Innovation Awards 2017 Honoree" loading="lazy" /></div>
         <div class="award-tile"><img src="assets/awards/seq-25.png" alt="Best in Biz Awards" loading="lazy" /></div>
-        <div class="award-tile"><img src="assets/awards/seq-26.png" alt="Stevie Winner 2016 Bronze – International Business Awards" loading="lazy" /></div>
+        <div class="award-tile"><img src="assets/awards/seq-26.png" alt="Stevie Winner 2016 Bronze, International Business Awards" loading="lazy" /></div>
         <div class="award-tile"><img src="assets/awards/stevies-extra.avif" alt="The Stevies International Business Awards Winner" loading="lazy" /></div>
         <div class="award-tile"><img src="assets/awards/stevie-2015.avif" alt="Stevie Winner 2015 Bronze" loading="lazy" /></div>
         <div class="award-tile"><img src="assets/awards/hq-adesign-2015.avif" alt="A' Design Award Winner 2015 Silver" loading="lazy" /></div>
@@ -640,26 +642,26 @@
 <!-- ============ GREAT PLACE TO WORK ============ -->
 <section class="pad-y" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="eyebrow">People &amp; culture</span><h2>A certified Great Place to Work.</h2><p>Year after year, our team makes Ekin one of the best places to work — certified and recognized across the world.</p></div>
+    <div class="sec-head reveal"><span class="eyebrow">People &amp; culture</span><h2>A certified Great Place to Work.</h2><p>Year after year, our team makes Ekin one of the best places to work, certified and recognized across the world.</p></div>
     <div class="awards-wall reveal">
       <span class="awards-label">Great Place to Work&reg; Certified</span>
       <div class="gptw-grid gptw-grid--ribbon">
-        <div class="award-tile"><img src="assets/gptw/gptw-04.png" alt="Great Place to Work Certified — Oct 2025–Oct 2026" loading="lazy" /></div>
-        <div class="award-tile"><img src="assets/gptw/gptw-03.png" alt="Great Place to Work Certified — Oct 2024–Oct 2025" loading="lazy" /></div>
-        <div class="award-tile"><img src="assets/gptw/gptw-02.png" alt="Great Place to Work Certified — Aug 2023–Aug 2024" loading="lazy" /></div>
-        <div class="award-tile"><img src="assets/gptw/gptw-01.png" alt="Great Place to Work Certified — Apr 2022–Apr 2023" loading="lazy" /></div>
+        <div class="award-tile"><img src="assets/gptw/gptw-04.webp" alt="Great Place to Work Certified, Oct 2025–Oct 2026" loading="lazy" /></div>
+        <div class="award-tile"><img src="assets/gptw/gptw-03.webp" alt="Great Place to Work Certified, Oct 2024–Oct 2025" loading="lazy" /></div>
+        <div class="award-tile"><img src="assets/gptw/gptw-02.webp" alt="Great Place to Work Certified, Aug 2023–Aug 2024" loading="lazy" /></div>
+        <div class="award-tile"><img src="assets/gptw/gptw-01.webp" alt="Great Place to Work Certified, Apr 2022–Apr 2023" loading="lazy" /></div>
       </div>
       <span class="awards-label" style="margin-top:32px">Best Workplaces&trade;</span>
       <div class="gptw-grid">
-        <div class="award-tile"><img src="assets/gptw/gptw-13.png" alt="Best Workplaces 2026" loading="lazy" /></div>
-        <div class="award-tile"><img src="assets/gptw/gptw-12.png" alt="Best Workplaces in Technology 2025" loading="lazy" /></div>
-        <div class="award-tile"><img src="assets/gptw/gptw-11.png" alt="Best Workplaces 2025" loading="lazy" /></div>
-        <div class="award-tile"><img src="assets/gptw/gptw-10.png" alt="Best Workplaces in Technology 2024" loading="lazy" /></div>
-        <div class="award-tile"><img src="assets/gptw/gptw-09.png" alt="Best Workplaces 2023" loading="lazy" /></div>
-        <div class="award-tile"><img src="assets/gptw/gptw-08.png" alt="Best Workplaces for Millennials 2023" loading="lazy" /></div>
-        <div class="award-tile"><img src="assets/gptw/gptw-07.png" alt="Best Workplaces for Innovation by All 2023" loading="lazy" /></div>
-        <div class="award-tile"><img src="assets/gptw/gptw-06.png" alt="Best Workplaces in Information Technology 2022" loading="lazy" /></div>
-        <div class="award-tile"><img src="assets/gptw/gptw-05.png" alt="Best Workplaces Multinational 2022" loading="lazy" /></div>
+        <div class="award-tile"><img src="assets/gptw/gptw-13.webp" alt="Best Workplaces 2026" loading="lazy" /></div>
+        <div class="award-tile"><img src="assets/gptw/gptw-12.webp" alt="Best Workplaces in Technology 2025" loading="lazy" /></div>
+        <div class="award-tile"><img src="assets/gptw/gptw-11.webp" alt="Best Workplaces 2025" loading="lazy" /></div>
+        <div class="award-tile"><img src="assets/gptw/gptw-10.webp" alt="Best Workplaces in Technology 2024" loading="lazy" /></div>
+        <div class="award-tile"><img src="assets/gptw/gptw-09.webp" alt="Best Workplaces 2023" loading="lazy" /></div>
+        <div class="award-tile"><img src="assets/gptw/gptw-08.webp" alt="Best Workplaces for Millennials 2023" loading="lazy" /></div>
+        <div class="award-tile"><img src="assets/gptw/gptw-07.webp" alt="Best Workplaces for Innovation by All 2023" loading="lazy" /></div>
+        <div class="award-tile"><img src="assets/gptw/gptw-06.webp" alt="Best Workplaces in Information Technology 2022" loading="lazy" /></div>
+        <div class="award-tile"><img src="assets/gptw/gptw-05.webp" alt="Best Workplaces Multinational 2022" loading="lazy" /></div>
       </div>
     </div>
   </div>
@@ -687,11 +689,11 @@
 
 <!-- ============ FINAL CTA / DEMO ============ -->
 <section class="pad-y dark-sec" id="demo">
-  <div class="wrap" style="text-align:center;max-width:840px">
-    <span class="eyebrow reveal" style="justify-content:center">Get started</span>
+  <div class="wrap">
+    <span class="eyebrow reveal">Get started</span>
     <h2 class="reveal" style="font-size:clamp(36px,6vw,72px);font-weight:700;margin-top:20px">See what you've been missing.</h2>
-    <p class="reveal" style="color:rgba(255,255,255,.7);font-size:20px;margin:22px auto 0;max-width:54ch">Book a demo and watch Ekin's accuracy in action across mobility, traffic and city safety.</p>
-    <div class="reveal" style="margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+    <p class="reveal" style="color:rgba(255,255,255,.7);font-size:20px;margin:22px 0 0;max-width:54ch">Book a demo and watch Ekin's accuracy in action across mobility, traffic and city safety.</p>
+    <div class="reveal" style="margin-top:36px;display:flex;gap:14px;justify-content:flex-start;flex-wrap:wrap">
       <a href="book-a-demo.html" class="btn btn-primary" style="padding:16px 30px;font-size:16px">Book a Demo <span class="arrow">&rarr;</span></a>
       <a href="partners.html" class="btn btn-ghost" style="padding:16px 30px;font-size:16px">Find a partner</a>
     </div>
@@ -782,7 +784,7 @@ document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
 if(document.querySelector('.tcard')){
 const TS=[
   {q:'We are proud to be a leading city in innovation and technology. This smart pole with safety cameras, public Wi-Fi, traffic and environmental sensors will assist emergency management in creating a safer community for residents, business owners, and visitors.',n:'Peter Iglesias',r:'Coral Gables, Florida, City Manager',p:'https://cdn.prod.website-files.com/67d50d6f1c74072379eb9674/67f7b9a4b35dfb90863570aa_EKIN-Pole-675x506.jpg'},
-  {q:'We\u2019ve seen a lot of technology in this space, but what Ekin is bringing to market truly stands apart. They\u2019re not a startup, they\u2019re already trusted globally, and their commitment to investing locally in U.S. operations, service, and support is exactly what agencies have been asking for.',n:'Donald W. De Lucca',r:'Retired Police Chief and Senior Public Safety Advisor',p:'images/testimonial-delucca.png'}
+  {q:'We\u2019ve seen a lot of technology in this space, but what Ekin is bringing to market truly stands apart. They\u2019re not a startup, they\u2019re already trusted globally, and their commitment to investing locally in U.S. operations, service, and support is exactly what agencies have been asking for.',n:'Donald W. De Lucca',r:'Retired Police Chief and Senior Public Safety Advisor',p:'images/testimonial-delucca.webp'}
 ];
 let ti=0;
 const T={q:document.getElementById('tQuote'),n:document.getElementById('tName'),r:document.getElementById('tRole'),p:document.getElementById('tPhoto'),dots:document.getElementById('tDots')};
@@ -809,8 +811,8 @@ if(_nf)_nf.addEventListener('submit',e=>{
 
 (function(){var n=document.getElementById('nav');if(!n)return;function h(){document.documentElement.style.setProperty('--nav-h',n.offsetHeight+'px');}h();window.addEventListener('resize',h);window.addEventListener('scroll',h,{passive:true});})();
 </script>
-<script src="assets/ekin-mobile.js" defer></script>
-<script src="assets/ekin-mobile-media.js" defer></script>
-<script src="assets/ekin-mobile-accordion.js" defer></script>
+<script src="assets/ekin-mobile.js?v=20261005b" defer></script>
+<script src="assets/ekin-mobile-media.js?v=20261005b" defer></script>
+<script src="assets/ekin-mobile-accordion.js?v=20261005b" defer></script>
 </body>
 </html>

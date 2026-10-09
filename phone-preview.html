@@ -18,7 +18,7 @@ button[aria-pressed="true"]{border-color:#e8edf6}
 .phone{position:relative;background:#000;border:10px solid #2a2a2a;border-radius:48px;overflow:hidden;box-shadow:0 30px 60px -30px #000}
 .phone iframe{display:block;border:0;background:#000}
 .phone .ld{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:#8a97ac;background:#000;pointer-events:none;transition:opacity .2s}
-.phone.ok .ld{opacity:0}
+.phone.ok .ld{opacity:0!important;visibility:hidden!important;display:none!important}
 .phone.slow .ld{color:#ff8a84}
 </style></head><body>
 <div class="bar"><b>Phone preview</b>
@@ -34,7 +34,7 @@ button[aria-pressed="true"]{border-color:#e8edf6}
 <div class="stage" id="stage"></div>
 <script>
 const groups={
- "Main":["ekin-home","public-safety","cities-and-municipalities","solutions-for-business"],
+ "Main":["ekin-home","public-safety","cities-and-municipalities","city-health","solutions-for-business"],
  "Products":["maestro-os","spotter","x-spotter","box-spotter","patrol-g2","bike-patrol","parking","semistation"],
  "Company":["about-ekin","mission","leadership","advisory-board","ekin-ventures","partners","locations","careers","jobs","general-application"],
  "Contact":["contact","book-a-demo","support","legal"],
@@ -57,7 +57,9 @@ function render(){
  st.querySelectorAll('.phone').forEach(ph=>{
   const f=ph.querySelector('iframe'),ld=ph.querySelector('.ld');
   const slow=setTimeout(()=>{if(!ph.classList.contains('ok')){ph.classList.add('slow');ld.textContent='Still loading… video-heavy pages can take a while. Use “Open page ↗” if it stays blank.'}},12000);
-  f.addEventListener('load',()=>{clearTimeout(slow);ph.classList.add('ok');
+  const done=()=>{clearTimeout(slow);ph.classList.add('ok');ld.remove()};
+  const poll=setInterval(()=>{try{const d=f.contentDocument;if(d&&d.readyState!=='loading'&&d.body&&d.body.children.length){clearInterval(poll);done()}}catch(e){}},500);
+  f.addEventListener('load',()=>{clearInterval(poll);done();
    // keep the dropdown in sync when you tap links inside the phone
    try{const p=pageFromUrl(f.contentWindow.location.href);if(p&&p!==pg.value&&pages.includes(p)){pg.value=p;localStorage.setItem('pp-page',p);document.getElementById('open').href=encodeURI(p+'.html')}}catch(e){}
   });

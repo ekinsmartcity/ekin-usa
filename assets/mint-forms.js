@@ -162,7 +162,7 @@
   function finish(f, cfg, ref) {
     clearRid(f);
     var done = $(f, cfg.done);
-    if (cfg.ventures) { f.reset(); showMsg(done, 'Thank you — we have received your details.' + (ref ? ' Reference: ' + ref : ''), false); return; }
+    if (cfg.ventures) { f.reset(); showMsg(done, 'Thank you, we have received your details.' + (ref ? ' Reference: ' + ref : ''), false); return; }
     if (cfg.pform) {
       f.reset(); if (done) done.hidden = false;
       var fs = f.querySelector('.fsubmit'); if (fs) fs.hidden = true;
@@ -208,9 +208,9 @@
             if (!keys.length) return showMsg(err, res.body.message || 'Please review the form and try again.', true);
             return showList(err, res.body.message || 'Please check the highlighted fields:', keys.map(function (k) { return res.body.errors[k]; }));
           }
-          showMsg(err, res.body.message || 'We could not send your request right now. Please try again in a moment — your details are still here.', true);
+          showMsg(err, res.body.message || 'We could not send your request right now. Please try again in a moment; your details are still here.', true);
         })
-        .catch(function () { showMsg(err, 'Connection problem. Please try again — your details are still here and will not be sent twice.', true); })
+        .catch(function () { showMsg(err, 'Connection problem. Please try again. Your details are still here and will not be sent twice.', true); })
         .then(function () { if (btn) btn.removeAttribute('aria-busy'); });
     }, true);
   }

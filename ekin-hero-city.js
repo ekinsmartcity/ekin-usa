@@ -260,11 +260,11 @@ for(let k=0;k<44;k++) deviceNode(rnd(-cityHalf,cityHalf),rnd(-cityHalf,cityHalf)
 
 // ===== highlighted products (accent markers) =====
 const HL=[
-  { id:'xspotter', pos:[gridMin-ROAD/2+1*step, 6.5, cellOrigin(4)+BLOCK/2], img:'images/hero/x-spotter.png', title:'X SPOTTER', sub:'MULTI-LANE', slotX:0.49 },
-  { id:'patrolg2', pos:[gridMin-ROAD/2+3*step-0.9, 1.0, cellOrigin(4)+BLOCK/2], img:'images/hero/patrol-g2.png', title:'PATROL G2', sub:'MOBILE', slotX:0.60 },
+  { id:'xspotter', pos:[gridMin-ROAD/2+1*step, 6.5, cellOrigin(4)+BLOCK/2], img:'images/hero/x-spotter.webp', title:'X SPOTTER', sub:'MULTI-LANE', slotX:0.49 },
+  { id:'patrolg2', pos:[gridMin-ROAD/2+3*step-0.9, 1.0, cellOrigin(4)+BLOCK/2], img:'images/hero/patrol-g2.webp', title:'PATROL G2', sub:'MOBILE', slotX:0.60 },
   { id:'spotter', pos:[gridMin-ROAD/2+3*step, 1.0, gridMin-ROAD/2+3*step], img:'images/hero/spotter.png', title:'SPOTTER', sub:'INFRASTRUCTURE', slotX:0.70 },
-  { id:'bike', pos:[cellOrigin(4)+BLOCK/2, 1.0, cellOrigin(1)+BLOCK/2], img:'images/hero/bike-patrol.png', title:'BIKE PATROL', sub:'MICRO-MOBILITY', slotX:0.80 },
-  { id:'box', pos:[cityHalf-3, 1.0, cellOrigin(3)+BLOCK/2], img:'images/hero/box-spotter.png', title:'BOX SPOTTER', sub:'RAPID DEPLOYMENT', slotX:0.90 },
+  { id:'bike', pos:[cellOrigin(4)+BLOCK/2, 1.0, cellOrigin(1)+BLOCK/2], img:'images/hero/bike-patrol.webp', title:'BIKE PATROL', sub:'MICRO-MOBILITY', slotX:0.80 },
+  { id:'box', pos:[cityHalf-3, 1.0, cellOrigin(3)+BLOCK/2], img:'images/hero/box-spotter.webp', title:'BOX SPOTTER', sub:'RAPID DEPLOYMENT', slotX:0.90 },
 ];
 HL.forEach(h=>{ const [x,y,z]=h.pos;
   for(let yy=0.3;yy<=y+3.4;yy+=0.5) push(x,yy,z,0.66,0.82,COL.accent,14.5,'accent');

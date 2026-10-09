@@ -8,13 +8,13 @@ function build(HOST){
 var PRODUCTS=[
  {id:'spotter',name:'Spotter',zone:'Zone 01',units:6,color:'#3ddc84',scale:1.0,form:'tall',img:'assets/map/spotter.png',href:'spotter.html',
   pins:[{x:19,y:22,zone:'Zone 01',status:'Connected',sync:'Just now'},{x:62,y:45,zone:'Zone 03',status:'Connected',sync:'1 min ago'},{x:74,y:72,zone:'Zone 05',status:'Connected',sync:'Just now'}]},
- {id:'xspotter',name:'X Spotter',zone:'Zone 02',units:4,color:'#4a90ff',scale:1.4,form:'wide',img:'assets/map/x-spotter.png',href:'x-spotter.html',
+ {id:'xspotter',name:'X Spotter',zone:'Zone 02',units:4,color:'#4a90ff',scale:1.4,form:'wide',img:'assets/map/x-spotter.webp',href:'x-spotter.html',
   pins:[{x:82,y:58,zone:'Zone 03',status:'Connected',sync:'Just now'},{x:30,y:71,zone:'Zone 04',status:'Standby',sync:'6 min ago'}]},
- {id:'boxspotter',name:'Box Spotter',zone:'Zone 03',units:3,color:'#9b6bff',scale:1.35,form:'wide',img:'assets/map/box-spotter.png',href:'box-spotter.html',
+ {id:'boxspotter',name:'Box Spotter',zone:'Zone 03',units:3,color:'#9b6bff',scale:1.35,form:'wide',img:'assets/map/box-spotter.webp',href:'box-spotter.html',
   pins:[{x:76,y:27,zone:'Zone 02',status:'Connected',sync:'2 min ago'}]},
- {id:'patrolg2',name:'Patrol G2',zone:'Zone 04',units:6,color:'#FF3932',scale:1.45,form:'wide',img:'assets/map/patrol-g2.png',href:'patrol-g2.html',
+ {id:'patrolg2',name:'Patrol G2',zone:'Zone 04',units:6,color:'#FF3932',scale:1.45,form:'wide',img:'assets/map/patrol-g2.webp',href:'patrol-g2.html',
   pins:[{x:47,y:45,zone:'Zone 04',status:'Connected',sync:'Just now',trail:[[47,45],[52,52],[52,57]]}]},
- {id:'bikepatrol',name:'Bike Patrol',zone:'Zone 05',units:5,color:'#e8edf6',scale:1.4,form:'wide',img:'assets/map/bike-patrol.png',href:'bike-patrol.html',
+ {id:'bikepatrol',name:'Bike Patrol',zone:'Zone 05',units:5,color:'#e8edf6',scale:1.4,form:'wide',img:'assets/map/bike-patrol.webp',href:'bike-patrol.html',
   pins:[{x:43,y:24,zone:'Zone 01',status:'Connected',sync:'Just now',trail:[[43,24],[47,32],[52,37]]},{x:60,y:75,zone:'Zone 05',status:'Standby',sync:'4 min ago',trail:[[60,75],[66,82],[72,84]]}]}
 ];
 var SUMMARY={connected:24,active:21,standby:3};
@@ -24,9 +24,9 @@ var ZONES=[{n:'Zone 01',x:24,y:35},{n:'Zone 02',x:80,y:22},{n:'Zone 03',x:85,y:5
 HOST.innerHTML=''+
 '<div class="cs-frame">'+
  '<aside class="cs-side">'+
-  '<div class="cs-brand"><img src="assets/ekin-logo-white.png" alt="Ekin" /></div>'+
+  '<div class="cs-brand"><img class="cs-brand-maestro" src="images/hero/maestro-logo.png" alt="Ekin Maestro" width="952" height="288" /></div>'+
   '<span class="cs-eyebrow">Smart city</span>'+
-  '<h3 class="cs-title">Connected<br />Solutions</h3>'+
+  '<h3 class="cs-title">Connected <br />Solutions</h3>'+
   '<div class="cs-lhead"><span>Solutions</span><span>Units</span></div>'+
   '<div class="cs-list" role="listbox" aria-label="Ekin products"></div>'+
   '<button class="cs-reset" type="button">View all</button>'+

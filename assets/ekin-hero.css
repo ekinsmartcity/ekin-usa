@@ -1,0 +1,14 @@
+/* Shared hero title/subtitle: same style, size and position on every page (reference: Cities & Municipalities) */
+section#top.hero.hero-std{align-items:flex-end!important}
+section#top.hero.hero-std .hero-content{padding-top:210px!important;padding-bottom:clamp(48px,9vh,110px)!important;padding-left:clamp(20px,5vw,64px)!important;padding-right:clamp(20px,5vw,64px)!important;max-width:1440px!important;margin-left:auto!important;margin-right:auto!important;text-align:left!important}
+section#top.hero.hero-std .hero-content h1{font-family:var(--display)!important;font-size:clamp(44px,5.9vw,85px)!important;font-weight:700!important;line-height:1.02!important;letter-spacing:-0.04em!important;max-width:20ch!important;margin:22px 0 0!important;color:#fff!important;text-align:left!important}
+section#top.hero.hero-std .hero-content h1:first-child{margin-top:0!important}
+section#top.hero.hero-std .hero-content p{font-family:var(--body)!important;font-size:clamp(18px,1.5vw,20px)!important;font-weight:400!important;line-height:1.5!important;letter-spacing:0!important;max-width:52ch!important;margin:26px 0 0!important;color:rgba(255,255,255,.8)!important;text-align:left!important}
+section#top.hero.hero-std .hero-content .actions{margin-top:38px!important;justify-content:flex-start!important}
+@media (max-width:640px){
+section#top.hero.hero-std{min-height:0!important;height:auto!important;padding:clamp(96px,18vw,140px) 0 14px!important}
+section#top.hero.hero-std .hero-content{padding-bottom:0!important}
+section#top.hero.hero-std .hero-content h1{font-size:clamp(38px,11vw,56px)!important}
+section#top.hero.hero-std .hero-content p{font-size:17px!important}
+}
+section#top.hero.hero-std .hero-content>*{transform:none!important}

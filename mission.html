@@ -294,7 +294,7 @@
   .le-hero .hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;object-position:center 30%}
   .le-hero h1{font-size:clamp(46px,7.5vw,98px)}
   .le-hero::after{background:linear-gradient(180deg,rgba(8,11,16,.5) 0%,rgba(8,11,16,.18) 30%,rgba(8,11,16,.62) 64%,rgba(8,11,16,.95) 100%)}
-  .le-hero .hero-content h1,.le-hero .hero-content p,.le-hero .hero-content .eyebrow{text-shadow:0 2px 30px rgba(0,0,0,.55),0 1px 6px rgba(0,0,0,.45)}
+  .le-hero .hero-content h1,.le-hero .hero-content p,.le-hero .hero-content .eyebrow{text-shadow:none}
   .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,80px);align-items:center}
   .split.reverse .split-media{order:-1}
   .split-title{font-size:clamp(32px,3.2vw,46px);font-weight:600;margin-top:16px}
@@ -412,7 +412,7 @@
 .founder-quote blockquote{font-family:var(--display);font-weight:600;font-size:clamp(28px,4vw,52px);line-height:1.12;letter-spacing:-0.02em;max-width:18ch}
 .founder-quote .qmark{color:var(--accent);font-size:64px;line-height:0;display:block;height:34px}
 </style>
-<link rel="stylesheet" href="assets/ekin-dark.css" />
+<link rel="stylesheet" href="assets/ekin-dark.css?v=20261005b" />
 <style>
   .ms-hero{padding:calc(var(--nav-h,76px) + clamp(90px,16vh,180px)) 0 clamp(60px,10vh,120px);border-bottom:1px solid var(--line)}
   .ms-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);display:block}
@@ -445,7 +445,8 @@
   .ms-p p{margin-top:10px;max-width:52ch}
   @media(max-width:700px){.ms-p{grid-template-columns:1fr;gap:10px}.ms-n{padding-top:0}.ms-bleed{aspect-ratio:4/3}}
 </style>
-<link rel="stylesheet" href="assets/ekin-responsive.css" />
+<link rel="stylesheet" href="assets/ekin-responsive.css?v=20261005b" />
+<style id="m-ms-hero">@media (max-width:640px){html body .ms-hero{padding-top:calc(var(--nav-h,76px) + 28px)!important;min-height:0!important;height:auto!important}}</style>
 </head>
 <body>
 
@@ -558,17 +559,17 @@
   <div class="wrap">
     <span class="ms-eyebrow">Our Mission</span>
     <h1>Cities deserve<br />better intelligence.</h1>
-    <p class="ms-lead">We build the intelligence layer for the connected city &mdash; engineered and manufactured in-house, deployed in more than 50 countries.</p>
+    <p class="ms-lead">We build the intelligence layer for the connected city, engineered and manufactured in-house, deployed in more than 50 countries.</p>
   </div>
 </section>
 
 <!-- ============ FULL-BLEED 1 ============ -->
-<figure class="ms-bleed" id="next-section"><img src="images/mission-sariyer-office.opt.jpg" alt="Ekin Sar&#305;yer office at sunset" loading="lazy" /></figure>
+<figure class="ms-bleed" id="next-section"><img src="images/mission-sariyer-office.opt.webp" alt="Ekin Sar&#305;yer office at sunset" loading="lazy" /></figure>
 
 <!-- ============ STATEMENT ============ -->
 <section class="ms-statement">
   <div class="wrap">
-    <p>Cities are asked to move more people, monitor more ground and respond faster &mdash; with tools that were never built to work together.</p>
+    <p>Cities are asked to move more people, monitor more ground and respond faster, with tools that were never built to work together.</p>
     <p>We think that is unacceptable.</p>
   </div>
 </section>
@@ -581,7 +582,7 @@
 </section>
 
 <!-- ============ FULL-BLEED 2 ============ -->
-<figure class="ms-bleed"><img src="images/mission-campus-aerial.opt.jpg" alt="Aerial view of the Ekin campus above the Bosphorus" loading="lazy" /></figure>
+<figure class="ms-bleed"><img src="images/mission-campus-aerial.opt.webp" alt="Aerial view of the Ekin campus above the Bosphorus" loading="lazy" /></figure>
 
 <!-- ============ GLOBAL OFFICES MAP ============ -->
 <section class="ms-offices" id="offices">
@@ -596,6 +597,7 @@
       <button type="button" id="offZout" aria-label="Zoom out">&minus;</button>
       <button type="button" id="offZreset" class="off-reset" aria-label="Reset view">Rst</button>
     </div>
+    <div class="off-regions" role="group" aria-label="Show region"><button type="button" data-r="americas" aria-pressed="false">Americas</button><button type="button" data-r="europe" aria-pressed="true">Europe &amp; Middle East</button><button type="button" data-r="asia" aria-pressed="false">Asia</button><button type="button" data-r="world" aria-pressed="false">World</button></div>
     <div class="off-legend"><span class="off-dot-key"></span> Ekin office <span class="off-legend-sep"></span> <span class="off-count" id="offCount"></span></div>
     <div class="off-pop" id="offPop" aria-live="polite">
       <button class="off-pop-x" id="offPopX" aria-label="Close">&times;</button>
@@ -611,6 +613,17 @@
 .ms-off-lead{color:rgba(255,255,255,.6);font-size:clamp(15.5px,1.25vw,18px);line-height:1.6;margin-top:18px;max-width:52ch}
 .off-stage{position:relative;width:100%;border-top:1px solid rgba(255,255,255,.08);overflow:hidden}
 #worldMap{cursor:grab}
+.off-regions{display:none}
+@media (max-width:640px){
+.off-regions{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;position:absolute;left:0;right:0;top:14px;padding:0 16px;z-index:3;-webkit-overflow-scrolling:touch}
+.off-regions::-webkit-scrollbar{display:none}
+.off-regions button{flex:none;min-height:40px;padding:0 15px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(8,9,11,.78);backdrop-filter:blur(8px);color:rgba(255,255,255,.75);font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;white-space:nowrap}
+.off-regions button[aria-pressed="true"]{background:#FF3932;border-color:#FF3932;color:#fff}
+.off-regions button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.off-stage .off-zoom{top:auto;bottom:60px;right:16px}
+.off-stage .off-legend{left:16px;bottom:16px}
+.off-stage .off-pin .pin-label{display:inline!important;font-size:10px;fill:rgba(255,255,255,.72)}
+}
 #worldMap.dragging{cursor:grabbing}
 .off-zoom{position:absolute;top:16px;right:clamp(16px,4vw,48px);display:flex;flex-direction:column;gap:6px;z-index:3}
 .off-zoom button{width:38px;height:38px;border-radius:9px;border:1px solid rgba(255,255,255,.16);background:rgba(8,9,11,.72);backdrop-filter:blur(8px);color:#fff;font-family:var(--display);font-size:19px;font-weight:500;line-height:1;cursor:pointer;display:grid;place-items:center;transition:background .2s,border-color .2s}
@@ -653,24 +666,24 @@
   var OFFICES=[
     {city:"Istanbul",country:"T\u00fcrkiye",lon:28.98,lat:41.02,dx:8,dy:-10,entities:[
       {name:"Ekin Smart City Teknoloji A.\u015e.",addr:"Gediz Sokak No:7, 34450 Sar\u0131yer / \u0130stanbul"},
-      {name:"Ekin Smart City Teknoloji A.\u015e. \u2014 Serbest B\u00f6lge \u0130htisas \u015eubesi",addr:"Ye\u015filk\u00f6y SB, Atat\u00fcrk Havaliman\u0131 Serbest B\u00f6lge K Blok, No:11, 34149 Bak\u0131rk\u00f6y / \u0130stanbul"}]},
+      {name:"Ekin Smart City Teknoloji A.\u015e., Serbest B\u00f6lge \u0130htisas \u015eubesi",addr:"Ye\u015filk\u00f6y SB, Atat\u00fcrk Havaliman\u0131 Serbest B\u00f6lge K Blok, No:11, 34149 Bak\u0131rk\u00f6y / \u0130stanbul"}]},
     {city:"Ankara",country:"T\u00fcrkiye",lon:32.85,lat:39.93,dx:8,dy:15,entities:[
       {name:"Ekin Software Teknoloji",addr:"CYBERPARK Cyberplaza C Blok Zemin Kat (\u00dcniversiteler Mah. \u2013 Bilkent 1), \u00c7ankaya / Ankara"},
-      {name:"Ekin Software Teknoloji \u2014 \u0130ncek",addr:"K\u0131z\u0131lca\u015far Mahallesi, Zafer Caddesi, No:41-43, G\u00f6lba\u015f\u0131 / Ankara"}]},
+      {name:"Ekin Software Teknoloji, \u0130ncek",addr:"K\u0131z\u0131lca\u015far Mahallesi, Zafer Caddesi, No:41-43, G\u00f6lba\u015f\u0131 / Ankara"}]},
     {city:"Zurich",country:"Switzerland",lon:8.54,lat:47.37,dx:-10,dy:-10,anchor:"end",entities:[
       {name:"Ekin Swiss AG",addr:"Fischhausenstrasse 8b, St. Gallen, Kaltbrunn 8722"}]},
     {city:"Stuttgart",country:"Germany",lon:9.18,lat:48.78,dx:8,dy:-17,entities:[
       {name:"Ekin Europe GmbH",addr:"K\u00f6nigstrasse 27, 70173 Stuttgart"}]},
     {city:"Baku",country:"Azerbaijan",lon:49.87,lat:40.41,dx:9,dy:4,entities:[
-      {name:"Ekin Smart City Teknoloji A.\u015e. \u2014 Az\u0259rbaycan Respublikas\u0131ndak\u0131 Filial\u0131",addr:"Sanan Karimov K\u00fc\u00e7\u0259si 35C, 1152 M\u0259h. Kat:1, X\u0259tai / Baku"}]},
+      {name:"Ekin Smart City Teknoloji A.\u015e., Az\u0259rbaycan Respublikas\u0131ndak\u0131 Filial\u0131",addr:"Sanan Karimov K\u00fc\u00e7\u0259si 35C, 1152 M\u0259h. Kat:1, X\u0259tai / Baku"}]},
     {city:"Singapore",country:"Singapore",lon:103.82,lat:1.35,dx:9,dy:8,entities:[
-      {name:"Ekin \u2014 Singapore",addr:null}]},
+      {name:"Ekin Singapore",addr:null}]},
     {city:"Miami",country:"United States",lon:-80.19,lat:25.76,dx:9,dy:9,entities:[
       {name:"Ekin LLC",addr:"78 SW 7th St, Miami, FL 33130, United States"}]},
     {city:"Atlanta",country:"United States",lon:-84.39,lat:33.75,dx:-10,dy:-9,anchor:"end",entities:[
       {name:"Ekin Traffic Solutions",addr:"305 Trilith Pkwy, Ste 300 #1850, Fayetteville, GA 30214"}]},
     {city:"Phoenix",country:"United States",lon:-112.07,lat:33.45,dx:-10,dy:6,anchor:"end",entities:[
-      {name:"Ekin \u2014 Phoenix",addr:null}]}
+      {name:"Ekin Traffic Solutions Inc.",addr:"1255 W Baseline Rd., Suite C259, Mesa, AZ 85202"}]}
   ];
   var mapEl=document.getElementById("worldMap"),stage=document.querySelector(".off-stage");
   var pop=document.getElementById("offPop"),popName=document.getElementById("offPopName"),
@@ -702,9 +715,11 @@
       pop.style.left=x+"px";pop.style.top=y+"px";
     }else{pop.style.left="";pop.style.top=""}
   }
-  var W=1440,H=700;
+  var PH=window.matchMedia("(max-width:640px)").matches;
+  var W=PH?800:1440,H=PH?1000:700;
   var svg=d3.select(mapEl).append("svg").attr("viewBox","0 0 "+W+" "+H).attr("preserveAspectRatio","xMidYMid meet");
   var proj=d3.geoNaturalEarth1().scale(272).translate([W/2,H/2+40]);
+  if(PH){proj.fitHeight(H*1.08,{type:"Sphere"});proj.translate([W/2,H/2+30]);}
   var path=d3.geoPath(proj);
   var root=svg.append("g").attr("class","off-root");
   root.append("path").attr("class","off-sphere").attr("d",path({type:"Sphere"}));
@@ -729,8 +744,10 @@
     });
 
     var k=1;
-    var zoom=d3.zoom().scaleExtent([1,9])
-      .translateExtent([[0,0],[W,H]])
+    var SB=path.bounds({type:"Sphere"});
+    var PS=PH?W/Math.max(300,mapEl.clientWidth||390):1;
+    var zoom=d3.zoom().scaleExtent([PH?W/(SB[1][0]-SB[0][0]):1,9])
+      .translateExtent(PH?[[SB[0][0],0],[SB[1][0],H]]:[[0,0],[W,H]])
       .on("start",function(ev){if(ev.sourceEvent&&ev.sourceEvent.type==="mousedown")mapEl.classList.add("dragging")})
       .on("end",function(){mapEl.classList.remove("dragging")})
       .on("zoom",function(ev){
@@ -740,11 +757,34 @@
         root.selectAll(".off-grat").style("stroke-width",(0.5/k)+"px");
         g.selectAll(".off-pin").attr("transform",function(){
           var d=OFFICES[+this.dataset.i],p=proj([d.lon,d.lat]);
-          return "translate("+p[0]+","+p[1]+") scale("+(1/k)+")";
+          return "translate("+p[0]+","+p[1]+") scale("+(PS/k)+")";
         });
         if(open>-1)reposition();
       });
+    if(PH){
+      // one finger scrolls the page; two fingers pan/zoom the map
+      zoom.filter(function(ev){return ev.type==="wheel"?false:(ev.touches?ev.touches.length>1:!ev.button)});
+      svg.style("touch-action","pan-y");
+    }
     svg.call(zoom).on("dblclick.zoom",null);
+    var REG={americas:["Miami","Atlanta","Phoenix"],europe:["Zurich","Stuttgart","Istanbul","Ankara","Baku"],asia:["Singapore"]};
+    function regionT(key){
+      var pts=OFFICES.filter(function(o){return REG[key].indexOf(o.city)>-1}).map(function(o){return proj([o.lon,o.lat])});
+      var x0=d3.min(pts,function(p){return p[0]}),x1=d3.max(pts,function(p){return p[0]}),y0=d3.min(pts,function(p){return p[1]}),y1=d3.max(pts,function(p){return p[1]});
+      var bw=Math.max(x1-x0,90)+160,bh=Math.max(y1-y0,90)+260;
+      var kk=Math.max(1,Math.min(6,W/bw,H/bh));
+      return d3.zoomIdentity.translate(W/2,H/2).scale(kk).translate(-(x0+x1)/2,-(y0+y1)/2);
+    }
+    var rbtns=document.querySelectorAll(".off-regions button");
+    function goRegion(key,anim){
+      rbtns.forEach(function(b){b.setAttribute("aria-pressed",b.dataset.r===key)});
+      close();
+      var kMin=W/(SB[1][0]-SB[0][0]);
+      var t=key==="world"?(PH?d3.zoomIdentity.translate(W/2,H/2).scale(kMin).translate(-(SB[0][0]+SB[1][0])/2,-(SB[0][1]+SB[1][1])/2):d3.zoomIdentity):regionT(key);
+      (anim&&!window.matchMedia("(prefers-reduced-motion:reduce)").matches?svg.transition().duration(550):svg).call(zoom.transform,t);
+    }
+    rbtns.forEach(function(b){b.addEventListener("click",function(){goRegion(b.dataset.r,true)})});
+    if(PH)goRegion("europe",false);
     function reposition(){
       var el=g.select('.off-pin[data-i="'+open+'"]').node(); if(!el)return;
       var r=el.getBoundingClientRect(),sr=stage.getBoundingClientRect();
@@ -753,7 +793,7 @@
     window.__offReposition=reposition;
     d3.select("#offZin").on("click",function(){svg.transition().duration(300).call(zoom.scaleBy,1.7)});
     d3.select("#offZout").on("click",function(){svg.transition().duration(300).call(zoom.scaleBy,1/1.7)});
-    d3.select("#offZreset").on("click",function(){close();svg.transition().duration(450).call(zoom.transform,d3.zoomIdentity)});
+    d3.select("#offZreset").on("click",function(){if(PH){goRegion("europe",true);return}close();svg.transition().duration(450).call(zoom.transform,d3.zoomIdentity)});
   }).catch(function(e){console.warn("map geometry failed",e)});
 })();
 </script>
@@ -872,7 +912,7 @@ document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
 if(document.querySelector('.tcard')){
 const TS=[
   {q:'We are proud to be a leading city in innovation and technology. This smart pole with safety cameras, public Wi-Fi, traffic and environmental sensors will assist emergency management in creating a safer community for residents, business owners, and visitors.',n:'Peter Iglesias',r:'Coral Gables, Florida, City Manager',p:'https://cdn.prod.website-files.com/67d50d6f1c74072379eb9674/67f7b9a4b35dfb90863570aa_EKIN-Pole-675x506.jpg'},
-  {q:'We\u2019ve seen a lot of technology in this space, but what Ekin is bringing to market truly stands apart. They\u2019re not a startup, they\u2019re already trusted globally, and their commitment to investing locally in U.S. operations, service, and support is exactly what agencies have been asking for.',n:'Donald W. De Lucca',r:'Retired Police Chief and Senior Public Safety Advisor',p:'images/testimonial-delucca.png'}
+  {q:'We\u2019ve seen a lot of technology in this space, but what Ekin is bringing to market truly stands apart. They\u2019re not a startup, they\u2019re already trusted globally, and their commitment to investing locally in U.S. operations, service, and support is exactly what agencies have been asking for.',n:'Donald W. De Lucca',r:'Retired Police Chief and Senior Public Safety Advisor',p:'images/testimonial-delucca.webp'}
 ];
 let ti=0;
 const T={q:document.getElementById('tQuote'),n:document.getElementById('tName'),r:document.getElementById('tRole'),p:document.getElementById('tPhoto'),dots:document.getElementById('tDots')};
@@ -899,8 +939,8 @@ if(_nf)_nf.addEventListener('submit',e=>{
 
 (function(){var n=document.getElementById('nav');if(!n)return;function h(){document.documentElement.style.setProperty('--nav-h',n.offsetHeight+'px');}h();window.addEventListener('resize',h);window.addEventListener('scroll',h,{passive:true});})();
 </script>
-<script src="assets/ekin-mobile.js" defer></script>
-<script src="assets/ekin-mobile-media.js" defer></script>
-<script src="assets/ekin-mobile-accordion.js" defer></script>
+<script src="assets/ekin-mobile.js?v=20261005b" defer></script>
+<script src="assets/ekin-mobile-media.js?v=20261005b" defer></script>
+<script src="assets/ekin-mobile-accordion.js?v=20261005b" defer></script>
 </body>
 </html>

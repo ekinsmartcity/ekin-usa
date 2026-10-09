@@ -294,7 +294,7 @@
   .le-hero .hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;object-position:center 30%}
   .le-hero h1{font-size:clamp(46px,7.5vw,98px)}
   .le-hero::after{background:linear-gradient(180deg,rgba(8,11,16,.5) 0%,rgba(8,11,16,.18) 30%,rgba(8,11,16,.62) 64%,rgba(8,11,16,.95) 100%)}
-  .le-hero .hero-content h1,.le-hero .hero-content p,.le-hero .hero-content .eyebrow{text-shadow:0 2px 30px rgba(0,0,0,.55),0 1px 6px rgba(0,0,0,.45)}
+  .le-hero .hero-content h1,.le-hero .hero-content p,.le-hero .hero-content .eyebrow{text-shadow:none}
   .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,80px);align-items:center}
   .split.reverse .split-media{order:-1}
   .split-title{font-size:clamp(32px,3.2vw,46px);font-weight:600;margin-top:16px}
@@ -450,8 +450,8 @@
 .press-row:hover .parrow{background:var(--accent);border-color:var(--accent);color:#fff;transform:translateX(4px)}
 @media(max-width:860px){.blog-grid{grid-template-columns:1fr}.feat{grid-template-columns:1fr}.feat .feat-media{min-height:220px;aspect-ratio:16/9}.press-row{grid-template-columns:1fr auto;gap:6px 20px}.press-row .pdate{grid-column:1/-1;order:-1}}
 </style>
-<link rel="stylesheet" href="assets/ekin-dark.css" />
-<link rel="stylesheet" href="assets/ekin-responsive.css" />
+<link rel="stylesheet" href="assets/ekin-dark.css?v=20261005b" />
+<link rel="stylesheet" href="assets/ekin-responsive.css?v=20261005b" />
 </head>
 <body>
 
@@ -600,11 +600,11 @@
 
 <!-- ============ FINAL CTA / DEMO ============ -->
 <section class="pad-y dark-sec" id="demo">
-  <div class="wrap" style="text-align:center;max-width:840px">
-    <span class="eyebrow reveal" style="justify-content:center">Get started</span>
+  <div class="wrap">
+    <span class="eyebrow reveal">Get started</span>
     <h2 class="reveal" style="font-size:clamp(36px,6vw,72px);font-weight:700;margin-top:20px">See what you've been missing.</h2>
-    <p class="reveal" style="color:rgba(255,255,255,.7);font-size:20px;margin:22px auto 0;max-width:54ch">Book a demo and watch Ekin's accuracy in action across mobility, traffic and city safety.</p>
-    <div class="reveal" style="margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+    <p class="reveal" style="color:rgba(255,255,255,.7);font-size:20px;margin:22px 0 0;max-width:54ch">Book a demo and watch Ekin's accuracy in action across mobility, traffic and city safety.</p>
+    <div class="reveal" style="margin-top:36px;display:flex;gap:14px;justify-content:flex-start;flex-wrap:wrap">
       <a href="book-a-demo.html" class="btn btn-primary" style="padding:16px 30px;font-size:16px">Book a Demo <span class="arrow">&rarr;</span></a>
       <a href="partners.html" class="btn btn-ghost" style="padding:16px 30px;font-size:16px">Find a partner</a>
     </div>
@@ -695,7 +695,7 @@ document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
 if(document.querySelector('.tcard')){
 const TS=[
   {q:'We are proud to be a leading city in innovation and technology. This smart pole with safety cameras, public Wi-Fi, traffic and environmental sensors will assist emergency management in creating a safer community for residents, business owners, and visitors.',n:'Peter Iglesias',r:'Coral Gables, Florida, City Manager',p:'https://cdn.prod.website-files.com/67d50d6f1c74072379eb9674/67f7b9a4b35dfb90863570aa_EKIN-Pole-675x506.jpg'},
-  {q:'We\u2019ve seen a lot of technology in this space, but what Ekin is bringing to market truly stands apart. They\u2019re not a startup, they\u2019re already trusted globally, and their commitment to investing locally in U.S. operations, service, and support is exactly what agencies have been asking for.',n:'Donald W. De Lucca',r:'Retired Police Chief and Senior Public Safety Advisor',p:'images/testimonial-delucca.png'}
+  {q:'We\u2019ve seen a lot of technology in this space, but what Ekin is bringing to market truly stands apart. They\u2019re not a startup, they\u2019re already trusted globally, and their commitment to investing locally in U.S. operations, service, and support is exactly what agencies have been asking for.',n:'Donald W. De Lucca',r:'Retired Police Chief and Senior Public Safety Advisor',p:'images/testimonial-delucca.webp'}
 ];
 let ti=0;
 const T={q:document.getElementById('tQuote'),n:document.getElementById('tName'),r:document.getElementById('tRole'),p:document.getElementById('tPhoto'),dots:document.getElementById('tDots')};
@@ -722,8 +722,8 @@ if(_nf)_nf.addEventListener('submit',e=>{
 
 (function(){var n=document.getElementById('nav');if(!n)return;function h(){document.documentElement.style.setProperty('--nav-h',n.offsetHeight+'px');}h();window.addEventListener('resize',h);window.addEventListener('scroll',h,{passive:true});})();
 </script>
-<script src="assets/ekin-mobile.js" defer></script>
-<script src="assets/ekin-mobile-media.js" defer></script>
-<script src="assets/ekin-mobile-accordion.js" defer></script>
+<script src="assets/ekin-mobile.js?v=20261005b" defer></script>
+<script src="assets/ekin-mobile-media.js?v=20261005b" defer></script>
+<script src="assets/ekin-mobile-accordion.js?v=20261005b" defer></script>
 </body>
 </html>

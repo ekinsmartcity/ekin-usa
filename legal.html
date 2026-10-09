@@ -294,7 +294,7 @@
   .le-hero .hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;object-position:center 30%}
   .le-hero h1{font-size:clamp(46px,7.5vw,98px)}
   .le-hero::after{background:linear-gradient(180deg,rgba(8,11,16,.5) 0%,rgba(8,11,16,.18) 30%,rgba(8,11,16,.62) 64%,rgba(8,11,16,.95) 100%)}
-  .le-hero .hero-content h1,.le-hero .hero-content p,.le-hero .hero-content .eyebrow{text-shadow:0 2px 30px rgba(0,0,0,.55),0 1px 6px rgba(0,0,0,.45)}
+  .le-hero .hero-content h1,.le-hero .hero-content p,.le-hero .hero-content .eyebrow{text-shadow:none}
   .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,80px);align-items:center}
   .split.reverse .split-media{order:-1}
   .split-title{font-size:clamp(32px,3.2vw,46px);font-weight:600;margin-top:16px}
@@ -430,8 +430,9 @@
 .legal-note{margin-top:18px;padding:18px 20px;background:var(--bg-2);border:1px solid var(--line);border-radius:10px;font-size:14.5px;color:var(--muted);line-height:1.6}
 @media(max-width:880px){.legal-wrap{grid-template-columns:1fr}.legal-nav{position:static;margin-bottom:8px;display:flex;flex-wrap:wrap;gap:6px}.legal-nav h5{width:100%}.legal-nav a{border-left:none;border:1px solid var(--line)}}
 </style>
-<link rel="stylesheet" href="assets/ekin-dark.css" />
-<link rel="stylesheet" href="assets/ekin-responsive.css" />
+<link rel="stylesheet" href="assets/ekin-dark.css?v=20261005b" />
+<link rel="stylesheet" href="assets/ekin-responsive.css?v=20261005b" />
+<style>.legal-hero.legal-plain{min-height:0;display:block;background:transparent;color:inherit;padding-top:calc(77px + clamp(56px,9vh,110px))}.legal-hero.legal-plain::after{display:none}.legal-hero.legal-plain .wrap{padding-top:0;padding-bottom:clamp(32px,4vw,56px)}.legal-hero.legal-plain h1{font-family:var(--display);font-size:clamp(36px,5vw,72px);line-height:1;letter-spacing:-.035em;font-weight:600;margin-top:0;color:inherit}.legal-hero.legal-plain p{color:var(--muted);margin-top:22px}.legal-hero.legal-plain .updated{color:var(--muted)}</style>
 </head>
 <body>
 
@@ -540,8 +541,7 @@
 </div>
 
 <!-- ============ HERO ============ -->
-<section class="legal-hero" id="top">
-  <img class="legal-hero-bg" src="images/legal-hero.opt.jpg" alt="" />
+<section class="legal-hero legal-plain" id="top">
   <div class="wrap">
     <h1>Legal &amp; Policies</h1>
     <p>How Ekin Inc. handles website information and the terms and policies that apply to this site.</p>
@@ -583,7 +583,7 @@
         <h3>8. Children, external sites, and changes</h3>
         <p>This website is intended for business audiences and is not directed to children under 13. We do not knowingly collect personal information from children under 13 through this website. Links to third-party sites are governed by those sites&rsquo; own policies. We may revise this Policy and will post the updated version with its effective date. If a change requires additional notice or choice under applicable law, we will provide it.</p>
         <h3>9. Contact</h3>
-        <p>For questions or privacy requests: Ekin Inc. &mdash; <a class="inl" href="mailto:legal@ekin.com">legal@ekin.com</a>. Mailing address: 1255 W Baseline Rd., Suite C259, Mesa, AZ 85202, USA.</p>
+        <p>For questions or privacy requests: Ekin Inc., <a class="inl" href="mailto:legal@ekin.com">legal@ekin.com</a>. Mailing address: 1255 W Baseline Rd., Suite C259, Mesa, AZ 85202, USA.</p>
       </article>
 
       <article class="legal-sec" id="terms">
@@ -658,11 +658,11 @@
 
 <!-- ============ FINAL CTA / DEMO ============ -->
 <section class="pad-y dark-sec" id="demo">
-  <div class="wrap" style="text-align:center;max-width:840px">
-    <span class="eyebrow reveal" style="justify-content:center">Get started</span>
+  <div class="wrap">
+    <span class="eyebrow reveal">Get started</span>
     <h2 class="reveal" style="font-size:clamp(36px,6vw,72px);font-weight:700;margin-top:20px">See what you've been missing.</h2>
-    <p class="reveal" style="color:rgba(255,255,255,.7);font-size:20px;margin:22px auto 0;max-width:54ch">Book a demo and watch Ekin's accuracy in action across mobility, traffic and city safety.</p>
-    <div class="reveal" style="margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+    <p class="reveal" style="color:rgba(255,255,255,.7);font-size:20px;margin:22px 0 0;max-width:54ch">Book a demo and watch Ekin's accuracy in action across mobility, traffic and city safety.</p>
+    <div class="reveal" style="margin-top:36px;display:flex;gap:14px;justify-content:flex-start;flex-wrap:wrap">
       <a href="book-a-demo.html" class="btn btn-primary" style="padding:16px 30px;font-size:16px">Book a Demo <span class="arrow">&rarr;</span></a>
       <a href="partners.html" class="btn btn-ghost" style="padding:16px 30px;font-size:16px">Find a partner</a>
     </div>
@@ -676,7 +676,7 @@
     <div>
       <span class="eyebrow">Book a demo</span>
       <h3>See it running in a city like yours.</h3>
-      <p>Thirty minutes with a product specialist &mdash; live captures, deployment options and straight answers.</p>
+      <p>Thirty minutes with a product specialist: live captures, deployment options and straight answers.</p>
     </div>
     <div class="demo-band-cta">
       <a href="book-a-demo.html" class="btn btn-primary">Book a Demo <span class="arrow">&rarr;</span></a>
@@ -776,7 +776,7 @@ document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
 if(document.querySelector('.tcard')){
 const TS=[
   {q:'We are proud to be a leading city in innovation and technology. This smart pole with safety cameras, public Wi-Fi, traffic and environmental sensors will assist emergency management in creating a safer community for residents, business owners, and visitors.',n:'Peter Iglesias',r:'Coral Gables, Florida, City Manager',p:'https://cdn.prod.website-files.com/67d50d6f1c74072379eb9674/67f7b9a4b35dfb90863570aa_EKIN-Pole-675x506.jpg'},
-  {q:'We\u2019ve seen a lot of technology in this space, but what Ekin is bringing to market truly stands apart. They\u2019re not a startup, they\u2019re already trusted globally, and their commitment to investing locally in U.S. operations, service, and support is exactly what agencies have been asking for.',n:'Donald W. De Lucca',r:'Retired Police Chief and Senior Public Safety Advisor',p:'images/testimonial-delucca.png'}
+  {q:'We\u2019ve seen a lot of technology in this space, but what Ekin is bringing to market truly stands apart. They\u2019re not a startup, they\u2019re already trusted globally, and their commitment to investing locally in U.S. operations, service, and support is exactly what agencies have been asking for.',n:'Donald W. De Lucca',r:'Retired Police Chief and Senior Public Safety Advisor',p:'images/testimonial-delucca.webp'}
 ];
 let ti=0;
 const T={q:document.getElementById('tQuote'),n:document.getElementById('tName'),r:document.getElementById('tRole'),p:document.getElementById('tPhoto'),dots:document.getElementById('tDots')};
@@ -803,8 +803,8 @@ if(_nf)_nf.addEventListener('submit',e=>{
 
 (function(){var n=document.getElementById('nav');if(!n)return;function h(){document.documentElement.style.setProperty('--nav-h',n.offsetHeight+'px');}h();window.addEventListener('resize',h);window.addEventListener('scroll',h,{passive:true});})();
 </script>
-<script src="assets/ekin-mobile.js" defer></script>
-<script src="assets/ekin-mobile-media.js" defer></script>
-<script src="assets/ekin-mobile-accordion.js" defer></script>
+<script src="assets/ekin-mobile.js?v=20261005b" defer></script>
+<script src="assets/ekin-mobile-media.js?v=20261005b" defer></script>
+<script src="assets/ekin-mobile-accordion.js?v=20261005b" defer></script>
 </body>
 </html>
