@@ -421,6 +421,43 @@
 </style>
 <link rel="stylesheet" href="assets/ekin-dark.css?v=20261005b" />
 <link rel="stylesheet" href="assets/ekin-responsive.css?v=20261005b" />
+<style id="ga-form">
+.app-head{padding:clamp(140px,16vh,180px) 0 0}
+.app-head .wrap>*{max-width:880px;margin-inline:auto}.app-head .wrap>.eyebrow{display:block;width:fit-content;max-width:none;margin-inline:calc((100% - min(880px,100%))/2) auto}
+.app-head h1{font-family:var(--display,'Pilat',sans-serif);font-size:clamp(40px,5.6vw,80px);line-height:.98;font-weight:700;letter-spacing:-.03em;color:#fff;margin:18px 0 0;text-transform:none}
+.app-head p{color:rgba(255,255,255,.66);font-size:clamp(17px,1.3vw,19px);line-height:1.6;margin-top:22px;margin-bottom:0}
+#appForm.form-wrap,#appSuccess{max-width:880px;margin:0 auto}
+#appForm{counter-reset:gasec}
+#appForm .form-sec{counter-increment:gasec;display:grid;grid-template-columns:200px minmax(0,1fr);gap:clamp(20px,3vw,48px);padding:clamp(28px,3.4vw,40px) 0;border-top:1px solid rgba(255,255,255,.12);margin:0}
+#appForm .form-sec:first-child{border-top:0;padding-top:0}
+#appForm .form-sec>h3{margin:0;padding:0;border:0;font-family:var(--display,'Pilat',sans-serif);font-size:18px;font-weight:600;line-height:1.3;letter-spacing:-.005em;color:#fff}
+#appForm .form-sec>h3::before{content:counter(gasec,decimal-leading-zero);display:block;margin-bottom:10px;font-family:var(--mono,'Roboto Mono',monospace);font-size:12px;font-weight:500;letter-spacing:.14em;color:#FF3932}
+#appForm .fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 20px}
+#appForm .field{display:flex;flex-direction:column;gap:8px;min-width:0}
+#appForm .field.full{grid-column:1/-1}
+#appForm .field label{font-family:var(--body,'Lunchtype22',sans-serif);font-size:14px;font-weight:500;color:rgba(255,255,255,.86)}
+#appForm .req{color:#FF3932}
+#appForm .field input,#appForm .field select,#appForm .field textarea{width:100%;box-sizing:border-box;font-family:var(--body,'Lunchtype22',sans-serif);font-size:16px;line-height:1.4;padding:13px 15px;border:1px solid rgba(255,255,255,.18);border-radius:6px;background:#0b0b0b;color:#f5f7fa;outline:none;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none}
+#appForm .field select{padding-right:42px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23f5f7fa' stroke-opacity='.6' stroke-width='1.6'/%3E%3C/svg%3E")!important;background-repeat:no-repeat!important;background-position:right 16px center!important;cursor:pointer}
+#appForm .field select:invalid{color:rgba(245,247,250,.42)}
+#appForm .field textarea{min-height:150px;resize:vertical;line-height:1.55}
+#appForm .field input[type=file]{padding:10px 12px;cursor:pointer;color:rgba(245,247,250,.62);border-style:dashed}
+#appForm .field input[type=file]::file-selector-button{margin-right:14px;padding:9px 16px;border:1px solid rgba(255,255,255,.2);border-radius:4px;background:#161616;color:#f5f7fa;font-family:var(--body,'Lunchtype22',sans-serif);font-size:14px;cursor:pointer;transition:border-color .2s}
+#appForm .field input[type=file]:hover::file-selector-button{border-color:#FF3932}
+#appForm .hint{font-size:13px;color:rgba(255,255,255,.5)}
+#appForm .checks{display:flex;flex-direction:column;gap:16px}
+#appForm .check{display:grid;grid-template-columns:20px minmax(0,1fr);gap:14px;align-items:start;cursor:pointer;font-size:15px;line-height:1.55;color:rgba(255,255,255,.78)}
+#appForm .check input{width:20px;height:20px;margin:1px 0 0;accent-color:#FF3932;cursor:pointer}
+#appForm .check a{color:#fff!important;text-decoration:underline}
+#appForm .form-submit{display:flex;flex-direction:column;align-items:flex-start;gap:18px;margin-top:8px;padding:clamp(28px,3.4vw,40px) 0 0 calc(200px + clamp(20px,3vw,48px));border-top:1px solid rgba(255,255,255,.12)}
+#appForm .form-note{margin:0;max-width:60ch;font-size:14px;line-height:1.6;color:rgba(255,255,255,.5)}
+#appSuccess{display:none;padding:36px 34px;border:1px solid rgba(255,255,255,.14);border-left:3px solid #FF3932;border-radius:8px;background:rgba(255,255,255,.02)}
+#appSuccess h3{font-family:var(--display,'Pilat',sans-serif);font-size:26px;font-weight:600;color:#fff;margin:0 0 12px}
+#appSuccess p{color:rgba(255,255,255,.66);font-size:17px;line-height:1.6;max-width:60ch;margin:0}
+#appForm .ga-other[hidden]{display:none!important}#appForm .ga-other{animation:gaIn .3s cubic-bezier(.2,.8,.2,1)}@keyframes gaIn{from{opacity:0;transform:translateY(-6px)}}
+@media(max-width:820px){#appForm .form-sec{grid-template-columns:1fr;gap:20px}#appForm .form-submit{padding-left:0}}
+@media(max-width:560px){#appForm .fgrid{grid-template-columns:1fr}#appForm .form-submit .btn{width:100%;justify-content:center}}
+</style>
 </head>
 <body>
 
@@ -468,7 +505,7 @@
       <div class="nav-item" data-menu>
         <button class="nav-trigger">Company <span class="chev"></span></button>
         <div class="mega mega-company">
-          <div class="mega-lead"><span class="ml-label">COMPANY</span><p>Engineering the future.</p><a class="mega-mail" href="mailto:contact@ekin.com" style="display:inline-block;margin-top:18px;color:#fff;font-size:15px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:2px">contact@ekin.com</a></div>
+          <div class="mega-lead"><span class="ml-label">COMPANY</span><p>Engineering the future.</p><a class="mega-mail" href="mailto:info@ekin.com" style="display:inline-block;margin-top:18px;color:#fff;font-size:15px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:2px">info@ekin.com</a></div>
           <div class="mega-company-cols">
             <div class="mega-col"><span class="ml-label">PEOPLE</span>
               <a class="mega-link" href="leadership.html"><span class="dot"></span>Leadership</a>
@@ -530,7 +567,7 @@
 
 <!-- ============ HEADER ============ -->
 <section class="app-head" id="top">
-  <div class="wrap" style="max-width:880px;margin:0 auto">
+  <div class="wrap">
     <span class="eyebrow">Careers</span>
     <h1>General Application</h1>
     <p>Don&rsquo;t see a role that fits right now? Submit a general application and our recruitment team will reach out when a matching opportunity opens.</p>
@@ -538,9 +575,17 @@
 </section>
 
 <!-- ============ FORM ============ -->
-<section class="pad-y" style="padding-top:clamp(56px,7vw,80px)">
+<section class="pad-y" style="padding-top:clamp(48px,6vw,72px)">
   <div class="wrap">
     <form class="form-wrap" id="appForm" novalidate>
+
+      <div class="form-sec">
+        <h3>Upload Documents</h3>
+        <div class="fgrid">
+          <div class="field full"><label>Resume / CV <span class="req">*</span></label><input type="file" name="resume" accept=".pdf,.doc,.docx" required /><span class="hint">PDF, DOC, DOCX</span></div>
+          <div class="field full"><label>Additional Documents</label><input type="file" name="additional" accept=".pdf,.doc,.docx,.ppt,.pptx,.png,.jpg,.jpeg" multiple /><span class="hint">Portfolio, certifications, cover letter (optional)</span></div>
+        </div>
+      </div>
 
       <div class="form-sec">
         <h3>Personal Information</h3>
@@ -575,6 +620,7 @@
               <option>Other</option>
             </select>
           </div>
+          <div class="field full ga-other" id="areaOtherField" hidden><label for="areaOther">Please specify your area of interest <span class="req">*</span></label><input type="text" id="areaOther" name="area_other" maxlength="120" placeholder="e.g. Legal &amp; Compliance" disabled /></div>
           <div class="field"><label>Years of Professional Experience <span class="req">*</span></label>
             <select name="experience" required>
               <option value="" disabled selected>Select experience</option>
@@ -614,18 +660,11 @@
           <div class="field full">
             <label>Professional Summary</label>
             <textarea name="summary" maxlength="750" placeholder="Briefly tell us about your background, expertise, and the type of opportunities you are interested in."></textarea>
-            <span class="hint">Maximum 500&ndash;750 characters.</span>
+            <span class="hint">Up to 750 characters.</span>
           </div>
         </div>
       </div>
 
-      <div class="form-sec">
-        <h3>Upload Documents</h3>
-        <div class="fgrid">
-          <div class="field full"><label>Resume / CV <span class="req">*</span></label><input type="file" name="resume" accept=".pdf,.doc,.docx" required /><span class="hint">PDF, DOC, DOCX</span></div>
-          <div class="field full"><label>Additional Documents</label><input type="file" name="additional" accept=".pdf,.doc,.docx,.ppt,.pptx,.png,.jpg,.jpeg" multiple /><span class="hint">Portfolio, certifications, cover letter (optional)</span></div>
-        </div>
-      </div>
 
       <div class="form-sec">
         <h3>Future Opportunities</h3>
@@ -643,7 +682,7 @@
       </div>
 
       <div class="form-submit">
-        <button type="submit" class="btn btn-primary" style="padding:16px 34px;font-size:16px">Submit Application <span class="arrow">&rarr;</span></button>
+        <button type="submit" class="btn btn-primary">Submit Application <span class="arrow">&rarr;</span></button>
         <p class="form-note">Thank you for your interest in Ekin. Our recruitment team carefully reviews all applications and will contact qualified candidates when suitable opportunities become available.</p>
       </div>
     </form>
@@ -655,21 +694,9 @@
   </div>
 </section>
 
-<script>
-(function(){
-  var form=document.getElementById('appForm');
-  if(!form)return;
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    if(!form.reportValidity())return;
-    form.style.display='none';
-    var ok=document.getElementById('appSuccess');
-    ok.style.display='block';
-    ok.scrollTo&&0;
-    window.scrollTo({top:form.getBoundingClientRect().top+window.scrollY-140,behavior:'smooth'});
-  });
-})();
-</script>
+<script>(function(){var s=document.querySelector('#appForm select[name="area"]'),f=document.getElementById('areaOtherField'),i=document.getElementById('areaOther');if(!s||!f||!i)return;function u(){var on=s.value==='Other';f.hidden=!on;i.disabled=!on;i.required=on;if(on)i.focus();else i.value=''}s.addEventListener('change',u);u()})();</script>
+<script type="module" src="assets/careers-apply.js?v=20261015b"></script>
+<script type="module" src="assets/cv-autofill.js?v=20261015a"></script>
 
 
 <!-- ============ DEMO BAND ============ -->

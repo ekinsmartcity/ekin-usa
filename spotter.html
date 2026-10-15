@@ -94,7 +94,7 @@
 .mpa{padding-bottom:0!important}
 .mpa-mobile{display:none!important}
 .mpa-scroll{display:block!important;margin-top:8px!important;height:calc(10 * 62svh + 100svh)!important}
-.mpa-sticky{height:100svh!important;top:0!important;align-items:stretch!important;padding:76px 0 22px}
+.mpa-sticky{height:100svh!important;top:0!important;align-items:stretch!important;box-sizing:border-box!important;padding:calc(var(--nav-h,64px) + 14px) 0 calc(18px + env(safe-area-inset-bottom,0px))}
 .mpa-stage{display:flex!important;flex-direction:column;gap:14px!important;height:100%;padding:0 20px}
 .mpa-index{flex-direction:row!important;gap:6px!important;border-left:0!important;overflow-x:auto;scrollbar-width:none;margin:0 -20px;padding:0 20px;flex:none;scroll-behavior:smooth}
 .mpa-index::-webkit-scrollbar{display:none}
@@ -104,7 +104,7 @@
 .mpa-item.on{color:#fff!important;border-color:#FF3932!important;background:rgba(255,57,50,.12)}
 .mpa-item i{margin-right:6px!important}
 .mpa-count{display:none}
-.mpa-viewer{flex:1 1 0;min-height:200px;width:100%!important;align-self:stretch;margin:0!important;height:auto!important;display:block!important;position:relative}
+.mpa-viewer{flex:1 1 0;min-height:140px;width:100%!important;align-self:stretch;margin:0!important;height:auto!important;display:block!important;position:relative}
 .mpa-imgs{position:absolute!important;inset:0;width:auto!important;height:auto!important}
 .mpa-guide,.mpa-line,.mpa-base{display:none!important}
 .mpa-imgs img{inset:12% 20%!important;width:60%!important;height:76%!important;max-width:none!important;max-height:none!important;object-fit:contain!important;transition:opacity .45s ease,transform .45s ease!important;transform:translateY(14px)}
@@ -147,7 +147,7 @@
 @media (prefers-reduced-motion:reduce){.mpa .mpa-viewer .mpa-stk img,.mpa .mpa-viewer .mpa-stk.out img{transform:none!important;transition:opacity .2s linear!important}.mpa .mpa-dock.hit{animation:none}}
 </style>
 <link rel="stylesheet" href="assets/ekin-hero.css?v=20261015a" />
-<style id="demo-glow">@media (min-width:641px){.demo-card::before{left:var(--gx,62%)!important;top:var(--gy,50%)!important;right:auto!important;bottom:auto!important;width:var(--gs,56%)!important;height:auto!important;aspect-ratio:1/1;transform:translate(-50%,-50%)!important;background:radial-gradient(circle at center,rgba(255,57,50,.2),rgba(255,57,50,.07) 38%,rgba(255,57,50,0) 68%)!important;pointer-events:none}}</style>
+<style id="demo-glow">@media (min-width:641px){.demo-card::before{left:var(--gx,62%)!important;top:var(--gy,50%)!important;right:auto!important;bottom:auto!important;width:var(--gw,56%)!important;height:var(--gh,80%)!important;aspect-ratio:auto!important;transform:translate(-50%,-50%)!important;background:radial-gradient(closest-side,rgba(255,57,50,.2),rgba(255,57,50,.07) 56%,rgba(255,57,50,0) 100%)!important;filter:none!important;pointer-events:none}}</style>
 <link rel="stylesheet" href="assets/ekin-text.css?v=20261015a" />
 </head>
 <style>html{scroll-behavior:smooth}</style>
@@ -197,7 +197,7 @@
       <div class="nav-item" data-menu>
         <button class="nav-trigger">Company <span class="chev"></span></button>
         <div class="mega mega-company">
-          <div class="mega-lead"><span class="ml-label">COMPANY</span><p>Engineering the future.</p><a class="mega-mail" href="mailto:contact@ekin.com" style="display:inline-block;margin-top:18px;color:#fff;font-size:15px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:2px">contact@ekin.com</a></div>
+          <div class="mega-lead"><span class="ml-label">COMPANY</span><p>Engineering the future.</p><a class="mega-mail" href="mailto:info@ekin.com" style="display:inline-block;margin-top:18px;color:#fff;font-size:15px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:2px">info@ekin.com</a></div>
           <div class="mega-company-cols">
             <div class="mega-col"><span class="ml-label">PEOPLE</span>
               <a class="mega-link" href="leadership.html"><span class="dot"></span>Leadership</a>
@@ -456,7 +456,8 @@ update();
 </section>
 
 <!-- ============ DEMO CARD (dark, rounded) ============ -->
-<section class="pad-y" style="padding-top:0">
+<section class="pad-y sp-demo-sec" style="padding-top:0">
+<style>@media (min-width:641px){html body section:not(#_x):not(#_y).pad-y.sp-demo-sec{padding-bottom:0!important}.sp-demo-sec .demo-card{margin-bottom:0!important;padding-bottom:0!important}.sp-demo-sec .demo-card .demo-img.demo-pole{margin-bottom:0!important;bottom:0!important;display:block}}</style>
   <div class="wrap">
     <div class="demo-card reveal" style="background:transparent;border:0">
       <div class="demo-text">
@@ -644,6 +645,6 @@ document.getElementById('newsForm').addEventListener('submit',e=>{
 <script src="assets/ekin-mobile-media.js?v=20261005b" defer></script>
 <script src="assets/ekin-mobile-accordion.js?v=20261005b" defer></script>
 <script id="m-mpa-js">(function(){var idx=document.getElementById('mpaIndex');if(!idx||!window.MutationObserver)return;var mq=matchMedia('(max-width:640px)');new MutationObserver(function(){if(!mq.matches)return;var on=idx.querySelector('.mpa-item.on');if(on){var ir=idx.getBoundingClientRect(),br=on.getBoundingClientRect();idx.scrollTo({left:idx.scrollLeft+(br.left+br.width/2)-(ir.left+ir.width/2),behavior:'smooth'})}}).observe(idx,{subtree:true,attributes:true,attributeFilter:['class']})})();</script>
-<script src="assets/ekin-demo-glow.js?v=20261015a"></script>
+<script src="assets/ekin-demo-glow.js?v=20261015b"></script>
 </body>
 </html>
