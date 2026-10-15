@@ -426,11 +426,12 @@ for(let v=0; v<52; v++){
 // ---- DOM overlays ----
 const copyEl=document.getElementById('copy');
 const STAGES=[
-  {k:'Smarter is Safer', h:'SMARTER IS SAFER', p:'Ekin Smart City Technology delivers greater accuracy, which gives you greater peace of mind.', hero1:true},
+  {k:'Smarter is Safer', h:'SMARTER IS SAFER', p:'AI-powered sensors and one operating system that help cities detect, decide and respond faster.', hero1:true},
   {k:'Connected City', h:'ONE CONNECTED CITY, DRAWN FROM DATA.', p:'Every street, block and intersection — a living model of the city, reconstructed in real time.'},
   {k:'Smart City Ecosystem', h:'INTELLIGENCE CONNECTED BY EKIN', p:'Mobile and fixed edge devices thinking as one.', cta:true},
 ];
 STAGES.forEach((s,i)=>{
+  const pre=s.hero1&&copyEl.querySelector('.cblock.hero1'); if(pre){s.el=pre;return;}
   const b=document.createElement('div'); b.className='cblock'+(s.hero1?' hero1':''); b.dataset.i=i;
   b.innerHTML='<h1>'+s.h+'</h1><p>'+s.p+'</p>'
     +(s.hero1?'<div class="hero1-cta"><a class="btn primary" href="book-a-demo.html">Book a Demo <span class="a">&rarr;</span></a></div>':'')
@@ -540,6 +541,7 @@ function loop(){
   }
   updateSolids(p); setOverlays(p); syncAnnots();
   renderer.render(scene,camera);
+  if(!loop._live){loop._live=1;const nh=document.querySelector('.numhero');if(nh)requestAnimationFrame(()=>nh.classList.add('nh-live'));}
   requestAnimationFrame(loop);
 }
 if(REDUCED) setOverlays(1);

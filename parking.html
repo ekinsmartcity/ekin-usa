@@ -455,8 +455,8 @@
   .cta-media .cta-cap em{font-style:normal;font-size:14px;line-height:1.4;color:rgba(245,247,250,.74)}
   @media(max-width:860px){.wrap.cta-split{grid-template-columns:1fr!important}}
 </style>
-<link rel="stylesheet" href="assets/ekin-connected-map.css?v=20261006a" />
-<style>.pk-map{width:100%;min-width:0}.pk-map .cs-mount{width:100%}.pk-map .cs-frame{width:100%;max-width:100%}</style>
+<link rel="stylesheet" href="assets/ekin-connected-map.css?v=20261015c" />
+<style>.pk-map{width:100%;min-width:0}.pk-map .cs-mount{width:100%}.split-media:has(.pk-map){aspect-ratio:auto!important;border:0!important;overflow:visible!important;border-radius:0!important}@media(min-width:1081px){.cs-mount .cs-frame{width:100%!important;max-width:none!important;aspect-ratio:auto!important;height:clamp(600px,47vw,780px);margin:0}}.split:has(.pk-map){grid-template-columns:1fr!important;gap:clamp(28px,3vw,44px)!important}.split:has(.pk-map) .split-media{order:3!important;width:100%}</style>
 <link rel="stylesheet" href="assets/ekin-responsive.css?v=20261005b" />
 <style id="m-hero-align">@media (max-width:640px){#top.hero{min-height:0!important;height:auto!important;padding:clamp(96px,18vw,140px) 0 14px!important;align-items:flex-end!important}#top .hero-content{padding-top:210px!important;padding-bottom:0!important}#top .hero-content h1{margin-top:22px!important;line-height:1.02!important}#top .hero-content p{margin-top:26px!important}#top .hero-content .actions{margin-top:38px!important}}</style>
 <style id="m-pk-enforce">@media (max-width:640px){.pk-bleed picture{display:block;width:100%;height:100%}.pk-bleed picture img{width:100%;height:100%;object-fit:cover;object-position:60% 55%}.split-media.pk-bleed{aspect-ratio:4/5!important;height:auto!important;max-height:none!important}.pk-bleed picture img{object-position:50% 50%!important}}</style>
@@ -472,7 +472,7 @@
 .pk-plat .partner-card h3 br{display:none}
 .pk-plat .partner-card p{font-size:14.5px!important;line-height:1.5!important;margin:0!important}
 }</style>
-<link rel="stylesheet" href="assets/ekin-hero.css?v=2" />
+<link rel="stylesheet" href="assets/ekin-hero.css?v=20261015a" />
 <style id="m-icon-list">@media (max-width:640px){
 .cap-grid.ss-caps,.cm-benefits,.partner-grid:has(>.partner-card>p){display:flex!important;flex-direction:column!important;gap:0!important;grid-template-columns:none!important;margin-top:24px!important;border-top:1px solid rgba(255,255,255,.1)}
 .cap-grid.ss-caps>.cap,.cm-benefits>.cm-bcard,.partner-grid>.partner-card:has(>p){display:grid!important;grid-template-columns:40px minmax(0,1fr)!important;column-gap:16px!important;row-gap:6px!important;align-items:start!important;padding:20px 0!important;margin:0!important;min-height:0!important;height:auto!important;background:none!important;border:0!important;border-bottom:1px solid rgba(255,255,255,.1)!important;border-radius:0!important;box-shadow:none!important;transform:none!important}
@@ -484,6 +484,7 @@
 .partner-grid>.partner-card:has(>p)>h3 br{display:none}
 .cap-grid.ss-caps>.cap>p,.cm-benefits>.cm-bcard>p,.partner-grid>.partner-card:has(>p)>p{grid-column:2;margin:0!important;font-size:14.5px!important;line-height:1.55!important;color:rgba(255,255,255,.66)!important;max-width:none!important;text-wrap:pretty}
 }</style>
+<link rel="stylesheet" href="assets/ekin-text.css?v=20261015a" />
 </head>
 <body>
 
@@ -523,7 +524,7 @@
           <div class="mega-col"><span class="ml-label">MOBILE</span>
             <a class="mega-link" href="patrol-g2.html"><span class="dot"></span>Patrol G2</a>
             <a class="mega-link" href="bike-patrol.html"><span class="dot"></span>Bike Patrol</a>
-            <a class="mega-link" href="semistation.html"><span class="dot"></span>TerraEye</a>
+            <a class="mega-link" href="terraeye.html"><span class="dot"></span>TerraEye</a>
           </div></div>
 </div>
       </div>
@@ -575,7 +576,7 @@
     <span class="drawer-sub">Mobile &amp; Fixed</span>
     <a href="x-spotter.html">X Spotter</a>
     <span class="drawer-sub">Mobile</span>
-    <a href="patrol-g2.html">Patrol G2</a><a href="bike-patrol.html">Bike Patrol</a><a href="semistation.html">TerraEye</a>
+    <a href="patrol-g2.html">Patrol G2</a><a href="bike-patrol.html">Bike Patrol</a><a href="terraeye.html">TerraEye</a>
   </div>
   <div class="drawer-group">
     <h6>Company</h6>
@@ -599,8 +600,6 @@
     <h1 style="margin-top:22px;color:#fff">Smartest parking <em><br />management</em> technology.</h1>
     <div class="actions"><a href="book-a-demo.html" class="btn btn-primary">Book a Demo <span class="arrow">&rarr;</span></a></div>
   </div>
-  <div class="scroll-hint"><span class="line"></span>Scroll</div>
-<a class="hero-arrow" href="#about" aria-label="Scroll"><span>Scroll</span><svg viewBox="0 0 20 34" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 2v27"/><path d="M3 22l7 8 7-8"/></svg></a>
 </section>
 <section class="pad-y">
   <div class="wrap split reveal">
@@ -768,7 +767,7 @@
       </div>
       <div class="foot-col">
         <h5>Devices</h5>
-        <a href="maestro-os.html">Maestro OS</a><a href="spotter.html">Spotter</a><a href="patrol-g2.html">Patrol G2</a><a href="box-spotter.html">Box Spotter</a><a href="x-spotter.html">X Spotter</a><a href="bike-patrol.html">Bike Patrol</a><a href="semistation.html">TerraEye</a>
+        <a href="maestro-os.html">Maestro OS</a><a href="spotter.html">Spotter</a><a href="patrol-g2.html">Patrol G2</a><a href="box-spotter.html">Box Spotter</a><a href="x-spotter.html">X Spotter</a><a href="bike-patrol.html">Bike Patrol</a><a href="terraeye.html">TerraEye</a>
       </div>
       <div class="foot-col">
         <h5>Company</h5>
@@ -896,5 +895,6 @@ html.ir-js body .ir-row.ir-in>img,html.ir-js body .ir-row.ir-in>span:first-child
 @media (max-width:640px) and (prefers-reduced-motion:reduce){html.ir-js body .ir-row,html.ir-js body .ir-row>*{opacity:1!important;transform:none!important;transition:none!important}}
 </style>
 <script id="m-icon-rows-js">(function(){if(!matchMedia('(max-width:640px)').matches||matchMedia('(prefers-reduced-motion:reduce)').matches||!('IntersectionObserver' in window))return;var sel="#why .ben-grid>.ben-card,.pw-grid>.pw-card,.ch-grid>.ch-card,.mh-grid>.mh-card,.pg-m-grid>div,.bs-m-grid>div,.xs-m-grid>div,.pk-vis .partner-grid>.partner-card";var rows=[].slice.call(document.querySelectorAll(sel));if(!rows.length)return;document.documentElement.classList.add('ir-js');rows.forEach(function(r){r.classList.add('ir-row')});var io=new IntersectionObserver(function(es){var n=0;es.forEach(function(e){if(e.isIntersecting){e.target.style.setProperty('--ir-d',(n++*0.07)+'s');e.target.classList.add('ir-in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.15});rows.forEach(function(r){io.observe(r)});setTimeout(function(){rows.forEach(function(r){r.classList.add('ir-in')})},8000)})();</script>
+<script src="assets/ekin-iconflow.js?v=20261015a"></script>
 </body>
 </html>

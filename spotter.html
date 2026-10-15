@@ -41,9 +41,10 @@
   .demo-card .demo-text p{color:rgba(255,255,255,.72);font-size:16px;margin:18px 0 0}
   .demo-card .demo-img{position:absolute;right:-3%;bottom:-5%;width:66%;max-width:940px;z-index:1;filter:drop-shadow(0 40px 60px rgba(0,0,0,.6))}
   .demo-card::before{content:"";position:absolute;right:-5%;bottom:-30%;width:70%;height:120%;background:radial-gradient(circle at 60% 50%,rgba(255,57,50,.16),transparent 62%);z-index:0}
-  .demo-card .demo-img.demo-pole{width:auto;height:92%;max-width:none;right:14%;top:4%;bottom:auto;filter:drop-shadow(0 0 40px rgba(255,57,50,.18)) drop-shadow(0 40px 60px rgba(0,0,0,.6))}
+  .demo-card .demo-img.demo-pole{width:auto;height:96%;max-width:none;right:14%;top:auto;bottom:0;filter:drop-shadow(0 0 40px rgba(255,57,50,.18)) drop-shadow(0 40px 60px rgba(0,0,0,.6))}
   @media(max-width:1024px){
-    .demo-card .demo-img.demo-pole{position:relative!important;width:auto!important;height:clamp(320px,60vw,460px)!important;max-width:none!important;top:auto!important;right:auto!important;margin:32px auto 0!important;align-self:center}
+    .demo-card .demo-img.demo-pole{position:relative!important;width:auto!important;height:clamp(320px,60vw,460px)!important;max-width:none!important;top:auto!important;right:auto!important;margin:32px auto 0!important;align-self:center;display:block}
+    .demo-card:has(.demo-pole){padding-bottom:0!important}
     .demo-card{flex-direction:column;align-items:flex-start;min-height:0;padding-bottom:clamp(220px,40vw,340px)}
     .demo-card .demo-text{max-width:100%}
     .demo-card .demo-img{position:absolute;right:0;bottom:0;width:min(80%,460px)}
@@ -84,7 +85,7 @@
   @media(max-width:900px){.dm-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.dm-tile.dm-wide{grid-column:span 2;aspect-ratio:2/1}}
   @media(max-width:560px){.dm-grid{grid-template-columns:1fr}.dm-tile,.dm-tile.dm-wide{grid-column:span 1;aspect-ratio:4/3}}
 </style>
-<link rel="stylesheet" href="assets/ekin-ecosystem.css?v=20261009a" />
+<link rel="stylesheet" href="assets/ekin-ecosystem.css?v=20261015c" />
 <link rel="stylesheet" href="assets/ekin-responsive.css?v=20261005b" />
 <link rel="preload" as="image" href="assets/spotter-hero-poster.jpg" fetchpriority="high" />
 <style>@media (max-width:640px){.pe-card.pe-card-bp{background:#000;border-color:#000;outline:0;box-shadow:none}.pe-card.pe-card-bp picture{position:absolute;inset:0;display:block}.pe-card.pe-card-bp img{position:absolute;inset:auto 0 0 0;top:auto!important;width:100%!important;height:80%!important;object-fit:cover!important;object-position:50% 0%!important}.pe-card.pe-card-bp:hover img{transform:none}}</style>
@@ -97,6 +98,8 @@
 .mpa-stage{display:flex!important;flex-direction:column;gap:14px!important;height:100%;padding:0 20px}
 .mpa-index{flex-direction:row!important;gap:6px!important;border-left:0!important;overflow-x:auto;scrollbar-width:none;margin:0 -20px;padding:0 20px;flex:none;scroll-behavior:smooth}
 .mpa-index::-webkit-scrollbar{display:none}
+.mpa-index{align-self:stretch!important;width:auto!important;max-width:none!important;min-width:0;overflow-x:auto!important;margin:0 -20px!important;padding:0 calc(50% - 40px)!important;scroll-snap-type:none!important}
+.mpa-item{transition:opacity .3s,transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s,background .3s}.mpa-item:not(.on){opacity:.45;transform:scale(.92)}.mpa-item.on{transform:scale(1.06)}
 .mpa-item{flex:none;margin:0!important;border:1px solid rgba(255,255,255,.14)!important;border-radius:999px;min-height:34px;padding:0 13px!important;font-size:10.5px!important;letter-spacing:.1em!important;white-space:nowrap;color:#8a97ac!important}
 .mpa-item.on{color:#fff!important;border-color:#FF3932!important;background:rgba(255,57,50,.12)}
 .mpa-item i{margin-right:6px!important}
@@ -123,6 +126,29 @@
 <style id="m-demo-noimg">@media (max-width:640px){.demo-card .demo-img,.pg-demo-media,.pg-demo::before{display:none!important}.demo-card{min-height:0!important;height:auto!important;aspect-ratio:auto!important;padding-right:0!important}.demo-card .demo-text{max-width:none!important;width:100%!important}}</style>
 <style id="m-mod-45">@media (max-width:640px){.mod-fullvideo{aspect-ratio:4/5!important;height:auto!important;min-height:0!important;max-height:none!important;background:#000;overflow:hidden}.mod-fullvideo video{width:100%!important;height:100%!important;object-fit:cover!important;object-position:50% 50%!important}}</style>
 <style id="m-demo-full">@media (max-width:640px){.demo-card{display:flex!important;flex-direction:column!important;align-items:flex-start!important;grid-template-columns:none!important;padding-right:0!important}.demo-card .demo-text,.pg-demo .split-text,.pg-demo .mod-text{max-width:none!important;width:100%!important;grid-column:1/-1!important}.demo-card .demo-text h2,.demo-card .demo-text p{max-width:none!important}}</style>
+<style id="mpa-stack">
+.mpa .mpa-viewer{overflow:hidden;min-height:420px;--m:36px;--bodyh:calc(var(--m) / .618 * 5.597);--foot:3%}
+.mpa .mpa-viewer .mpa-guide,.mpa .mpa-viewer .mpa-base{display:none!important}
+.mpa .mpa-rig{position:absolute;left:50%;top:0;bottom:0;width:var(--m);transform:translateX(-50%)}
+.mpa .mpa-body{position:absolute;bottom:var(--foot);left:50%;width:calc(var(--m) / .618);max-width:none;height:auto;transform:translateX(-50%);pointer-events:none}
+.mpa .mpa-dock{position:absolute;bottom:var(--foot);margin-bottom:var(--bodyh);left:-30%;right:-30%;height:2px;border-radius:2px;background:#FF3932;opacity:0;box-shadow:0 0 12px rgba(255,57,50,.55)}
+.mpa .mpa-dock.hit{animation:mpaDock 1s ease-out .5s both}
+@keyframes mpaDock{0%{opacity:0;transform:scaleX(.4)}25%{opacity:1;transform:scaleX(1)}100%{opacity:0;transform:scaleX(1)}}
+.mpa .mpa-viewer .mpa-imgs{position:absolute!important;inset:0!important;width:auto!important;height:auto!important}
+.mpa .mpa-viewer .mpa-imgs>img{display:none!important}
+.mpa .mpa-stk{position:absolute;left:0;width:100%;bottom:calc(var(--foot) + var(--bodyh) - 2px);display:flex;flex-direction:column-reverse;align-items:center}
+.mpa .mpa-viewer .mpa-stk img{position:relative!important;inset:auto!important;display:block!important;width:100%!important;height:auto!important;max-width:none!important;max-height:none!important;object-fit:contain!important;margin-top:-2px;opacity:0;transform:translateY(-120%);transition:opacity .35s ease,transform .6s cubic-bezier(.3,1.2,.4,1)}
+.mpa .mpa-viewer{container-type:inline-size}.mpa .mpa-viewer .mpa-stk img.xl{--sw:min(640%,72cqw);width:var(--sw)!important;flex:none;position:relative!important;left:auto!important;align-self:flex-start!important;margin-left:calc((100% - var(--sw)) / 2 + 4px)!important;margin-bottom:calc(var(--sw) * -0.14)!important}
+.mpa .mpa-viewer .mpa-stk.in img{opacity:1;transform:none}
+.mpa .mpa-viewer .mpa-stk.in img:nth-child(2){transition-delay:.08s}.mpa .mpa-viewer .mpa-stk.in img:nth-child(3){transition-delay:.16s}
+.mpa .mpa-viewer .mpa-stk.out img{opacity:0;transform:translateY(-140%);transition:opacity .3s ease,transform .45s cubic-bezier(.5,0,.75,0)}
+.mpa .mpa-viewer .mpa-stk.out img:nth-child(1){transition-delay:.1s}.mpa .mpa-viewer .mpa-stk.out img:nth-child(2){transition-delay:.05s}
+.mpa .mpa-viewer .mpa-stk img.act{filter:drop-shadow(0 0 6px rgba(255,57,50,.7))}
+@media (prefers-reduced-motion:reduce){.mpa .mpa-viewer .mpa-stk img,.mpa .mpa-viewer .mpa-stk.out img{transform:none!important;transition:opacity .2s linear!important}.mpa .mpa-dock.hit{animation:none}}
+</style>
+<link rel="stylesheet" href="assets/ekin-hero.css?v=20261015a" />
+<style id="demo-glow">@media (min-width:641px){.demo-card::before{left:var(--gx,62%)!important;top:var(--gy,50%)!important;right:auto!important;bottom:auto!important;width:var(--gs,56%)!important;height:auto!important;aspect-ratio:1/1;transform:translate(-50%,-50%)!important;background:radial-gradient(circle at center,rgba(255,57,50,.2),rgba(255,57,50,.07) 38%,rgba(255,57,50,0) 68%)!important;pointer-events:none}}</style>
+<link rel="stylesheet" href="assets/ekin-text.css?v=20261015a" />
 </head>
 <style>html{scroll-behavior:smooth}</style>
 <body>
@@ -163,7 +189,7 @@
           <div class="mega-col"><span class="ml-label">MOBILE</span>
             <a class="mega-link" href="patrol-g2.html"><span class="dot"></span>Patrol G2</a>
             <a class="mega-link" href="bike-patrol.html"><span class="dot"></span>Bike Patrol</a>
-            <a class="mega-link" href="semistation.html"><span class="dot"></span>TerraEye</a>
+            <a class="mega-link" href="terraeye.html"><span class="dot"></span>TerraEye</a>
           </div></div>
 </div>
       </div>
@@ -215,7 +241,7 @@
     <span class="drawer-sub">Mobile &amp; Fixed</span>
     <a href="x-spotter.html">X Spotter</a>
     <span class="drawer-sub">Mobile</span>
-    <a href="patrol-g2.html">Patrol G2</a><a href="bike-patrol.html">Bike Patrol</a><a href="semistation.html">TerraEye</a>
+    <a href="patrol-g2.html">Patrol G2</a><a href="bike-patrol.html">Bike Patrol</a><a href="terraeye.html">TerraEye</a>
   </div>
   <div class="drawer-group">
     <h6>Company</h6>
@@ -236,7 +262,6 @@
   <h1 class="sr-only">Ekin Spotter</h1>
   <video class="hero-bg" src="assets/spotter-hero-fs.mp4" autoplay muted loop playsinline preload="auto" poster="assets/spotter-hero-poster.jpg"></video>
   <script>(function(){if(!matchMedia("(max-width:640px)").matches)return;var v=document.querySelector("#top .hero-bg");if(!v)return;v.removeAttribute("poster");v.src="assets/spotter-hero-4x5.mp4";v.setAttribute("data-m-portrait","skip");v.load();var p=v.play();if(p&&p.catch)p.catch(function(){})})();</script>
-<a class="hero-arrow" href="#next-section" aria-label="Scroll"><span>Scroll</span><svg viewBox="0 0 20 34" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 2v27"/><path d="M3 22l7 8 7-8"/></svg></a>
 </section>
 
 
@@ -274,7 +299,7 @@
           <span class="mpa-line mpa-line-a" aria-hidden="true"></span>
           <span class="mpa-line mpa-line-b" aria-hidden="true"></span>
           <span class="mpa-base" aria-hidden="true"></span>
-          <div class="mpa-imgs" id="mpaImgs"></div>
+          <div class="mpa-rig"><img class="mpa-body" src="images/modules/spotter-post.webp" alt="" aria-hidden="true" decoding="async" /><span class="mpa-dock" aria-hidden="true"></span><div class="mpa-imgs" id="mpaImgs"></div></div>
         </figure>
         <article class="mpa-card" id="mpaCard">
           <span class="mpa-num" id="mpaNum">01 / 10</span>
@@ -330,8 +355,8 @@
   .mpa-mblock p{margin-top:10px;font-size:15.5px;line-height:1.62;color:#8a97ac;max-width:52ch}
   @media(max-width:1024px){
     .mpa{padding-bottom:clamp(12px,2vh,24px)}
-    .mpa-scroll{display:none}
-    .mpa-mobile{display:block;margin-top:clamp(12px,2vh,22px)}
+    .mpa-mobile{display:none}
+    .mpa-stage{grid-template-columns:22% 38% 40%;gap:20px}
   }
   @media(prefers-reduced-motion:reduce){
     .mpa-imgs img{transition:none;transform:none}
@@ -374,10 +399,26 @@ function show(i){
   if(i===cur)return;cur=i;var m=MODULES[i];
   items.forEach(function(b,k){b.classList.toggle('on',k===i)});
   pics.forEach(function(p,k){p.classList.toggle('on',k===i)});
+  stack(i);
   num.textContent=m.n+' / 10';ttl.textContent=m.title;dsc.textContent=m.desc;
   count.textContent=m.n+' / 10';
   card.classList.remove('swap');void card.offsetWidth;card.classList.add('swap');
 }
+function size(){var v=imgs.closest('.mpa-viewer');if(!v)return;var H=v.clientHeight||500;var m=Math.max(28,Math.round(H*.94/17.4));var body=m/.618*5.597,stack=m*6.2;var foot=Math.min(H*.03,H-body-stack-10);v.style.setProperty('--m',m+'px');v.style.setProperty('--foot',Math.round(foot)+'px')}
+function stack(i){
+  var L=MODULES.length,solar=L-1,ids;
+  // column-reverse: last id = top of the pole. Antenna caps every stack for modules 01-09.
+  if(i===solar)ids=[3,solar];
+  else if(i===0)ids=[8,1,0];
+  else ids=[i%(solar-1)+1===i?1:(i%(solar-1))+1,i,0];
+  imgs.querySelectorAll('.mpa-stk.in').forEach(function(o){o.classList.remove('in');o.classList.add('out');setTimeout(function(){o.remove()},800)});
+  var s=document.createElement('div');s.className='mpa-stk';
+  ids.forEach(function(id){var m=MODULES[id],im=document.createElement('img');im.src=m.img;im.alt='';im.className=(m.xl?'xl ':'')+(id===i?'act':'');s.appendChild(im)});
+  imgs.appendChild(s);
+  void s.offsetWidth;setTimeout(function(){s.classList.add('in')},30);
+  var dk=imgs.parentNode.querySelector('.mpa-dock');if(dk){dk.classList.remove('hit');void dk.offsetWidth;dk.classList.add('hit')}
+}
+size();window.addEventListener('resize',size);
 var ticking=false;
 function update(){
   ticking=false;
@@ -495,7 +536,7 @@ document.querySelector('.tcard').addEventListener('mouseleave',function(){tauto=
       <a class="pe-card" href="x-spotter.html"><img src="assets/x-spotter-windscreen.jpg" alt="Ekin X Spotter unit mounted on a vehicle windscreen" loading="lazy" /><span class="pe-meta"><strong>X Spotter</strong><em>Fixed or mobile edge intelligence delivering real time insight across multiple lanes.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
       <a class="pe-card" href="box-spotter.html"><img src="assets/box-spotter-street-square.opt.webp" alt="Ekin Box Spotter mounted on a street-side arm above a city block" loading="lazy" /><span class="pe-meta"><strong>Box Spotter</strong><em>Rapid deployment intelligence for wherever operational support is needed next.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
       <a class="pe-card pe-card-bp" href="bike-patrol.html"><picture><source media="(max-width:640px)" srcset="assets/bike-patrol-eco-mobile.webp" /><img src="assets/bike-patrol-ecosystem.opt.webp" alt="Ekin Bike Patrol unit mounted on the handlebars of an Ekin e-bike" loading="lazy" /></picture><span class="pe-meta"><strong>Bike Patrol</strong><em>Full Edge AI intelligence for the agile, e-mobility side of the city.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
-      <a class="pe-card" href="semistation.html"><img src="assets/explore/terraeye-street.webp" alt="Ekin TerraEye on a city street" loading="lazy" /><span class="pe-meta"><strong>TerraEye</strong><em>Solar powered intelligence for places without power or connectivity.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
+      <a class="pe-card" href="terraeye.html"><img src="assets/explore/terraeye-street.webp" alt="Ekin TerraEye on a city street" loading="lazy" /><span class="pe-meta"><strong>TerraEye</strong><em>Solar powered intelligence for places without power or connectivity.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
       </div>
     </div>
   </div>
@@ -532,7 +573,7 @@ document.querySelector('.tcard').addEventListener('mouseleave',function(){tauto=
       </div>
       <div class="foot-col">
         <h5>Devices</h5>
-        <a href="maestro-os.html">Maestro OS</a><a href="spotter.html">Spotter</a><a href="patrol-g2.html">Patrol G2</a><a href="box-spotter.html">Box Spotter</a><a href="x-spotter.html">X Spotter</a><a href="bike-patrol.html">Bike Patrol</a><a href="semistation.html">TerraEye</a>
+        <a href="maestro-os.html">Maestro OS</a><a href="spotter.html">Spotter</a><a href="patrol-g2.html">Patrol G2</a><a href="box-spotter.html">Box Spotter</a><a href="x-spotter.html">X Spotter</a><a href="bike-patrol.html">Bike Patrol</a><a href="terraeye.html">TerraEye</a>
       </div>
       <div class="foot-col">
         <h5>Company</h5>
@@ -602,6 +643,7 @@ document.getElementById('newsForm').addEventListener('submit',e=>{
 <script src="assets/ekin-mobile.js?v=20261005b" defer></script>
 <script src="assets/ekin-mobile-media.js?v=20261005b" defer></script>
 <script src="assets/ekin-mobile-accordion.js?v=20261005b" defer></script>
-<script id="m-mpa-js">(function(){var idx=document.getElementById('mpaIndex');if(!idx||!window.MutationObserver)return;var mq=matchMedia('(max-width:640px)');new MutationObserver(function(){if(!mq.matches)return;var on=idx.querySelector('.mpa-item.on');if(on)idx.scrollTo({left:on.offsetLeft-20,behavior:'smooth'})}).observe(idx,{subtree:true,attributes:true,attributeFilter:['class']})})();</script>
+<script id="m-mpa-js">(function(){var idx=document.getElementById('mpaIndex');if(!idx||!window.MutationObserver)return;var mq=matchMedia('(max-width:640px)');new MutationObserver(function(){if(!mq.matches)return;var on=idx.querySelector('.mpa-item.on');if(on){var ir=idx.getBoundingClientRect(),br=on.getBoundingClientRect();idx.scrollTo({left:idx.scrollLeft+(br.left+br.width/2)-(ir.left+ir.width/2),behavior:'smooth'})}}).observe(idx,{subtree:true,attributes:true,attributeFilter:['class']})})();</script>
+<script src="assets/ekin-demo-glow.js?v=20261015a"></script>
 </body>
 </html>

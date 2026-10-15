@@ -17,7 +17,8 @@
 .cs-row.on .cs-thumb img{filter:brightness(1.35) contrast(1.05)}
 .cs-row:focus-visible{outline:2px solid var(--c);outline-offset:1px}
 .cs-thumb{width:clamp(30px,3vw,44px);height:clamp(24px,2.3vw,34px);display:grid;place-items:center;border:1px solid rgba(159,180,214,.14);border-radius:6px;background:rgba(255,255,255,.02);overflow:hidden}
-.cs-thumb img{max-width:86%;max-height:86%;width:auto;height:auto;object-fit:contain;display:block}
+.cs-thumb img{max-width:86%;max-height:86%;width:auto;height:auto;object-fit:contain;display:block;filter:brightness(1.45) contrast(1.06)}
+.cs-thumb{background:radial-gradient(circle at 50% 40%,#3a3f47,#1a1c20 80%)!important}
 .cs-row[data-id="spotter"] .cs-thumb img{max-width:34%;max-height:100%}
 .cs-rtext{min-width:0;display:flex;flex-direction:column;gap:2px}
 .cs-rname{display:flex;align-items:center;gap:7px;font-size:clamp(11.5px,1.05vw,14.5px);font-weight:600;color:#fff;letter-spacing:-.005em;white-space:nowrap}
@@ -46,14 +47,19 @@
 .cs-compass span{font-family:var(--mono,'Roboto Mono',monospace);font-size:8.5px;color:#cbd3de;margin-top:1px}
 /* pins */
 .cs-pin{--c:#fff;position:absolute;transform:translate(-50%,-50%);pointer-events:auto;background:none;border:0;padding:0;cursor:pointer;z-index:4;transition:opacity .25s}
-.cs-pimg{position:relative;display:grid;place-items:center;width:clamp(35px,3.8vw,55px);height:clamp(35px,3.8vw,55px);border-radius:50%;border:1px solid rgba(255,255,255,.5);background:rgba(8,8,10,.92);box-shadow:0 0 0 rgba(0,0,0,0);transition:transform .25s cubic-bezier(.22,.7,.2,1),box-shadow .25s,border-color .25s}
-.cs-pimg img{max-width:calc(62% * var(--s,1.2));max-height:calc(62% * var(--s,1.2));width:auto;height:auto;object-fit:contain;display:block;filter:drop-shadow(0 1px 3px rgba(0,0,0,.6))}
-.cs-pin.form-tall .cs-pimg img{max-width:calc(30% * var(--s,1.2));max-height:calc(86% * var(--s,1.2))}
+.cs-pimg{position:relative;display:grid;place-items:center;width:clamp(44px,4.8vw,70px);height:clamp(44px,4.8vw,70px);border-radius:50%;border:1px solid rgba(255,255,255,.62);background:radial-gradient(circle at 50% 38%,#4a5059 0%,#2a2e35 46%,#15171b 78%);box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 6px 18px -6px rgba(0,0,0,.8);transition:transform .25s cubic-bezier(.22,.7,.2,1),box-shadow .25s,border-color .25s}
+.cs-pimg img{max-width:calc(68% * var(--s,1.2));max-height:calc(68% * var(--s,1.2));width:auto;height:auto;object-fit:contain;display:block;filter:brightness(1.55) contrast(1.08) drop-shadow(0 0 1px rgba(255,255,255,.35)) drop-shadow(0 2px 4px rgba(0,0,0,.55))}
+.cs-pin.form-tall .cs-pimg img{max-width:calc(34% * var(--s,1.2));max-height:calc(90% * var(--s,1.2))}
 .cs-pstate{position:absolute;right:-1px;top:-1px;width:8px;height:8px;border-radius:50%;background:#3ddc84;border:1.5px solid #0a0a0c}
 .cs-pin.standby .cs-pstate{background:#8a95a5}
 .cs-pin.on .cs-pimg,.cs-pin:hover .cs-pimg{border-color:#FF3932}
-.cs-pin:hover .cs-pimg{transform:scale(1.12)}
-.cs-pin.on .cs-pimg{transform:scale(1.2);box-shadow:0 0 16px -2px #FF3932}
+.cs-pin:hover .cs-pimg{transform:scale(1.75);border-color:#FF3932;box-shadow:0 0 0 6px rgba(255,57,50,.12),0 18px 40px -10px rgba(0,0,0,.9)}
+.cs-pin.on .cs-pimg{transform:scale(1.75);box-shadow:0 0 16px -2px #FF3932}
+.cs-pin:hover{z-index:6}
+.cs-pimg img{transition:transform .3s cubic-bezier(.22,.7,.2,1)}
+.cs-pin:hover .cs-pimg img,.cs-pin.on .cs-pimg img{transform:scale(1.15)}
+.cs-pins:has(.cs-pin:hover) .cs-pin:not(:hover){opacity:.35;filter:saturate(.5)}
+.cs-pin{transition:opacity .25s,filter .25s}
 .cs-pin.dim{opacity:.3}
 .cs-pin:focus-visible{outline:none}
 .cs-pin:focus-visible .cs-pimg{box-shadow:0 0 0 2px #FF3932}

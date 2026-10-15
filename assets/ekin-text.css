@@ -1,0 +1,8 @@
+/* Shared section text standard: eyebrow -> headline -> body, same scale and line length on every page */
+@media (min-width:641px){
+.sec-head,.xs-intro,.pe-head,.ws-head{max-width:none!important}
+:is(.sec-head,.split-text,.mod-text,.xs-intro,.pe-head,.ws-head,.rto-text)>h2{font-family:var(--display)!important;font-size:clamp(30px,4.4vw,68px)!important;line-height:1.02!important;letter-spacing:-.035em!important;font-weight:700!important;margin-top:22px!important;max-width:22ch!important;text-wrap:balance}
+:is(.sec-head,.split-text,.mod-text,.xs-intro,.pe-head,.ws-head,.rto-text)>h2:first-child{margin-top:0!important}
+:is(.sec-head,.split-text,.mod-text,.xs-intro,.pe-head,.ws-head,.rto-text)>p{font-family:var(--body)!important;font-size:clamp(16px,1.25vw,19px)!important;line-height:1.6!important;margin-top:24px!important;max-width:58ch!important;text-wrap:pretty}
+:is(.sec-head,.split-text,.mod-text,.xs-intro,.pe-head,.ws-head,.rto-text)>p+p{margin-top:14px!important}
+}

@@ -48,10 +48,10 @@
   .mod-fullvideo video{width:100%;height:auto;display:block}
   .ss-caps .cap:hover{box-shadow:0 18px 40px -20px rgba(0,0,0,.6)}
 </style>
-<link rel="stylesheet" href="assets/ekin-ecosystem.css?v=20261009a" />
+<link rel="stylesheet" href="assets/ekin-ecosystem.css?v=20261015c" />
 <link rel="stylesheet" href="assets/ekin-responsive.css?v=20261005b" />
 <style>@media (max-width:640px){.pe-card.pe-card-bp{background:#000;border-color:#000;outline:0;box-shadow:none}.pe-card.pe-card-bp picture{position:absolute;inset:0;display:block}.pe-card.pe-card-bp img{position:absolute;inset:auto 0 0 0;top:auto!important;width:100%!important;height:80%!important;object-fit:cover!important;object-position:50% 0%!important}.pe-card.pe-card-bp:hover img{transform:none}}</style>
-<link rel="stylesheet" href="assets/ekin-hero.css?v=2" />
+<link rel="stylesheet" href="assets/ekin-hero.css?v=20261015a" />
 <style id="pe-bp-all">.pe-card.pe-card-bp{container-type:inline-size}.pe-card.pe-card-bp{background:#000!important}.pe-card.pe-card-bp picture{position:absolute;inset:0;display:block}.pe-card.pe-card-bp img,.pe-card.pe-card-bp picture img{position:absolute!important;inset:auto 0 0 0!important;top:calc(52px - 20.8cqw)!important;width:100%!important;height:92.5cqw!important;object-fit:cover!important;object-position:50% 0%!important}.pe-card.pe-card-bp:hover img{transform:none!important}.pe-card.pe-card-bp .pe-meta,.pe-card.pe-card-bp .pe-arrow{position:relative;z-index:2}@media (max-width:640px){.pe-card.pe-card-bp img,.pe-card.pe-card-bp picture img{top:calc(52px - 15.8cqw)!important;height:80cqw!important}}</style>
 <style id="pe-xs-pos">.pe-card[href="x-spotter.html"]>img{object-position:50% 92%!important}</style>
 <style id="m-demo-noimg">@media (max-width:640px){.demo-card .demo-img,.pg-demo-media,.pg-demo::before{display:none!important}.demo-card{min-height:0!important;height:auto!important;aspect-ratio:auto!important;padding-right:0!important}.demo-card .demo-text{max-width:none!important;width:100%!important}}</style>
@@ -64,6 +64,8 @@
 .mpa-stage{display:flex!important;flex-direction:column;gap:14px!important;height:100%;padding:0 20px}
 .mpa-index{flex-direction:row!important;gap:6px!important;border-left:0!important;overflow-x:auto;scrollbar-width:none;margin:0 -20px;padding:0 20px;flex:none;scroll-behavior:smooth}
 .mpa-index::-webkit-scrollbar{display:none}
+.mpa-index{align-self:stretch!important;width:auto!important;max-width:none!important;min-width:0;overflow-x:auto!important;margin:0 -20px!important;padding:0 calc(50% - 40px)!important;scroll-snap-type:none!important}
+.mpa-item{transition:opacity .3s,transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s,background .3s}.mpa-item:not(.on){opacity:.45;transform:scale(.92)}.mpa-item.on{transform:scale(1.06)}
 .mpa-item{flex:none;margin:0!important;border:1px solid rgba(255,255,255,.14)!important;border-radius:999px;min-height:34px;padding:0 13px!important;font-size:10.5px!important;letter-spacing:.1em!important;white-space:nowrap;color:#8a97ac!important}
 .mpa-item.on{color:#fff!important;border-color:#FF3932!important;background:rgba(255,57,50,.12)}
 .mpa-item i{margin-right:6px!important}
@@ -94,6 +96,8 @@
 }</style>
 <style id="m-te-hero">@media (max-width:640px){.hero.hero-page .hero-bg{object-position:50% 70%!important}}</style>
 <style id="m-te-caps">@media (max-width:640px){.te-caps-media{aspect-ratio:auto!important;height:auto!important}.te-caps-media picture{display:block}.te-caps-media img{width:100%!important;height:auto!important;aspect-ratio:4/5;object-fit:cover!important;object-position:50% 50%!important}}</style>
+<style id="demo-glow">@media (min-width:641px){.demo-card::before{left:var(--gx,62%)!important;top:var(--gy,50%)!important;right:auto!important;bottom:auto!important;width:var(--gs,56%)!important;height:auto!important;aspect-ratio:1/1;transform:translate(-50%,-50%)!important;background:radial-gradient(circle at center,rgba(255,57,50,.2),rgba(255,57,50,.07) 38%,rgba(255,57,50,0) 68%)!important;pointer-events:none}}</style>
+<link rel="stylesheet" href="assets/ekin-text.css?v=20261015a" />
 </head>
 <style>html{scroll-behavior:smooth}</style>
 <body>
@@ -134,7 +138,7 @@
           <div class="mega-col"><span class="ml-label">MOBILE</span>
             <a class="mega-link" href="patrol-g2.html"><span class="dot"></span>Patrol G2</a>
             <a class="mega-link" href="bike-patrol.html"><span class="dot"></span>Bike Patrol</a>
-            <a class="mega-link" href="semistation.html"><span class="dot"></span>TerraEye</a>
+            <a class="mega-link" href="terraeye.html"><span class="dot"></span>TerraEye</a>
           </div></div>
 </div>
       </div>
@@ -186,7 +190,7 @@
     <span class="drawer-sub">Mobile &amp; Fixed</span>
     <a href="x-spotter.html">X Spotter</a>
     <span class="drawer-sub">Mobile</span>
-    <a href="patrol-g2.html">Patrol G2</a><a href="bike-patrol.html">Bike Patrol</a><a href="semistation.html">TerraEye</a>
+    <a href="patrol-g2.html">Patrol G2</a><a href="bike-patrol.html">Bike Patrol</a><a href="terraeye.html">TerraEye</a>
   </div>
   <div class="drawer-group">
     <h6>Company</h6>
@@ -213,8 +217,6 @@
       <a href="book-a-demo.html" class="btn btn-primary">Book a Demo <span class="arrow">&rarr;</span></a>
     </div>
   </div>
-  <div class="scroll-hint"><span class="line"></span>Scroll</div>
-<a class="hero-arrow" href="#next-section" aria-label="Scroll"><span>Scroll</span><svg viewBox="0 0 20 34" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 2v27"/><path d="M3 22l7 8 7-8"/></svg></a>
 </section>
 
 <!-- ============ SPLIT: MODULAR ============ -->
@@ -471,7 +473,7 @@ update();
       <a class="pe-card" href="x-spotter.html"><img src="assets/x-spotter-windscreen.jpg" alt="Ekin X Spotter unit mounted on a vehicle windscreen" loading="lazy" /><span class="pe-meta"><strong>X Spotter</strong><em>Fixed or mobile edge intelligence delivering real time insight across multiple lanes.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
       <a class="pe-card" href="box-spotter.html"><img src="assets/box-spotter-street-square.opt.webp" alt="Ekin Box Spotter mounted on a street-side arm above a city block" loading="lazy" /><span class="pe-meta"><strong>Box Spotter</strong><em>Rapid deployment intelligence for wherever operational support is needed next.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
       <a class="pe-card pe-card-bp" href="bike-patrol.html"><picture><source media="(max-width:640px)" srcset="assets/bike-patrol-eco-mobile.webp" /><img src="assets/bike-patrol-ecosystem.opt.webp" alt="Ekin Bike Patrol unit mounted on the handlebars of an Ekin e-bike" loading="lazy" /></picture><span class="pe-meta"><strong>Bike Patrol</strong><em>Full Edge AI intelligence for the agile, e-mobility side of the city.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
-      <a class="pe-card" href="semistation.html"><img src="assets/explore/terraeye-street.webp" alt="Ekin TerraEye on a city street" loading="lazy" /><span class="pe-meta"><strong>TerraEye</strong><em>Solar powered intelligence for places without power or connectivity.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
+      <a class="pe-card" href="terraeye.html"><img src="assets/explore/terraeye-street.webp" alt="Ekin TerraEye on a city street" loading="lazy" /><span class="pe-meta"><strong>TerraEye</strong><em>Solar powered intelligence for places without power or connectivity.</em></span><span class="pe-arrow" aria-hidden="true">&#8599;</span></a>
       </div>
     </div>
   </div>
@@ -508,7 +510,7 @@ update();
       </div>
       <div class="foot-col">
         <h5>Devices</h5>
-        <a href="maestro-os.html">Maestro OS</a><a href="spotter.html">Spotter</a><a href="patrol-g2.html">Patrol G2</a><a href="box-spotter.html">Box Spotter</a><a href="x-spotter.html">X Spotter</a><a href="bike-patrol.html">Bike Patrol</a><a href="semistation.html">TerraEye</a>
+        <a href="maestro-os.html">Maestro OS</a><a href="spotter.html">Spotter</a><a href="patrol-g2.html">Patrol G2</a><a href="box-spotter.html">Box Spotter</a><a href="x-spotter.html">X Spotter</a><a href="bike-patrol.html">Bike Patrol</a><a href="terraeye.html">TerraEye</a>
       </div>
       <div class="foot-col">
         <h5>Company</h5>
@@ -568,5 +570,8 @@ document.getElementById('newsForm').addEventListener('submit',e=>{
 <script src="assets/ekin-mobile.js?v=20261005b" defer></script>
 <script src="assets/ekin-mobile-media.js?v=20261005b" defer></script>
 <script src="assets/ekin-mobile-accordion.js?v=20261005b" defer></script>
+<script src="assets/ekin-demo-glow.js?v=20261015a"></script>
+<script src="assets/ekin-iconflow.js?v=20261015a"></script>
+<script id="m-mpa-js">(function(){var idx=document.getElementById('mpaIndex');if(!idx||!window.MutationObserver)return;var mq=matchMedia('(max-width:640px)');new MutationObserver(function(){if(!mq.matches)return;var on=idx.querySelector('.mpa-item.on');if(on){var ir=idx.getBoundingClientRect(),br=on.getBoundingClientRect();idx.scrollTo({left:idx.scrollLeft+(br.left+br.width/2)-(ir.left+ir.width/2),behavior:'smooth'})}}).observe(idx,{subtree:true,attributes:true,attributeFilter:['class']})})();</script>
 </body>
 </html>

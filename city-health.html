@@ -455,8 +455,8 @@
   .cta-media .cta-cap em{font-style:normal;font-size:14px;line-height:1.4;color:rgba(245,247,250,.74)}
   @media(max-width:860px){.wrap.cta-split{grid-template-columns:1fr!important}}
 </style>
-<link rel="stylesheet" href="assets/ekin-connected-map.css?v=20261005b" />
-<style>.pk-map{width:100%;min-width:0}.pk-map .cs-mount{width:100%}.pk-map .cs-frame{width:100%;max-width:100%}</style>
+<link rel="stylesheet" href="assets/ekin-connected-map.css?v=20261015c" />
+<style>.pk-map{width:100%;min-width:0}.pk-map .cs-mount{width:100%}.split-media:has(.pk-map){aspect-ratio:auto!important;border:0!important;overflow:visible!important;border-radius:0!important}@media(min-width:1081px){.cs-mount .cs-frame{width:100%!important;max-width:none!important;aspect-ratio:auto!important;height:clamp(600px,47vw,780px);margin:0}}.split:has(.pk-map){grid-template-columns:1fr!important;gap:clamp(28px,3vw,44px)!important}.split:has(.pk-map) .split-media{order:3!important;width:100%}</style>
 <link rel="stylesheet" href="assets/ekin-responsive.css?v=20261005b" />
 <style id="m-hero-align">@media (max-width:640px){#top.hero{min-height:0!important;height:auto!important;padding:clamp(96px,18vw,140px) 0 14px!important;align-items:flex-end!important}#top .hero-content{padding-top:210px!important;padding-bottom:0!important}#top .hero-content h1{margin-top:22px!important;line-height:1.02!important}#top .hero-content p{margin-top:26px!important}#top .hero-content .actions{margin-top:38px!important}}</style>
 <style id="m-pk-enforce">@media (max-width:640px){.pk-bleed picture{display:block;width:100%;height:100%}.pk-bleed picture img{width:100%;height:100%;object-fit:cover;object-position:60% 55%}.split-media.pk-bleed{aspect-ratio:4/5!important;height:auto!important;max-height:none!important}.pk-bleed picture img{object-position:50% 50%!important}}</style>
@@ -476,7 +476,7 @@
 <style>.ch-ic.ch-ic-img{background:none!important;border:0!important;padding:0!important;width:72px!important;height:72px!important}.ch-ic.ch-ic-img img{width:100%;height:100%;object-fit:contain;display:block}@media (max-width:640px){.ch-ic.ch-ic-img{width:52px!important;height:52px!important}}</style>
 <link rel="stylesheet" href="assets/ch-demo.css?v=20261008a" />
 <style id="ch-hero-crop">.parking-hero .hero-photo{top:var(--nav-h,77px)!important;height:calc(100% - var(--nav-h,77px))!important;bottom:auto!important;object-position:100% 50%!important}@media (max-width:640px){.parking-hero .hero-photo{object-position:22% 50%!important}}</style>
-<link rel="stylesheet" href="assets/ekin-hero.css?v=2" />
+<link rel="stylesheet" href="assets/ekin-hero.css?v=20261015a" />
 <style id="chw-css">
 .chw{display:grid;grid-template-columns:2fr 3fr;column-gap:clamp(12px,1.4vw,20px);margin-top:clamp(34px,5vw,58px)}
 .chw-phase{display:flex;align-items:center;gap:12px;padding-bottom:14px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.62)}
@@ -494,6 +494,24 @@
 @media (max-width:640px){.chw-steps{grid-template-columns:1fr;gap:10px}.chw-step{flex-direction:row;align-items:center;gap:14px;padding:16px}.chw-ic{width:28px;height:28px;flex:none}.chw-n{margin:0;min-width:92px}.chw-step h3{font-size:16px}}
 </style>
 <style id="ch-hero-pic">.hero-photo-pic{display:contents}@media (max-width:640px){#top .hero-photo{object-position:50% 0%!important}}</style>
+<style id="chh-desktop">@media (min-width:641px){.parking-hero .hero-photo{object-position:50% 50%!important}}
+.chh-cards{position:absolute;z-index:1;top:calc(var(--nav-h,77px) + 20%);bottom:20%;left:54%;right:clamp(20px,5vw,64px);pointer-events:none}
+.chh-card{position:absolute;display:grid;gap:2px;min-width:190px;padding:14px 18px 14px 16px;background:rgba(10,10,10,.86);border:1px solid rgba(255,255,255,.14);border-left:2px solid #FF3932;font-family:"Roboto Mono",monospace;color:#fff}
+.chh-card::before{content:"";position:absolute;left:-26px;top:50%;width:9px;height:9px;margin-top:-4.5px;border-radius:50%;background:#FF3932;box-shadow:0 0 0 5px rgba(255,57,50,.18)}
+.chh-card::after{content:"";position:absolute;left:-17px;top:50%;width:16px;height:1px;background:#FF3932}
+.chh-t{font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.chh-card b{font-size:26px;font-weight:500;line-height:1.1;margin-top:4px}
+.chh-d{font-size:12px;color:rgba(255,255,255,.85)}
+.chh-s{font-size:11px;color:rgba(255,255,255,.5)}
+.chh-c1{left:6%;top:0}
+.chh-c2{right:0;top:38%}
+.chh-c3{left:22%;bottom:0}
+.chh-note{position:absolute;right:0;bottom:-28px;font-family:"Roboto Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.chh-cards{left:max(54%,calc(clamp(20px,5vw,64px) + 860px))!important}
+@media (max-width:1279px){.chh-cards{display:none!important}}
+@media (max-width:640px){.chh-cards{display:none}}
+</style>
+<link rel="stylesheet" href="assets/ekin-text.css?v=20261015a" />
 </head>
 <body>
 
@@ -533,7 +551,7 @@
           <div class="mega-col"><span class="ml-label">MOBILE</span>
             <a class="mega-link" href="patrol-g2.html"><span class="dot"></span>Patrol G2</a>
             <a class="mega-link" href="bike-patrol.html"><span class="dot"></span>Bike Patrol</a>
-            <a class="mega-link" href="semistation.html"><span class="dot"></span>TerraEye</a>
+            <a class="mega-link" href="terraeye.html"><span class="dot"></span>TerraEye</a>
           </div></div>
 </div>
       </div>
@@ -585,7 +603,7 @@
     <span class="drawer-sub">Mobile &amp; Fixed</span>
     <a href="x-spotter.html">X Spotter</a>
     <span class="drawer-sub">Mobile</span>
-    <a href="patrol-g2.html">Patrol G2</a><a href="bike-patrol.html">Bike Patrol</a><a href="semistation.html">TerraEye</a>
+    <a href="patrol-g2.html">Patrol G2</a><a href="bike-patrol.html">Bike Patrol</a><a href="terraeye.html">TerraEye</a>
   </div>
   <div class="drawer-group">
     <h6>Company</h6>
@@ -604,15 +622,19 @@
 <!-- ============ HERO ============ -->
 <section class="hero le-hero parking-hero hero-std" id="top" style="position:relative" data-screen-label="City Health hero">
   <div class="hero-fallback"></div>
-  <picture class="hero-photo-pic"><source media="(max-width:640px)" srcset="images/city-health-hero-mobile-v2.webp" /><img class="hero-photo" src="images/city-health-hero-map-v4.webp" alt="Dark city map with red markers and three illustrative cards: road surface, street cleanliness and trees" style="filter:none;object-fit:cover" /></picture>
+  <picture class="hero-photo-pic"><source media="(max-width:640px)" srcset="images/city-health-hero-mobile-v2.webp" /><img class="hero-photo" src="images/ch-demo-map-v2.webp" alt="Dark city map with red markers showing illustrative street issues" style="filter:none;object-fit:cover" /></picture>
+  <div class="chh-cards" aria-label="Illustrative data">
+    <div class="chh-card chh-c1"><span class="chh-t">Road surface</span><b>12</b><span class="chh-d">Issues detected</span><span class="chh-s">Needs review</span></div>
+    <div class="chh-card chh-c2"><span class="chh-t">Street cleanliness</span><b>8</b><span class="chh-d">Debris locations</span><span class="chh-s">Needs review</span></div>
+    <div class="chh-card chh-c3"><span class="chh-t">Tree</span><b>5</b><span class="chh-d">Trees flagged</span><span class="chh-s">Needs review</span></div>
+    <span class="chh-note">Illustrative data</span>
+  </div>
   <div class="ch-hero-scrim" aria-hidden="true"></div>
   <div class="wrap hero-content">
     <h1 style="margin-top:22px;color:#fff">Better streets, <em><br />repaired</em> sooner.</h1>
     <p style="color:rgba(255,255,255,.78);max-width:46ch">Potholes, graffiti and damaged signs, mapped and ready to fix, so public works can keep streets in good shape.</p>
     <div class="actions"><a href="book-a-demo.html" class="btn btn-primary">Book a Demo <span class="arrow">&rarr;</span></a></div>
   </div>
-  <div class="scroll-hint"><span class="line"></span>Scroll</div>
-<a class="hero-arrow" href="#about" aria-label="Scroll"><span>Scroll</span><svg viewBox="0 0 20 34" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 2v27"/><path d="M3 22l7 8 7-8"/></svg></a>
 </section>
 <section class="pad-y" id="about">
   <div class="wrap reveal">
@@ -785,7 +807,7 @@
       </div>
       <div class="foot-col">
         <h5>Devices</h5>
-        <a href="maestro-os.html">Maestro OS</a><a href="spotter.html">Spotter</a><a href="patrol-g2.html">Patrol G2</a><a href="box-spotter.html">Box Spotter</a><a href="x-spotter.html">X Spotter</a><a href="bike-patrol.html">Bike Patrol</a><a href="semistation.html">TerraEye</a>
+        <a href="maestro-os.html">Maestro OS</a><a href="spotter.html">Spotter</a><a href="patrol-g2.html">Patrol G2</a><a href="box-spotter.html">Box Spotter</a><a href="x-spotter.html">X Spotter</a><a href="bike-patrol.html">Bike Patrol</a><a href="terraeye.html">TerraEye</a>
       </div>
       <div class="foot-col">
         <h5>Company</h5>
@@ -914,5 +936,6 @@ html.ir-js body .ir-row.ir-in>img,html.ir-js body .ir-row.ir-in>span:first-child
 @media (max-width:640px) and (prefers-reduced-motion:reduce){html.ir-js body .ir-row,html.ir-js body .ir-row>*{opacity:1!important;transform:none!important;transition:none!important}}
 </style>
 <script id="m-icon-rows-js">(function(){if(!matchMedia('(max-width:640px)').matches||matchMedia('(prefers-reduced-motion:reduce)').matches||!('IntersectionObserver' in window))return;var sel="#why .ben-grid>.ben-card,.pw-grid>.pw-card,.ch-grid>.ch-card,.mh-grid>.mh-card,.pg-m-grid>div,.bs-m-grid>div,.xs-m-grid>div,.pk-vis .partner-grid>.partner-card";var rows=[].slice.call(document.querySelectorAll(sel));if(!rows.length)return;document.documentElement.classList.add('ir-js');rows.forEach(function(r){r.classList.add('ir-row')});var io=new IntersectionObserver(function(es){var n=0;es.forEach(function(e){if(e.isIntersecting){e.target.style.setProperty('--ir-d',(n++*0.07)+'s');e.target.classList.add('ir-in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.15});rows.forEach(function(r){io.observe(r)});setTimeout(function(){rows.forEach(function(r){r.classList.add('ir-in')})},8000)})();</script>
+<script src="assets/ekin-iconflow.js?v=20261015a"></script>
 </body>
 </html>
