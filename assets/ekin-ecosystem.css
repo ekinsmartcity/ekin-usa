@@ -6,7 +6,7 @@
 .pe-rows{display:grid;grid-template-rows:auto auto;gap:11px;margin-top:clamp(24px,3vh,36px)}
 .pe-row{display:grid;gap:11px;min-height:0}
 .pe-row-1{grid-template-columns:1.22fr 1fr 1fr}
-.pe-row-2{grid-template-columns:repeat(4,minmax(0,1fr))}
+.pe-row-2{grid-template-columns:repeat(3,minmax(0,1fr))}
 .pe-card{position:relative;display:block;height:clamp(220px,16.5vw,320px);min-height:0;overflow:hidden;background:#0a0b0d;border:1px solid var(--line-2);text-decoration:none;color:inherit}
 .pe-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .55s cubic-bezier(.22,.7,.2,1)}
 .pe-card:hover img{transform:scale(1.03)}
@@ -31,3 +31,6 @@
 .pe-sec .pe-row{align-items:stretch}
 .pe-sec .pe-row .pe-card{height:auto!important;min-height:0;aspect-ratio:4/3}
 @media(min-width:1101px){.pe-sec .pe-row .pe-card.pe-lead{aspect-ratio:auto}}
+
+/* row 2 has 3 cards: on 2-column layouts the last one spans the row */
+@media(min-width:561px) and (max-width:1100px){.pe-sec .pe-row-2>.pe-card:last-child:nth-child(odd){grid-column:1/-1;aspect-ratio:8/3}}

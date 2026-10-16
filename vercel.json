@@ -23,6 +23,26 @@
       "source": "/ekin-home.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/terraeye",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/terraeye.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/semistation",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/semistation.html",
+      "destination": "/",
+      "permanent": false
     }
   ],
   "rewrites": [
