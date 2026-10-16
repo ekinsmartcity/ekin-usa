@@ -1,4 +1,5 @@
 {
+  "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
     {
@@ -12,16 +13,26 @@
       ],
       "destination": "/us",
       "permanent": false
+    },
+    {
+      "source": "/ekin-home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/ekin-home.html",
+      "destination": "/",
+      "permanent": true
     }
   ],
   "rewrites": [
     {
       "source": "/",
-      "destination": "/ekin-home.html"
+      "destination": "/ekin-home"
     },
     {
       "source": "/us",
-      "destination": "/ekin-home.html"
+      "destination": "/ekin-home"
     }
   ],
   "headers": [

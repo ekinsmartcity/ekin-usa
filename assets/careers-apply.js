@@ -42,11 +42,13 @@ if (form) {
       for (let i = 0; i < list.length; i++) {
         const x = list[i];
         busy('Uploading ' + (i + 1) + ' / ' + list.length + '…');
-        const r = await upload('careers/' + id + '/' + x.field + '-' + safe(x.file.name), x.file, { access: 'public', handleUploadUrl: '/api/careers/upload', contentType: x.file.type || 'application/octet-stream' });
+        const r = await upload('careers/' + id + '/' + x.field + '-' + safe(x.file.name), x.file, { access: 'public', handleUploadUrl: '/api/careers/upload', contentType: x.file.type || 'application/octet-stream', multipart: x.file.size > 8 * 1024 * 1024 });
         files.push({ field: x.field, name: x.file.name, url: r.url, size: x.file.size });
       }
     } catch (ex) {
-      busy(''); return showErr('We could not upload your documents. Please check your connection and try again.');
+      console.error('[careers] upload failed', ex);
+      const m = String((ex && ex.message) || '');
+      busy(''); return showErr(/not available/i.test(m) ? 'Document uploads are not available right now. Please try again later or e-mail your CV to jobs@ekin.com.' : /content type|file type/i.test(m) ? 'This file type is not supported. Please upload a PDF, DOC/DOCX, PPT/PPTX, PNG or JPG.' : 'We could not upload your documents. Please check your connection and try again.' + (m ? ' (' + m.slice(0, 140) + ')' : ''));
     }
     busy('Sending…');
     try {

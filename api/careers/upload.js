@@ -1,6 +1,7 @@
 'use strict';
 // POST /api/careers/upload — issues short-lived client-upload tokens for Vercel Blob (CVs, portfolios, documents).
-const { handleUpload } = require('@vercel/blob/client');
+let handleUpload = null, loadErr = '';
+try { ({ handleUpload } = require('@vercel/blob/client')); } catch (e) { loadErr = String((e && e.message) || e); }
 
 const MAX_BYTES = 20 * 1024 * 1024;
 const TYPES = [
@@ -37,9 +38,11 @@ function originAllowed(req) {
 }
 
 module.exports = async function handler(req, res) {
-  if (req.method !== 'POST') { res.setHeader('Allow', 'POST'); return send(res, 405, { error: 'Method not allowed' }); }
+  if (req.method === 'GET') return send(res, 200, { blob_store_connected: !!process.env.BLOB_READ_WRITE_TOKEN, blob_package_installed: !!handleUpload, email_key_set: !!process.env.RESEND_API_KEY, package_error: loadErr || undefined });
+  if (req.method !== 'POST') { res.setHeader('Allow', 'POST, GET'); return send(res, 405, { error: 'Method not allowed' }); }
+  if (!handleUpload) { console.error('[careers] @vercel/blob not installed', loadErr); return send(res, 503, { error: 'Uploads are not available right now (storage package missing).' }); }
   if (!originAllowed(req)) return send(res, 403, { error: 'Origin not allowed' });
-  if (!process.env.BLOB_READ_WRITE_TOKEN) { console.error('[careers] BLOB_READ_WRITE_TOKEN not set'); return send(res, 503, { error: 'Uploads are not available right now.' }); }
+  if (!process.env.BLOB_READ_WRITE_TOKEN) { console.error('[careers] BLOB_READ_WRITE_TOKEN not set'); return send(res, 503, { error: 'Uploads are not available right now (storage not connected).' }); }
   const body = await readBody(req);
   if (!body) return send(res, 400, { error: 'Invalid request body' });
   try {
@@ -49,11 +52,11 @@ module.exports = async function handler(req, res) {
       onBeforeGenerateToken: async (pathname) => {
         if (!/^careers\/[A-Za-z0-9-]{8,64}\/[^/]{1,200}$/.test(pathname)) throw new Error('Invalid upload path');
         return { allowedContentTypes: TYPES, maximumSizeInBytes: MAX_BYTES, addRandomSuffix: true };
-      },
-      onUploadCompleted: async () => {}
+      }
     });
     return send(res, 200, json);
   } catch (e) {
+    console.error('[careers] upload token error', String((e && e.message) || e));
     return send(res, 400, { error: String((e && e.message) || e) });
   }
 };

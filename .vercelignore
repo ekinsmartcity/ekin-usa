@@ -4,3 +4,6 @@ screens/
 docs/
 qa-*.html
 phone-preview.html
+
+# GitHub-only redirect; on Vercel cleanUrls + vercel.json handle "/" (index.html would loop with ekin-home redirect)
+index.html

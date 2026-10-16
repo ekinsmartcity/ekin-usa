@@ -185,7 +185,7 @@ var vposA=new THREE.BufferAttribute(vpos,3);vposA.setUsage(THREE.DynamicDrawUsag
 var vbrA=new THREE.BufferAttribute(vbr,1);vbrA.setUsage(THREE.DynamicDrawUsage);
 vg.setAttribute('aSize',new THREE.Float32BufferAttribute(vsz,1));vg.setAttribute('aBright',vbrA);
 vg.setAttribute('aGlyph',new THREE.Float32BufferAttribute(vgl,1));vg.setAttribute('aBoost',new THREE.BufferAttribute(vbo,1));
-var vpts=new THREE.Points(vg,cityMat);vpts.frustumCulled=false;vpts.renderOrder=2;scene.add(vpts);
+var carMat=digitMat(0x6b727c,0x8a929c);var vpts=new THREE.Points(vg,carMat);vpts.frustumCulled=false;vpts.renderOrder=2;scene.add(vpts);
 var tpos=new Float32Array(NC*2*3),tbr=new Float32Array(NC*2),tsz=[],tgl=[];for(var ti=0;ti<NC*2;ti++){tsz.push(.26);tgl.push(Math.floor(R()*10))}
 var tg=new THREE.BufferGeometry();var tposA=new THREE.BufferAttribute(tpos,3);tposA.setUsage(THREE.DynamicDrawUsage);tg.setAttribute('position',tposA);
 var tbrA=new THREE.BufferAttribute(tbr,1);tbrA.setUsage(THREE.DynamicDrawUsage);tg.setAttribute('aBright',tbrA);
