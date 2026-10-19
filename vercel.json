@@ -43,6 +43,351 @@
       "source": "/semistation.html",
       "destination": "/",
       "permanent": false
+    },
+    {
+      "source": "/solutions/law-enforcement",
+      "destination": "/public-safety",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/officer-safety",
+      "destination": "/public-safety",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/private-security",
+      "destination": "/public-safety",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/ai-solutions",
+      "destination": "/public-safety",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/alpr",
+      "destination": "/public-safety",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/red-light",
+      "destination": "/public-safety",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/mobile-fixed-speed",
+      "destination": "/public-safety",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/cities-and-municipalities",
+      "destination": "/cities-and-municipalities",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/neighborhoods-and-hoas",
+      "destination": "/cities-and-municipalities",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/education",
+      "destination": "/cities-and-municipalities",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/business",
+      "destination": "/cities-and-municipalities",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/parking",
+      "destination": "/parking",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/all-interconnected",
+      "destination": "/maestro-os",
+      "permanent": true
+    },
+    {
+      "source": "/solutions/:slug*",
+      "destination": "/public-safety",
+      "permanent": true
+    },
+    {
+      "source": "/products/patrol-g2",
+      "destination": "/patrol-g2",
+      "permanent": true
+    },
+    {
+      "source": "/products/patrol",
+      "destination": "/patrol-g2",
+      "permanent": true
+    },
+    {
+      "source": "/products/bike-patrol",
+      "destination": "/bike-patrol",
+      "permanent": true
+    },
+    {
+      "source": "/products/spotter",
+      "destination": "/spotter",
+      "permanent": true
+    },
+    {
+      "source": "/products/x-spotter",
+      "destination": "/x-spotter",
+      "permanent": true
+    },
+    {
+      "source": "/products/xspotter",
+      "destination": "/x-spotter",
+      "permanent": true
+    },
+    {
+      "source": "/products/box-spotter",
+      "destination": "/box-spotter",
+      "permanent": true
+    },
+    {
+      "source": "/products/boxspotter",
+      "destination": "/box-spotter",
+      "permanent": true
+    },
+    {
+      "source": "/products/maestro-os",
+      "destination": "/maestro-os",
+      "permanent": true
+    },
+    {
+      "source": "/products/maestro",
+      "destination": "/maestro-os",
+      "permanent": true
+    },
+    {
+      "source": "/products/semistation",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/products/:slug*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/about/about-ekin",
+      "destination": "/mission",
+      "permanent": true
+    },
+    {
+      "source": "/about/about-us",
+      "destination": "/mission",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/mission",
+      "permanent": true
+    },
+    {
+      "source": "/why-ekin",
+      "destination": "/mission",
+      "permanent": true
+    },
+    {
+      "source": "/about/why-ekin",
+      "destination": "/mission",
+      "permanent": true
+    },
+    {
+      "source": "/about/our-founder",
+      "destination": "/leadership",
+      "permanent": true
+    },
+    {
+      "source": "/about/life-at-ekin",
+      "destination": "/careers",
+      "permanent": true
+    },
+    {
+      "source": "/about/careers",
+      "destination": "/careers",
+      "permanent": true
+    },
+    {
+      "source": "/about/career-application",
+      "destination": "/general-application",
+      "permanent": true
+    },
+    {
+      "source": "/about/ekin-ventures",
+      "destination": "/ekin-ventures",
+      "permanent": true
+    },
+    {
+      "source": "/about/press-events",
+      "destination": "/press",
+      "permanent": true
+    },
+    {
+      "source": "/about/press",
+      "destination": "/press",
+      "permanent": true
+    },
+    {
+      "source": "/about/:slug*",
+      "destination": "/mission",
+      "permanent": true
+    },
+    {
+      "source": "/press/5-ways-ekin-maestro-simplifies-real-time-policing",
+      "destination": "/5-ways-ekin-maestro-simplifies-real-time-policing",
+      "permanent": true
+    },
+    {
+      "source": "/press/a-day-in-the-life-ekin-patrol-g2",
+      "destination": "/a-day-in-the-life-ekin-patrol-g2",
+      "permanent": true
+    },
+    {
+      "source": "/press/coral-gables-ekin-spotter-smart-poles",
+      "destination": "/coral-gables-ekin-spotter-smart-poles",
+      "permanent": true
+    },
+    {
+      "source": "/press/ekin-25m-us-expansion",
+      "destination": "/ekin-25m-us-expansion",
+      "permanent": true
+    },
+    {
+      "source": "/press/ekin-at-aacop-2026",
+      "destination": "/ekin-at-aacop-2026",
+      "permanent": true
+    },
+    {
+      "source": "/press/ekin-at-enforce-tac-2025",
+      "destination": "/ekin-at-enforce-tac-2025",
+      "permanent": true
+    },
+    {
+      "source": "/press/ekin-at-enforce-tac-2026",
+      "destination": "/ekin-at-enforce-tac-2026",
+      "permanent": true
+    },
+    {
+      "source": "/press/ekin-at-european-police-congress-2025",
+      "destination": "/ekin-at-european-police-congress-2025",
+      "permanent": true
+    },
+    {
+      "source": "/press/ekin-at-gpec-digital-2025",
+      "destination": "/ekin-at-gpec-digital-2025",
+      "permanent": true
+    },
+    {
+      "source": "/press/ekin-at-intertraffic-amsterdam-2026",
+      "destination": "/ekin-at-intertraffic-amsterdam-2026",
+      "permanent": true
+    },
+    {
+      "source": "/press/ekin-at-its-world-congress-2025",
+      "destination": "/ekin-at-its-world-congress-2025",
+      "permanent": true
+    },
+    {
+      "source": "/press/ekin-at-nsa-winter-conference-2026",
+      "destination": "/ekin-at-nsa-winter-conference-2026",
+      "permanent": true
+    },
+    {
+      "source": "/press/ekin-at-smart-city-summit-expo-2025",
+      "destination": "/ekin-at-smart-city-summit-expo-2025",
+      "permanent": true
+    },
+    {
+      "source": "/press/ekin-featured-in-its-international",
+      "destination": "/ekin-featured-in-its-international",
+      "permanent": true
+    },
+    {
+      "source": "/press/ekin-patrol-g2-sarajevo-canton-police",
+      "destination": "/ekin-patrol-g2-sarajevo-canton-police",
+      "permanent": true
+    },
+    {
+      "source": "/press/ekin-patrol-sarajevo-high-tech-interceptors",
+      "destination": "/ekin-patrol-sarajevo-high-tech-interceptors",
+      "permanent": true
+    },
+    {
+      "source": "/press/ekin-showcases-smart-city-solutions-at-thailand-roadshow-bangkok",
+      "destination": "/ekin-showcases-smart-city-solutions-at-thailand-roadshow-bangkok",
+      "permanent": true
+    },
+    {
+      "source": "/press/ekin-spotter-malay-mail-point-to-point",
+      "destination": "/ekin-spotter-malay-mail-point-to-point",
+      "permanent": true
+    },
+    {
+      "source": "/press/ekin-supports-sett-shell-eco-marathon-2025",
+      "destination": "/ekin-supports-sett-shell-eco-marathon-2025",
+      "permanent": true
+    },
+    {
+      "source": "/press/smart-policing-conference-switzerland",
+      "destination": "/smart-policing-conference-switzerland",
+      "permanent": true
+    },
+    {
+      "source": "/press/ekin-smart-city-technology-announces-25m-u-s-expansion-transition-to-u-s--based-manufacturing",
+      "destination": "/ekin-25m-us-expansion",
+      "permanent": true
+    },
+    {
+      "source": "/press/:slug*",
+      "destination": "/press",
+      "permanent": true
+    },
+    {
+      "source": "/events/:slug*",
+      "destination": "/press",
+      "permanent": true
+    },
+    {
+      "source": "/contact-us",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/contact/locations",
+      "destination": "/locations",
+      "permanent": true
+    },
+    {
+      "source": "/contact/find-a-partner",
+      "destination": "/partners",
+      "permanent": true
+    },
+    {
+      "source": "/contact/become-a-partner",
+      "destination": "/partners",
+      "permanent": true
+    },
+    {
+      "source": "/find-a-partner",
+      "destination": "/partners",
+      "permanent": true
+    },
+    {
+      "source": "/become-a-partner",
+      "destination": "/partners",
+      "permanent": true
+    },
+    {
+      "source": "/contact/:slug*",
+      "destination": "/contact",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -107,7 +452,7 @@
       "maxDuration": 15
     },
     "api/careers/apply.js": {
-      "maxDuration": 15
+      "maxDuration": 45
     },
     "api/careers/parse.js": {
       "maxDuration": 30

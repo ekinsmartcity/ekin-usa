@@ -53,17 +53,17 @@ module.exports = async function handler(req, res) {
     const r = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: { 'x-api-key': key, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
-      body: JSON.stringify({ model: process.env.CV_PARSE_MODEL || 'claude-sonnet-4-5', max_tokens: 1500, messages: [{ role: 'user', content: PROMPT + text }] })
+      body: JSON.stringify({ model: (process.env.CV_PARSE_MODEL || '').trim() || 'claude-sonnet-4-5', max_tokens: 1500, messages: [{ role: 'user', content: PROMPT + text }] })
     });
-    if (!r.ok) { console.error('[careers/parse] API error', r.status, await r.text().catch(() => '')); return send(res, 502, { ok: false, message: 'Auto-fill failed. Please fill the form manually.' }); }
+    if (!r.ok) { console.error('[careers/parse] API error', r.status, await r.text().catch(() => '')); return send(res, 502, { ok: false, status: r.status, message: 'Auto-fill failed. Please fill the form manually.' }); }
     const j = await r.json();
     const out = ((j.content || []).find((c) => c.type === 'text') || {}).text || '';
     const m = out.match(/\{[\s\S]*\}/);
-    if (!m) return send(res, 502, { ok: false, message: 'Auto-fill failed. Please fill the form manually.' });
+    if (!m) return send(res, 502, { ok: false, status: r.status, message: 'Auto-fill failed. Please fill the form manually.' });
     const data = JSON.parse(m[0]);
     return send(res, 200, { ok: true, data });
   } catch (e) {
     console.error('[careers/parse] failed', String((e && e.message) || e));
-    return send(res, 502, { ok: false, message: 'Auto-fill failed. Please fill the form manually.' });
+    return send(res, 502, { ok: false, status: r.status, message: 'Auto-fill failed. Please fill the form manually.' });
   }
 };

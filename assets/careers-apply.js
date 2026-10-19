@@ -1,4 +1,4 @@
-/* Job application form: uploads files to Vercel Blob, then sends the application to /api/careers/apply */
+/* Job application form: uploads files to Vercel Blob, then sends the application to /api/careers/apply (→ Ekin Bloom) */
 import { upload } from 'https://esm.sh/@vercel/blob@1/client';
 
 const MAX = 20 * 1024 * 1024;
@@ -34,6 +34,10 @@ if (form) {
     for (const inp of inputs) for (const file of inp.files) list.push({ field: inp.name, file });
     const big = list.find((x) => x.file.size > MAX);
     if (big) return showErr('"' + big.file.name + '" is larger than 20 MB. Please upload a smaller file.');
+    const cvf = list.find((x) => x.field === 'cv' || x.field === 'resume');
+    const mark = (n) => { const el = form.querySelector('[name="' + n + '"]'); if (el) el.setAttribute('aria-invalid', 'true'); };
+    if (cvf && cvf.file.size > 5 * 1024 * 1024) { mark(cvf.field); return showErr('Your CV must be 5 MB or smaller.'); }
+    if (cvf && !/\.(pdf|docx?|rtf|png|jpe?g|webp|gif|heic|bmp|tiff?)$/i.test(cvf.file.name)) { mark(cvf.field); return showErr('Please upload your CV as PDF, DOC, DOCX, RTF or an image.'); }
     const fields = {};
     new FormData(form).forEach((v, k) => { if (typeof v === 'string' && k !== '_hp' && v.trim()) fields[k] = v.trim(); });
     if (!fields.full_name && (fields.first_name || fields.last_name)) fields.full_name = [fields.first_name, fields.last_name].filter(Boolean).join(' ');
@@ -58,7 +62,7 @@ if (form) {
       const b = await r.json().catch(() => ({}));
       if (!b.ok) {
         busy('');
-        if (b.errors) { Object.keys(b.errors).forEach((k) => { const el = form.querySelector('[name="' + k + '"]') || (k === 'cv' && form.querySelector('[name="resume"]')); if (el) el.setAttribute('aria-invalid', 'true'); }); return showErr(Object.values(b.errors).join(' ')); }
+        if (b.errors) { Object.keys(b.errors).forEach((k) => { const el = form.querySelector('[name="' + CSS.escape(k) + '"]') || (k === 'cv' && form.querySelector('[name="resume"]')) || (k === 'full_name' && form.querySelector('[name="first_name"]')); if (el) el.setAttribute('aria-invalid', 'true'); }); return showErr(Object.values(b.errors).join(' ')); }
         return showErr(b.message || 'We could not send your application right now. Please try again in a moment.');
       }
       form.style.display = 'none';
