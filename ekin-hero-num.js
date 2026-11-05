@@ -34,12 +34,17 @@ steps.forEach(function(b,j){b.addEventListener('click',function(){var r=sec.getB
 if(reduced)sec.classList.add('nh-static');else{addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll()}
 
 var THREE=window.THREE;
-if(!THREE){sec.classList.add('nh-nogl');return}
-try{build()}catch(e){console.warn('nhero',e);sec.classList.add('nh-nogl')}
+function boot(){THREE=window.THREE;if(!THREE){sec.classList.add('nh-nogl');return}try{build()}catch(e){console.warn('nhero',e);sec.classList.add('nh-nogl')}}
+function loadGL(){if(window.THREE)return boot();var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';s.async=true;s.onload=boot;s.onerror=function(){sec.classList.add('nh-nogl')};document.head.appendChild(s)}
+function later(){var go=function(){(window.requestIdleCallback||function(f){setTimeout(f,150)})(loadGL,{timeout:1500})};
+  if((window.innerWidth||1200)>=760)return go();
+  var done=false,fire=function(){if(done)return;done=true;['scroll','touchstart','pointerdown','keydown'].forEach(function(e){removeEventListener(e,fire)});go()};
+  ['scroll','touchstart','pointerdown','keydown'].forEach(function(e){addEventListener(e,fire,{passive:true,once:true})});setTimeout(fire,4000)}
+if(document.readyState==='complete')later();else addEventListener('load',later);
 
 function build(){
 var stage=sec.querySelector('.nhero-stage'),canvas=document.getElementById('nhCanvas');
-var gl=new THREE.WebGLRenderer({canvas:canvas,antialias:true,alpha:false,preserveDrawingBuffer:true,powerPreference:'high-performance'});
+var gl=new THREE.WebGLRenderer({canvas:canvas,antialias:(window.innerWidth||1200)>=760,alpha:false,preserveDrawingBuffer:false,powerPreference:'high-performance'});
 gl.setClearColor(0x000000,1);
 var DPR=1;
 function rng(s){return function(){s|=0;s=s+0x6D2B79F5|0;var t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
@@ -338,6 +343,8 @@ kick=function(){if(!running&&visible&&!document.hidden){running=true;last=0;requ
 new IntersectionObserver(function(es){visible=es[0].isIntersecting;if(visible)kick();else running=false}).observe(sec);
 document.addEventListener('visibilitychange',function(){if(document.hidden)running=false;else kick()});
 new ResizeObserver(function(){size();kick()}).observe(stage);
+addEventListener('resize',function(){size();kick()});
+(function chk(n){requestAnimationFrame(function(){var w=stage.clientWidth;if(w&&Math.abs(canvas.width-Math.round(w*DPR))>2){size();kick()}if(n)setTimeout(function(){chk(n-1)},400)})})(5);
 ps=P;render(ps,0,0,false);ready();kick();
 window.__nhPreview=function(p){P=ps=p;setScene(p<B[1]?0:p<B[2]?1:2);render(p,6,0,false)};
 }
