@@ -37,18 +37,22 @@ function originAllowed(req) {
   return !o || allow.includes(o);
 }
 
+const blobToken = () => process.env.BLOB_READ_WRITE_TOKEN || (Object.keys(process.env).filter((k) => /READ_WRITE_TOKEN$/.test(k)).map((k) => process.env[k]).find(Boolean)) || '';
+const blobEnvNames = () => Object.keys(process.env).filter((k) => /BLOB/.test(k));
+
 module.exports = async function handler(req, res) {
-  if (req.method === 'GET') return send(res, 200, { blob_store_connected: !!process.env.BLOB_READ_WRITE_TOKEN, blob_package_installed: !!handleUpload, email_key_set: !!process.env.RESEND_API_KEY, package_error: loadErr || undefined });
+  if (req.method === 'GET') return send(res, 200, { blob_store_connected: !!blobToken(), blob_env_names: blobEnvNames(), blob_package_installed: !!handleUpload, email_key_set: !!process.env.RESEND_API_KEY, package_error: loadErr || undefined });
   if (req.method !== 'POST') { res.setHeader('Allow', 'POST, GET'); return send(res, 405, { error: 'Method not allowed' }); }
   if (!handleUpload) { console.error('[careers] @vercel/blob not installed', loadErr); return send(res, 503, { error: 'Uploads are not available right now (storage package missing).' }); }
   if (!originAllowed(req)) return send(res, 403, { error: 'Origin not allowed' });
-  if (!process.env.BLOB_READ_WRITE_TOKEN) { console.error('[careers] BLOB_READ_WRITE_TOKEN not set'); return send(res, 503, { error: 'Uploads are not available right now (storage not connected).' }); }
+  if (!blobToken()) { console.error('[careers] BLOB_READ_WRITE_TOKEN not set'); return send(res, 503, { error: 'Uploads are not available right now (storage not connected).' }); }
   const body = await readBody(req);
   if (!body) return send(res, 400, { error: 'Invalid request body' });
   try {
     const json = await handleUpload({
       body,
       request: req,
+      token: blobToken(),
       onBeforeGenerateToken: async (pathname) => {
         if (!/^careers\/[A-Za-z0-9-]{8,64}\/[^/]{1,200}$/.test(pathname)) throw new Error('Invalid upload path');
         return { allowedContentTypes: TYPES, maximumSizeInBytes: MAX_BYTES, addRandomSuffix: true };

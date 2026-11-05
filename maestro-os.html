@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8864G409HQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8864G409HQ');
+</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ekin Maestro OS, The Smart City Operating System</title>
@@ -12,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/ekin.css?v=20261005b" />
-<link rel="stylesheet" href="assets/ekin-dark.css?v=20261005b" />
+<link rel="stylesheet" href="assets/ekin-dark.css?v=20261022a" />
 <link rel="stylesheet" href="assets/ekin-device.css?v=20261005b" />
 <style>
   .demo-card{position:relative;border-radius:14px;background:#0a0a0a;overflow:hidden;aspect-ratio:5/2;max-height:440px;display:flex;align-items:center;padding:clamp(34px,5vw,64px);color:#fff;border:1px solid var(--line-2)}
@@ -76,6 +83,8 @@
 <style id="pe-bp-all">.pe-card.pe-card-bp{container-type:inline-size}.pe-card.pe-card-bp{background:#000!important}.pe-card.pe-card-bp picture{position:absolute;inset:0;display:block}.pe-card.pe-card-bp img,.pe-card.pe-card-bp picture img{position:absolute!important;inset:auto 0 0 0!important;top:calc(52px - 20.8cqw)!important;width:100%!important;height:92.5cqw!important;object-fit:cover!important;object-position:50% 0%!important}.pe-card.pe-card-bp:hover img{transform:none!important}.pe-card.pe-card-bp .pe-meta,.pe-card.pe-card-bp .pe-arrow{position:relative;z-index:2}@media (max-width:640px){.pe-card.pe-card-bp img,.pe-card.pe-card-bp picture img{top:calc(52px - 15.8cqw)!important;height:80cqw!important}}</style>
 <style id="pe-xs-pos">.pe-card[href="x-spotter.html"]>img{object-position:50% 92%!important}</style>
 <link rel="stylesheet" href="assets/ekin-text.css?v=20261015a" />
+<script>if(!/(^|\.)ekin\.com$|\.vercel\.app$/.test(location.hostname))document.documentElement.classList.add('show-prelaunch')</script>
+<style>html:not(.show-prelaunch) [data-prelaunch]{display:none!important}</style>
 </head>
 <style>html{scroll-behavior:smooth}</style>
 <body>
@@ -99,6 +108,20 @@
         </div>
       </div>
 
+      <div class="nav-item" data-menu data-prelaunch>
+        <button class="nav-trigger">Traffic <span class="chev"></span></button>
+        <div class="mega mega-1 mega-devices mega-traffic">
+          <div class="mega-lead"><span class="ml-label">TRAFFIC</span><p>Accurate enforcement for safer roads.</p></div>
+          <div class="mega-col mega-traffic-col"><span class="ml-label">TRAFFIC</span>
+            <a class="mega-link" href="ghost-plate-detection.html"><span class="dot"></span>Ghost Plate Detection</a>
+            <a class="mega-link" href="speed-enforcement.html"><span class="dot"></span>Speed Enforcement</a>
+            <a class="mega-link" href="red-light-enforcement.html"><span class="dot"></span>Red Light Enforcement</a>
+            <a class="mega-link" href="turn-and-lane-enforcement.html"><span class="dot"></span>Turn &amp; Lane Enforcement</a>
+            <a class="mega-link" href="pedestrian-safety.html"><span class="dot"></span>Pedestrian Safety</a>
+            <a class="mega-link" href="distracted-driving-detection.html"><span class="dot"></span>Distracted Driving Detection</a>
+          </div>
+        </div>
+      </div>
       <div class="nav-item" data-menu>
         <button class="nav-trigger">Devices <span class="chev"></span></button>
         <div class="mega mega-1 mega-devices">
@@ -158,6 +181,10 @@
   <div class="drawer-group">
     <h6>Solutions</h6>
     <a href="public-safety.html">Public Safety</a><a href="cities-and-municipalities.html">Cities &amp; Municipalities</a><a href="parking.html">Parking</a><a href="city-health.html">City Health</a>
+  </div>
+  <div class="drawer-group" data-prelaunch>
+    <h6>Traffic</h6>
+    <a href="ghost-plate-detection.html">Ghost Plate Detection</a><a href="speed-enforcement.html">Speed Enforcement</a><a href="red-light-enforcement.html">Red Light Enforcement</a><a href="turn-and-lane-enforcement.html">Turn &amp; Lane Enforcement</a><a href="pedestrian-safety.html">Pedestrian Safety</a><a href="distracted-driving-detection.html">Distracted Driving Detection</a>
   </div>
   <div class="drawer-group">
     <h6>Devices</h6>
@@ -564,7 +591,7 @@ document.getElementById('tPrev').onclick=()=>go(ti-1);
       </div>
       <div class="foot-col">
         <h5>Solutions</h5>
-        <a href="public-safety.html">Public Safety</a><a href="cities-and-municipalities.html">Cities &amp; Municipalities</a><a href="parking.html">Parking</a><a href="city-health.html">City Health</a>
+        <a href="public-safety.html">Public Safety</a><a href="cities-and-municipalities.html">Cities &amp; Municipalities</a><a href="parking.html">Parking</a><a href="city-health.html">City Health</a><a href="speed-enforcement.html" data-prelaunch>Speed Enforcement</a>
       </div>
       <div class="foot-col">
         <h5>Devices</h5>

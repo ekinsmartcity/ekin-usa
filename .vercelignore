@@ -4,6 +4,12 @@ screens/
 docs/
 qa-*.html
 phone-preview.html
+ghost-plate-detection.html
+speed-enforcement.html
+red-light-enforcement.html
+turn-and-lane-enforcement.html
+pedestrian-safety.html
+distracted-driving-detection.html
 
 # GitHub-only redirect; on Vercel cleanUrls + vercel.json handle "/" (index.html would loop with ekin-home redirect)
 index.html

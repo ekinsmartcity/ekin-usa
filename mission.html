@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8864G409HQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8864G409HQ');
+</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ekin / Mission</title>
@@ -412,7 +419,7 @@
 .founder-quote blockquote{font-family:var(--display);font-weight:600;font-size:clamp(28px,4vw,52px);line-height:1.12;letter-spacing:-0.02em;max-width:18ch}
 .founder-quote .qmark{color:var(--accent);font-size:64px;line-height:0;display:block;height:34px}
 </style>
-<link rel="stylesheet" href="assets/ekin-dark.css?v=20261005b" />
+<link rel="stylesheet" href="assets/ekin-dark.css?v=20261022a" />
 <style>
   .ms-hero{padding:calc(var(--nav-h,76px) + clamp(90px,16vh,180px)) 0 clamp(60px,10vh,120px);border-bottom:1px solid var(--line)}
   .ms-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);display:block}
@@ -449,6 +456,8 @@
 <style id="m-ms-hero">@media (max-width:640px){html body .ms-hero{padding-top:calc(var(--nav-h,76px) + 28px)!important;min-height:0!important;height:auto!important}}</style>
 <link rel="stylesheet" href="assets/ekin-text.css?v=20261015a" />
 <style id="ms-hero-center">.ms-hero .wrap{text-align:center!important;display:flex;flex-direction:column;align-items:center}.ms-hero .wrap>*{margin-left:auto!important;margin-right:auto!important;text-align:center!important}</style>
+<script>if(!/(^|\.)ekin\.com$|\.vercel\.app$/.test(location.hostname))document.documentElement.classList.add('show-prelaunch')</script>
+<style>html:not(.show-prelaunch) [data-prelaunch]{display:none!important}</style>
 </head>
 <body>
 
@@ -471,6 +480,20 @@
         </div>
       </div>
 
+      <div class="nav-item" data-menu data-prelaunch>
+        <button class="nav-trigger">Traffic <span class="chev"></span></button>
+        <div class="mega mega-1 mega-devices mega-traffic">
+          <div class="mega-lead"><span class="ml-label">TRAFFIC</span><p>Accurate enforcement for safer roads.</p></div>
+          <div class="mega-col mega-traffic-col"><span class="ml-label">TRAFFIC</span>
+            <a class="mega-link" href="ghost-plate-detection.html"><span class="dot"></span>Ghost Plate Detection</a>
+            <a class="mega-link" href="speed-enforcement.html"><span class="dot"></span>Speed Enforcement</a>
+            <a class="mega-link" href="red-light-enforcement.html"><span class="dot"></span>Red Light Enforcement</a>
+            <a class="mega-link" href="turn-and-lane-enforcement.html"><span class="dot"></span>Turn &amp; Lane Enforcement</a>
+            <a class="mega-link" href="pedestrian-safety.html"><span class="dot"></span>Pedestrian Safety</a>
+            <a class="mega-link" href="distracted-driving-detection.html"><span class="dot"></span>Distracted Driving Detection</a>
+          </div>
+        </div>
+      </div>
       <div class="nav-item" data-menu>
         <button class="nav-trigger">Devices <span class="chev"></span></button>
         <div class="mega mega-1 mega-devices">
@@ -530,6 +553,10 @@
   <div class="drawer-group">
     <h6>Solutions</h6>
     <a href="public-safety.html">Public Safety</a><a href="cities-and-municipalities.html">Cities &amp; Municipalities</a><a href="parking.html">Parking</a><a href="city-health.html">City Health</a>
+  </div>
+  <div class="drawer-group" data-prelaunch>
+    <h6>Traffic</h6>
+    <a href="ghost-plate-detection.html">Ghost Plate Detection</a><a href="speed-enforcement.html">Speed Enforcement</a><a href="red-light-enforcement.html">Red Light Enforcement</a><a href="turn-and-lane-enforcement.html">Turn &amp; Lane Enforcement</a><a href="pedestrian-safety.html">Pedestrian Safety</a><a href="distracted-driving-detection.html">Distracted Driving Detection</a>
   </div>
   <div class="drawer-group">
     <h6>Devices</h6>
@@ -671,8 +698,8 @@
     {city:"Ankara",country:"T\u00fcrkiye",lon:32.85,lat:39.93,dx:8,dy:15,entities:[
       {name:"Ekin Software Teknoloji",addr:"CYBERPARK Cyberplaza C Blok Zemin Kat (\u00dcniversiteler Mah. \u2013 Bilkent 1), \u00c7ankaya / Ankara"},
       {name:"Ekin Software Teknoloji, \u0130ncek",addr:"K\u0131z\u0131lca\u015far Mahallesi, Zafer Caddesi, No:41-43, G\u00f6lba\u015f\u0131 / Ankara"}]},
-    {city:"Zurich",country:"Switzerland",lon:8.54,lat:47.37,dx:-10,dy:-10,anchor:"end",entities:[
-      {name:"Ekin Swiss AG",addr:"Fischhausenstrasse 8b, St. Gallen, Kaltbrunn 8722"}]},
+    {city:"Zug",country:"Switzerland",lon:8.52,lat:47.17,dx:-10,dy:-10,anchor:"end",entities:[
+      {name:"Ekin Swiss AG, Zweigniederlassung Zug",addr:"Baarerstrasse 137, 6300 Zug"}]},
     {city:"Stuttgart",country:"Germany",lon:9.18,lat:48.78,dx:8,dy:-17,entities:[
       {name:"Ekin Europe GmbH",addr:"K\u00f6nigstrasse 27, 70173 Stuttgart"}]},
     {city:"Baku",country:"Azerbaijan",lon:49.87,lat:40.41,dx:9,dy:4,entities:[
@@ -843,7 +870,7 @@
       </div>
       <div class="foot-col">
         <h5>Solutions</h5>
-        <a href="public-safety.html">Public Safety</a><a href="cities-and-municipalities.html">Cities &amp; Municipalities</a><a href="parking.html">Parking</a><a href="city-health.html">City Health</a>
+        <a href="public-safety.html">Public Safety</a><a href="cities-and-municipalities.html">Cities &amp; Municipalities</a><a href="parking.html">Parking</a><a href="city-health.html">City Health</a><a href="speed-enforcement.html" data-prelaunch>Speed Enforcement</a>
       </div>
       <div class="foot-col">
         <h5>Devices</h5>

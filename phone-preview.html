@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><title>Phone Preview — Ekin</title>
+<html lang="en"><head>
+<meta charset="utf-8"><title>Phone Preview — Ekin</title>
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
@@ -20,7 +21,9 @@ button[aria-pressed="true"]{border-color:#e8edf6}
 .phone .ld{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:#8a97ac;background:#000;pointer-events:none;transition:opacity .2s}
 .phone.ok .ld{opacity:0!important;visibility:hidden!important;display:none!important}
 .phone.slow .ld{color:#ff8a84}
-</style></head><body>
+</style><script>if(!/(^|\.)ekin\.com$|\.vercel\.app$/.test(location.hostname))document.documentElement.classList.add('show-prelaunch')</script>
+<style>html:not(.show-prelaunch) [data-prelaunch]{display:none!important}</style>
+</head><body>
 <div class="bar"><b>Phone preview</b>
 <select id="pg" aria-label="Page"></select>
 <button id="prev" type="button" aria-label="Previous page">←</button><button id="next" type="button" aria-label="Next page">→</button>

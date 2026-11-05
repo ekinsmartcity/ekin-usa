@@ -39,10 +39,22 @@ const US = 'AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN
 const COUNTRIES = { 'united states': 'US', usa: 'US', 'u.s.': 'US', 'u.s.a.': 'US', america: 'US', turkey: 'TR', 'türkiye': 'TR', turkiye: 'TR', germany: 'DE', deutschland: 'DE', poland: 'PL', polska: 'PL', hungary: 'HU', 'magyarország': 'HU', switzerland: 'CH', schweiz: 'CH', suisse: 'CH', 'united kingdom': 'GB', uk: 'GB', england: 'GB', france: 'FR', italy: 'IT', spain: 'ES', netherlands: 'NL', austria: 'AT', canada: 'CA', mexico: 'MX', india: 'IN', 'united arab emirates': 'AE', uae: 'AE', 'saudi arabia': 'SA', qatar: 'QA', azerbaijan: 'AZ', romania: 'RO', bulgaria: 'BG', greece: 'GR', ukraine: 'UA', 'czech republic': 'CZ', czechia: 'CZ', portugal: 'PT', belgium: 'BE', sweden: 'SE', ireland: 'IE', israel: 'IL', egypt: 'EG', brazil: 'BR', japan: 'JP', china: 'CN', 'south korea': 'KR', australia: 'AU' };
 function countryOf(s) {
   s = String(s || '').trim(); if (!s) return '';
+  if (!countryOf.all) {
+    countryOf.all = {};
+    try {
+      const A = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; const langs = ['en', 'tr', 'de', 'pl', 'hu', 'fr', 'es', 'it'].map((l) => new Intl.DisplayNames([l], { type: 'region' }));
+      for (const a of A) for (const b2 of A) { const code = a + b2; langs.forEach((dn) => { const n = dn.of(code); if (n && n !== code) countryOf.all[n.toLowerCase()] = code; }); }
+    } catch (_) {}
+    Object.assign(countryOf.all, COUNTRIES);
+  }
+  const ALL = countryOf.all;
   const parts = s.split(/[,/|]/).map((p) => p.trim()).filter(Boolean); const last = parts[parts.length - 1] || '';
-  const c = COUNTRIES[last.toLowerCase().replace(/\s+\d.*$/, '')]; if (c) return c;
+  const lk = last.toLowerCase().replace(/\s+\d.*$/, '');
+  const c = ALL[lk]; if (c) return c;
   const st = last.toUpperCase().match(/^([A-Z]{2})(\s+\d{5}(-\d{4})?)?$/); if (st && US.includes(st[1])) return 'US';
-  for (const k of Object.keys(COUNTRIES)) if (k.length > 3 && s.toLowerCase().includes(k)) return COUNTRIES[k];
+  if (/^[A-Z]{2}$/.test(last) && Object.values(ALL).includes(last)) return last;
+  const low = s.toLowerCase();
+  for (const k of Object.keys(ALL)) if (k.length > 3 && low.includes(k)) return ALL[k];
   if (/\b(istanbul|ankara|izmir|bursa|antalya)\b/i.test(s)) return 'TR';
   return '';
 }
@@ -85,6 +97,33 @@ async function sendMail(f, files, position, ref, pageUrl, note) {
     if (!r.ok) console.error('[careers] Resend error', r.status, await r.text().catch(() => ''));
     return r.ok;
   } catch (e) { console.error('[careers] mail failed', String((e && e.message) || e)); return false; }
+}
+
+// Thank-you e-mail to the applicant (Resend). Off with CAREERS_CONFIRMATION=0.
+async function sendConfirmation(f, position, ref) {
+  const key = process.env.RESEND_API_KEY;
+  if (!key || process.env.CAREERS_CONFIRMATION === '0' || !EMAIL_RE.test(f.email || '')) return false;
+  const from = process.env.CAREERS_FROM || 'Ekin Careers <careers@ekin.com>';
+  const replyTo = String(process.env.CAREERS_TO || 'jobs@ekin.com').split(',')[0].trim();
+  const first = esc((f.full_name || '').split(/\s+/)[0] || 'there');
+  const pos = esc(position);
+  const html = '<!doctype html><html><body style="margin:0;padding:0;background:#f4f4f4"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f4"><tr><td align="center" style="padding:32px 16px">' +
+    '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;font-family:Arial,Helvetica,sans-serif;color:#111111">' +
+    '<tr><td style="background:#000000;padding:22px 32px;font-size:18px;font-weight:bold;letter-spacing:4px;color:#ffffff">EKIN</td></tr>' +
+    '<tr><td style="height:3px;background:#FF3932;font-size:0;line-height:0">&nbsp;</td></tr>' +
+    '<tr><td style="padding:36px 32px 8px;font-size:22px;line-height:1.3;font-weight:bold">Thank you for applying, ' + first + '.</td></tr>' +
+    '<tr><td style="padding:8px 32px 0;font-size:15px;line-height:1.6;color:#333333">We have received your application for <strong>' + pos + '</strong>. Our team will review it carefully and contact you if your profile matches the role.</td></tr>' +
+    '<tr><td style="padding:16px 32px 0;font-size:15px;line-height:1.6;color:#333333">You do not need to send your application again. If you have any questions, simply reply to this e-mail.</td></tr>' +
+    '<tr><td style="padding:24px 32px 0"><table role="presentation" cellpadding="0" cellspacing="0" style="border:1px solid #e5e5e5"><tr><td style="padding:12px 16px;font-family:Menlo,Consolas,monospace;font-size:12px;letter-spacing:1px;color:#666666">REFERENCE&nbsp;&nbsp;<span style="color:#111111">' + esc(ref) + '</span></td></tr></table></td></tr>' +
+    '<tr><td style="padding:28px 32px 36px;font-size:15px;line-height:1.6;color:#333333">Best regards,<br />Ekin Talent Team</td></tr>' +
+    '<tr><td style="padding:18px 32px;border-top:1px solid #eeeeee;font-size:12px;line-height:1.5;color:#888888">Ekin Smart City Technologies &middot; This e-mail was sent because you applied through ekin.com.</td></tr>' +
+    '</table></td></tr></table></body></html>';
+  const text = 'Thank you for applying, ' + ((f.full_name || '').split(/\s+/)[0] || 'there') + '.\n\nWe have received your application for ' + position + '. Our team will review it carefully and contact you if your profile matches the role.\n\nYou do not need to send your application again. If you have any questions, simply reply to this e-mail.\n\nReference: ' + ref + '\n\nBest regards,\nEkin Talent Team';
+  try {
+    const r = await fetch('https://api.resend.com/emails', { method: 'POST', headers: { Authorization: 'Bearer ' + key, 'Content-Type': 'application/json', 'Idempotency-Key': 'confirm-' + ref }, body: JSON.stringify({ from, to: [f.email], reply_to: replyTo, subject: 'We received your application: ' + position, html, text }) });
+    if (!r.ok) console.error('[careers] confirmation mail error', r.status, await r.text().catch(() => ''));
+    return r.ok;
+  } catch (e) { console.error('[careers] confirmation mail failed', String((e && e.message) || e)); return false; }
 }
 
 module.exports = async function handler(req, res) {
@@ -165,6 +204,7 @@ module.exports = async function handler(req, res) {
   const m = out.body || {};
   if (out.status === 200 && m.ok) {
     if (process.env.CAREERS_EMAIL_COPY === '1') await sendMail(f, files, position, m.applicant || requestId, pageUrl, '');
+    if (!m.duplicate) await sendConfirmation(f, position, m.applicant || requestId);
     return send(res, 200, { ok: true, reference: m.applicant || requestId, duplicate: !!m.duplicate });
   }
   console.error('[careers] Bloom error', out.status, JSON.stringify(m).slice(0, 800));
@@ -176,6 +216,6 @@ module.exports = async function handler(req, res) {
   if (out.status === 403) return send(res, 403, { ok: false, message: 'Applications are currently closed. Please check back later.' });
   if (out.status === 429) return send(res, 429, { ok: false, message: 'Too many applications right now. Please wait a minute and try again.' });
   // 5xx / network after retries: e-mail fallback so the application is not lost
-  if (await sendMail(f, files, position, requestId, pageUrl, 'Ekin Bloom was unavailable (status ' + out.status + '). Please add this applicant manually. request_id: ' + requestId)) return send(res, 200, { ok: true, reference: requestId, via: 'email' });
+  if (await sendMail(f, files, position, requestId, pageUrl, 'Ekin Bloom was unavailable (status ' + out.status + '). Please add this applicant manually. request_id: ' + requestId)) { await sendConfirmation(f, position, requestId); return send(res, 200, { ok: true, reference: requestId, via: 'email' }); }
   return send(res, 502, { ok: false, message: 'We could not send your application right now. Please try again in a moment.' });
 };

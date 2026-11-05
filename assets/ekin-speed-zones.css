@@ -1,0 +1,58 @@
+.sz{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:center}
+.sz-text h2{margin-top:18px}
+.sz-text p{margin-top:18px;max-width:46ch;color:rgba(255,255,255,.7);text-wrap:pretty}
+.sz-tabs{display:flex;gap:22px;margin-top:32px;border-bottom:1px solid rgba(255,255,255,.1)}
+.sz-tabs button{appearance:none;background:none;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;padding:12px 0;font:500 12px/1 'Roboto Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);cursor:pointer;transition:color .2s,border-color .2s}
+.sz-tabs button:hover{color:#fff}
+.sz-tabs button[aria-selected="true"]{color:#f2f2ef;border-bottom-color:#FF3932}
+.sz-panel{border:1px solid rgba(255,255,255,.1);border-radius:4px;background:#070707;padding:clamp(20px,2.4vw,30px)}
+.sz-top{display:flex;align-items:center;gap:clamp(18px,2.4vw,30px)}
+.sz-signwrap{display:flex;align-items:flex-end;gap:10px;flex:none}
+.sz-sign{width:clamp(108px,11vw,140px);aspect-ratio:1;border-radius:50%;background:#fff;border:clamp(11px,1.15vw,14px) solid #FF3932;display:flex;align-items:center;justify-content:center;box-sizing:border-box}
+.sz-num{font:700 clamp(40px,4.3vw,56px)/1 'Space Grotesk',system-ui,sans-serif;color:#0a0a0a;letter-spacing:-.02em;transition:opacity .18s ease}
+.sz-num.out{opacity:0}
+.sz-unit{font:500 13px/1 'Roboto Mono',ui-monospace,monospace;letter-spacing:.06em;color:rgba(255,255,255,.7);padding-bottom:10px}
+.sz-info{min-width:0}
+.sz-status{margin:0;font-size:clamp(18px,1.6vw,22px);font-weight:600;line-height:1.25;color:#f2f2ef}
+.sz-status.on{color:#FF3932}
+.sz-meta{display:flex;flex-wrap:wrap;gap:4px 14px;margin:8px 0 0;font:500 12px/1.4 'Roboto Mono',ui-monospace,monospace;letter-spacing:.04em;color:rgba(255,255,255,.6)}
+.sz-time{color:#f2f2ef}
+.sz-vals{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08);font:500 12px/1.4 'Roboto Mono',ui-monospace,monospace;color:rgba(255,255,255,.5)}
+.sz-vals b{font-weight:600;color:rgba(255,255,255,.6)}
+.sz-vals span.cur{color:#f2f2ef}
+.sz-vals span.cur b{color:#f2f2ef}
+.sz-vals span[data-v="red"].cur b{color:#FF3932}
+.sz-tl{margin-top:clamp(28px,3vw,38px)}
+.sz-track{position:relative;height:28px;border-top:1px solid rgba(255,255,255,.22);border-bottom:1px solid rgba(255,255,255,.22);background:#0d0d0d;cursor:pointer;touch-action:none;margin-top:26px}
+.sz-track:focus-visible{outline:2px solid #FF3932;outline-offset:4px}
+.sz-wins i{position:absolute;top:0;bottom:0;background:rgba(255,57,50,.22);border-left:1px solid rgba(255,57,50,.7);border-right:1px solid rgba(255,57,50,.7)}
+.sz-cur{position:absolute;top:-6px;bottom:-6px;width:2px;margin-left:-1px;background:#f2f2ef;pointer-events:none}
+.sz-tip{position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);font:600 11.5px/1 'Roboto Mono',ui-monospace,monospace;color:#f2f2ef;white-space:nowrap}
+.sz-axis{display:flex;justify-content:space-between;margin-top:8px;font:500 11px/1 'Roboto Mono',ui-monospace,monospace;color:rgba(255,255,255,.55)}
+.sz-axis span{width:0;display:flex;justify-content:center}
+.sz-axis span:first-child{justify-content:flex-start}
+.sz-axis span:last-child{justify-content:flex-end}
+.sz-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:16px}
+.sz-leg{display:flex;align-items:center;gap:8px;font:500 11px/1 'Roboto Mono',ui-monospace,monospace;letter-spacing:.04em;color:rgba(255,255,255,.6)}
+.sz-leg i{width:16px;height:10px;background:rgba(255,57,50,.22);border:1px solid rgba(255,57,50,.7)}
+.sz-replay{appearance:none;background:none;border:1px solid rgba(255,255,255,.18);border-radius:3px;padding:7px 11px;min-height:32px;font:500 10.5px/1 'Roboto Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.75);cursor:pointer}
+.sz-replay:hover{color:#fff;border-color:rgba(255,255,255,.45)}
+.sz-replay:focus-visible,.sz-tabs button:focus-visible{outline:2px solid #FF3932;outline-offset:2px}
+.sz-note{margin:14px 0 0;font-size:15px;line-height:1.5;color:rgba(255,255,255,.72)}
+@media (max-width:900px){.sz{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:640px){
+.sz-top{gap:16px}
+.sz-sign{width:96px;border-width:10px}.sz-num{font-size:36px}
+.sz-track{height:36px}
+.sz-axis{font-size:10.5px}
+.sz-tabs button{min-height:44px}
+}
+@media (prefers-reduced-motion:reduce){.sz-num,.sz-tabs button{transition:none}}
+
+/* no playback buttons */
+.sz [data-a="pp"]{display:none!important}
+
+/* US MUTCD-style speed limit sign */
+.sz-sign{width:clamp(96px,9.4vw,120px);aspect-ratio:4/5;border-radius:8px;background:#fff;border:3px solid #0a0a0a;box-shadow:0 0 0 3px #fff;flex-direction:column;justify-content:center;gap:4px;padding:8px 6px}
+.sz-sl{font:700 clamp(11px,1.05vw,14px)/1.05 'Space Grotesk',system-ui,sans-serif;letter-spacing:.04em;color:#0a0a0a;text-align:center}
+@media (max-width:640px){.sz-sign{width:84px;border-width:2.5px;padding:6px 4px}.sz-sl{font-size:10.5px}}

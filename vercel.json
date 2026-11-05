@@ -15,6 +15,96 @@
       "permanent": false
     },
     {
+      "source": "/ghost-plate-detection",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/ghost-plate-detection.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/us/ghost-plate-detection",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/speed-enforcement",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/speed-enforcement.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/us/speed-enforcement",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/red-light-enforcement",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/red-light-enforcement.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/us/red-light-enforcement",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/turn-and-lane-enforcement",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/turn-and-lane-enforcement.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/us/turn-and-lane-enforcement",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/pedestrian-safety",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/pedestrian-safety.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/us/pedestrian-safety",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/distracted-driving-detection",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/distracted-driving-detection.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/us/distracted-driving-detection",
+      "destination": "/",
+      "permanent": false
+    },
+    {
       "source": "/ekin-home",
       "destination": "/",
       "permanent": true

@@ -195,3 +195,7 @@ header.nav:has(.nav-item.open){background:#000!important;backdrop-filter:none!im
 @media(max-width:1500px){.mega.mega-1.mega-devices .mega-devices-cols{grid-template-columns:repeat(2,max-content)!important;row-gap:28px!important;column-gap:clamp(40px,6vw,110px)!important}}
 @media(max-width:900px){.mega.mega-1.mega-devices .mega-devices-cols{grid-template-columns:1fr!important;row-gap:18px!important}}
 .drawer-sub{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#69737f;margin:16px 0 4px}
+
+.mega.mega-traffic .mega-traffic-col{display:grid!important;grid-template-columns:repeat(3,max-content);column-gap:clamp(32px,4vw,80px);row-gap:4px;align-content:start}
+.mega.mega-traffic .mega-traffic-col>.ml-label{grid-column:1/-1}
+@media(max-width:1100px){.mega.mega-traffic .mega-traffic-col{grid-template-columns:repeat(2,max-content)}}

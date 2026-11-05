@@ -1,0 +1,60 @@
+.px{display:grid;grid-template-columns:minmax(0,68fr) minmax(0,32fr);margin-top:clamp(32px,4vw,52px);border:1px solid rgba(255,255,255,.1);border-radius:4px;background:#070707;color:#f2f2ef}
+.px-scene{background:#0b0b0b;display:flex;align-items:center;min-width:0}
+.px{min-height:330px}
+@media (max-width:900px){.px{min-height:0}}
+.px-scene svg{display:block;width:100%;height:auto}
+.px-pave{fill:#1f1f1f}
+.px-road{fill:#141414}
+.px-kerb{stroke:rgba(255,255,255,.4);stroke-width:.4;fill:none}
+.px-cl{stroke:rgba(255,255,255,.55);stroke-width:.4;stroke-dasharray:3 3;fill:none}
+.px-zeb{fill:#ecece7}
+.px-stop{stroke:rgba(242,242,239,.85);stroke-width:.7;fill:none}
+.px-arr{fill:rgba(255,255,255,.18)}
+.px-zone{fill:none;stroke:#FF3932;stroke-width:.5;opacity:0;transition:opacity .25s}
+.px-zone.on{opacity:1}
+.px-car .b{fill:#d9d9d2}.px-car .c{fill:#c4c4bd}.px-car .w{fill:#202020}
+.px-ol{fill:none;stroke:transparent;stroke-width:.4;transition:stroke .25s}
+.px-car.rel .px-ol,.px-ped.rel .px-ol{stroke:rgba(242,242,239,.85)}
+.px-car.flag .px-ol{stroke:#FF3932;stroke-width:.55}
+.px-ped .sh{fill:#f2f2ef}
+.px-ped .hd{fill:#9d9d97}
+.px-ped .ft{fill:#cfcfc8}
+.px-lab{font:500 4.4px 'Roboto Mono',ui-monospace,monospace;letter-spacing:.12px;text-transform:uppercase;fill:#f2f2ef}
+.px-lab.flag{fill:#FF3932}
+.px-sl{font:500 3.8px 'Roboto Mono',ui-monospace,monospace;letter-spacing:.12px;text-transform:uppercase;fill:rgba(255,255,255,.45)}
+.px-panel{border-left:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;min-width:0}
+.px-ph{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;padding:9px 14px;border-bottom:1px solid rgba(255,255,255,.08)}
+.px-h{font:500 11px/1 'Roboto Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+.px-ctl{display:flex;gap:6px}
+.px-btn{font:500 10px/1 'Roboto Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.75);background:none;border:1px solid rgba(255,255,255,.18);border-radius:3px;padding:6px 9px;min-height:30px;cursor:pointer;white-space:nowrap}
+.px-btn:hover{color:#fff;border-color:rgba(255,255,255,.45)}
+.px-btn[hidden]{display:none}
+.px-btn:focus-visible{outline:2px solid #FF3932;outline-offset:2px}
+.px-sum{display:grid;grid-template-columns:1fr 1fr;margin:0;border-bottom:1px solid rgba(255,255,255,.08)}
+.px-sum>div{padding:9px 14px}
+.px-sum>div+div{border-left:1px solid rgba(255,255,255,.08)}
+.px-sum dt{font:500 10px/1.25 'Roboto Mono',ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.px-sum dd{margin:4px 0 0;font:600 20px/1 'Roboto Mono',ui-monospace,monospace;color:#f2f2ef}
+.px-feed{list-style:none;margin:0;padding:0;flex:1 1 0;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:#333 transparent}
+.px-feed li{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;padding:7px 14px 7px 16px;border-bottom:1px solid rgba(255,255,255,.07);font-size:13.5px;line-height:1.3;color:#e6e6e1;transition:background-color .8s ease}
+.px-feed li b{font-weight:500}
+.px-feed li span{font:500 10.5px/1.35 'Roboto Mono',ui-monospace,monospace;color:rgba(255,255,255,.5);white-space:nowrap}
+.px-feed li.flag::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:#FF3932}
+.px-feed li.flag b{color:#FF3932}
+.px-feed li.new{background:rgba(242,242,239,.06)}
+.px-feed li.enter{animation:px-in .26s ease}
+@keyframes px-in{from{opacity:0}to{opacity:1}}
+.px-feed li.px-wait{display:block;color:rgba(255,255,255,.5);font:500 11px/1.4 'Roboto Mono',ui-monospace,monospace;letter-spacing:.04em;text-transform:uppercase}
+@media (max-width:900px){
+.px{grid-template-columns:minmax(0,1fr)}
+.px-panel{border-left:0;border-top:1px solid rgba(255,255,255,.08)}
+.px-feed{flex:none;max-height:232px}
+}
+@media (max-width:640px){
+.px-lab{font-size:5px}.px-sl{font-size:4.2px}
+.px-sum dd{font-size:20px}
+}
+@media (prefers-reduced-motion:reduce){.px-feed li,.px-zone,.px-ol{transition:none}.px-feed li.enter{animation:none}}
+
+/* no playback buttons */
+.px [data-a="pp"],.px [data-a="re"]{display:none!important}
