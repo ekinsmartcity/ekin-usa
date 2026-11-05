@@ -435,7 +435,7 @@
       "permanent": true
     },
     {
-      "source": "/press/:slug*",
+      "source": "/press/:slug+",
       "destination": "/press",
       "permanent": true
     },
@@ -475,7 +475,7 @@
       "permanent": true
     },
     {
-      "source": "/contact/:slug*",
+      "source": "/contact/:slug+",
       "destination": "/contact",
       "permanent": true
     }
