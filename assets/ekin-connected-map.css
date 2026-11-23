@@ -115,3 +115,10 @@
 @media(max-width:560px){.pe-cards{grid-template-columns:1fr}}
 
 .cs-brand img.cs-brand-maestro{height:clamp(30px,2.6vw,40px)!important;width:auto!important;max-width:100%;display:block}
+
+/* keep pin pop-ups inside the map near its edges */
+.cs-pin.tip-l .cs-tip{left:-6px;transform:translate(0,4px)}
+.cs-pin.tip-r .cs-tip{left:auto;right:-6px;transform:translate(0,4px)}
+.cs-pin.tip-l:hover .cs-tip,.cs-pin.tip-l.on .cs-tip,.cs-pin.tip-l:focus-visible .cs-tip,.cs-pin.tip-r:hover .cs-tip,.cs-pin.tip-r.on .cs-tip,.cs-pin.tip-r:focus-visible .cs-tip{transform:translate(0,0)}
+.cs-pin.tip-b .cs-tip{bottom:auto;top:calc(100% + 10px)}
+@media (max-width:640px){.cs-tip{min-width:0;padding:8px 10px}.cs-tip b{font-size:12px}}

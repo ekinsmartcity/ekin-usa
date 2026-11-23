@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8" /><title>qa phone scan</title></head><body style="margin:0;background:#111;color:#eee;font:12px monospace">
+<pre id="out">scanning…</pre>
+<script>
+var pages=['ekin-home','spotter','x-spotter','box-spotter','patrol-g2','bike-patrol','maestro-os','public-safety','cities-and-municipalities','parking','city-health','mission','leadership','advisory-board','ekin-ventures','partners','locations','press','support','contact','book-a-demo','jobs','careers','general-application','legal','job-gtm-phoenix'];
+var res=[],i=0,out=document.getElementById('out');
+function scan(doc,win,name){
+  var vw=win.innerWidth,found=[];
+  doc.querySelectorAll('body *').forEach(function(el){
+    if(el.closest('header.nav,#drawer,.drawer,.mega,script,style,svg,noscript,template'))return;
+    var cs=win.getComputedStyle(el);if(cs.display==='none'||cs.visibility==='hidden')return;
+    var hasText=[].some.call(el.childNodes,function(n){return n.nodeType===3&&n.textContent.trim().length>1});
+    if(!hasText)return;
+    var r=el.getBoundingClientRect();if(!r.width||!r.height)return;
+    var clipX=el.scrollWidth>el.clientWidth+2&&(cs.overflowX!=='visible'||cs.textOverflow==='ellipsis');
+    var clipY=el.scrollHeight>el.clientHeight+2&&cs.overflowY==='hidden'&&cs.webkitLineClamp==='none';
+    var off=r.right>vw+1||r.left<-1;
+    var anc=el.parentElement,ac=null;while(anc&&anc!==doc.body){var s=win.getComputedStyle(anc);if((s.overflowX==='hidden'||s.overflow==='hidden'||s.overflow==='clip')){var ar=anc.getBoundingClientRect();if(r.right>ar.right+2||r.left<ar.left-2||(r.bottom>ar.bottom+2&&s.overflowY!=='visible')){ac=anc;break}}anc=anc.parentElement}
+    if(clipX||clipY||off||ac){found.push((clipX?'X ':'')+(clipY?'Y ':'')+(off?'OFF ':'')+(ac?'ANC ':'')+el.tagName.toLowerCase()+'.'+(el.className&&el.className.baseVal===undefined?String(el.className).split(' ').slice(0,2).join('.'):'')+(ac?' in .'+String(ac.className).split(' ')[0]:'')+' "'+el.textContent.trim().slice(0,40)+'" w='+Math.round(r.width)+' L='+Math.round(r.left)+' R='+Math.round(r.right))}
+  });
+  return found;
+}
+function next(){
+  if(i>=pages.length){out.textContent=res.join('\n');console.log('SCAN-DONE\n'+res.join('\n'));return}
+  var name=pages[i++],f=document.createElement('iframe');f.width=375;f.height=812;f.style.cssText='position:absolute;left:-9999px;top:0;border:0';document.body.appendChild(f);
+  var t=setTimeout(fin,9000);f.onload=function(){setTimeout(fin,2200)};
+  var done=false;function fin(){if(done)return;done=true;clearTimeout(t);try{var d=f.contentDocument,w=f.contentWindow;
+    d.querySelectorAll('.reveal').forEach(function(e){e.classList.add('in','is-in','visible')});
+    var fd=scan(d,w,name);res.push('## '+name+' ('+fd.length+')');fd.slice(0,25).forEach(function(x){res.push('  '+x)})}catch(e){res.push('## '+name+' ERR '+e.message)}
+    f.remove();out.textContent=res.join('\n');next()}
+  f.src=name+'.html';
+}
+next();
+</script>
+</body></html>

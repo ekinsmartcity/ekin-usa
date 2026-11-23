@@ -21,7 +21,7 @@ button[aria-pressed="true"]{border-color:#e8edf6}
 .phone .ld{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:#8a97ac;background:#000;pointer-events:none;transition:opacity .2s}
 .phone.ok .ld{opacity:0!important;visibility:hidden!important;display:none!important}
 .phone.slow .ld{color:#ff8a84}
-</style><script>if(!/(^|\.)ekin\.com$|\.vercel\.app$/.test(location.hostname))document.documentElement.classList.add('show-prelaunch')</script>
+</style><script>if(!location.hostname||/claudeusercontent|localhost|127\.0\.0\.1/.test(location.hostname)||location.protocol==='file:')document.documentElement.classList.add('show-prelaunch')</script>
 <style>html:not(.show-prelaunch) [data-prelaunch]{display:none!important}</style>
 </head><body>
 <div class="bar"><b>Phone preview</b>

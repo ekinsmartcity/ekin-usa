@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8864G409HQ"></script>
+<script src="assets/ekin-consent.js?v=20261123a"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -11,6 +11,17 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ekin X Spotter, Plug &amp; Play Smart City Device (Fixed &amp; Mobile LPR)</title>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Ekin" />
+<meta property="og:title" content="Ekin X Spotter, Plug &amp; Play Smart City Device (Fixed &amp; Mobile LPR) | Ekin" />
+<meta property="og:description" content="AI-powered smart city and public safety technology, designed and built by Ekin." />
+<meta property="og:url" content="https://www.ekin.com/us/x-spotter" />
+<meta property="og:image" content="https://www.ekin.com/assets/ekin-share.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Ekin logo" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://www.ekin.com/assets/ekin-share.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
@@ -98,7 +109,7 @@
 <link rel="stylesheet" href="assets/ekin-hero.css?v=20261015a" />
 <style id="demo-glow">@media (min-width:641px){.demo-card::before{left:var(--gx,62%)!important;top:var(--gy,50%)!important;right:auto!important;bottom:auto!important;width:var(--gw,56%)!important;height:var(--gh,80%)!important;aspect-ratio:auto!important;transform:translate(-50%,-50%)!important;background:radial-gradient(closest-side,rgba(255,57,50,.2),rgba(255,57,50,.07) 56%,rgba(255,57,50,0) 100%)!important;filter:none!important;pointer-events:none}}</style>
 <link rel="stylesheet" href="assets/ekin-text.css?v=20261015a" />
-<script>if(!/(^|\.)ekin\.com$|\.vercel\.app$/.test(location.hostname))document.documentElement.classList.add('show-prelaunch')</script>
+<script>if(!location.hostname||/claudeusercontent|localhost|127\.0\.0\.1/.test(location.hostname)||location.protocol==='file:')document.documentElement.classList.add('show-prelaunch')</script>
 <style>html:not(.show-prelaunch) [data-prelaunch]{display:none!important}</style>
 </head>
 <style>html{scroll-behavior:smooth}</style>
@@ -227,8 +238,8 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero hero-bp" id="top" data-screen-label="Hero" style="position:relative">
-  <video class="hero-video" src="assets/x-spotter-hero-fs.mp4" autoplay muted loop playsinline preload="auto" poster="assets/x-spotter-hero-poster.jpg"></video>
-  <script>(function(){if(!matchMedia("(max-width:640px)").matches)return;var v=document.querySelector("#top .hero-video");if(!v)return;v.removeAttribute("poster");v.src="assets/x-spotter-hero-4x5.mp4";v.setAttribute("data-m-portrait","skip");v.load();var p=v.play();if(p&&p.catch)p.catch(function(){})})();</script>
+  <video class="hero-video" data-defer-src="assets/x-spotter-hero-fs.mp4" muted loop playsinline preload="none" poster="assets/x-spotter-hero-poster.jpg"></video>
+  <script>(function(){if(!matchMedia("(max-width:640px)").matches)return;var v=document.querySelector("#top .hero-video");if(!v)return;v.removeAttribute("poster");v.dataset.deferSrc="assets/x-spotter-hero-4x5.mp4";v.setAttribute("data-m-portrait","skip");v.load();var p=v.play();if(p&&p.catch)p.catch(function(){})})();</script>
   <div class="wrap hero-content">
     <div class="hero-copy">
       <div class="actions">
@@ -449,6 +460,7 @@ html.ir-js body .ir-row.ir-in>img,html.ir-js body .ir-row.ir-in>span:first-child
 <script id="m-icon-rows-js">(function(){if(!matchMedia('(max-width:640px)').matches||matchMedia('(prefers-reduced-motion:reduce)').matches||!('IntersectionObserver' in window))return;var sel="#why .ben-grid>.ben-card,.pw-grid>.pw-card,.ch-grid>.ch-card,.mh-grid>.mh-card,.pg-m-grid>div,.bs-m-grid>div,.xs-m-grid>div,.pk-vis .partner-grid>.partner-card";var rows=[].slice.call(document.querySelectorAll(sel));if(!rows.length)return;document.documentElement.classList.add('ir-js');rows.forEach(function(r){r.classList.add('ir-row')});var io=new IntersectionObserver(function(es){var n=0;es.forEach(function(e){if(e.isIntersecting){e.target.style.setProperty('--ir-d',(n++*0.07)+'s');e.target.classList.add('ir-in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.15});rows.forEach(function(r){io.observe(r)});setTimeout(function(){rows.forEach(function(r){r.classList.add('ir-in')})},8000)})();</script>
 <script src="assets/ekin-demo-glow.js?v=20261015b"></script>
 <script src="assets/ekin-iconflow.js?v=20261015a"></script>
-<script src="assets/ekin-clean-urls.js?v=20261016b"></script>
+<script src="assets/ekin-clean-urls.js?v=20261123a"></script>
+<script src="assets/ekin-video-defer.js?v=20261120b"></script>
 </body>
 </html>

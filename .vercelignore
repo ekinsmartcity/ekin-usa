@@ -4,12 +4,23 @@ screens/
 docs/
 qa-*.html
 phone-preview.html
-ghost-plate-detection.html
-speed-enforcement.html
-red-light-enforcement.html
-turn-and-lane-enforcement.html
-pedestrian-safety.html
-distracted-driving-detection.html
+/ghost-plate-detection.html
+/speed-enforcement.html
+/red-light-enforcement.html
+/turn-and-lane-enforcement.html
+/pedestrian-safety.html
+/distracted-driving-detection.html
+/eu/ghost-plate-detection.html
+/eu/speed-enforcement.html
+/eu/red-light-enforcement.html
+/eu/turn-and-lane-enforcement.html
+/eu/pedestrian-safety.html
+/eu/distracted-driving-detection.html
+/eu/api/
+/eu/lib/
+/eu/uploads/
+/eu/docs/
+/eu/scraps/
 
-# GitHub-only redirect; on Vercel cleanUrls + vercel.json handle "/" (index.html would loop with ekin-home redirect)
+# GitHub-only redirect (root index.html is never served on Vercel: middleware.js handles "/")
 index.html

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8864G409HQ"></script>
+<script src="assets/ekin-consent.js?v=20261123a"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -11,6 +11,17 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ekin Spotter, AI-Powered Smart City Module (LPR, Speed &amp; More)</title>
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Ekin" />
+<meta property="og:title" content="Ekin Spotter, AI-Powered Smart City Module (LPR, Speed &amp; More) | Ekin" />
+<meta property="og:description" content="AI-powered smart city and public safety technology, designed and built by Ekin." />
+<meta property="og:url" content="https://www.ekin.com/us/spotter" />
+<meta property="og:image" content="https://www.ekin.com/assets/ekin-share.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Ekin logo" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://www.ekin.com/assets/ekin-share.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png" />
@@ -156,8 +167,18 @@
 <link rel="stylesheet" href="assets/ekin-hero.css?v=20261015a" />
 <style id="demo-glow">@media (min-width:641px){.demo-card::before{left:var(--gx,62%)!important;top:var(--gy,50%)!important;right:auto!important;bottom:auto!important;width:var(--gw,56%)!important;height:var(--gh,80%)!important;aspect-ratio:auto!important;transform:translate(-50%,-50%)!important;background:radial-gradient(closest-side,rgba(255,57,50,.2),rgba(255,57,50,.07) 56%,rgba(255,57,50,0) 100%)!important;filter:none!important;pointer-events:none}}</style>
 <link rel="stylesheet" href="assets/ekin-text.css?v=20261015a" />
-<script>if(!/(^|\.)ekin\.com$|\.vercel\.app$/.test(location.hostname))document.documentElement.classList.add('show-prelaunch')</script>
+<script>if(!location.hostname||/claudeusercontent|localhost|127\.0\.0\.1/.test(location.hostname)||location.protocol==='file:')document.documentElement.classList.add('show-prelaunch')</script>
 <style>html:not(.show-prelaunch) [data-prelaunch]{display:none!important}</style>
+<style id="m-mpa-fit">@media (max-width:640px){
+.mpa-sticky{height:100svh!important;padding-bottom:calc(max(16px,env(safe-area-inset-bottom,0px)) + 72px)!important;overflow:hidden}
+.mpa-stage{gap:12px!important;min-height:0}
+.mpa-viewer{flex:1 1 0!important;min-height:120px!important}
+.mpa-card{flex:none!important;height:auto!important;max-height:none!important;overflow:visible!important}
+.mpa-card p{min-height:6.2em!important;overflow:visible!important;display:block!important;-webkit-line-clamp:unset!important}
+}
+@media (max-width:640px) and (max-height:740px){.mpa-sticky{padding-top:calc(var(--nav-h,64px) + 8px)!important}.mpa-stage{gap:8px!important}.mpa-card{padding:14px 16px 16px!important}.mpa-card h3{font-size:18px!important;margin-top:6px!important}.mpa-card p{font-size:13.5px!important;line-height:1.5!important;margin-top:6px!important}}
+@media (max-width:360px){.mpa-card p{font-size:13px!important;min-height:7.5em!important}}
+</style>
 </head>
 <style>html{scroll-behavior:smooth}</style>
 <body>
@@ -286,8 +307,8 @@
 <!-- ============ HERO ============ -->
 <section class="hero hero-bp" id="top" data-screen-label="Hero" style="position:relative">
   <h1 class="sr-only">Ekin Spotter</h1>
-  <video class="hero-bg" src="assets/spotter-hero-fs.mp4" autoplay muted loop playsinline preload="auto" poster="assets/spotter-hero-poster.jpg"></video>
-  <script>(function(){if(!matchMedia("(max-width:640px)").matches)return;var v=document.querySelector("#top .hero-bg");if(!v)return;v.removeAttribute("poster");v.src="assets/spotter-hero-4x5.mp4";v.setAttribute("data-m-portrait","skip");v.load();var p=v.play();if(p&&p.catch)p.catch(function(){})})();</script>
+  <video class="hero-bg" data-defer-src="assets/spotter-hero-fs.mp4" muted loop playsinline preload="none" poster="assets/spotter-hero-poster.jpg"></video>
+  <script>(function(){if(!matchMedia("(max-width:640px)").matches)return;var v=document.querySelector("#top .hero-bg");if(!v)return;v.removeAttribute("poster");v.dataset.deferSrc="assets/spotter-hero-4x5.mp4";v.setAttribute("data-m-portrait","skip");v.load();var p=v.play();if(p&&p.catch)p.catch(function(){})})();</script>
 </section>
 
 
@@ -507,7 +528,7 @@ update();
       <h2>Trusted by industry leaders</h2>
     </div>
     <div class="tcard reveal" style="margin-top:50px">
-      <img loading="lazy" decoding="async" class="tphoto" id="tPhoto" src="https://cdn.prod.website-files.com/67d50d6f1c74072379eb9674/67f7b9a4b35dfb90863570aa_EKIN-Pole-675x506.jpg" alt="" />
+      <img loading="lazy" decoding="async" class="tphoto" id="tPhoto" src="images/wf/67f7b9a4b35dfb90863570aa-ekin-pole-675x506.webp" alt="" />
       <div>
         <span class="tquote-mark">&ldquo;</span>
         <blockquote id="tQuote">We are proud to be a leading city in innovation and technology. This smart pole with safety cameras, public Wi-Fi, traffic and environmental sensors will assist emergency management in creating a safer community for residents, business owners, and visitors.</blockquote>
@@ -529,7 +550,7 @@ update();
 <script>
 if(document.querySelector('.tcard')){
 const TS=[
-  {q:'We are proud to be a leading city in innovation and technology. This smart pole with safety cameras, public Wi-Fi, traffic and environmental sensors will assist emergency management in creating a safer community for residents, business owners, and visitors.',n:'Peter Iglesias',r:'Coral Gables, Florida, City Manager',p:'https://cdn.prod.website-files.com/67d50d6f1c74072379eb9674/67f7b9a4b35dfb90863570aa_EKIN-Pole-675x506.jpg'},
+  {q:'We are proud to be a leading city in innovation and technology. This smart pole with safety cameras, public Wi-Fi, traffic and environmental sensors will assist emergency management in creating a safer community for residents, business owners, and visitors.',n:'Peter Iglesias',r:'Coral Gables, Florida, City Manager',p:'images/wf/67f7b9a4b35dfb90863570aa-ekin-pole-675x506.webp'},
   {q:'We\u2019ve seen a lot of technology in this space, but what Ekin is bringing to market truly stands apart. They\u2019re not a startup, they\u2019re already trusted globally, and their commitment to investing locally in U.S. operations, service, and support is exactly what agencies have been asking for.',n:'Donald W. De Lucca',r:'Retired Police Chief and Senior Public Safety Advisor',p:'images/testimonial-delucca.webp'}
 ];
 let ti=0;
@@ -671,6 +692,7 @@ document.getElementById('newsForm').addEventListener('submit',e=>{
 <script src="assets/ekin-mobile-accordion.js?v=20261005b" defer></script>
 <script id="m-mpa-js">(function(){var idx=document.getElementById('mpaIndex');if(!idx||!window.MutationObserver)return;var mq=matchMedia('(max-width:640px)');new MutationObserver(function(){if(!mq.matches)return;var on=idx.querySelector('.mpa-item.on');if(on){var ir=idx.getBoundingClientRect(),br=on.getBoundingClientRect();idx.scrollTo({left:idx.scrollLeft+(br.left+br.width/2)-(ir.left+ir.width/2),behavior:'smooth'})}}).observe(idx,{subtree:true,attributes:true,attributeFilter:['class']})})();</script>
 <script src="assets/ekin-demo-glow.js?v=20261015b"></script>
-<script src="assets/ekin-clean-urls.js?v=20261016b"></script>
+<script src="assets/ekin-clean-urls.js?v=20261123a"></script>
+<script src="assets/ekin-video-defer.js?v=20261120b"></script>
 </body>
 </html>

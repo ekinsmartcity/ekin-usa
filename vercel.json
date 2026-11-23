@@ -3,15 +3,98 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/",
-      "has": [
-        {
-          "type": "header",
-          "key": "x-vercel-ip-country",
-          "value": "US"
-        }
-      ],
+      "source": "/us/ekin-home",
       "destination": "/us",
+      "permanent": false
+    },
+    {
+      "source": "/eu/ekin-home.html",
+      "destination": "/eu",
+      "permanent": false
+    },
+    {
+      "source": "/eu/ekin-home",
+      "destination": "/eu",
+      "permanent": false
+    },
+    {
+      "source": "/eu/semistation.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/eu/semistation",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/eu/terraeye.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/eu/terraeye",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/eu/distracted-driving-detection.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/eu/distracted-driving-detection",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/eu/pedestrian-safety.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/eu/pedestrian-safety",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/eu/turn-and-lane-enforcement.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/eu/turn-and-lane-enforcement",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/eu/red-light-enforcement.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/eu/red-light-enforcement",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/eu/speed-enforcement.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/eu/speed-enforcement",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/eu/ghost-plate-detection.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/eu/ghost-plate-detection",
+      "destination": "/",
       "permanent": false
     },
     {
@@ -478,16 +561,6 @@
       "source": "/contact/:slug+",
       "destination": "/contact",
       "permanent": true
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "/ekin-home"
-    },
-    {
-      "source": "/us",
-      "destination": "/ekin-home"
     }
   ],
   "headers": [

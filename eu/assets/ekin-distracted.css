@@ -1,0 +1,74 @@
+.dx{margin-top:clamp(32px,4vw,52px);border:1px solid rgba(255,255,255,.1);border-radius:4px;background:#070707;color:#f2f2ef}
+.dx-top{display:flex;align-items:center;justify-content:space-between;gap:10px 16px;flex-wrap:wrap;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.08)}
+.dx-title{font:500 12px/1 'Roboto Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:#f2f2ef}
+.dx-ctl{display:flex;gap:6px}
+.dx-btn,.dx-latest{font:500 10.5px/1 'Roboto Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.75);background:none;border:1px solid rgba(255,255,255,.18);border-radius:3px;padding:7px 10px;min-height:32px;cursor:pointer;white-space:nowrap}
+.dx-btn:hover,.dx-latest:hover{color:#fff;border-color:rgba(255,255,255,.45)}
+.dx-btn[hidden],.dx-latest[hidden]{display:none}
+.dx-latest{min-height:26px;padding:5px 8px;border-color:#f2f2ef;color:#f2f2ef}
+.dx-main{display:grid;grid-template-columns:minmax(0,68fr) minmax(0,32fr);min-height:420px}
+.dx-road{background:#0b0b0b;min-width:0;display:flex;align-items:center}
+.dx-road svg{display:block;width:100%;height:auto}
+.dx-asph{fill:#161616}.dx-pave{fill:#1d1d1d}
+.dx-edge{stroke:rgba(255,255,255,.4);stroke-width:.4;fill:none}
+.dx-sep{stroke:rgba(255,255,255,.45);stroke-width:.35;stroke-dasharray:3 3;fill:none}
+.dx-arr{fill:rgba(255,255,255,.16)}
+.dx-cp{stroke:rgba(242,242,239,.6);stroke-width:.4;fill:none;stroke-dasharray:1.2 1.2}
+.dx-t{font:500 3.4px 'Roboto Mono',ui-monospace,monospace;letter-spacing:.14px;text-transform:uppercase;fill:rgba(242,242,239,.7)}
+.dx-v .b{fill:#d6d6cf}.dx-v .c{fill:#c4c4bd}.dx-v .w{fill:#202020}
+.dx-v.silver .b{fill:#c3c7cc}.dx-v.silver .c{fill:#aeb2b8}
+.dx-v.charcoal .b{fill:#55585e}.dx-v.charcoal .c{fill:#45484d}.dx-v.charcoal .w{fill:#16171a}
+.dx-v.white .b{fill:#f3f3ef}.dx-v.white .c{fill:#dcdcd6}
+.dx-v.bus .b{fill:#b9b9b2}.dx-v.bus .c{fill:#a8a8a1}
+.dx-v.truck .b{fill:#c9c9c2}.dx-v.truck .t{fill:#9e9e98}
+.dx-v .o{fill:none;stroke:transparent;stroke-width:.5}
+.dx-v.hit .o{stroke:#FF3932}
+.dx-lab{font:600 3.4px 'Roboto Mono',ui-monospace,monospace;letter-spacing:.14px;fill:#FF3932}
+.dx-con{stroke:rgba(255,57,50,.6);stroke-width:.3;fill:none}
+.dx-side{border-left:1px solid rgba(255,255,255,.08);min-width:0;display:flex;flex-direction:column;box-sizing:border-box}
+.dx-cur{flex:1 1 auto;min-height:220px;padding:14px 16px;display:flex;flex-direction:column;justify-content:flex-start}
+
+.dx-wait{display:flex;flex-direction:column;gap:7px;border-left:2px solid rgba(255,255,255,.12);padding-left:12px}
+.dx-sk{display:block;border-radius:2px;background:rgba(255,255,255,.05)}
+.dx-sk-h{display:flex;justify-content:space-between;background:none}.dx-sk-h i{display:block;height:20px;border-radius:2px;background:rgba(255,255,255,.05)}.dx-sk-h i:first-child{width:38%;height:11px;margin-top:4px}.dx-sk-h i:last-child{width:74px}
+.dx-sk-ph{width:100%;aspect-ratio:1448/740;max-height:120px;background:transparent;border:1px dashed rgba(255,255,255,.14)}
+.dx-sk-l{height:14px;width:72%}.dx-sk-s{height:11px;width:50%}
+.dx-wait[hidden],.dx-card[hidden]{display:none}
+.dx-card{display:flex;flex-direction:column;gap:7px;min-height:auto;border-left:2px solid #FF3932;padding-left:12px;transition:opacity .3s ease}
+.dx-card.fade{opacity:0}
+.dx-ch{display:flex;align-items:center;justify-content:space-between;gap:8px;font:600 11px/1 'Roboto Mono',ui-monospace,monospace;letter-spacing:.06em;white-space:nowrap;text-transform:uppercase;color:#FF3932}
+.dx-plate{flex:none;display:inline-flex;align-items:stretch;height:20px;border:1px solid #9a9a9a;border-radius:2px;background:#fff;overflow:hidden}
+.dx-plate i{width:7px;background:#003399}
+.dx-plate b{white-space:nowrap;display:flex;align-items:center;padding:0 6px;font:700 11.5px/1 'Roboto Mono',ui-monospace,monospace;letter-spacing:.06em;color:#0a0a0a}
+.dx-ph{position:relative;width:100%;aspect-ratio:1448/740;max-height:120px;overflow:hidden;border:1px solid rgba(255,255,255,.14);border-radius:2px;background:#111}
+.dx-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.dx-ov{position:absolute;inset:0;pointer-events:none}
+.dx-ov i{position:absolute;border:1.5px solid #FF3932;border-radius:2px}
+.dx-res{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.dx-res li{font-size:15px;font-weight:600;line-height:1.3;color:#f2f2ef}
+.dx-meta{display:flex;gap:14px;margin:0;font:500 11px/1.3 'Roboto Mono',ui-monospace,monospace;color:rgba(255,255,255,.6)}
+.dx-hist{flex:none;border-top:1px solid rgba(255,255,255,.08);padding:8px 16px 10px;min-height:128px;box-sizing:border-box}
+.dx-hh span{white-space:nowrap}
+.dx-hh{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:26px;margin-bottom:6px;font:500 10.5px/1 'Roboto Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.dx-rows{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.dx-rows button{all:unset;box-sizing:border-box;display:flex;justify-content:space-between;gap:10px;width:100%;padding:5px 8px;border:1px solid rgba(255,255,255,.1);border-radius:2px;font:500 11px/1.25 'Roboto Mono',ui-monospace,monospace;color:rgba(255,255,255,.75);cursor:pointer}
+.dx-rows button b{font-weight:600;color:#f2f2ef;white-space:nowrap}
+.dx-rows button span{text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dx-rows button:hover{border-color:rgba(255,255,255,.35)}
+.dx-rows button[aria-current="true"]{border-color:#FF3932}
+.dx-btn:focus-visible,.dx-latest:focus-visible,.dx-rows button:focus-visible{outline:2px solid #FF3932;outline-offset:2px}
+@media (max-width:900px){
+.dx-main{grid-template-columns:minmax(0,1fr)}
+.dx-side{border-left:0;border-top:1px solid rgba(255,255,255,.08)}
+.dx-main{min-height:0}
+.dx-cur{min-height:120px}
+.dx-ph{max-height:none;max-width:380px}
+}
+@media (max-width:640px){.dx-top{padding:10px 14px}.dx-cur{padding:12px 14px}.dx-hist{padding:10px 14px 12px}.dx-t,.dx-lab{font-size:4.6px}}
+@media (prefers-reduced-motion:reduce){.dx-card{transition:none}}
+
+/* no playback buttons */
+.dx [data-a="pp"],.dx [data-a="re"]{display:none!important}
+
+.dx-rows button.sk{cursor:default;border-style:dashed;border-color:rgba(255,255,255,.1);min-height:25px}
+.dx-rows button.sk:hover{border-color:rgba(255,255,255,.1)}

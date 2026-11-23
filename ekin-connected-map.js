@@ -75,7 +75,7 @@ PRODUCTS.forEach(function(p){
   p.pins.forEach(function(pin,i){
     var el=document.createElement('button');
     el.type='button';el.className='cs-pin';el.dataset.id=p.id;
-    el.style.left=pin.x+'%';el.style.top=pin.y+'%';el.style.setProperty('--c',p.color);
+    el.style.left=pin.x+'%';el.style.top=pin.y+'%';el.style.setProperty('--c',p.color);if(pin.x<30)el.classList.add('tip-l');else if(pin.x>70)el.classList.add('tip-r');if(pin.y<26)el.classList.add('tip-b');
     el.style.setProperty('--s',p.scale||1.2);
     el.classList.add('form-'+(p.form||'wide'));
     if(pin.status!=='Connected')el.classList.add('standby');
