@@ -3,6 +3,11 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/manual/patrol-g2/my/en",
+      "destination": "/manuals/patrol-g2/my/en.pdf",
+      "permanent": false
+    },
+    {
       "source": "/us/ekin-home",
       "destination": "/us",
       "permanent": false
@@ -597,6 +602,23 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=3600, s-maxage=31536000, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/manuals/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/pdf"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
         }
       ]
     }
