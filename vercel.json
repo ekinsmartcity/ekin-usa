@@ -3,11 +3,6 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/manual/patrol-g2/my/en",
-      "destination": "/manuals/patrol-g2/my/en.pdf",
-      "permanent": false
-    },
-    {
       "source": "/us/ekin-home",
       "destination": "/us",
       "permanent": false
@@ -617,8 +612,12 @@
           "value": "application/pdf"
         },
         {
+          "key": "Content-Disposition",
+          "value": "inline"
+        },
+        {
           "key": "Cache-Control",
-          "value": "public, max-age=3600"
+          "value": "public, max-age=300"
         }
       ]
     }
@@ -641,12 +640,25 @@
     },
     "api/careers/parse.js": {
       "maxDuration": 30
+    },
+    "api/manual.js": {
+      "maxDuration": 10
     }
   },
   "crons": [
     {
       "path": "/api/forms/retry",
       "schedule": "0 6 * * *"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/manual/:product/:country/:lang",
+      "destination": "/api/manual?product=:product&country=:country&lang=:lang"
+    },
+    {
+      "source": "/manuals/:path*",
+      "destination": "https://auki9wpfhqtb80kn.public.blob.vercel-storage.com/manuals/:path*"
     }
   ]
 }

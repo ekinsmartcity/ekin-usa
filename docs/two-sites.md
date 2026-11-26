@@ -10,3 +10,12 @@
 1. Make the change in the Ekin EU project.
 2. In this project ask: "EU'yu senkronla" — the EU html/js/assets/images are re-copied into /eu.
 3. Push this project.
+
+## Manuals (QR codes) — no deploy needed
+- Blob store: ekin-manuals (public), connected to the project with env prefix MANUALS (MANUALS_READ_WRITE_TOKEN).
+- Upload to: manuals/<product>/<country>/<lang>/<any-name>.pdf  — e.g. manuals/bike-patrol/us/en/v1.0.261126.pdf
+  (English may also sit directly in manuals/<product>/<country>/).
+- QR address: https://ekin.com/manual/<product>/<country>/<lang> → 307 → newest PDF in that folder (versioned name visible).
+- New version: upload the new file into the same folder. The QR opens the newest automatically.
+- Every /manuals/ response gets X-Robots-Tag: noindex. Country routing never touches /manual/ or /manuals/.
+- Fallback when nothing is in Blob: /manuals/<product>/<country>/<lang>.pdf bundled in the site (patrol-g2/my/en.pdf).
